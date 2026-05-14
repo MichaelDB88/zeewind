@@ -21,30 +21,8 @@ var checkIn  = null;
 var checkOut = null;
 var pickIn   = true;
 
-var DEFAULT_MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-var DEFAULT_DAYS   = ["Mo","Tu","We","Th","Fr","Sa","Su"];
-
-function i18n(key, fallback) {
-  if (window.ZeewindI18n) return window.ZeewindI18n.t('bookingDynamic.' + key, fallback);
-  return fallback;
-}
-
-function i18nArray(key, fallback) {
-  var value = i18n(key, fallback);
-  return Array.isArray(value) ? value : fallback;
-}
-
-function i18nTemplate(key, fallback, values) {
-  var text = i18n(key, fallback);
-  for (var name in values) {
-    text = text.replace(new RegExp('\\{' + name + '\\}', 'g'), values[name]);
-  }
-  return text;
-}
-
-function currentLocale() {
-  return window.ZeewindI18n ? window.ZeewindI18n.locale() : 'en-GB';
-}
+var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var DAYS   = ["Mo","Tu","We","Th","Fr","Sa","Su"];
 
 function dateKey(d) {
   var mm = String(d.getMonth()+1).padStart(2,'0');
@@ -57,7 +35,7 @@ function isPast(d)   { return d < today; }
 
 function fmtDate(d) {
   if (!d) return '?';
-  return d.toLocaleDateString(currentLocale(), {day:'numeric', month:'short', year:'numeric'});
+  return d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'});
 }
 
 function rangeHasBooked(a, b) {
@@ -73,15 +51,13 @@ function rangeHasBooked(a, b) {
 function renderCalendar() {
   var grid  = document.getElementById('calGrid');
   var label = document.getElementById('calMonth');
-  var months = i18nArray('months', DEFAULT_MONTHS);
-  var days = i18nArray('days', DEFAULT_DAYS);
   grid.innerHTML = '';
-  label.textContent = months[viewMonth] + ' ' + viewYear;
+  label.textContent = MONTHS[viewMonth] + ' ' + viewYear;
 
-  for (var n = 0; n < days.length; n++) {
+  for (var n = 0; n < DAYS.length; n++) {
     var dn = document.createElement('div');
     dn.className = 'cal-dn';
-    dn.textContent = days[n];
+    dn.textContent = DAYS[n];
     grid.appendChild(dn);
   }
 
@@ -133,7 +109,7 @@ function dayClick(date) {
     pickIn   = false;
   } else {
     if (rangeHasBooked(checkIn, date)) {
-      alert(i18n('bookedRangeAlert', 'Your range includes booked dates. Please choose different dates.'));
+      alert('Your range includes booked dates. Please choose different dates.');
       return;
     }
     checkOut = date;
@@ -147,19 +123,12 @@ function dayClick(date) {
 function updateSummary() {
   var el = document.getElementById('selSummary');
   if (!checkIn) {
-    el.innerHTML = i18n('clickCheckin', 'Click a date to set your check-in.');
+    el.innerHTML = 'Click a date to set your check-in.';
   } else if (!checkOut) {
-    el.innerHTML = i18nTemplate('pickCheckout', 'Check-in: <b>{date}</b> — Now pick your check-out.', {
-      date: fmtDate(checkIn)
-    });
+    el.innerHTML = 'Check-in: <b>' + fmtDate(checkIn) + '</b> &mdash; Now pick your check-out.';
   } else {
     var nights = Math.round((checkOut - checkIn) / 86400000);
-    el.innerHTML = i18nTemplate('rangeSummary', '<b>{checkin}</b> → <b>{checkout}</b> &nbsp; {nights} {nightLabel}', {
-      checkin: fmtDate(checkIn),
-      checkout: fmtDate(checkOut),
-      nights: nights,
-      nightLabel: i18n(nights === 1 ? 'night' : 'nights', nights === 1 ? 'night' : 'nights')
-    });
+    el.innerHTML = '<b>' + fmtDate(checkIn) + '</b> &rarr; <b>' + fmtDate(checkOut) + '</b> &nbsp; ' + nights + ' night' + (nights > 1 ? 's' : '');
   }
 }
 
@@ -187,7 +156,7 @@ function updateGuests() {
   document.getElementById('hBabies').value  = g.b;
   document.getElementById('hTotal').value   = total;
   var tEl = document.getElementById('gTotal');
-  tEl.textContent = i18nTemplate('guestTotal', 'Total: {total} / 6 guests', { total: total });
+  tEl.textContent = 'Total: ' + total + ' / 6 guests';
   tEl.className = 'guest-total' + (total > 6 ? ' over' : '');
   document.getElementById('aMin').disabled  = (g.a <= 1);
   document.getElementById('kMin').disabled  = (g.k <= 0);
@@ -223,18 +192,13 @@ document.getElementById('bookingForm').onsubmit = function(e) {
       document.getElementById('formArea').style.display = 'none';
       document.getElementById('successMsg').style.display = 'block';
     } else {
-      alert(i18n('formError', 'Something went wrong. Please try again or contact us directly.'));
+      alert('Something went wrong. Please try again or contact us directly.');
     }
   }).catch(function() {
-    alert(i18n('networkError', 'Could not send. Please contact us directly by email.'));
+    alert('Could not send. Please contact us directly by email.');
   });
 };
 
 // ── Init ─────────────────────────────────────────────────────
 renderCalendar();
 updateGuests();
-
-window.addEventListener('zeewind:languagechange', function() {
-  renderCalendar();
-  updateGuests();
-});
