@@ -349,6 +349,7 @@
       .btn-outline { margin-left: 0; margin-top: 0.75rem; }
     }
   </style>
+  <link rel="stylesheet" href="language.css" />
 </head>
 <body>
 
@@ -363,6 +364,18 @@
       <a href="things-to-do.html">Things to Do</a>
       <a href="booking.html">Book</a>
       <a href="#contact">Contact</a>
+    </div>
+    <div class="language-switcher">
+      <button type="button" class="language-toggle" aria-haspopup="true" aria-expanded="false">
+        <span class="fi fi-gb language-flag language-current-flag" aria-hidden="true"></span>
+        <span class="language-current-label">English</span>
+      </button>
+      <div class="language-menu" role="listbox" aria-label="Language">
+        <button type="button" class="language-option" data-lang="nl" role="option"><span class="fi fi-nl language-flag" aria-hidden="true"></span><span>Nederlands</span></button>
+        <button type="button" class="language-option" data-lang="fr" role="option"><span class="fi fi-fr language-flag" aria-hidden="true"></span><span>Français</span></button>
+        <button type="button" class="language-option" data-lang="de" role="option"><span class="fi fi-de language-flag" aria-hidden="true"></span><span>Deutsch</span></button>
+        <button type="button" class="language-option" data-lang="en" role="option"><span class="fi fi-gb language-flag" aria-hidden="true"></span><span>English</span></button>
+      </div>
     </div>
   </nav>
 
@@ -506,32 +519,4 @@
           </ul>
         </div>
         <div class="location-map">
-          <span>🗺️ Map will go here<br><br>We'll embed a Google Map in the next step</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Contact ───────────────────────────────────────────────── -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <p class="section-label">Get in Touch</p>
-      <h2 class="section-title">Ready to book your stay?</h2>
-      <p class="section-sub">Reach out and we'll check availability for your dates and answer any questions.</p>
-      <div class="contact-options">
-        <div class="contact-card">
-          <div class="icon">✉️</div>
-          <h3>Email us</h3>
-          <p><a href="mailto:your@email.com">your@email.com</a></p>
-          <!-- Replace with your actual email address -->
-        </div>
-        <div class="contact-card">
-          <div class="icon">💬</div>
-          <h3>WhatsApp / Phone</h3>
-          <p>We'll add your number here in the next step</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Footer ─────────────────────────�
+          <span>🗺️ Map will go here<br><br>We'll embed a Goo
