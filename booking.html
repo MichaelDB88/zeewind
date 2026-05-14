@@ -355,13 +355,79 @@
       color: var(--dark);
       background: #fafcfe;
       user-select: none;
+      position: relative;
     }
     .extra-item:hover { border-color: var(--sea); background: var(--sky); }
     .extra-item input[type="checkbox"] { display: none; }
     .extra-item.checked { border-color: var(--avail); background: #e6f5f3; }
+    .extra-item.checked::after {
+      content: '✓';
+      position: absolute;
+      top: 5px; right: 8px;
+      font-size: 0.75rem;
+      color: var(--avail);
+      font-weight: bold;
+    }
     .extra-icon { font-size: 1.2rem; flex-shrink: 0; }
-    .extra-label { line-height: 1.2; }
+    .extra-label { line-height: 1.3; flex: 1; }
     .extra-label small { display: block; font-size: 0.72rem; color: #99a; }
+    .extra-price {
+      font-size: 0.75rem;
+      color: var(--sea);
+      font-weight: bold;
+      white-space: nowrap;
+      margin-left: auto;
+      padding-left: 0.3rem;
+    }
+
+    /* ── Info tooltip ── */
+    .info-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--sea);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: bold;
+      cursor: pointer;
+      flex-shrink: 0;
+      border: none;
+      font-family: 'Arial', sans-serif;
+      position: relative;
+      z-index: 10;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+    .tooltip-wrap { position: relative; display: inline-block; }
+    .tooltip-box {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--dark);
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      width: 200px;
+      z-index: 200;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      pointer-events: none;
+    }
+    .tooltip-box::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: var(--dark);
+    }
+    .tooltip-wrap.open .tooltip-box { display: block; }
 
     /* ── Success message ── */
     .success-msg {
@@ -568,79 +634,49 @@
           <div class="form-group">
             <label>Extras (optional)</label>
             <div class="extras-grid" id="extrasGrid">
-              <label class="extra-item" onclick="toggleExtra(this)">
+
+              <div class="extra-item" data-name="extra_babycot">
                 <input type="checkbox" name="extra_babycot" value="Yes" />
                 <span class="extra-icon">🛏️</span>
                 <span class="extra-label">Baby cot<small>For babies 0–2</small></span>
-              </label>
-              <label class="extra-item" onclick="toggleExtra(this)">
+                <span class="extra-price">on request</span>
+              </div>
+
+              <div class="extra-item" data-name="extra_highchair">
                 <input type="checkbox" name="extra_highchair" value="Yes" />
                 <span class="extra-icon">🪑</span>
                 <span class="extra-label">High chair<small>For toddlers</small></span>
-              </label>
-              <label class="extra-item" onclick="toggleExtra(this)">
+                <span class="extra-price">on request</span>
+              </div>
+
+              <div class="extra-item" data-name="extra_linen">
                 <input type="checkbox" name="extra_linen" value="Yes" />
                 <span class="extra-icon">🛌</span>
                 <span class="extra-label">Bed linen<small>Sheets &amp; pillowcases</small></span>
-              </label>
-              <label class="extra-item" onclick="toggleExtra(this)">
+                <span class="extra-price">on request</span>
+              </div>
+
+              <div class="extra-item" data-name="extra_towels">
                 <input type="checkbox" name="extra_towels" value="Yes" />
                 <span class="extra-icon">🏖️</span>
                 <span class="extra-label">Towels<small>Bath &amp; beach towels</small></span>
-              </label>
-              <label class="extra-item" onclick="toggleExtra(this)">
+                <span class="extra-price">on request</span>
+              </div>
+
+              <div class="extra-item" data-name="extra_babybath">
                 <input type="checkbox" name="extra_babybath" value="Yes" />
                 <span class="extra-icon">🛁</span>
                 <span class="extra-label">Baby bath<small>Portable tub</small></span>
-              </label>
-              <label class="extra-item" onclick="toggleExtra(this)">
-                <input type="checkbox" name="extra_babymonitor" value="Yes" />
-                <span class="extra-icon">📡</span>
-                <span class="extra-label">Baby monitor<small>Audio monitor</small></span>
-              </label>
-            </div>
-          </div>
+                <span class="extra-price">on request</span>
+              </div>
 
-          <!-- ── Message ── -->
-          <div class="form-group">
-            <label>Any questions or special requests?</label>
-            <textarea name="message" placeholder="e.g. early check-in, arrival time, questions about the property..."></textarea>
-          </div>
-
-          <!-- Hidden field to pass selected dates -->
-          <input type="hidden" name="_subject" value="New Booking Request – Zeewind" />
-          <input type="hidden" name="_replyto" value="" />
-
-          <button type="submit" class="submit-btn">Send Booking Request →</button>
-          <p class="form-note">No payment is taken now. We'll confirm your dates and arrange payment separately.</p>
-        </form>
-      </div>
-
-      <!-- Success message shown after submit -->
-      <div class="success-msg" id="successMsg">
-        <div class="check">✅</div>
-        <h3>Request sent!</h3>
-        <p>Thank you! We'll review your dates and get back to you within 24 hours to confirm your booking.</p>
-      </div>
-    </div>
-
-  </div><!-- /.booking-wrapper -->
-
-  <footer>
-    <p>© 2025 Zeewind &nbsp;<span>·</span>&nbsp; Holiday Home at the Belgian Coast &nbsp;<span>·</span>&nbsp; All rights reserved</p>
-  </footer>
-
-  <script>
-    // ═══════════════════════════════════════════════════════════════
-    //  BOOKED DATES — edit this list to mark dates as unavailable
-    //  Format: "YYYY-MM-DD"
-    //  Everything NOT in this list is shown as available.
-    // ═══════════════════════════════════════════════════════════════
-    const BOOKED_DATES = [
-      // Example booked periods — replace with your real bookings:
-      "2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05",
-      "2026-06-06", "2026-06-07",
-      "2026-07-12", "2026-07-13", "2026-07-14", "2026-07-15", "2026-07-16",
-      "2026-07-17", "2026-07-18", "2026-07-19",
-      "2026-08-02", "2026-08-03", "2026-08-04", "2026-08-05", "2026-08-06",
-      "2026-08-07", "2026-08-08", "2026-08-09", "2026-08-10"
+              <div class="extra-item" data-name="extra_welcomepack">
+                <input type="checkbox" name="extra_welcomepack" value="Yes" />
+                <span class="extra-icon">🎁</span>
+                <span class="extra-label">
+                  Welcome pack
+                  <small>Arrival essentials included</small>
+                </span>
+                <span class="tooltip-wrap" id="wpTooltip">
+                  <button type="button" class="info-btn" onclick="toggleTooltip(event,'wpTooltip')">i</button>
+                  <span class="tooltip-box">A warm welcome basket with esse
