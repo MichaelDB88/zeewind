@@ -8,313 +8,148 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: Georgia, serif;
-      color: #2c3e50;
-      background: #fff;
-      line-height: 1.7;
-    }
+    body { font-family: Georgia, serif; color: #2c3e50; background: #fff; line-height: 1.7; }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
     :root {
-      --sea: #1a6b8a;
-      --sky: #e8f4f8;
-      --sand: #f5efe6;
-      --accent: #e07b39;
-      --dark: #1c2b36;
+      --sea:   #1a6b8a;
+      --sky:   #e8f4f8;
+      --sand:  #f5efe6;
+      --accent:#e07b39;
+      --dark:  #1c2b36;
       --green: #2a9d8f;
-      --light: #ffffff;
     }
+
+    /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 2rem;
-      background: rgba(26, 107, 138, 0.95);
-      backdrop-filter: blur(6px);
+      background: rgba(26,107,138,0.95); backdrop-filter: blur(6px);
     }
-    .nav-logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.85);
-      margin-left: 1.5rem;
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.4px;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover,
-    .nav-links a.active { color: #fff; }
+    .nav-logo { font-size: 1.5rem; font-weight: bold; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links a { color: rgba(255,255,255,0.85); margin-left: 1.5rem; font-family: Arial, sans-serif; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+    /* HERO */
     .page-hero {
       min-height: 62vh;
       background: linear-gradient(160deg, rgba(26,107,138,0.78) 0%, rgba(28,43,54,0.76) 100%),
                   url('beach1.png') center center / cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 7rem 1.5rem 4rem;
-      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 7rem 1.5rem 4rem; color: #fff;
     }
     .hero-inner { max-width: 780px; }
-    .eyebrow {
-      font-family: Arial, sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.72);
-      margin-bottom: 1rem;
-    }
-    h1 {
-      font-size: clamp(2.4rem, 7vw, 4.6rem);
-      line-height: 1.05;
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-    }
-    .hero-copy {
-      max-width: 650px;
-      margin: 0 auto 2rem;
-      font-family: Arial, sans-serif;
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.86);
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.9rem 2.1rem;
-      border-radius: 50px;
-      font-family: Arial, sans-serif;
-      font-size: 0.95rem;
-      font-weight: bold;
-      letter-spacing: 0.6px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    }
+    .eyebrow { font-family: Arial, sans-serif; font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.72); margin-bottom: 1rem; }
+    h1 { font-size: clamp(2.4rem, 7vw, 4.6rem); line-height: 1.05; letter-spacing: 2px; margin-bottom: 1rem; }
+    .hero-sub { max-width: 620px; margin: 0 auto 2rem; font-family: Arial, sans-serif; font-size: 1.05rem; color: rgba(255,255,255,0.86); }
+    .btn { display: inline-block; padding: 0.9rem 2.1rem; border-radius: 50px; font-family: Arial, sans-serif; font-size: 0.95rem; font-weight: bold; letter-spacing: 0.5px; transition: transform 0.2s, box-shadow 0.2s; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
     .btn-primary { background: var(--accent); color: #fff; }
     .btn-secondary { background: var(--sea); color: #fff; }
-    section { padding: 5rem 1.5rem; }
+    .btn-outline { background: transparent; color: var(--sea); border: 2px solid var(--sea); font-size: 0.88rem; padding: 0.6rem 1.4rem; }
+    .btn-outline:hover { background: var(--sea); color: #fff; }
+
+    /* INTRO */
+    .intro { padding: 4rem 1.5rem 3rem; }
     .container { max-width: 1060px; margin: 0 auto; }
-    .section-label {
-      font-family: Arial, sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--sea);
-      margin-bottom: 0.6rem;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-    .section-sub {
-      font-family: Arial, sans-serif;
-      font-size: 1.02rem;
-      color: #556;
-      max-width: 690px;
-      margin-bottom: 2.5rem;
-    }
-    .intro { background: #fff; }
-    .intro-grid {
+    .intro-text { max-width: 760px; }
+    .section-label { font-family: Arial, sans-serif; font-size: 0.78rem; letter-spacing: 4px; text-transform: uppercase; color: var(--sea); margin-bottom: 0.6rem; }
+    .intro-text h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); line-height: 1.2; margin-bottom: 1rem; }
+    .intro-text p { font-family: Arial, sans-serif; font-size: 1rem; color: #556; margin-bottom: 0.9rem; }
+
+    /* ACTIVITY GRID */
+    .activities { padding: 2rem 1.5rem 5rem; background: var(--sky); }
+    .activities h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 0.5rem; }
+    .activities .grid-sub { font-family: Arial, sans-serif; font-size: 1rem; color: #556; margin-bottom: 2.5rem; max-width: 680px; }
+    .place-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2.5rem;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
     }
-    .intro-card {
-      background: var(--sky);
-      border-radius: 14px;
-      padding: 1.6rem;
-      font-family: Arial, sans-serif;
-      color: #425563;
-    }
-    .intro-card strong { color: var(--dark); }
-    .activity { background: var(--sand); }
-    .activity-cards { display: flex; flex-direction: column; gap: 2rem; }
-    .activity-card {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 320px;
-      gap: 2rem;
-      align-items: stretch;
+    .place-card {
       background: #fff;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 6px 28px rgba(26,107,138,0.09);
-    }
-    .activity-body { padding: 2rem; }
-    .activity-kicker {
-      display: inline-block;
-      background: #e6f5f3;
-      color: #1e7a6e;
-      border-radius: 999px;
-      padding: 0.35rem 0.8rem;
-      margin-bottom: 1rem;
-      font-family: Arial, sans-serif;
-      font-size: 0.78rem;
-      font-weight: bold;
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
-    }
-    .activity-body h2 {
-      font-size: clamp(1.6rem, 3vw, 2.3rem);
-      line-height: 1.15;
-      margin-bottom: 0.9rem;
-      color: var(--dark);
-    }
-    .activity-body p {
-      font-family: Arial, sans-serif;
-      color: #566;
-      margin-bottom: 1rem;
-    }
-    .details-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem 1rem;
-      margin: 1.4rem 0 1.8rem;
-      font-family: Arial, sans-serif;
-      color: #425563;
-    }
-    .details-list li {
-      border-top: 1px solid #e8eef2;
-      padding-top: 0.75rem;
-    }
-    .details-list strong {
-      display: block;
-      color: var(--dark);
-      margin-bottom: 0.1rem;
-    }
-    .activity-aside {
-      background: linear-gradient(135deg, var(--sea) 0%, var(--green) 100%);
-      color: #fff;
-      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(26,107,138,0.08);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      min-height: 100%;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .activity-aside h3 {
-      font-size: 1.3rem;
-      line-height: 1.25;
-      margin-bottom: 1rem;
+    .place-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(26,107,138,0.14); }
+
+    /* Card image / colour header */
+    .card-img {
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
     }
-    .activity-aside p {
-      font-family: Arial, sans-serif;
-      color: rgba(255,255,255,0.82);
-      margin-bottom: 1.2rem;
+    .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
     }
-    .official-link {
-      color: #fff;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      text-decoration: underline;
-      text-underline-offset: 4px;
+    .ci-lago      { background: linear-gradient(135deg, #1a6b8a 0%, #2a9d8f 100%); }
+    .ci-fort      { background: linear-gradient(135deg, #2c3e50 0%, #4a6472 100%); }
+    .ci-beach     { background: linear-gradient(135deg, #e07b39 0%, #f4a261 100%); }
+    .ci-cycling   { background: linear-gradient(135deg, #2a9d8f 0%, #52b788 100%); }
+    .ci-ostend    { background: linear-gradient(135deg, #1a6b8a 0%, #264653 100%); }
+    .ci-dehaan    { background: linear-gradient(135deg, #c9a96e 0%, #e9c77a 100%); }
+    .ci-brasserie { background: linear-gradient(135deg, #c77b44 0%, #e07b39 100%); }
+
+    .card-tag {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(255,255,255,0.18); backdrop-filter: blur(6px);
+      color: #fff; border: 1px solid rgba(255,255,255,0.35);
+      font-family: Arial, sans-serif; font-size: 0.72rem; font-weight: bold;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; border-radius: 999px;
     }
-    .ideas { background: #fff; }
-    .ideas-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-    .idea {
-      background: var(--sky);
-      border-radius: 14px;
-      padding: 1.4rem;
-    }
-    .idea h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.6rem;
-      color: var(--dark);
-    }
-    .idea p {
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-      color: #667;
-      margin-bottom: 0.8rem;
-    }
-    .idea-details {
+
+    /* Card body */
+    .card-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+    .card-body h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--dark); line-height: 1.25; }
+    .card-body p { font-family: Arial, sans-serif; font-size: 0.88rem; color: #667; line-height: 1.55; flex: 1; }
+    .card-facts {
+      margin: 1rem 0 0;
       list-style: none;
-      margin: 0.8rem 0 1rem;
-      font-family: Arial, sans-serif;
-      font-size: 0.85rem;
-      color: #556;
+      border-top: 1px solid #e8eef2;
+      padding-top: 0.9rem;
+      display: flex; flex-direction: column; gap: 0.35rem;
     }
-    .idea-details li {
-      border-top: 1px solid #d6e8f0;
-      padding: 0.45rem 0;
+    .card-facts li { font-family: Arial, sans-serif; font-size: 0.8rem; color: #556; }
+    .card-facts li strong { color: var(--dark); }
+    .card-link { display: inline-block; margin-top: 1rem; font-family: Arial, sans-serif; font-size: 0.83rem; font-weight: bold; color: var(--sea); text-decoration: underline; text-underline-offset: 3px; }
+    .card-link:hover { color: var(--accent); }
+
+    /* TOURISM */
+    .tourism { padding: 4rem 1.5rem; background: #fff; }
+    .tourism-box {
+      max-width: 740px; background: var(--sky);
+      border-radius: 16px; padding: 2rem 2.4rem;
     }
-    .idea-details li:last-child { border-bottom: 1px solid #d6e8f0; }
-    .idea-details strong { color: var(--dark); }
-    .idea-link {
-      display: inline-block;
-      margin-top: 0.8rem;
-      font-family: Arial, sans-serif;
-      font-size: 0.85rem;
-      font-weight: bold;
-      color: var(--sea);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .idea-link:hover { color: var(--accent); }
-    .idea.featured { background: var(--sand); border: 1.5px solid #e0d0bc; }
-    .tourism { background: var(--sky); }
-    .tourism-inner {
-      max-width: 760px;
-      background: #fff;
-      border-radius: 16px;
-      padding: 2.2rem 2.5rem;
-      box-shadow: 0 4px 20px rgba(26,107,138,0.07);
-    }
-    .tourism-inner h2 {
-      font-size: clamp(1.4rem, 3vw, 1.9rem);
-      margin-bottom: 0.8rem;
-      color: var(--dark);
-    }
-    .tourism-inner p {
-      font-family: Arial, sans-serif;
-      font-size: 0.97rem;
-      color: #556;
-      margin-bottom: 1.2rem;
-    }
-    .cta {
-      background: linear-gradient(135deg, var(--dark) 0%, var(--sea) 100%);
-      color: #fff;
-      text-align: center;
-    }
-    .cta .section-label { color: rgba(255,255,255,0.58); }
-    .cta .section-title { color: #fff; }
-    .cta .section-sub {
-      color: rgba(255,255,255,0.78);
-      margin-left: auto;
-      margin-right: auto;
-    }
-    footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 1.5rem;
-      font-family: Arial, sans-serif;
-      font-size: 0.82rem;
-    }
+    .tourism-box h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); margin-bottom: 0.8rem; color: var(--dark); }
+    .tourism-box p { font-family: Arial, sans-serif; font-size: 0.95rem; color: #556; margin-bottom: 1.1rem; }
+
+    /* CTA */
+    .cta { background: linear-gradient(135deg, var(--dark) 0%, var(--sea) 100%); color: #fff; text-align: center; padding: 5rem 1.5rem; }
+    .cta .section-label { font-family: Arial, sans-serif; font-size: 0.78rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.58); margin-bottom: 0.6rem; }
+    .cta h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 0.8rem; }
+    .cta p { font-family: Arial, sans-serif; font-size: 1rem; color: rgba(255,255,255,0.78); max-width: 600px; margin: 0 auto 2rem; }
+
+    /* FOOTER */
+    footer { background: var(--dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem; font-family: Arial, sans-serif; font-size: 0.82rem; }
     footer span { color: rgba(255,255,255,0.25); }
+
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      .activity-card { grid-template-columns: 1fr; }
-      .ideas-grid { grid-template-columns: 1fr 1fr; }
+      .place-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .intro-grid { grid-template-columns: 1fr; }
-      .details-list { grid-template-columns: 1fr; }
-      .ideas-grid { grid-template-columns: 1fr; }
-      .tourism-inner { padding: 1.5rem; }
+      .place-grid { grid-template-columns: 1fr; }
     }
   </style>
   <link rel="stylesheet" href="language.css" />
@@ -351,7 +186,7 @@
     <div class="hero-inner">
       <p class="eyebrow">Bredene &amp; Belgian Coast</p>
       <h1>Things to Do Near Zeewind</h1>
-      <p class="hero-copy">Our holiday home at Zeewind II Holiday Park sits in the heart of Bredene — a relaxed base for beach days, family activities, food and drinks, and easy day trips along the Belgian coast.</p>
+      <p class="hero-sub">Our holiday home at Zeewind II Holiday Park is in the heart of Bredene — a relaxed base for beach days, family activities, food and drinks, and easy day trips along the Belgian coast.</p>
       <a href="booking.html" class="btn btn-primary">Check Availability</a>
     </div>
   </section>
@@ -359,127 +194,140 @@
   <!-- INTRO -->
   <section class="intro">
     <div class="container">
-      <div class="intro-grid">
-        <div>
-          <p class="section-label">Local Guide</p>
-          <h2 class="section-title">A holiday home in the heart of Bredene</h2>
-          <p class="section-sub">Our holiday home at Zeewind II Holiday Park is located in the heart of Bredene, making it an ideal base for discovering the Belgian coast. From beach days and dune walks to family swimming, rainy-day activities, food and drinks, local events and short day trips, there is plenty to do nearby without needing to plan a complicated itinerary.</p>
-          <p style="font-family:Arial,sans-serif;font-size:1rem;color:#556;">Whether you are travelling with children, planning a relaxed coastal break, or looking for easy activities close to your holiday home in Bredene, Zeewind II puts you close to many of the area's most practical and enjoyable options. This guide starts with two easy ideas close to the holiday home: LAGO Bredene Grasduinen in Bredene and Fort Napoleon in nearby Ostend.</p>
-        </div>
-        <div class="intro-card">
-          <p><strong>Staying at Zeewind II Holiday Park:</strong> you are in Bredene, close to the coast and within easy reach of swimming, beaches, dunes, restaurants, family activities and day trips along the Belgian seaside.</p>
-        </div>
+      <div class="intro-text">
+        <p class="section-label">Local Guide</p>
+        <h2>A holiday home in the heart of Bredene</h2>
+        <p>Whether you are travelling with children, planning a relaxed coastal break, or looking for easy activities close to your holiday home in Bredene, Zeewind II puts you close to many of the area's most practical and enjoyable options.</p>
+        <p>From swimming and family fun to a cultural day trip in Ostend, a meal inside the holiday park or a slow morning on the dunes — this guide covers the easiest things to do near Zeewind II without needing to plan a complicated itinerary.</p>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED ACTIVITIES -->
-  <section class="activity">
+  <!-- ACTIVITY GRID -->
+  <section class="activities">
     <div class="container">
-      <p class="section-label">Easy Activities Close to Zeewind II</p>
-      <h2 class="section-title">Featured nearby</h2>
-      <p class="section-sub">From swimming and family fun in Bredene to a historic day trip in Ostend, these nearby activities are easy to combine with a stay at Zeewind II Holiday Park. They are close enough to keep your holiday relaxed, but varied enough to add something memorable to your stay.</p>
+      <p class="section-label">Activities &amp; Ideas</p>
+      <h2>What to do near Zeewind II</h2>
+      <p class="grid-sub">All recommendations are easy to combine with a stay at Zeewind II Holiday Park in Bredene. Add your own photos to each card whenever you have them.</p>
 
-      <div class="activity-cards">
+      <div class="place-grid">
 
         <!-- LAGO -->
-        <div class="activity-card">
-          <div class="activity-body">
-            <span class="activity-kicker">Swimming &amp; Family Fun</span>
-            <h2>LAGO Bredene Grasduinen</h2>
-            <p>LAGO Bredene Grasduinen is one of the easiest family activities near Zeewind II. Located in Bredene, it is a practical choice when you want an active day close to the holiday home, especially with children or when the weather is less suitable for the beach.</p>
-            <p>The centre offers a modern swimming and recreation experience with facilities for different ages. Families can enjoy swimming, children's water play, relaxing areas and food or drinks nearby, making it a useful option for both a planned activity and a flexible rainy-day idea near Bredene.</p>
-            <p>For guests staying at Zeewind II Holiday Park, LAGO is especially convenient because it adds variety to a coastal stay without requiring a long day trip. You can spend the morning at the beach, go swimming in the afternoon, or keep it as a backup plan when the weather changes. It is the kind of nearby activity that makes a family holiday in Bredene easier to plan, especially if you want options beyond the beach.</p>
-            <ul class="details-list">
-              <li><strong>Best for</strong>Families, swimming, children, rainy days, active afternoons</li>
-              <li><strong>Location</strong>Oscar Goethalsstraat 4, 8450 Bredene</li>
-              <li><strong>Good to combine with</strong>Beach time, a relaxed evening at Zeewind II, local food and drinks</li>
-              <li><strong>Useful to know</strong>Check opening hours and ticket information before visiting</li>
-            </ul>
-            <a href="https://www.lago.be/nl/bredene" class="btn btn-secondary" target="_blank" rel="noopener">Visit LAGO Bredene Grasduinen</a>
+        <div class="place-card">
+          <div class="card-img">
+            <div class="card-img-placeholder ci-lago">🏊</div>
+            <span class="card-tag">Swimming &amp; Family Fun</span>
           </div>
-          <aside class="activity-aside">
-            <div>
-              <h3>A practical extra for your beach holiday</h3>
-              <p>A coastal stay is easier when there is also a nearby pool, play area, and bistro close to the holiday home. LAGO gives families an extra plan without needing a long day trip from Bredene.</p>
-            </div>
-            <a href="https://www.lago.be/nl/bredene" class="official-link" target="_blank" rel="noopener">Official LAGO Bredene website</a>
-          </aside>
+          <div class="card-body">
+            <h3>LAGO Bredene Grasduinen</h3>
+            <p>One of the easiest family activities near Zeewind II. A modern swimming and recreation centre with children's water play, indoor play area, outdoor pools, sauna and bistro. A practical choice on a rainy day or when children want a change from the beach.</p>
+            <ul class="card-facts">
+              <li><strong>Best for:</strong> Families, children, rainy days, active afternoons</li>
+              <li><strong>Location:</strong> Oscar Goethalsstraat 4, 8450 Bredene</li>
+              <li><strong>Tip:</strong> Check opening hours before visiting</li>
+            </ul>
+            <a href="https://www.lago.be/nl/bredene" class="card-link" target="_blank" rel="noopener">Visit LAGO Bredene Grasduinen →</a>
+          </div>
         </div>
 
         <!-- FORT NAPOLEON -->
-        <div class="activity-card">
-          <div class="activity-body">
-            <span class="activity-kicker">Historic Day Trip</span>
-            <h2>Fort Napoleon in Ostend</h2>
-            <p>Fort Napoleon is a historic coastal landmark on the Oosteroever in Ostend, within easy reach of Zeewind II Holiday Park in Bredene. It is a good choice when you want to add a cultural outing to your beach holiday, or when the weather is less suited to a full day by the sea.</p>
-            <p>Visitors can follow the story trail through the fort, explore its thick walls and atmospheric rooms, and discover changing exhibitions throughout the year. The visit is compact enough for a half-day trip, but different enough to feel like a real excursion from Bredene.</p>
-            <p>For families, Fort Napoleon offers a nice change of pace from the beach. Children can explore a real historic building, while adults get an easy cultural stop that can be combined with a walk, lunch, or more time in Ostend. It is also a useful option for guests who want to discover more of the Belgian coast without travelling far from their holiday home.</p>
-            <ul class="details-list">
-              <li><strong>Best for</strong>History, culture, families, rainy days, Ostend day trips</li>
-              <li><strong>Address</strong>Vuurtorenweg 13, 8400 Oostende</li>
-              <li><strong>Visit duration</strong>Around 1 hour</li>
-              <li><strong>Useful to know</strong>Booking tickets in advance is recommended</li>
-            </ul>
-            <a href="https://www.fort-napoleon.be/nl" class="btn btn-secondary" target="_blank" rel="noopener">Visit Fort Napoleon</a>
+        <div class="place-card">
+          <div class="card-img">
+            <div class="card-img-placeholder ci-fort">🏰</div>
+            <span class="card-tag">Historic Day Trip</span>
           </div>
-          <aside class="activity-aside">
-            <div>
-              <h3>A cultural outing close to Bredene</h3>
-              <p>Ostend is close enough for a half-day trip from Zeewind II. Fort Napoleon works well on its own or combined with a walk along the Oosteroever, lunch in Ostend, or more time exploring the city.</p>
-            </div>
-            <a href="https://www.fort-napoleon.be/nl" class="official-link" target="_blank" rel="noopener">Official Fort Napoleon website</a>
-          </aside>
+          <div class="card-body">
+            <h3>Fort Napoleon in Ostend</h3>
+            <p>A historic coastal landmark on the Oosteroever in Ostend, within easy reach of Bredene. Follow the story trail through the fort, explore its atmospheric rooms and discover changing exhibitions. A good half-day excursion for both adults and children.</p>
+            <ul class="card-facts">
+              <li><strong>Best for:</strong> History, culture, families, rainy days</li>
+              <li><strong>Address:</strong> Vuurtorenweg 13, 8400 Oostende</li>
+              <li><strong>Tip:</strong> Booking tickets in advance is recommended</li>
+            </ul>
+            <a href="https://www.fort-napoleon.be/nl" class="card-link" target="_blank" rel="noopener">Visit Fort Napoleon →</a>
+          </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- MORE LOCAL IDEAS -->
-  <section class="ideas">
-    <div class="container">
-      <p class="section-label">More Local Ideas</p>
-      <h2 class="section-title">More ways to enjoy your stay</h2>
-      <p class="section-sub">Beyond the main featured activities, Bredene and the surrounding coast offer plenty of simple ways to enjoy your stay. From slow beach mornings to short trips along the coast, these ideas are easy to combine with a holiday at Zeewind II.</p>
-
-      <div class="ideas-grid">
-
-        <div class="idea">
-          <h3>🏖️ Beach and dunes</h3>
-          <p>Bredene is known for its natural beach and dunes, making it a lovely place for slow mornings, long walks, sandcastles, fresh air and relaxed days by the sea. From Zeewind II, beach time can easily become part of your daily rhythm: a walk before breakfast, an afternoon in the sand, or an evening stroll when the coast becomes quieter.</p>
-          <p>The beach and dunes are one of the main reasons guests choose a holiday home in Bredene. They offer space, simplicity and the classic Belgian coast feeling without needing a complicated plan.</p>
+        <!-- BEACH -->
+        <div class="place-card">
+          <div class="card-img">
+            <img src="beach1.png" alt="The beach and dunes near Zeewind II in Bredene" />
+            <span class="card-tag">Beach &amp; Nature</span>
+          </div>
+          <div class="card-body">
+            <h3>Beach and dunes</h3>
+            <p>Bredene is known for its natural beach and dunes — perfect for slow mornings, long walks, sandcastles and fresh sea air. From Zeewind II, beach time can easily become part of your daily rhythm without needing a car or a plan.</p>
+            <ul class="card-facts">
+              <li><strong>Best for:</strong> All ages, walks, relaxing, families</li>
+              <li><strong>Distance:</strong> Short walk from Zeewind II</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="idea">
-          <h3>🚲 Cycling and walking</h3>
-          <p>The Belgian coast is easy to explore by bike or on foot. From Zeewind II, guests can enjoy local routes through Bredene, the dunes and nearby coastal towns. It is a simple way to discover the area at your own pace, whether you want a short family walk, a longer bike ride or a scenic route towards another seaside town.</p>
-          <p>Cycling and walking are especially useful for guests who want to enjoy the coast without using the car every day.</p>
+        <!-- CYCLING -->
+        <div class="place-card">
+          <div class="card-img">
+            <img src="beach2.png" alt="Cycling and walking routes near Bredene" />
+            <span class="card-tag">Cycling &amp; Walking</span>
+          </div>
+          <div class="card-body">
+            <h3>Cycling and walking</h3>
+            <p>The Belgian coast is easy to explore by bike or on foot. From Zeewind II, guests can enjoy routes through Bredene, the dunes and nearby coastal towns at their own pace — a short family walk, a longer bike ride, or a scenic route towards the sea.</p>
+            <ul class="card-facts">
+              <li><strong>Best for:</strong> Families, active guests, all ages</li>
+              <li><strong>Tip:</strong> Bike rental available in Bredene and Ostend</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="idea">
-          <h3>⚓ Ostend day trip</h3>
-          <p>Ostend is close enough for a relaxed day trip from Bredene and adds city energy to a coastal holiday. Guests can combine Fort Napoleon with the Oosteroever, the seafront, shops, restaurants, museums or a coastal walk.</p>
-          <p>Because Ostend is nearby, it works well as a flexible outing: you can go for a few hours, plan lunch or dinner there, or keep it as an option for a less sunny day. It is one of the easiest day trips from Bredene.</p>
+        <!-- OSTEND -->
+        <div class="place-card">
+          <div class="card-img">
+            <div class="card-img-placeholder ci-ostend">⚓</div>
+            <span class="card-tag">Day Trip</span>
+          </div>
+          <div class="card-body">
+            <h3>Ostend day trip</h3>
+            <p>Ostend is close enough for a relaxed day trip from Bredene. Combine Fort Napoleon with the Oosteroever seafront, shops, restaurants, museums, or a coastal walk. Works well for a few hours or a full day — with or without sunshine.</p>
+            <ul class="card-facts">
+              <li><strong>Best for:</strong> All ages, culture, food, rainy days</li>
+              <li><strong>Distance:</strong> A short drive or bike ride from Zeewind II</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="idea">
-          <h3>🏘️ De Haan and nearby seaside towns</h3>
-          <p>De Haan and other nearby coastal towns are easy to visit from Bredene, making Zeewind II a practical base for exploring more of the Belgian coast. De Haan is known for its charming coastal atmosphere, Belle Époque-style villas and relaxed seaside feeling.</p>
-          <p>This is a good option when you want a change of scenery while keeping the day simple. Guests can enjoy a walk, a drink, a meal or a short visit before returning to the calm of Zeewind II.</p>
+        <!-- DE HAAN -->
+        <div class="place-card">
+          <div class="card-img">
+            <div class="card-img-placeholder ci-dehaan">🏘️</div>
+            <span class="card-tag">Nearby Seaside Town</span>
+          </div>
+          <div class="card-body">
+            <h3>De Haan and nearby towns</h3>
+            <p>De Haan is known for its charming coastal atmosphere and Belle Époque villas. A good option when you want a change of scenery while keeping the day simple. Enjoy a walk, a drink, a meal, or just the different coastal feeling before returning to Zeewind II.</p>
+            <ul class="card-facts">
+              <li><strong>Best for:</strong> Leisurely outings, couples, families</li>
+              <li><strong>Distance:</strong> Easy drive along the coast</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="idea featured">
-          <h3>🍽️ Brasserie Duinenhoeve</h3>
-          <p>Brasserie Duinenhoeve is located in the centre of Holiday Park Zeewind II, right next to the swimming pool. This makes it one of the easiest places for guests to enjoy food or drinks without leaving the holiday park. It is a practical option after swimming, after a beach day, or when you want a relaxed meal close to the holiday home.</p>
-          <p>The brasserie is child-friendly and offers an indoor children's corner, with a playground and football area nearby. The menu includes monthly menus, à la carte dishes, drinks and seasonal options — including pancakes and bubble waffles during summer, making it a useful stop for families. For guests staying at Zeewind II, it is one of the most convenient food and drinks options near a holiday home in Bredene.</p>
-          <ul class="idea-details">
-            <li><strong>Best for</strong> Easy meals, drinks, families with children</li>
-            <li><strong>Location</strong> Inside Holiday Park Zeewind II, next to the pool</li>
-            <li><strong>Good to combine with</strong> Swimming, beach days, relaxed evenings</li>
-            <li><strong>Useful to know</strong> Child-friendly, indoor play corner, free parking</li>
-          </ul>
-          <a href="https://www.brasserieduinenhoeve.be/?lang=en" class="idea-link" target="_blank" rel="noopener">Visit Brasserie Duinenhoeve</a>
+        <!-- BRASSERIE -->
+        <div class="place-card">
+          <div class="card-img">
+            <div class="card-img-placeholder ci-brasserie">🍽️</div>
+            <span class="card-tag">Food &amp; Drinks</span>
+          </div>
+          <div class="card-body">
+            <h3>Brasserie Duinenhoeve</h3>
+            <p>Located right inside Holiday Park Zeewind II, next to the swimming pool. One of the most convenient places for a meal or drink without leaving the park. Child-friendly with an indoor play corner, playground nearby, and free parking. Monthly menus, à la carte and summer treats.</p>
+            <ul class="card-facts">
+              <li><strong>Best for:</strong> Easy meals, families, after swimming</li>
+              <li><strong>Location:</strong> Inside Zeewind II, next to the pool</li>
+              <li><strong>Tip:</strong> Child-friendly, indoor play corner, free parking</li>
+            </ul>
+            <a href="https://www.brasserieduinenhoeve.be/?lang=en" class="card-link" target="_blank" rel="noopener">Visit Brasserie Duinenhoeve →</a>
+          </div>
         </div>
 
       </div>
@@ -489,11 +337,11 @@
   <!-- TOURISM INFO -->
   <section class="tourism">
     <div class="container">
-      <div class="tourism-inner">
+      <div class="tourism-box">
         <p class="section-label">Local Resources</p>
         <h2>More information and events in Bredene</h2>
-        <p>For the latest events, local tips, brochures, practical visitor information and seasonal activities in Bredene, it is worth checking the official Bredene tourism website. It is a useful source for guests who want to see what is happening during their stay, from family activities and cultural events to beach information, markets and local recommendations.</p>
-        <p>This link is especially helpful for up-to-date events in Bredene and things to do in Bredene that change throughout the year, while this page highlights the easiest and most relevant activities for guests staying at Zeewind II Holiday Park.</p>
+        <p>For the latest events, local tips, brochures and practical visitor information in Bredene, the official Bredene tourism website is a useful resource. It covers family activities, cultural events, beach information, markets and seasonal recommendations.</p>
+        <p>This link is especially helpful for up-to-date things to do in Bredene that change throughout the year, while this page covers the most practical options for guests staying at Zeewind II.</p>
         <a href="https://www.bredene.be/homepage-toerisme" class="btn btn-secondary" target="_blank" rel="noopener">Visit the official Bredene tourism website</a>
       </div>
     </div>
@@ -503,8 +351,8 @@
   <section class="cta">
     <div class="container">
       <p class="section-label">Stay at Zeewind</p>
-      <h2 class="section-title">Make Bredene your holiday base</h2>
-      <p class="section-sub">Stay at Zeewind II and enjoy a holiday home in the heart of Bredene, close to the beach, swimming, food and drinks, family activities and easy day trips along the Belgian coast.</p>
+      <h2>Make Bredene your holiday base</h2>
+      <p>Stay at Zeewind II and enjoy a holiday home in the heart of Bredene, close to the beach, swimming, food and drinks, family activities and easy day trips along the Belgian coast.</p>
       <a href="booking.html" class="btn btn-primary">Check Availability</a>
     </div>
   </section>
@@ -516,3 +364,4 @@
   <script src="i18n.js"></script>
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
