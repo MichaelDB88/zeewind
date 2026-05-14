@@ -8,12 +8,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Georgia', serif;
-      color: #2c3e50;
-      background: #f0f7fb;
-      line-height: 1.7;
-    }
+    body { font-family: 'Georgia', serif; color: #2c3e50; background: #f0f7fb; line-height: 1.7; }
     a { color: inherit; text-decoration: none; }
 
     :root {
@@ -23,665 +18,494 @@
       --accent: #e07b39;
       --dark:   #1c2b36;
       --avail:  #2a9d8f;
-      --booked: #c0c0c0;
-      --selected: #e07b39;
     }
 
-    /* ── Nav ── */
+    /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 2rem;
-      background: rgba(26, 107, 138, 0.95);
+      background: rgba(26,107,138,0.95);
       backdrop-filter: blur(6px);
     }
-    .nav-logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.85);
-      margin-left: 1.8rem;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-      transition: color 0.2s;
-    }
+    .nav-logo { font-size: 1.5rem; font-weight: bold; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links a { color: rgba(255,255,255,0.85); margin-left: 1.8rem; font-family: Arial, sans-serif; font-size: 0.9rem; }
     .nav-links a:hover, .nav-links a.active { color: #fff; }
 
-    /* ── Page header ── */
+    /* PAGE HEADER */
     .page-header {
       background: linear-gradient(135deg, #1a6b8a 0%, #2a9d8f 100%);
-      padding: 7rem 1.5rem 3rem;
-      text-align: center;
-      color: #fff;
+      padding: 7rem 1.5rem 3rem; text-align: center; color: #fff;
     }
-    .page-header h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
-    }
-    .page-header p {
-      font-family: 'Arial', sans-serif;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.8);
-    }
+    .page-header h1 { font-size: clamp(2rem,5vw,3.2rem); letter-spacing: 2px; margin-bottom: 0.5rem; }
+    .page-header p { font-family: Arial, sans-serif; font-size: 1rem; color: rgba(255,255,255,0.8); }
 
-    /* ── Main layout ── */
+    /* LAYOUT */
     .booking-wrapper {
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
+      max-width: 1060px; margin: 0 auto; padding: 3rem 1.5rem 5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start;
     }
 
-    /* ── Card ── */
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(26,107,138,0.09);
-      padding: 2rem;
-    }
-    .card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.4rem;
-      color: var(--dark);
-    }
-    .card .sub {
-      font-family: 'Arial', sans-serif;
-      font-size: 0.88rem;
-      color: #889;
-      margin-bottom: 1.5rem;
-    }
+    /* CARD */
+    .card { background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(26,107,138,0.09); padding: 2rem; }
+    .card h2 { font-size: 1.3rem; margin-bottom: 0.4rem; color: var(--dark); }
+    .card .sub { font-family: Arial, sans-serif; font-size: 0.88rem; color: #889; margin-bottom: 1.5rem; }
 
-    /* ── Legend ── */
-    .legend {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.82rem;
-      color: #556;
-    }
-    .legend-dot {
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+    /* CALENDAR */
+    .legend { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+    .legend-item { display: flex; align-items: center; gap: 0.4rem; font-family: Arial, sans-serif; font-size: 0.82rem; color: #556; }
+    .legend-dot { width: 13px; height: 13px; border-radius: 50%; }
     .dot-avail   { background: var(--avail); }
-    .dot-booked  { background: var(--booked); }
-    .dot-selected { background: var(--selected); }
+    .dot-booked  { background: #c0c0c0; }
+    .dot-sel     { background: var(--accent); }
 
-    /* ── Calendar ── */
-    .cal-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
+    .cal-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem; }
     .cal-nav button {
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-      color: var(--sea);
-      padding: 0.2rem 0.6rem;
-      border-radius: 6px;
-      transition: background 0.15s;
+      background: none; border: none; font-size: 1.5rem; cursor: pointer;
+      color: var(--sea); padding: 0.2rem 0.6rem; border-radius: 6px;
     }
     .cal-nav button:hover { background: var(--sky); }
     .cal-nav button:disabled { opacity: 0.25; cursor: default; }
-    .cal-month-label {
-      font-family: 'Arial', sans-serif;
-      font-size: 1rem;
-      font-weight: bold;
-      color: var(--dark);
-      letter-spacing: 1px;
-    }
-    .cal-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 4px;
-    }
-    .cal-day-name {
-      text-align: center;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.75rem;
-      color: #889;
-      padding: 0.3rem 0;
-      letter-spacing: 0.5px;
-    }
-    .cal-day {
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.88rem;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s;
-      user-select: none;
-    }
-    .cal-day.empty { cursor: default; }
-    .cal-day.past {
-      color: #ccc;
-      cursor: default;
-    }
-    .cal-day.booked {
-      background: #efefef;
-      color: #bbb;
-      cursor: not-allowed;
-      text-decoration: line-through;
-    }
-    .cal-day.available {
-      background: #e6f5f3;
-      color: #1e7a6e;
-      font-weight: bold;
-    }
-    .cal-day.available:hover {
-      background: var(--avail);
-      color: #fff;
-    }
-    .cal-day.selected {
-      background: var(--selected) !important;
-      color: #fff !important;
-    }
-    .cal-day.in-range {
-      background: #fde8d4;
-      color: var(--dark);
-    }
+    .cal-month { font-family: Arial, sans-serif; font-size: 1rem; font-weight: bold; color: var(--dark); }
 
-    /* ── Selection summary ── */
-    .selection-summary {
-      margin-top: 1.2rem;
-      padding: 1rem 1.2rem;
-      background: var(--sky);
-      border-radius: 10px;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.9rem;
-      color: var(--sea);
-      min-height: 52px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; }
+    .cal-dn { text-align: center; font-family: Arial, sans-serif; font-size: 0.72rem; color: #99a; padding: 0.3rem 0; }
+    .cal-d {
+      aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+      border-radius: 7px; font-family: Arial, sans-serif; font-size: 0.85rem;
+      cursor: pointer; user-select: none;
     }
-    .selection-summary span { font-weight: bold; color: var(--dark); }
+    .cal-d.empty   { cursor: default; }
+    .cal-d.past    { color: #ccc; cursor: default; }
+    .cal-d.booked  { background: #efefef; color: #bbb; cursor: not-allowed; text-decoration: line-through; }
+    .cal-d.avail   { background: #e6f5f3; color: #1e7a6e; font-weight: bold; }
+    .cal-d.avail:hover { background: var(--avail); color: #fff; }
+    .cal-d.sel     { background: var(--accent) !important; color: #fff !important; }
+    .cal-d.range   { background: #fde8d4; }
 
-    /* ── Form ── */
+    .sel-summary {
+      margin-top: 1rem; padding: 0.9rem 1.1rem;
+      background: var(--sky); border-radius: 10px;
+      font-family: Arial, sans-serif; font-size: 0.88rem; color: var(--sea);
+    }
+    .sel-summary b { color: var(--dark); }
+
+    .info-box {
+      background: var(--sand); border-radius: 12px; padding: 1.2rem 1.4rem;
+      margin-top: 1.5rem; font-family: Arial, sans-serif; font-size: 0.88rem; color: #667;
+    }
+    .info-box strong { color: var(--dark); }
+
+    /* FORM */
     .form-group { margin-bottom: 1.1rem; }
     .form-group label {
-      display: block;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.82rem;
-      color: #667;
-      margin-bottom: 0.35rem;
-      letter-spacing: 0.3px;
+      display: block; font-family: Arial, sans-serif; font-size: 0.82rem;
+      color: #667; margin-bottom: 0.35rem;
     }
     .form-group input,
     .form-group select,
     .form-group textarea {
-      width: 100%;
-      padding: 0.7rem 1rem;
-      border: 1.5px solid #d0e4ed;
-      border-radius: 9px;
-      font-family: 'Georgia', serif;
-      font-size: 0.95rem;
-      color: var(--dark);
-      background: #fafcfe;
-      transition: border-color 0.2s;
-      outline: none;
+      width: 100%; padding: 0.7rem 1rem;
+      border: 1.5px solid #d0e4ed; border-radius: 9px;
+      font-family: Georgia, serif; font-size: 0.95rem; color: var(--dark);
+      background: #fafcfe; outline: none; transition: border-color 0.2s;
     }
     .form-group input:focus,
     .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--sea);
-      background: #fff;
-    }
-    .form-group textarea { resize: vertical; min-height: 90px; }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
+    .form-group textarea:focus { border-color: var(--sea); background: #fff; }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-    .submit-btn {
-      width: 100%;
-      padding: 1rem;
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      font-family: 'Arial', sans-serif;
-      font-size: 1rem;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      margin-top: 0.5rem;
-    }
-    .submit-btn:hover {
-      background: #c96a2a;
-      transform: translateY(-1px);
-    }
-
-    .form-note {
-      font-family: 'Arial', sans-serif;
-      font-size: 0.78rem;
-      color: #aaa;
-      text-align: center;
-      margin-top: 0.75rem;
-    }
-
-    /* ── Guest stepper ── */
-    .guest-rows { display: flex; flex-direction: column; gap: 0.6rem; }
+    /* GUEST STEPPERS */
+    .guest-rows { display: flex; flex-direction: column; gap: 0.55rem; }
     .guest-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 0.55rem 0.9rem;
-      background: #fafcfe;
-      border: 1.5px solid #d0e4ed;
-      border-radius: 9px;
+      border: 1.5px solid #d0e4ed; border-radius: 9px; background: #fafcfe;
     }
-    .guest-row-info { font-family: 'Arial', sans-serif; }
-    .guest-row-info .g-label { font-size: 0.92rem; color: var(--dark); font-weight: bold; }
-    .guest-row-info .g-sub   { font-size: 0.76rem; color: #99a; }
-    .stepper { display: flex; align-items: center; gap: 0.6rem; }
+    .g-label { font-family: Arial, sans-serif; font-size: 0.9rem; font-weight: bold; color: var(--dark); }
+    .g-sub   { font-family: Arial, sans-serif; font-size: 0.74rem; color: #99a; }
+    .stepper { display: flex; align-items: center; gap: 0.7rem; }
     .stepper button {
-      width: 30px; height: 30px;
-      border-radius: 50%;
-      border: 2px solid var(--sea);
-      background: #fff;
-      color: var(--sea);
-      font-size: 1.1rem;
-      line-height: 1;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s;
-      display: flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 2px solid var(--sea); background: #fff; color: var(--sea);
+      font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, color 0.15s; line-height: 1;
     }
-    .stepper button:hover:not(:disabled) { background: var(--sea); color: #fff; }
-    .stepper button:disabled { border-color: #ccc; color: #ccc; cursor: default; }
-    .stepper .count {
-      font-family: 'Arial', sans-serif;
-      font-size: 1rem;
-      font-weight: bold;
-      color: var(--dark);
-      min-width: 20px;
-      text-align: center;
-    }
-    .guest-total {
-      font-family: 'Arial', sans-serif;
-      font-size: 0.84rem;
-      text-align: right;
-      margin-top: 0.4rem;
-      color: #667;
-    }
-    .guest-total.over { color: #e05; font-weight: bold; }
+    .stepper button:hover { background: var(--sea); color: #fff; }
+    .stepper button:disabled { border-color: #ccc; color: #ccc; cursor: default; background: #fff; }
+    .stepper .cnt { font-family: Arial, sans-serif; font-size: 1rem; font-weight: bold; min-width: 18px; text-align: center; }
+    .guest-total { font-family: Arial, sans-serif; font-size: 0.82rem; color: #667; text-align: right; margin-top: 0.35rem; }
+    .guest-total.over { color: #d00; font-weight: bold; }
 
-    /* ── Extras checkboxes ── */
-    .extras-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-    }
+    /* EXTRAS */
+    .extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
     .extra-item {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.6rem 0.8rem;
-      border: 1.5px solid #d0e4ed;
-      border-radius: 9px;
-      cursor: pointer;
+      display: flex; align-items: center; gap: 0.55rem;
+      padding: 0.6rem 0.75rem;
+      border: 1.5px solid #d0e4ed; border-radius: 9px;
+      background: #fafcfe; cursor: pointer;
+      font-family: Arial, sans-serif; font-size: 0.83rem; color: var(--dark);
+      user-select: none; position: relative;
       transition: border-color 0.15s, background 0.15s;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.85rem;
-      color: var(--dark);
-      background: #fafcfe;
-      user-select: none;
-      position: relative;
     }
     .extra-item:hover { border-color: var(--sea); background: var(--sky); }
-    .extra-item input[type="checkbox"] { display: none; }
-    .extra-item.checked { border-color: var(--avail); background: #e6f5f3; }
-    .extra-item.checked::after {
-      content: '✓';
-      position: absolute;
-      top: 5px; right: 8px;
-      font-size: 0.75rem;
-      color: var(--avail);
-      font-weight: bold;
+    .extra-item.on { border-color: var(--avail); background: #e6f5f3; }
+    .extra-item.on::after {
+      content: '✓'; position: absolute; top: 4px; right: 7px;
+      font-size: 0.72rem; color: var(--avail); font-weight: bold;
     }
-    .extra-icon { font-size: 1.2rem; flex-shrink: 0; }
-    .extra-label { line-height: 1.3; flex: 1; }
-    .extra-label small { display: block; font-size: 0.72rem; color: #99a; }
-    .extra-price {
-      font-size: 0.75rem;
-      color: var(--sea);
-      font-weight: bold;
-      white-space: nowrap;
-      margin-left: auto;
-      padding-left: 0.3rem;
-    }
+    .extra-item input { display: none; }
+    .ei { font-size: 1.15rem; flex-shrink: 0; }
+    .el { line-height: 1.25; flex: 1; }
+    .el small { display: block; font-size: 0.7rem; color: #99a; }
+    .ep { font-size: 0.72rem; color: var(--sea); font-weight: bold; white-space: nowrap; }
 
-    /* ── Info tooltip — pure CSS hover, no JS needed ── */
-    .info-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 17px; height: 17px;
-      border-radius: 50%;
-      background: var(--sea);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: bold;
-      cursor: default;
-      flex-shrink: 0;
-      border: none;
-      font-family: 'Arial', sans-serif;
-      margin-left: 3px;
-      vertical-align: middle;
+    /* TOOLTIP (pure CSS hover) */
+    .tip-wrap { position: relative; display: inline-flex; align-items: center; flex-shrink: 0; }
+    .tip-btn {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--sea); color: #fff;
+      font-size: 0.62rem; font-weight: bold; font-family: Arial, sans-serif;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: default; border: none; flex-shrink: 0;
     }
-    .tooltip-wrap {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-    }
-    .tooltip-box {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      bottom: calc(100% + 10px);
-      right: 0;
-      background: var(--dark);
-      color: #fff;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.78rem;
-      line-height: 1.5;
-      padding: 0.65rem 0.9rem;
-      border-radius: 10px;
-      width: 210px;
-      z-index: 300;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    .tip-box {
+      visibility: hidden; opacity: 0;
+      position: absolute; bottom: calc(100% + 8px); right: 0;
+      background: var(--dark); color: #fff;
+      font-family: Arial, sans-serif; font-size: 0.76rem; line-height: 1.45;
+      padding: 0.6rem 0.8rem; border-radius: 9px; width: 200px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.28); z-index: 999;
       pointer-events: none;
       transition: opacity 0.15s, visibility 0.15s;
     }
-    .tooltip-box::after {
-      content: '';
-      position: absolute;
-      top: 100%; right: 6px;
-      border: 7px solid transparent;
-      border-top-color: var(--dark);
+    .tip-box::after {
+      content: ''; position: absolute; top: 100%; right: 5px;
+      border: 6px solid transparent; border-top-color: var(--dark);
     }
-    .tooltip-wrap:hover .tooltip-box {
-      visibility: visible;
-      opacity: 1;
-    }
+    .tip-wrap:hover .tip-box { visibility: visible; opacity: 1; }
 
-    /* ── Success message ── */
-    .success-msg {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-      color: var(--avail);
+    /* SUBMIT */
+    .submit-btn {
+      width: 100%; padding: 1rem; margin-top: 0.5rem;
+      background: var(--accent); color: #fff; border: none; border-radius: 50px;
+      font-family: Arial, sans-serif; font-size: 1rem; font-weight: bold;
+      cursor: pointer; transition: background 0.2s, transform 0.15s;
     }
-    .success-msg .check { font-size: 3rem; margin-bottom: 0.5rem; }
+    .submit-btn:hover { background: #c96a2a; transform: translateY(-1px); }
+    .form-note { font-family: Arial, sans-serif; font-size: 0.77rem; color: #aaa; text-align: center; margin-top: 0.7rem; }
+
+    /* SUCCESS */
+    .success-msg { display: none; text-align: center; padding: 2rem; color: var(--avail); }
+    .success-msg .ck { font-size: 3rem; margin-bottom: 0.5rem; }
     .success-msg h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-    .success-msg p {
-      font-family: 'Arial', sans-serif;
-      font-size: 0.9rem;
-      color: #667;
-    }
+    .success-msg p { font-family: Arial, sans-serif; font-size: 0.9rem; color: #667; }
 
-    /* ── Info box ── */
-    .info-box {
-      background: var(--sand);
-      border-radius: 12px;
-      padding: 1.2rem 1.4rem;
-      margin-top: 1.5rem;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.88rem;
-      color: #667;
-    }
-    .info-box strong { color: var(--dark); }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 1.5rem;
-      font-family: 'Arial', sans-serif;
-      font-size: 0.82rem;
-    }
+    /* FOOTER */
+    footer { background: var(--dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem; font-family: Arial, sans-serif; font-size: 0.82rem; }
     footer span { color: rgba(255,255,255,0.25); }
 
-    /* ── Responsive ── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .booking-wrapper { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
+      .extras-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── Nav ── -->
-  <nav>
-    <a href="index.html" class="nav-logo">Zeewind</a>
-    <div class="nav-links">
-      <a href="index.html#about">The House</a>
-      <a href="index.html#features">Amenities</a>
-      <a href="index.html#gallery">Gallery</a>
-      <a href="index.html#location">Location</a>
-      <a href="booking.html" class="active">Book</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
-  </nav>
+<nav>
+  <a href="index.html" class="nav-logo">Zeewind</a>
+  <div class="nav-links">
+    <a href="index.html#about">The House</a>
+    <a href="index.html#features">Amenities</a>
+    <a href="index.html#gallery">Gallery</a>
+    <a href="index.html#location">Location</a>
+    <a href="booking.html" class="active">Book</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
 
-  <!-- ── Page header ── -->
-  <div class="page-header">
-    <h1>Check Availability</h1>
-    <p>Select your dates below and send us a booking request — we'll confirm within 24 hours.</p>
+<div class="page-header">
+  <h1>Check Availability</h1>
+  <p>Select your dates below and send us a booking request — we'll confirm within 24 hours.</p>
+</div>
+
+<div class="booking-wrapper">
+
+  <!-- LEFT: CALENDAR -->
+  <div>
+    <div class="card">
+      <h2>Availability Calendar</h2>
+      <p class="sub">Green dates are available. Click to select check-in then check-out.</p>
+
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot dot-avail"></div> Available</div>
+        <div class="legend-item"><div class="legend-dot dot-booked"></div> Booked</div>
+        <div class="legend-item"><div class="legend-dot dot-sel"></div> Your selection</div>
+      </div>
+
+      <div class="cal-nav">
+        <button id="btnPrev">&#8249;</button>
+        <div class="cal-month" id="calMonth"></div>
+        <button id="btnNext">&#8250;</button>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="sel-summary" id="selSummary">📅 Click a date to set your <b>check-in</b>.</div>
+    </div>
+
+    <div class="info-box">
+      <strong>How it works:</strong> Pick your dates, fill in your details on the right, and send your request. We'll reply within 24 hours to confirm and arrange payment.
+    </div>
   </div>
 
-  <!-- ── Booking wrapper ── -->
-  <div class="booking-wrapper">
+  <!-- RIGHT: FORM -->
+  <div class="card">
+    <h2>Booking Request</h2>
+    <p class="sub">Fill in your details and we'll be in touch to confirm.</p>
 
-    <!-- ── Left: Calendar ── -->
-    <div>
-      <div class="card">
-        <h2>Availability Calendar</h2>
-        <p class="sub">Green dates are available. Click to select your check-in and check-out.</p>
+    <div id="formArea">
+      <form id="bookingForm" action="https://formspree.io/f/meenbjjv" method="POST">
 
-        <div class="legend">
-          <div class="legend-item"><div class="legend-dot dot-avail"></div> Available</div>
-          <div class="legend-item"><div class="legend-dot dot-booked"></div> Booked</div>
-          <div class="legend-item"><div class="legend-dot dot-selected"></div> Your selection</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First name *</label>
+            <input type="text" name="first_name" required placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label>Last name *</label>
+            <input type="text" name="last_name" required placeholder="Smith" />
+          </div>
         </div>
 
-        <div class="cal-nav">
-          <button id="prevMonth" title="Previous month">&#8249;</button>
-          <div class="cal-month-label" id="monthLabel"></div>
-          <button id="nextMonth" title="Next month">&#8250;</button>
+        <div class="form-group">
+          <label>Email address *</label>
+          <input type="email" name="email" required placeholder="jane@example.com" />
         </div>
-        <div class="cal-grid" id="calGrid"></div>
 
-        <div class="selection-summary" id="selSummary">
-          📅 Click a date to set your check-in.
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" name="phone" placeholder="+32 ..." />
         </div>
-      </div>
 
-      <div class="info-box">
-        <strong>How it works:</strong> Select your dates on the calendar, fill in your details on the right, and submit your request. We'll get back to you within 24 hours to confirm availability and arrange payment.
-      </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Check-in *</label>
+            <input type="date" name="checkin" id="inDate" required />
+          </div>
+          <div class="form-group">
+            <label>Check-out *</label>
+            <input type="date" name="checkout" id="outDate" required />
+          </div>
+        </div>
+
+        <!-- GUEST COUNTS -->
+        <div class="form-group">
+          <label>Guests * <span style="font-weight:normal;color:#99a;">(max 6 total)</span></label>
+          <div class="guest-rows">
+
+            <div class="guest-row">
+              <div>
+                <div class="g-label">👤 Adults</div>
+                <div class="g-sub">Age 12 and over</div>
+              </div>
+              <div class="stepper">
+                <button type="button" id="aMin">−</button>
+                <span class="cnt" id="aVal">1</span>
+                <button type="button" id="aPlus">+</button>
+              </div>
+            </div>
+
+            <div class="guest-row">
+              <div>
+                <div class="g-label">🧒 Children</div>
+                <div class="g-sub">Age 2 – 12</div>
+              </div>
+              <div class="stepper">
+                <button type="button" id="kMin">−</button>
+                <span class="cnt" id="kVal">0</span>
+                <button type="button" id="kPlus">+</button>
+              </div>
+            </div>
+
+            <div class="guest-row">
+              <div>
+                <div class="g-label">👶 Babies</div>
+                <div class="g-sub">Age 0 – 2</div>
+              </div>
+              <div class="stepper">
+                <button type="button" id="bMin">−</button>
+                <span class="cnt" id="bVal">0</span>
+                <button type="button" id="bPlus">+</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="guest-total" id="gTotal">Total: 1 / 6 guests</div>
+          <input type="hidden" name="guests_adults"   id="hAdults"  value="1" />
+          <input type="hidden" name="guests_children" id="hKids"    value="0" />
+          <input type="hidden" name="guests_babies"   id="hBabies"  value="0" />
+          <input type="hidden" name="guests_total"    id="hTotal"   value="1" />
+        </div>
+
+        <!-- PETS -->
+        <div class="form-group">
+          <label>Bringing a dog?</label>
+          <select name="pets">
+            <option value="No pets">No pets</option>
+            <option value="1 small dog">Yes – 1 small dog</option>
+            <option value="2 small dogs">Yes – 2 small dogs</option>
+            <option value="1 big dog">Yes – 1 big dog</option>
+          </select>
+        </div>
+
+        <!-- EXTRAS -->
+        <div class="form-group">
+          <label>Extras (optional)</label>
+          <div class="extras-grid">
+
+            <div class="extra-item" onclick="toggleExtra(this)">
+              <input type="checkbox" name="extra_babycot" value="Yes" />
+              <span class="ei">🛏️</span>
+              <span class="el">Baby cot<small>For babies 0–2</small></span>
+              <span class="ep">on request</span>
+            </div>
+
+            <div class="extra-item" onclick="toggleExtra(this)">
+              <input type="checkbox" name="extra_highchair" value="Yes" />
+              <span class="ei">🪑</span>
+              <span class="el">High chair<small>For toddlers</small></span>
+              <span class="ep">on request</span>
+            </div>
+
+            <div class="extra-item" onclick="toggleExtra(this)">
+              <input type="checkbox" name="extra_linen" value="Yes" />
+              <span class="ei">🛌</span>
+              <span class="el">Bed linen<small>Sheets &amp; pillowcases</small></span>
+              <span class="ep">on request</span>
+            </div>
+
+            <div class="extra-item" onclick="toggleExtra(this)">
+              <input type="checkbox" name="extra_towels" value="Yes" />
+              <span class="ei">🏖️</span>
+              <span class="el">Towels<small>Bath &amp; beach towels</small></span>
+              <span class="ep">on request</span>
+            </div>
+
+            <div class="extra-item" onclick="toggleExtra(this)">
+              <input type="checkbox" name="extra_babybath" value="Yes" />
+              <span class="ei">🛁</span>
+              <span class="el">Baby bath<small>Portable tub</small></span>
+              <span class="ep">on request</span>
+            </div>
+
+            <div class="extra-item" onclick="toggleExtra(this)">
+              <input type="checkbox" name="extra_welcomepack" value="Yes" />
+              <span class="ei">🎁</span>
+              <span class="el">Welcome pack<small>Arrival essentials</small></span>
+              <span class="tip-wrap" onclick="event.stopPropagation()">
+                <span class="tip-btn">i</span>
+                <span class="tip-box">A warm welcome basket: fresh bread, water, coffee, tea, milk &amp; a few local treats to start your stay. 🥐☕</span>
+              </span>
+              <span class="ep">on request</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- MESSAGE -->
+        <div class="form-group">
+          <label>Questions or special requests?</label>
+          <textarea name="message" placeholder="e.g. early check-in, arrival time, questions about the property..."></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="New Booking Request – Zeewind" />
+        <button type="submit" class="submit-btn">Send Booking Request →</button>
+        <p class="form-note">No payment is taken now. We'll confirm your dates and arrange payment separately.</p>
+      </form>
     </div>
 
-    <!-- ── Right: Form ── -->
-    <div class="card">
-      <h2>Booking Request</h2>
-      <p class="sub">Fill in your details and we'll be in touch to confirm.</p>
+    <div class="success-msg" id="successMsg">
+      <div class="ck">✅</div>
+      <h3>Request sent!</h3>
+      <p>Thank you! We'll review your dates and reply within 24 hours to confirm your booking.</p>
+    </div>
+  </div>
 
-      <div id="formArea">
-        <!--
-          IMPORTANT: To receive booking emails, create a free account at https://formspree.io
-          Then replace "YOUR_FORM_ID" below with your Formspree form ID.
-          Example: action="https://formspree.io/f/xabcdefg"
-        -->
-        <form id="bookingForm" action="https://formspree.io/f/meenbjjv" method="POST">
+</div><!-- /.booking-wrapper -->
 
-          <div class="form-row">
-            <div class="form-group">
-              <label>First name *</label>
-              <input type="text" name="first_name" required placeholder="Jane" />
-            </div>
-            <div class="form-group">
-              <label>Last name *</label>
-              <input type="text" name="last_name" required placeholder="Smith" />
-            </div>
-          </div>
+<footer>
+  <p>© 2025 Zeewind &nbsp;<span>·</span>&nbsp; Holiday Home at the Belgian Coast &nbsp;<span>·</span>&nbsp; All rights reserved</p>
+</footer>
 
-          <div class="form-group">
-            <label>Email address *</label>
-            <input type="email" name="email" required placeholder="jane@example.com" />
-          </div>
+<script>
+// ════════════════════════════════════════════════════════════════
+//  BOOKED DATES — add/remove dates here to control the calendar
+//  Format: "YYYY-MM-DD"
+// ════════════════════════════════════════════════════════════════
+var BOOKED = [
+  "2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05","2026-06-06","2026-06-07",
+  "2026-07-12","2026-07-13","2026-07-14","2026-07-15","2026-07-16","2026-07-17","2026-07-18","2026-07-19",
+  "2026-08-02","2026-08-03","2026-08-04","2026-08-05","2026-08-06","2026-08-07","2026-08-08",
+  "2026-08-09","2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-15"
+];
 
-          <div class="form-group">
-            <label>Phone / WhatsApp</label>
-            <input type="tel" name="phone" placeholder="+32 ..." />
-          </div>
+// ── Calendar ──────────────────────────────────────────────────
+var bookedSet = {};
+for (var i = 0; i < BOOKED.length; i++) bookedSet[BOOKED[i]] = true;
 
-          <div class="form-row">
-            <div class="form-group">
-              <label>Check-in date *</label>
-              <input type="date" name="checkin" id="checkinInput" required />
-            </div>
-            <div class="form-group">
-              <label>Check-out date *</label>
-              <input type="date" name="checkout" id="checkoutInput" required />
-            </div>
-          </div>
+var today = new Date();
+today.setHours(0,0,0,0);
 
-          <!-- ── Guests ── -->
-          <div class="form-group">
-            <label>Guests * <span style="font-weight:normal;">(max 6 total)</span></label>
-            <div class="guest-rows">
-              <div class="guest-row">
-                <div class="guest-row-info">
-                  <div class="g-label">👤 Adults</div>
-                  <div class="g-sub">Age 12 and over</div>
-                </div>
-                <div class="stepper">
-                  <button type="button" onclick="changeGuest('adults',-1)">−</button>
-                  <span class="count" id="count-adults">1</span>
-                  <button type="button" onclick="changeGuest('adults',1)">+</button>
-                </div>
-              </div>
-              <div class="guest-row">
-                <div class="guest-row-info">
-                  <div class="g-label">🧒 Children</div>
-                  <div class="g-sub">Age 2 – 12</div>
-                </div>
-                <div class="stepper">
-                  <button type="button" onclick="changeGuest('kids',-1)">−</button>
-                  <span class="count" id="count-kids">0</span>
-                  <button type="button" onclick="changeGuest('kids',1)">+</button>
-                </div>
-              </div>
-              <div class="guest-row">
-                <div class="guest-row-info">
-                  <div class="g-label">👶 Babies</div>
-                  <div class="g-sub">Age 0 – 2</div>
-                </div>
-                <div class="stepper">
-                  <button type="button" onclick="changeGuest('babies',-1)">−</button>
-                  <span class="count" id="count-babies">0</span>
-                  <button type="button" onclick="changeGuest('babies',1)">+</button>
-                </div>
-              </div>
-            </div>
-            <div class="guest-total" id="guestTotal">Total: 1 / 6 guests</div>
-            <!-- Hidden inputs sent to Formspree -->
-            <input type="hidden" name="guests_adults"   id="input-adults"  value="1" />
-            <input type="hidden" name="guests_children" id="input-kids"    value="0" />
-            <input type="hidden" name="guests_babies"   id="input-babies"  value="0" />
-            <input type="hidden" name="guests_total"    id="input-total"   value="1" />
-          </div>
+var viewYear  = today.getFullYear();
+var viewMonth = today.getMonth();
 
-          <!-- ── Pets ── -->
-          <div class="form-group">
-            <label>Bringing a dog?</label>
-            <select name="pets">
-              <option value="No pets">No pets</option>
-              <option value="1 small dog">Yes – 1 small dog</option>
-              <option value="2 small dogs">Yes – 2 small dogs</option>
-              <option value="1 big dog">Yes – 1 big dog</option>
-            </select>
-          </div>
+var checkIn  = null;
+var checkOut = null;
+var pickIn   = true;
 
-          <!-- ── Extras ── -->
-          <div class="form-group">
-            <label>Extras (optional)</label>
-            <div class="extras-grid">
+var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var DAYS   = ["Mo","Tu","We","Th","Fr","Sa","Su"];
 
-              <div class="extra-item" onclick="selectExtra(this)">
-                <input type="checkbox" name="extra_babycot" value="Yes" />
-                <span class="extra-icon">🛏️</span>
-                <span class="extra-label">Baby cot<small>For babies 0–2</small></span>
-                <span class="extra-price">on request</span>
-              </div>
+function dateKey(d) {
+  var mm = String(d.getMonth()+1).padStart(2,'0');
+  var dd = String(d.getDate()).padStart(2,'0');
+  return d.getFullYear() + '-' + mm + '-' + dd;
+}
 
-              <div class="extra-item" onclick="selectExtra(this)">
-                <input type="checkbox" name="extra_highchair" value="Yes" />
-                <span class="extra-icon">🪑</span>
-                <span class="extra-label">High chair<small>For toddlers</small></span>
-                <span class="extra-price">on request</span>
-              </div>
+function isBooked(d) { return !!bookedSet[dateKey(d)]; }
+function isPast(d)   { return d < today; }
 
-              <div class="extra-item" onclick="selectExtra(this)">
-                <input type="checkbox" name="extra_linen" value="Yes" />
-                <span class="extra-icon">🛌</span>
-                <span class="extra-label">Bed linen<small>Sheets &amp; pillowcases</small></span>
-                <span class="extra-price">on request</span>
-              </div>
+function fmtDate(d) {
+  if (!d) return '—';
+  return d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'});
+}
 
-              <div class="extra-item" onclick="selectExtra(this)">
-                <input type="checkbox" name="extra_towels" value="Yes" />
-                <span class="extra-icon">🏖️</span>
-                <span class="extra-label">Towels<small>Bath &amp; beach towels</small></span>
-                <span class="extra-price">on request</span>
-              </div>
+function rangeHasBooked(a, b) {
+  var cur = new Date(a.getTime());
+  cur.setDate(cur.getDate() + 1);
+  while (cur < b) {
+    if (isBooked(cur)) return true;
+    cur.setDate(cur.getDate() + 1);
+  }
+  return false;
+}
 
-              <div class="extra-item" onclick="selectExtra(this)">
-                <input type="checkbox" name="extra_babybath" value="Yes" />
-                <span class="extra-icon">🛁</span>
-                <span class="extra-label">Baby bath<small>Portable tub</small></span>
-                <span class="extra-price">on request</span>
-              </div>
+function renderCalendar() {
+  var grid  = document.getElementById('calGrid');
+  var label = document.getElementById('calMonth');
+  grid.innerHTML = '';
+  label.textContent = MONTHS[viewMonth] + ' ' + viewYear;
 
-              <div class="extra-item" onclick="selectExtra(this)">
-                <input type="checkbox" name="extra_welcomepack" value="Yes" />
-                <span class="extra-icon">🎁</span>
-                <span class="extra-label">
-                  Welcome pack
-                  <small>Arrival essentials</small>
-                </span>
-                <span class="tooltip-wrap" onclick="event.stopPropagation()">
-                  <span class="info-btn">i</span>
-                  <span class="tooltip-box">A warm welcome baske
+  for (var n = 0; n < DAYS.length; n++) {
+    var dn = document.createElement('div');
+    dn.className = 'cal-dn';
+    dn.textContent = DAYS[n];
+    grid.appendChild(dn);
+  }
+
+  var first = new Date(viewYear, viewMonth, 1);
+  var startCol = first.getDay() === 0 ? 6 : first.getDay() - 1;
+  f
