@@ -1,0 +1,90 @@
+.language-switcher {
+  position: relative;
+  margin-left: 1rem;
+  font-family: Arial, sans-serif;
+  flex-shrink: 0;
+}
+
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(255,255,255,0.36);
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font: inherit;
+  font-size: 0.84rem;
+  cursor: pointer;
+  min-width: 112px;
+  justify-content: center;
+}
+
+.language-toggle:hover,
+.language-switcher.open .language-toggle {
+  background: rgba(255,255,255,0.22);
+}
+
+.language-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.55rem);
+  min-width: 190px;
+  padding: 0.4rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  z-index: 200;
+}
+
+.language-switcher.open .language-menu {
+  display: block;
+}
+
+.language-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #1c2b36;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  font-size: 0.86rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.language-option:hover,
+.language-option.active {
+  background: #e8f4f8;
+  color: #1a6b8a;
+}
+
+.language-option.active {
+  font-weight: bold;
+}
+
+.language-flag {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  nav {
+    gap: 0.75rem;
+  }
+
+  .language-switcher {
+    margin-left: auto;
+  }
+
+  .language-toggle {
+    min-width: 98px;
+    padding: 0.42rem 0.65rem;
+  }
+}

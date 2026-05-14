@@ -349,6 +349,7 @@
       .btn-outline { margin-left: 0; margin-top: 0.75rem; }
     }
   </style>
+  <link rel="stylesheet" href="language.css" />
 </head>
 <body>
 
@@ -363,6 +364,18 @@
       <a href="things-to-do.html">Things to Do</a>
       <a href="booking.html">Book</a>
       <a href="#contact">Contact</a>
+    </div>
+    <div class="language-switcher">
+      <button type="button" class="language-toggle" aria-haspopup="true" aria-expanded="false">
+        <span class="language-flag language-current-flag" aria-hidden="true">🇬🇧</span>
+        <span class="language-current-label">English</span>
+      </button>
+      <div class="language-menu" role="listbox" aria-label="Language">
+        <button type="button" class="language-option" data-lang="nl" role="option"><span class="language-flag" aria-hidden="true">🇳🇱</span><span>Nederlands</span></button>
+        <button type="button" class="language-option" data-lang="fr" role="option"><span class="language-flag" aria-hidden="true">🇫🇷</span><span>Français</span></button>
+        <button type="button" class="language-option" data-lang="de" role="option"><span class="language-flag" aria-hidden="true">🇩🇪</span><span>Deutsch</span></button>
+        <button type="button" class="language-option" data-lang="en" role="option"><span class="language-flag" aria-hidden="true">🇬🇧</span><span>English</span></button>
+      </div>
     </div>
   </nav>
 
@@ -540,5 +553,6 @@
     <p>© 2025 Zeewind &nbsp;<span>·</span>&nbsp; Holiday Home at the Belgian Coast &nbsp;<span>·</span>&nbsp; All rights reserved</p>
   </footer>
 
+  <script src="i18n.js"></script>
 </body>
 </html>
