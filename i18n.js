@@ -2,10 +2,10 @@
   var STORAGE_KEY = 'zeewind-language';
 
   var LANGUAGES = {
-    nl: { label: 'Nederlands', flag: '🇳🇱', htmlLang: 'nl', locale: 'nl-BE' },
-    fr: { label: 'Français', flag: '🇫🇷', htmlLang: 'fr', locale: 'fr-BE' },
-    de: { label: 'Deutsch', flag: '🇩🇪', htmlLang: 'de', locale: 'de-DE' },
-    en: { label: 'English', flag: '🇬🇧', htmlLang: 'en', locale: 'en-GB' }
+    nl: { label: 'Nederlands', flag: 'nl', htmlLang: 'nl', locale: 'nl-BE' },
+    fr: { label: 'Français', flag: 'fr', htmlLang: 'fr', locale: 'fr-BE' },
+    de: { label: 'Deutsch', flag: 'de', htmlLang: 'de', locale: 'de-DE' },
+    en: { label: 'English', flag: 'gb', htmlLang: 'en', locale: 'en-GB' }
   };
 
   var COPY = {
@@ -936,7 +936,7 @@
       }
       var menu = switcher.querySelector('.language-menu');
       if (menu) menu.setAttribute('aria-label', copy.common.languageLabel);
-      if (flag) flag.textContent = info.flag;
+      if (flag) { flag.textContent = ''; flag.className = 'fi fi-' + info.flag + ' language-flag language-current-flag'; }
       if (label) label.textContent = info.label;
       var options = switcher.querySelectorAll('.language-option');
       for (var j = 0; j < options.length; j++) {
