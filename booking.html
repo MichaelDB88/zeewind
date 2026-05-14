@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Your Stay – Zeewind</title>
+  <meta name="description" content="Check availability and request a booking at Zeewind, a holiday home on the Belgian coast." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Georgia', serif;
+      color: #2c3e50;
+      background: #f0f7fb;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --sea:    #1a6b8a;
+      --sky:    #e8f4f8;
+      --sand:   #f5efe6;
+      --accent: #e07b39;
+      --dark:   #1c2b36;
+      --avail:  #2a9d8f;
+      --booked: #c0c0c0;
+      --selected: #e07b39;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(26, 107, 138, 0.95);
+      backdrop-filter: blur(6px);
+    }
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      margin-left: 1.8rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+    /* ── Page header ── */
+    .page-header {
+      background: linear-gradient(135deg, #1a6b8a 0%, #2a9d8f 100%);
+      padding: 7rem 1.5rem 3rem;
+      text-align: center;
+      color: #fff;
+    }
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+    .page-header p {
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── Main layout ── */
+    .booking-wrapper {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(26,107,138,0.09);
+      padding: 2rem;
+    }
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+      color: var(--dark);
+    }
+    .card .sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      color: #889;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: #556;
+    }
+    .legend-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-avail   { background: var(--avail); }
+    .dot-booked  { background: var(--booked); }
+    .dot-selected { background: var(--selected); }
+
+    /* ── Calendar ── */
+    .cal-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .cal-nav button {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--sea);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .cal-nav button:hover { background: var(--sky); }
+    .cal-nav button:disabled { opacity: 0.25; cursor: default; }
+    .cal-month-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--dark);
+      letter-spacing: 1px;
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .cal-day-name {
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      color: #889;
+      padding: 0.3rem 0;
+      letter-spacing: 0.5px;
+    }
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      user-select: none;
+    }
+    .cal-day.empty { cursor: default; }
+    .cal-day.past {
+      color: #ccc;
+      cursor: default;
+    }
+    .cal-day.booked {
+      background: #efefef;
+      color: #bbb;
+      cursor: not-allowed;
+      text-decoration: line-through;
+    }
+    .cal-day.available {
+      background: #e6f5f3;
+      color: #1e7a6e;
+      font-weight: bold;
+    }
+    .cal-day.available:hover {
+      background: var(--avail);
+      color: #fff;
+    }
+    .cal-day.selected {
+      background: var(--selected) !important;
+      color: #fff !important;
+    }
+    .cal-day.in-range {
+      background: #fde8d4;
+      color: var(--dark);
+    }
+
+    /* ── Selection summary ── */
+    .selection-summary {
+      margin-top: 1.2rem;
+      padding: 1rem 1.2rem;
+      background: var(--sky);
+      border-radius: 10px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      color: var(--sea);
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .selection-summary span { font-weight: bold; color: var(--dark); }
+
+    /* ── Form ── */
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: #667;
+      margin-bottom: 0.35rem;
+      letter-spacing: 0.3px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1.5px solid #d0e4ed;
+      border-radius: 9px;
+      font-family: 'Georgia', serif;
+      font-size: 0.95rem;
+      color: var(--dark);
+      background: #fafcfe;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--sea);
+      background: #fff;
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+    .submit-btn:hover {
+      background: #c96a2a;
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: #aaa;
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Success message ── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--avail);
+    }
+    .success-msg .check { font-size: 3rem; margin-bottom: 0.5rem; }
+    .success-msg h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .success-msg p {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      color: #667;
+    }
+
+    /* ── Info box ── */
+    .info-box {
+      background: var(--sand);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      margin-top: 1.5rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      color: #667;
+    }
+    .info-box strong { color: var(--dark); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 1.5rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+    }
+    footer span { color: rgba(255,255,255,0.25); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .booking-wrapper { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">Zeewind</a>
+    <div class="nav-links">
+      <a href="index.html#about">The House</a>
+      <a href="index.html#features">Amenities</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#location">Location</a>
+      <a href="booking.html" class="active">Book</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── Page header ── -->
+  <div class="page-header">
+    <h1>Check Availability</h1>
+    <p>Select your dates below and send us a booking request — we'll confirm within 24 hours.</p>
+  </div>
+
+  <!-- ── Booking wrapper ── -->
+  <div class="booking-wrapper">
+
+    <!-- ── Left: Calendar ── -->
+    <div>
+      <div class="card">
+        <h2>Availability Calendar</h2>
+        <p class="sub">Green dates are available. Click to select your check-in and check-out.</p>
+
+        <div class="legend">
+          <div class="legend-item"><div class="legend-dot dot-avail"></div> Available</div>
+          <div class="legend-item"><div class="legend-dot dot-booked"></div> Booked</div>
+          <div class="legend-item"><div class="legend-dot dot-selected"></div> Your selection</div>
+        </div>
+
+        <div class="cal-nav">
+          <button id="prevMonth" title="Previous month">&#8249;</button>
+          <div class="cal-month-label" id="monthLabel"></div>
+          <button id="nextMonth" title="Next month">&#8250;</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+
+        <div class="selection-summary" id="selSummary">
+          📅 Click a date to set your check-in.
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>How it works:</strong> Select your dates on the calendar, fill in your details on the right, and submit your request. We'll get back to you within 24 hours to confirm availability and arrange payment.
+      </div>
+    </div>
+
+    <!-- ── Right: Form ── -->
+    <div class="card">
+      <h2>Booking Request</h2>
+      <p class="sub">Fill in your details and we'll be in touch to confirm.</p>
+
+      <div id="formArea">
+        <!--
+          IMPORTANT: To receive booking emails, create a free account at https://formspree.io
+          Then replace "YOUR_FORM_ID" below with your Formspree form ID.
+          Example: action="https://formspree.io/f/xabcdefg"
+        -->
+        <form id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>First name *</label>
+              <input type="text" name="first_name" required placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label>Last name *</label>
+              <input type="text" name="last_name" required placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email address *</label>
+            <input type="email" name="email" required placeholder="jane@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" name="phone" placeholder="+32 ..." />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Check-in date *</label>
+              <input type="date" name="checkin" id="checkinInput" required />
+            </div>
+            <div class="form-group">
+              <label>Check-out date *</label>
+              <input type="date" name="checkout" id="checkoutInput" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Number of guests *</label>
+            <select name="guests" required>
+              <option value="">Select...</option>
+              <option value="1">1 guest</option>
+              <option value="2">2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
+              <option value="6">6 guests</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Bringing pets?</label>
+            <select name="pets">
+              <option value="No">No pets</option>
+              <option value="Yes - 1 dog">Yes – 1 dog</option>
+              <option value="Yes - 2 dogs">Yes – 2 dogs</option>
+              <option value="Yes - cat">Yes – cat</option>
+              <option value="Yes - other">Yes – other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Any questions or special requests?</label>
+            <textarea name="message" placeholder="e.g. early check-in, cot needed, questions about the property..."></textarea>
+          </div>
+
+          <!-- Hidden field to pass selected dates -->
+          <input type="hidden" name="_subject" value="New Booking Request – Zeewind" />
+          <input type="hidden" name="_replyto" value="" />
+
+          <button type="submit" class="submit-btn">Send Booking Request →</button>
+          <p class="form-note">No payment is taken now. We'll confirm your dates and arrange payment separately.</p>
+        </form>
+      </div>
+
+      <!-- Success message shown after submit -->
+      <div class="success-msg" id="successMsg">
+        <div class="check">✅</div>
+        <h3>Request sent!</h3>
+        <p>Thank you! We'll review your dates and get back to you within 24 hours to confirm your booking.</p>
+      </div>
+    </div>
+
+  </div><!-- /.booking-wrapper -->
+
+  <footer>
+    <p>© 2025 Zeewind &nbsp;<span>·</span>&nbsp; Holiday Home at the Belgian Coast &nbsp;<span>·</span>&nbsp; All rights reserved</p>
+  </footer>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════════
+    //  BOOKED DATES — edit this list to mark dates as unavailable
+    //  Format: "YYYY-MM-DD"
+    //  Everything NOT in this list is shown as available.
+    // ═══════════════════════════════════════════════════════════════
+    const BOOKED_DATES = [
+      // Example booked periods — replace with your real bookings:
+      "2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05",
+      "2026-06-06", "2026-06-07",
+      "2026-07-12", "2026-07-13", "2026-07-14", "2026-07-15", "2026-07-16",
+      "2026-07-17", "2026-07-18", "2026-07-19",
+      "2026-08-02", "2026-08-03", "2026-08-04", "2026-08-05", "2026-08-06",
+      "2026-08-07", "2026-08-08", "2026-08-09", "2026-08-10", "2026-08-11",
+      "2026-08-12", "2026-08-13", "2026-08-14", "2026-08-15",
+    ];
+
+    const bookedSet = new Set(BOOKED_DATES);
+
+    // ── Calendar state ──────────────────────────────────────────
+    const today = new Date();
+    today.setHours(0,0,0,0);
+
+    let viewYear  = today.getFullYear();
+    let viewMonth = today.getMonth(); // 0-indexed
+
+    let checkIn  = null;
+    let checkOut = null;
+    let pickingCheckIn = true;
+
+    const MONTHS = ["January","February","March","April","May","June",
+                    "July","August","September","October","November","December"];
+    const DAYS   = ["Mo","Tu","We","Th","Fr","Sa","Su"];
+
+    function toKey(d) {
+      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    }
+
+    function parseKey(k) {
+      const [y,m,d] = k.split('-').map(Number);
+      const dt = new Date(y,m-1,d);
+      dt.setHours(0,0,0,0);
+      return dt;
+    }
+
+    function formatDisplay(d) {
+      if (!d) return '—';
+      return d.toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
+    }
+
+    function isBooked(d) { return bookedSet.has(toKey(d)); }
+    function isPast(d)   { return d < today; }
+
+    function rangeHasBooked(start, end) {
+      const cur = new Date(start);
+      cur.setDate(cur.getDate()+1);
+      while (cur < end) {
+        if (isBooked(cur)) return true;
+        cur.setDate(cur.getDate()+1);
+      }
+      return false;
+    }
+
+    function renderCalendar() {
+      const grid = document.getElementById('calGrid');
+      const label = document.getElementById('monthLabel');
+      grid.innerHTML = '';
+
+      label.textContent = `${MONTHS[viewMonth]} ${viewYear}`;
+
+      // Day name headers
+      DAYS.forEach(d => {
+        const el = document.createElement('div');
+        el.className = 'cal-day-name';
+        el.textContent = d;
+        grid.appendChild(el);
+      });
+
+      // First day of month (Monday-based)
+      const firstDay = new Date(viewYear, viewMonth, 1);
+      let startCol = firstDay.getDay(); // 0=Sun
+      startCol = startCol === 0 ? 6 : startCol - 1; // shift to Monday=0
+
+      for (let i = 0; i < startCol; i++) {
+        const el = document.createElement('div');
+        el.className = 'cal-day empty';
+        grid.appendChild(el);
+      }
+
+      const daysInMonth = new Date(viewYear, viewMonth+1, 0).getDate();
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(viewYear, viewMonth, day);
+        date.setHours(0,0,0,0);
+        const key = toKey(date);
+
+        const el = document.createElement('div');
+        el.textContent = day;
+
+        const past   = isPast(date);
+        const booked = isBooked(date);
+
+        // Determine class
+        const isCheckIn  = checkIn  && toKey(checkIn)  === key;
+        const isCheckOut = checkOut && toKey(checkOut) === key;
+        const inRange    = checkIn && checkOut && date > checkIn && date < checkOut;
+
+        if (isCheckIn || isCheckOut) {
+          el.className = 'cal-day selected';
+        } else if (inRange) {
+          el.className = 'cal-day in-range';
+        } else if (past) {
+          el.className = 'cal-day past';
+        } else if (booked) {
+          el.className = 'cal-day booked';
+        } else {
+          el.className = 'cal-day available';
+          el.addEventListener('click', () => handleDayClick(date));
+        }
+
+        grid.appendChild(el);
+      }
+
+      // Prev button: disable if current month is this month
+      const isCurrentMonth = viewYear === today.getFullYear() && viewMonth === today.getMonth();
+      document.getElementById('prevMonth').disabled = isCurrentMonth;
+
+      updateSummary();
+    }
+
+    function handleDayClick(date) {
+      if (isPast(date) || isBooked(date)) return;
+
+      if (pickingCheckIn || (checkIn && date <= checkIn)) {
+        // Start fresh selection
+        checkIn  = date;
+        checkOut = null;
+        pickingCheckIn = false;
+      } else {
+        // Picking check-out
+        if (rangeHasBooked(checkIn, date)) {
+          alert('Your selected range includes booked dates. Please choose different dates.');
+          return;
+        }
+        checkOut = date;
+        pickingCheckIn = true;
+
+        // Populate form inputs
+        document.getElementById('checkinInput').value  = toKey(checkIn);
+        document.getElementById('checkoutInput').value = toKey(checkOut);
+      }
+
+      renderCalendar();
+    }
+
+    function updateSummary() {
+      const el = document.getElementById('selSummary');
+      if (!checkIn && !checkOut) {
+        el.innerHTML = '📅 Click a date to set your <strong>check-in</strong>.';
+      } else if (checkIn && !checkOut) {
+        el.innerHTML = `✅ Check-in: <span>${formatDisplay(checkIn)}</span> &nbsp;→&nbsp; Now pick your <strong>check-out</strong> date.`;
+      } else {
+        const nights = Math.round((checkOut - checkIn) / 86400000);
+        el.innerHTML = `✅ <span>${formatDisplay(checkIn)}</span> → <span>${formatDisplay(checkOut)}</span> &nbsp;·&nbsp; <span>${nights} night${nights>1?'s':''}</span>`;
+      }
+    }
+
+    // Month navigation
+    document.getElementById('prevMonth').addEventListener('click', () => {
+      viewMonth--;
+      if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+      renderCalendar();
+    });
+    document.getElementById('nextMonth').addEventListener('click', () => {
+      viewMonth++;
+      if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+      renderCalendar();
+    });
+
+    // Form submission via Formspree
+    const form = document.getElementById('bookingForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          document.getElementById('formArea').style.display = 'none';
+          document.getElementById('successMsg').style.display = 'block';
+        } else {
+          alert('Something went wrong. Please try again or contact us directly by email.');
+        }
+      } catch {
+        alert('Could not send the form. Please contact us directly by email.');
+      }
+    });
+
+    // Init
+    renderCalendar();
+  </script>
+</body>
+</html>

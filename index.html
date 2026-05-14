@@ -60,7 +60,8 @@
     /* ── Hero ─────────────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(160deg, #1a6b8a 0%, #2a9d8f 50%, #264653 100%);
+      background: linear-gradient(160deg, rgba(26,107,138,0.72) 0%, rgba(38,70,83,0.75) 100%),
+                  url('beach1.jpg') center center / cover no-repeat;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -173,19 +174,14 @@
     .about-image {
       border-radius: 16px;
       overflow: hidden;
-      background: var(--sky);
       height: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--sea);
-      font-family: 'Arial', sans-serif;
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 2rem;
-      border: 2px dashed #b0d4e3;
     }
-    .about-image span { opacity: 0.6; }
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     /* ── Features ─────────────────────────────────────────────── */
     .features { background: var(--sky); }
@@ -364,6 +360,7 @@
       <a href="#features">Amenities</a>
       <a href="#gallery">Gallery</a>
       <a href="#location">Location</a>
+      <a href="booking.html">Book</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -374,7 +371,7 @@
     <h1>Zeewind</h1>
     <p class="hero-tagline">Wake up to sea air, step outside to your private garden, and spend your days between pool and beach.</p>
     <div>
-      <a href="#contact" class="btn btn-primary">Check Availability</a>
+      <a href="booking.html" class="btn btn-primary">Check Availability</a>
       <a href="#about" class="btn btn-outline">Discover More</a>
     </div>
     <div class="hero-badges">
@@ -402,21 +399,24 @@
           <!-- Update these details with your actual property specs -->
           <div style="display:flex; gap:2rem; flex-wrap:wrap;">
             <div style="text-align:center;">
-              <div style="font-size:2rem; font-weight:bold; color:var(--sea);">—</div>
+              <div style="font-size:2rem; font-weight:bold; color:var(--sea);">3</div>
               <div style="font-family:'Arial',sans-serif; font-size:0.85rem; color:#889;">Bedrooms</div>
             </div>
             <div style="text-align:center;">
-              <div style="font-size:2rem; font-weight:bold; color:var(--sea);">—</div>
-              <div style="font-family:'Arial',sans-serif; font-size:0.85rem; color:#889;">Bathrooms</div>
+              <div style="font-size:2rem; font-weight:bold; color:var(--sea);">1</div>
+              <div style="font-family:'Arial',sans-serif; font-size:0.85rem; color:#889;">Bathroom</div>
             </div>
             <div style="text-align:center;">
-              <div style="font-size:2rem; font-weight:bold; color:var(--sea);">—</div>
+              <div style="font-size:2rem; font-weight:bold; color:var(--sea);">6</div>
               <div style="font-family:'Arial',sans-serif; font-size:0.85rem; color:#889;">Max Guests</div>
             </div>
           </div>
+          <div style="margin-top:2rem;">
+            <a href="booking.html" class="btn btn-primary">Check Availability</a>
+          </div>
         </div>
         <div class="about-image">
-          <span>📷 Add your main photo here<br><br>We'll replace this placeholder in the next step</span>
+          <img src="beach2.jpg" alt="The beach near Zeewind, just minutes away" />
         </div>
       </div>
     </div>
@@ -470,13 +470,17 @@
       <h2 class="section-title">See it for yourself</h2>
       <p class="section-sub">A few glimpses of what awaits you at Zeewind.</p>
       <div class="gallery-grid">
-        <div class="gallery-item">📷 Main photo (living room / exterior)</div>
-        <div class="gallery-item">📷 Photo 2</div>
-        <div class="gallery-item">📷 Photo 3</div>
-        <div class="gallery-item">📷 Photo 4</div>
-        <div class="gallery-item">📷 Photo 5</div>
+        <div class="gallery-item" style="padding:0; overflow:hidden;">
+          <img src="beach1.jpg" alt="The beach near Zeewind" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="gallery-item" style="padding:0; overflow:hidden;">
+          <img src="beach2.jpg" alt="Dunes near Zeewind" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="gallery-item">📷 Coming soon</div>
+        <div class="gallery-item">📷 Coming soon</div>
+        <div class="gallery-item">📷 Coming soon</div>
       </div>
-      <p class="gallery-note">Photos coming soon — we'll add them in the next step.</p>
+      <p class="gallery-note">Photos of the house coming soon. The beach is just minutes away.</p>
     </div>
   </section>
 
