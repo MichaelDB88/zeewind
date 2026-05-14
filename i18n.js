@@ -19,7 +19,7 @@
         thingsDescription: 'Discover things to do near Zeewind II Holiday Park in Bredene, including the new LAGO Bredene Grasduinen swimming pool, beaches, dunes, and family-friendly activities on the Belgian coast.'
       },
       common: {
-        navHouse: 'The House',
+        navHouse: 'Our Home',
         navAmenities: 'Amenities',
         navGallery: 'Gallery',
         navLocation: 'Location',
@@ -39,7 +39,7 @@
         badgePool: '🏊 Pool Access',
         badgeGarden: '🌿 Private Garden',
         badgeParking: '🚗 Free Parking',
-        houseLabel: 'The House',
+        houseLabel: 'Our Home',
         houseTitle: 'A home away from home on the Belgian coast',
         houseCopy1: 'Zeewind is a charming holiday home nestled within a peaceful vacation domain, just steps from the Belgian coastline. With its warm atmosphere and thoughtful amenities, it is the perfect retreat for families, couples, and friends — four-legged companions welcome too.',
         houseCopy2: 'Enjoy your morning coffee in the private garden, spend lazy afternoons at the shared pool, and end the day with a stroll along the beach. Everything you need for a perfect holiday is right here.',
@@ -193,7 +193,7 @@
         thingsDescription: 'Ontdek wat er te doen is bij Zeewind II Holiday Park in Bredene, inclusief het nieuwe LAGO Bredene Grasduinen zwembad, stranden, duinen en gezinsvriendelijke activiteiten aan de Belgische kust.'
       },
       common: {
-        navHouse: 'Het huis',
+        navHouse: 'Ons huis',
         navAmenities: 'Voorzieningen',
         navGallery: 'Foto’s',
         navLocation: 'Ligging',
@@ -367,7 +367,7 @@
         thingsDescription: 'Découvrez les activités près du Zeewind II Holiday Park à Bredene, dont la nouvelle piscine LAGO Bredene Grasduinen, les plages, les dunes et les sorties familiales à la côte belge.'
       },
       common: {
-        navHouse: 'La maison',
+        navHouse: 'Notre maison',
         navAmenities: 'Équipements',
         navGallery: 'Photos',
         navLocation: 'Situation',
@@ -541,7 +541,7 @@
         thingsDescription: 'Entdecken Sie Aktivitäten beim Zeewind II Holiday Park in Bredene, darunter das neue Schwimmbad LAGO Bredene Grasduinen, Strände, Dünen und familienfreundliche Ausflüge an der belgischen Küste.'
       },
       common: {
-        navHouse: 'Das Haus',
+        navHouse: 'Unser Zuhause',
         navAmenities: 'Ausstattung',
         navGallery: 'Galerie',
         navLocation: 'Lage',
