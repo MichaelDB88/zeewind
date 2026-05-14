@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css');
+
 .language-switcher {
   position: relative;
   margin-left: 1rem;
@@ -87,4 +89,12 @@
     min-width: 98px;
     padding: 0.42rem 0.65rem;
   }
+}
+
+/* Flag icon sizing inside language switcher */
+.language-flag.fi {
+  font-size: 1.2rem;
+  width: 1.4em;
+  height: 1em;
+  border-radius: 2px;
 }
