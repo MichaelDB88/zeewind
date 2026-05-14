@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Things to Do Near Zeewind in Bredene | Belgian Coast</title>
-  <meta name="description" content="Discover things to do near Zeewind II Holiday Park in Bredene, including the new LAGO Bredene Grasduinen swimming pool, beaches, dunes, and family-friendly activities on the Belgian coast." />
+  <title>Things to Do Near Zeewind II in Bredene | Family Activities &amp; Day Trips</title>
+  <meta name="description" content="Discover things to do near Zeewind II Holiday Park in Bredene, including LAGO Bredene Grasduinen, Fort Napoleon in Ostend, Brasserie Duinenhoeve, beach walks, local events, family activities and easy Belgian coast day trips." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -138,6 +138,7 @@
     }
     .intro-card strong { color: var(--dark); }
     .activity { background: var(--sand); }
+    .activity-cards { display: flex; flex-direction: column; gap: 2rem; }
     .activity-card {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 320px;
@@ -217,7 +218,7 @@
       text-decoration: underline;
       text-underline-offset: 4px;
     }
-    .coming-next { background: #fff; }
+    .ideas { background: #fff; }
     .ideas-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -227,17 +228,61 @@
       background: var(--sky);
       border-radius: 14px;
       padding: 1.4rem;
-      min-height: 150px;
     }
     .idea h3 {
       font-size: 1.05rem;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
       color: var(--dark);
     }
     .idea p {
       font-family: Arial, sans-serif;
       font-size: 0.9rem;
       color: #667;
+      margin-bottom: 0.8rem;
+    }
+    .idea-details {
+      list-style: none;
+      margin: 0.8rem 0 1rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      color: #556;
+    }
+    .idea-details li {
+      border-top: 1px solid #d6e8f0;
+      padding: 0.45rem 0;
+    }
+    .idea-details li:last-child { border-bottom: 1px solid #d6e8f0; }
+    .idea-details strong { color: var(--dark); }
+    .idea-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--sea);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .idea-link:hover { color: var(--accent); }
+    .idea.featured { background: var(--sand); border: 1.5px solid #e0d0bc; }
+    .tourism { background: var(--sky); }
+    .tourism-inner {
+      max-width: 760px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.2rem 2.5rem;
+      box-shadow: 0 4px 20px rgba(26,107,138,0.07);
+    }
+    .tourism-inner h2 {
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+    .tourism-inner p {
+      font-family: Arial, sans-serif;
+      font-size: 0.97rem;
+      color: #556;
+      margin-bottom: 1.2rem;
     }
     .cta {
       background: linear-gradient(135deg, var(--dark) 0%, var(--sea) 100%);
@@ -262,12 +307,14 @@
     footer span { color: rgba(255,255,255,0.25); }
     @media (max-width: 900px) {
       .activity-card { grid-template-columns: 1fr; }
-      .ideas-grid { grid-template-columns: 1fr; }
+      .ideas-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .intro-grid { grid-template-columns: 1fr; }
       .details-list { grid-template-columns: 1fr; }
+      .ideas-grid { grid-template-columns: 1fr; }
+      .tourism-inner { padding: 1.5rem; }
     }
   </style>
   <link rel="stylesheet" href="language.css" />
@@ -299,85 +346,165 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="page-hero">
     <div class="hero-inner">
-      <p class="eyebrow">Bredene & Belgian Coast</p>
+      <p class="eyebrow">Bredene &amp; Belgian Coast</p>
       <h1>Things to Do Near Zeewind</h1>
-      <p class="hero-copy">Zeewind II Holiday Park is a relaxed base for beach days, family outings, and easy trips around Bredene and the Belgian coast.</p>
+      <p class="hero-copy">Our holiday home at Zeewind II Holiday Park sits in the heart of Bredene — a relaxed base for beach days, family activities, food and drinks, and easy day trips along the Belgian coast.</p>
       <a href="booking.html" class="btn btn-primary">Check Availability</a>
     </div>
   </section>
 
+  <!-- INTRO -->
   <section class="intro">
     <div class="container">
       <div class="intro-grid">
         <div>
           <p class="section-label">Local Guide</p>
-          <h2 class="section-title">Plan more than a place to sleep</h2>
-          <p class="section-sub">Guests often choose a holiday home because the area feels easy: something for children, something for rainy days, somewhere to swim, and a few simple ideas close to home. This guide starts with one of the newest family-friendly spots in Bredene.</p>
+          <h2 class="section-title">A holiday home in the heart of Bredene</h2>
+          <p class="section-sub">Our holiday home at Zeewind II Holiday Park is located in the heart of Bredene, making it an ideal base for discovering the Belgian coast. From beach days and dune walks to family swimming, rainy-day activities, food and drinks, local events and short day trips, there is plenty to do nearby without needing to plan a complicated itinerary.</p>
+          <p style="font-family:Arial,sans-serif;font-size:1rem;color:#556;">Whether you are travelling with children, planning a relaxed coastal break, or looking for easy activities close to your holiday home in Bredene, Zeewind II puts you close to many of the area's most practical and enjoyable options. This guide starts with two easy ideas close to the holiday home: LAGO Bredene Grasduinen in Bredene and Fort Napoleon in nearby Ostend.</p>
         </div>
         <div class="intro-card">
-          <p><strong>Staying at Zeewind II:</strong> you are in Bredene, close to the coast and within reach of local leisure spots, beaches, dunes, restaurants, and day trips along the Belgian seaside.</p>
+          <p><strong>Staying at Zeewind II Holiday Park:</strong> you are in Bredene, close to the coast and within easy reach of swimming, beaches, dunes, restaurants, family activities and day trips along the Belgian seaside.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FEATURED ACTIVITIES -->
   <section class="activity">
     <div class="container">
-      <p class="section-label">Featured Nearby</p>
-      <div class="activity-card">
-        <div class="activity-body">
-          <span class="activity-kicker">New in Bredene</span>
-          <h2>LAGO Bredene Grasduinen</h2>
-          <p>LAGO Bredene Grasduinen is the new sport and recreation centre in Bredene. It is a strong option for families who want a swimming day nearby, especially when the weather turns or children need a change from the beach.</p>
-          <p>According to LAGO, the centre includes a swimming paradise with an interactive children's pool, a wild-water attraction, outdoor pools, a sauna, a play creek, a bistro, fitness options, and an indoor play area.</p>
-          <ul class="details-list">
-            <li><strong>Best for</strong> Families, children, swimming, rainy days</li>
-            <li><strong>Address</strong> Oscar Goethalsstraat 4, 8450 Bredene</li>
-            <li><strong>Useful to know</strong> Check opening hours before you go</li>
-            <li><strong>Tickets</strong> Available through the official LAGO website</li>
-          </ul>
-          <a href="https://www.lago.be/nl/bredene" class="btn btn-secondary">Visit LAGO Bredene</a>
-        </div>
-        <aside class="activity-aside">
-          <div>
-            <h3>A handy extra reason to book Zeewind</h3>
-            <p>A beach holiday is easier when there is also a nearby pool, play area, and bistro. It gives families another plan without needing a long day trip.</p>
+      <p class="section-label">Easy Activities Close to Zeewind II</p>
+      <h2 class="section-title">Featured nearby</h2>
+      <p class="section-sub">From swimming and family fun in Bredene to a historic day trip in Ostend, these nearby activities are easy to combine with a stay at Zeewind II Holiday Park. They are close enough to keep your holiday relaxed, but varied enough to add something memorable to your stay.</p>
+
+      <div class="activity-cards">
+
+        <!-- LAGO -->
+        <div class="activity-card">
+          <div class="activity-body">
+            <span class="activity-kicker">Swimming &amp; Family Fun</span>
+            <h2>LAGO Bredene Grasduinen</h2>
+            <p>LAGO Bredene Grasduinen is one of the easiest family activities near Zeewind II. Located in Bredene, it is a practical choice when you want an active day close to the holiday home, especially with children or when the weather is less suitable for the beach.</p>
+            <p>The centre offers a modern swimming and recreation experience with facilities for different ages. Families can enjoy swimming, children's water play, relaxing areas and food or drinks nearby, making it a useful option for both a planned activity and a flexible rainy-day idea near Bredene.</p>
+            <p>For guests staying at Zeewind II Holiday Park, LAGO is especially convenient because it adds variety to a coastal stay without requiring a long day trip. You can spend the morning at the beach, go swimming in the afternoon, or keep it as a backup plan when the weather changes. It is the kind of nearby activity that makes a family holiday in Bredene easier to plan, especially if you want options beyond the beach.</p>
+            <ul class="details-list">
+              <li><strong>Best for</strong>Families, swimming, children, rainy days, active afternoons</li>
+              <li><strong>Location</strong>Oscar Goethalsstraat 4, 8450 Bredene</li>
+              <li><strong>Good to combine with</strong>Beach time, a relaxed evening at Zeewind II, local food and drinks</li>
+              <li><strong>Useful to know</strong>Check opening hours and ticket information before visiting</li>
+            </ul>
+            <a href="https://www.lago.be/nl/bredene" class="btn btn-secondary" target="_blank" rel="noopener">Visit LAGO Bredene Grasduinen</a>
           </div>
-          <a href="https://www.lago.be/nl/bredene" class="official-link">Official LAGO Bredene website</a>
-        </aside>
+          <aside class="activity-aside">
+            <div>
+              <h3>A practical extra for your beach holiday</h3>
+              <p>A coastal stay is easier when there is also a nearby pool, play area, and bistro close to the holiday home. LAGO gives families an extra plan without needing a long day trip from Bredene.</p>
+            </div>
+            <a href="https://www.lago.be/nl/bredene" class="official-link" target="_blank" rel="noopener">Official LAGO Bredene website</a>
+          </aside>
+        </div>
+
+        <!-- FORT NAPOLEON -->
+        <div class="activity-card">
+          <div class="activity-body">
+            <span class="activity-kicker">Historic Day Trip</span>
+            <h2>Fort Napoleon in Ostend</h2>
+            <p>Fort Napoleon is a historic coastal landmark on the Oosteroever in Ostend, within easy reach of Zeewind II Holiday Park in Bredene. It is a good choice when you want to add a cultural outing to your beach holiday, or when the weather is less suited to a full day by the sea.</p>
+            <p>Visitors can follow the story trail through the fort, explore its thick walls and atmospheric rooms, and discover changing exhibitions throughout the year. The visit is compact enough for a half-day trip, but different enough to feel like a real excursion from Bredene.</p>
+            <p>For families, Fort Napoleon offers a nice change of pace from the beach. Children can explore a real historic building, while adults get an easy cultural stop that can be combined with a walk, lunch, or more time in Ostend. It is also a useful option for guests who want to discover more of the Belgian coast without travelling far from their holiday home.</p>
+            <ul class="details-list">
+              <li><strong>Best for</strong>History, culture, families, rainy days, Ostend day trips</li>
+              <li><strong>Address</strong>Vuurtorenweg 13, 8400 Oostende</li>
+              <li><strong>Visit duration</strong>Around 1 hour</li>
+              <li><strong>Useful to know</strong>Booking tickets in advance is recommended</li>
+            </ul>
+            <a href="https://www.fort-napoleon.be/nl" class="btn btn-secondary" target="_blank" rel="noopener">Visit Fort Napoleon</a>
+          </div>
+          <aside class="activity-aside">
+            <div>
+              <h3>A cultural outing close to Bredene</h3>
+              <p>Ostend is close enough for a half-day trip from Zeewind II. Fort Napoleon works well on its own or combined with a walk along the Oosteroever, lunch in Ostend, or more time exploring the city.</p>
+            </div>
+            <a href="https://www.fort-napoleon.be/nl" class="official-link" target="_blank" rel="noopener">Official Fort Napoleon website</a>
+          </aside>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="coming-next">
+  <!-- MORE LOCAL IDEAS -->
+  <section class="ideas">
     <div class="container">
       <p class="section-label">More Local Ideas</p>
-      <h2 class="section-title">More tips coming soon</h2>
-      <p class="section-sub">This guide will grow with more recommendations around Bredene and the Belgian coast.</p>
+      <h2 class="section-title">More ways to enjoy your stay</h2>
+      <p class="section-sub">Beyond the main featured activities, Bredene and the surrounding coast offer plenty of simple ways to enjoy your stay. From slow beach mornings to short trips along the coast, these ideas are easy to combine with a holiday at Zeewind II.</p>
+
       <div class="ideas-grid">
+
         <div class="idea">
-          <h3>Beach and dunes</h3>
-          <p>Simple coastal days close to Zeewind, with room for walks, sandcastles, and fresh sea air.</p>
+          <h3>🏖️ Beach and dunes</h3>
+          <p>Bredene is known for its natural beach and dunes, making it a lovely place for slow mornings, long walks, sandcastles, fresh air and relaxed days by the sea. From Zeewind II, beach time can easily become part of your daily rhythm: a walk before breakfast, an afternoon in the sand, or an evening stroll when the coast becomes quieter.</p>
+          <p>The beach and dunes are one of the main reasons guests choose a holiday home in Bredene. They offer space, simplicity and the classic Belgian coast feeling without needing a complicated plan.</p>
         </div>
+
         <div class="idea">
-          <h3>Food and drinks</h3>
-          <p>Local cafes, restaurants, and easy places to eat after a day outside.</p>
+          <h3>🚲 Cycling and walking</h3>
+          <p>The Belgian coast is easy to explore by bike or on foot. From Zeewind II, guests can enjoy local routes through Bredene, the dunes and nearby coastal towns. It is a simple way to discover the area at your own pace, whether you want a short family walk, a longer bike ride or a scenic route towards another seaside town.</p>
+          <p>Cycling and walking are especially useful for guests who want to enjoy the coast without using the car every day.</p>
         </div>
+
         <div class="idea">
-          <h3>Day trips</h3>
-          <p>Ideas for exploring more of the Belgian coast from Bredene.</p>
+          <h3>⚓ Ostend day trip</h3>
+          <p>Ostend is close enough for a relaxed day trip from Bredene and adds city energy to a coastal holiday. Guests can combine Fort Napoleon with the Oosteroever, the seafront, shops, restaurants, museums or a coastal walk.</p>
+          <p>Because Ostend is nearby, it works well as a flexible outing: you can go for a few hours, plan lunch or dinner there, or keep it as an option for a less sunny day. It is one of the easiest day trips from Bredene.</p>
         </div>
+
+        <div class="idea">
+          <h3>🏘️ De Haan and nearby seaside towns</h3>
+          <p>De Haan and other nearby coastal towns are easy to visit from Bredene, making Zeewind II a practical base for exploring more of the Belgian coast. De Haan is known for its charming coastal atmosphere, Belle Époque-style villas and relaxed seaside feeling.</p>
+          <p>This is a good option when you want a change of scenery while keeping the day simple. Guests can enjoy a walk, a drink, a meal or a short visit before returning to the calm of Zeewind II.</p>
+        </div>
+
+        <div class="idea featured">
+          <h3>🍽️ Brasserie Duinenhoeve</h3>
+          <p>Brasserie Duinenhoeve is located in the centre of Holiday Park Zeewind II, right next to the swimming pool. This makes it one of the easiest places for guests to enjoy food or drinks without leaving the holiday park. It is a practical option after swimming, after a beach day, or when you want a relaxed meal close to the holiday home.</p>
+          <p>The brasserie is child-friendly and offers an indoor children's corner, with a playground and football area nearby. The menu includes monthly menus, à la carte dishes, drinks and seasonal options — including pancakes and bubble waffles during summer, making it a useful stop for families. For guests staying at Zeewind II, it is one of the most convenient food and drinks options near a holiday home in Bredene.</p>
+          <ul class="idea-details">
+            <li><strong>Best for</strong> Easy meals, drinks, families with children</li>
+            <li><strong>Location</strong> Inside Holiday Park Zeewind II, next to the pool</li>
+            <li><strong>Good to combine with</strong> Swimming, beach days, relaxed evenings</li>
+            <li><strong>Useful to know</strong> Child-friendly, indoor play corner, free parking</li>
+          </ul>
+          <a href="https://www.brasserieduinenhoeve.be/?lang=en" class="idea-link" target="_blank" rel="noopener">Visit Brasserie Duinenhoeve</a>
+        </div>
+
       </div>
     </div>
   </section>
 
+  <!-- TOURISM INFO -->
+  <section class="tourism">
+    <div class="container">
+      <div class="tourism-inner">
+        <p class="section-label">Local Resources</p>
+        <h2>More information and events in Bredene</h2>
+        <p>For the latest events, local tips, brochures, practical visitor information and seasonal activities in Bredene, it is worth checking the official Bredene tourism website. It is a useful source for guests who want to see what is happening during their stay, from family activities and cultural events to beach information, markets and local recommendations.</p>
+        <p>This link is especially helpful for up-to-date events in Bredene and things to do in Bredene that change throughout the year, while this page highlights the easiest and most relevant activities for guests staying at Zeewind II Holiday Park.</p>
+        <a href="https://www.bredene.be/homepage-toerisme" class="btn btn-secondary" target="_blank" rel="noopener">Visit the official Bredene tourism website</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="cta">
     <div class="container">
       <p class="section-label">Stay at Zeewind</p>
       <h2 class="section-title">Make Bredene your holiday base</h2>
-      <p class="section-sub">Choose Zeewind for an easy coastal stay with beach days, family activities, and local outings close by.</p>
+      <p class="section-sub">Stay at Zeewind II and enjoy a holiday home in the heart of Bredene, close to the beach, swimming, food and drinks, family activities and easy day trips along the Belgian coast.</p>
       <a href="booking.html" class="btn btn-primary">Check Availability</a>
     </div>
   </section>
