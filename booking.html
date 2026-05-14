@@ -380,54 +380,59 @@
       padding-left: 0.3rem;
     }
 
-    /* ── Info tooltip ── */
+    /* ── Info tooltip — pure CSS hover, no JS needed ── */
     .info-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 16px; height: 16px;
+      width: 17px; height: 17px;
       border-radius: 50%;
       background: var(--sea);
       color: #fff;
       font-size: 0.65rem;
       font-weight: bold;
-      cursor: pointer;
+      cursor: default;
       flex-shrink: 0;
       border: none;
       font-family: 'Arial', sans-serif;
-      position: relative;
-      z-index: 10;
+      margin-left: 3px;
       vertical-align: middle;
-      margin-left: 2px;
     }
-    .tooltip-wrap { position: relative; display: inline-block; }
+    .tooltip-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
     .tooltip-box {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
       position: absolute;
-      bottom: calc(100% + 8px);
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: calc(100% + 10px);
+      right: 0;
       background: var(--dark);
       color: #fff;
       font-family: 'Arial', sans-serif;
       font-size: 0.78rem;
-      line-height: 1.4;
-      padding: 0.6rem 0.8rem;
-      border-radius: 8px;
-      width: 200px;
-      z-index: 200;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      line-height: 1.5;
+      padding: 0.65rem 0.9rem;
+      border-radius: 10px;
+      width: 210px;
+      z-index: 300;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
       pointer-events: none;
+      transition: opacity 0.15s, visibility 0.15s;
     }
     .tooltip-box::after {
       content: '';
       position: absolute;
-      top: 100%; left: 50%;
-      transform: translateX(-50%);
-      border: 6px solid transparent;
+      top: 100%; right: 6px;
+      border: 7px solid transparent;
       border-top-color: var(--dark);
     }
-    .tooltip-wrap.open .tooltip-box { display: block; }
+    .tooltip-wrap:hover .tooltip-box {
+      visibility: visible;
+      opacity: 1;
+    }
 
     /* ── Success message ── */
     .success-msg {
@@ -633,50 +638,50 @@
           <!-- ── Extras ── -->
           <div class="form-group">
             <label>Extras (optional)</label>
-            <div class="extras-grid" id="extrasGrid">
+            <div class="extras-grid">
 
-              <div class="extra-item" data-name="extra_babycot">
+              <div class="extra-item" onclick="selectExtra(this)">
                 <input type="checkbox" name="extra_babycot" value="Yes" />
                 <span class="extra-icon">🛏️</span>
                 <span class="extra-label">Baby cot<small>For babies 0–2</small></span>
                 <span class="extra-price">on request</span>
               </div>
 
-              <div class="extra-item" data-name="extra_highchair">
+              <div class="extra-item" onclick="selectExtra(this)">
                 <input type="checkbox" name="extra_highchair" value="Yes" />
                 <span class="extra-icon">🪑</span>
                 <span class="extra-label">High chair<small>For toddlers</small></span>
                 <span class="extra-price">on request</span>
               </div>
 
-              <div class="extra-item" data-name="extra_linen">
+              <div class="extra-item" onclick="selectExtra(this)">
                 <input type="checkbox" name="extra_linen" value="Yes" />
                 <span class="extra-icon">🛌</span>
                 <span class="extra-label">Bed linen<small>Sheets &amp; pillowcases</small></span>
                 <span class="extra-price">on request</span>
               </div>
 
-              <div class="extra-item" data-name="extra_towels">
+              <div class="extra-item" onclick="selectExtra(this)">
                 <input type="checkbox" name="extra_towels" value="Yes" />
                 <span class="extra-icon">🏖️</span>
                 <span class="extra-label">Towels<small>Bath &amp; beach towels</small></span>
                 <span class="extra-price">on request</span>
               </div>
 
-              <div class="extra-item" data-name="extra_babybath">
+              <div class="extra-item" onclick="selectExtra(this)">
                 <input type="checkbox" name="extra_babybath" value="Yes" />
                 <span class="extra-icon">🛁</span>
                 <span class="extra-label">Baby bath<small>Portable tub</small></span>
                 <span class="extra-price">on request</span>
               </div>
 
-              <div class="extra-item" data-name="extra_welcomepack">
+              <div class="extra-item" onclick="selectExtra(this)">
                 <input type="checkbox" name="extra_welcomepack" value="Yes" />
                 <span class="extra-icon">🎁</span>
                 <span class="extra-label">
                   Welcome pack
-                  <small>Arrival essentials included</small>
+                  <small>Arrival essentials</small>
                 </span>
-                <span class="tooltip-wrap" id="wpTooltip">
-                  <button type="button" class="info-btn" onclick="toggleTooltip(event,'wpTooltip')">i</button>
-                  <span class="tooltip-box">A warm welcome basket with esse
+                <span class="tooltip-wrap" onclick="event.stopPropagation()">
+                  <span class="info-btn">i</span>
+                  <span class="tooltip-box">A warm welcome baske
