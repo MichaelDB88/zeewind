@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zeewind &ndash; Vacation Home at the Belgian Coast</title>
-  <meta name="description" content="Zeewind &ndash; a beautiful holiday home at the Belgian coast. Pet-friendly, private garden, parking, and access to pool. Book your stay today." />
+  <title>Zeewind – Vacation Home at the Belgian Coast</title>
+  <meta name="description" content="Zeewind – a beautiful holiday home at the Belgian coast. Pet-friendly, private garden, parking, and access to pool. Book your stay today." />
   <style>
+    /* ── Reset & base ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Georgia', serif; color: #2c3e50; background: #fff; line-height: 1.7; }
+    body {
+      font-family: 'Georgia', serif;
+      color: #2c3e50;
+      background: #fff;
+      line-height: 1.7;
+    }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
+
+    /* ── Colours ──────────────────────────────────────────────── */
     :root {
       --sea:    #1a6b8a;
       --sky:    #e8f4f8;
@@ -19,81 +27,382 @@
       --dark:   #1c2b36;
       --light:  #ffffff;
     }
+
+    /* ── Nav ──────────────────────────────────────────────────── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 1rem 2rem;
-      background: rgba(26,107,138,0.92); backdrop-filter: blur(6px);
+      background: rgba(26, 107, 138, 0.92);
+      backdrop-filter: blur(6px);
     }
-    .nav-logo { font-size: 1.5rem; font-weight: bold; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
-    .nav-links a { color: rgba(255,255,255,0.85); margin-left: 1.8rem; font-family: 'Arial',sans-serif; font-size: 0.9rem; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      margin-left: 1.8rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
     .nav-links a:hover { color: #fff; }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
       background: linear-gradient(160deg, rgba(26,107,138,0.72) 0%, rgba(38,70,83,0.75) 100%),
                   url('beach1.png') center center / cover no-repeat;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 6rem 1.5rem 3rem; position: relative; overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 1.5rem 3rem;
+      position: relative;
+      overflow: hidden;
     }
     .hero::before {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom center / cover;
     }
-    .hero-eyebrow { font-family: 'Arial',sans-serif; font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 1rem; }
-    .hero h1 { font-size: clamp(3rem,10vw,6rem); color: #fff; letter-spacing: 6px; text-transform: uppercase; line-height: 1; margin-bottom: 1rem; }
-    .hero-tagline { font-size: clamp(1rem,2.5vw,1.35rem); color: rgba(255,255,255,0.85); max-width: 520px; margin: 0 auto 2.5rem; }
-    .btn { display: inline-block; padding: 0.9rem 2.4rem; border-radius: 50px; font-family: 'Arial',sans-serif; font-size: 0.95rem; font-weight: bold; letter-spacing: 1px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+    .hero-eyebrow {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 10vw, 6rem);
+      color: #fff;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: rgba(255,255,255,0.85);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      border-radius: 50px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.6); margin-left: 1rem; }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 3rem; }
-    .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 0.4rem 1rem; border-radius: 50px; font-family: 'Arial',sans-serif; font-size: 0.82rem; letter-spacing: 0.5px; }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.6);
+      margin-left: 1rem;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Section base ─────────────────────────────────────────── */
     section { padding: 5rem 1.5rem; }
     .container { max-width: 1060px; margin: 0 auto; }
-    .section-label { font-family: 'Arial',sans-serif; font-size: 0.78rem; letter-spacing: 4px; text-transform: uppercase; color: var(--sea); margin-bottom: 0.6rem; }
-    .section-title { font-size: clamp(1.8rem,4vw,2.8rem); line-height: 1.2; margin-bottom: 1.2rem; }
-    .section-sub { font-size: 1.05rem; color: #556; max-width: 600px; margin-bottom: 3rem; }
+    .section-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--sea);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: #556;
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── About ────────────────────────────────────────────────── */
     .about { background: #fff; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .about-image { border-radius: 16px; overflow: hidden; height: 380px; }
-    .about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-image {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 380px;
+    }
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Features ─────────────────────────────────────────────── */
     .features { background: var(--sky); }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.5rem; }
-    .feature-card { background: #fff; border-radius: 14px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 2px 16px rgba(26,107,138,0.07); transition: transform 0.2s, box-shadow 0.2s; }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(26,107,138,0.12); }
-    .feature-icon { font-size: 2.4rem; margin-bottom: 1rem; }
-    .feature-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
-    .feature-card p { font-size: 0.9rem; color: #667; font-family: 'Arial',sans-serif; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(26,107,138,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(26,107,138,0.12);
+    }
+    .feature-icon {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #667;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* ── Gallery ──────────────────────────────────────────────── */
     .gallery { background: var(--sand); }
-    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: 220px 220px; gap: 1rem; border-radius: 16px; overflow: hidden; }
-    .gallery-item { background: #c9dde8; display: flex; align-items: center; justify-content: center; color: var(--sea); font-family: 'Arial',sans-serif; font-size: 0.82rem; text-align: center; padding: 1rem; }
-    .gallery-item:first-child { grid-column: span 2; background: #a8ccd8; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-    .gallery-note { font-family: 'Arial',sans-serif; font-size: 0.85rem; color: #889; margin-top: 1rem; text-align: center; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 220px 220px;
+      gap: 1rem;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .gallery-item {
+      background: #c9dde8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sea);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 1rem;
+    }
+    .gallery-item:first-child {
+      grid-column: span 2;
+      background: #a8ccd8;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-note {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      color: #889;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    /* ── Location ─────────────────────────────────────────────── */
     .location { background: #fff; }
-    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-    .location-map { border-radius: 14px; overflow: hidden; height: 320px; background: var(--sky); display: flex; align-items: center; justify-content: center; color: var(--sea); font-family: 'Arial',sans-serif; font-size: 0.9rem; text-align: center; padding: 2rem; border: 2px dashed #b0d4e3; }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .location-map {
+      border-radius: 14px;
+      overflow: hidden;
+      height: 320px;
+    }
     .nearby-list { list-style: none; }
-    .nearby-list li { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #eee; font-family: 'Arial',sans-serif; font-size: 0.95rem; }
+    .nearby-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #eee;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+    }
     .nearby-list li:last-child { border-bottom: none; }
     .nearby-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .contact { background: linear-gradient(135deg, var(--dark) 0%, var(--sea) 100%); color: #fff; text-align: center; }
+
+    /* ── Contact ──────────────────────────────────────────────── */
+    .contact {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--sea) 100%);
+      color: #fff;
+      text-align: center;
+    }
     .contact .section-label { color: rgba(255,255,255,0.55); }
     .contact .section-title { color: #fff; }
     .contact .section-sub { color: rgba(255,255,255,0.75); margin: 0 auto 2.5rem; }
-    .contact-options { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-    .contact-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 14px; padding: 2rem 2.5rem; flex: 1; min-width: 220px; max-width: 300px; transition: background 0.2s; }
+    .contact-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 14px;
+      padding: 2rem 2.5rem;
+      flex: 1;
+      min-width: 220px;
+      max-width: 300px;
+      transition: background 0.2s;
+    }
     .contact-card:hover { background: rgba(255,255,255,0.18); }
     .contact-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
     .contact-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
-    .contact-card p { font-family: 'Arial',sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    .contact-card p {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
     .contact-card a { color: rgba(255,255,255,0.9); font-weight: bold; }
-    footer { background: var(--dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem; font-family: 'Arial',sans-serif; font-size: 0.82rem; }
+
+    /* ── Contact form ─────────────────────────────────────────── */
+    .contact-form {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .contact-form .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .contact-form .form-group {
+      margin-bottom: 1rem;
+    }
+    .contact-form label {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+      color: #fff;
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.15);
+    }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form .btn-submit {
+      width: 100%;
+      padding: 0.95rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 0.5rem;
+    }
+    .contact-form .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    @media (max-width: 600px) {
+      .contact-form .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 1.5rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+    }
     footer span { color: rgba(255,255,255,0.25); }
+
+    /* ── Responsive ───────────────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .about-grid, .location-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .about-grid,
+      .location-grid { grid-template-columns: 1fr; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
       .gallery-item:first-child { grid-column: span 2; }
       .btn-outline { margin-left: 0; margin-top: 0.75rem; }
     }
@@ -102,6 +411,7 @@
 </head>
 <body>
 
+  <!-- ── Navigation ───────────────────────────────────────────── -->
   <nav>
     <div class="nav-logo">Zeewind</div>
     <div class="nav-links">
@@ -120,30 +430,32 @@
       </button>
       <div class="language-menu" role="listbox" aria-label="Language">
         <button type="button" class="language-option" data-lang="nl" role="option"><span class="fi fi-nl language-flag" aria-hidden="true"></span><span>Nederlands</span></button>
-        <button type="button" class="language-option" data-lang="fr" role="option"><span class="fi fi-fr language-flag" aria-hidden="true"></span><span>Francais</span></button>
+        <button type="button" class="language-option" data-lang="fr" role="option"><span class="fi fi-fr language-flag" aria-hidden="true"></span><span>Français</span></button>
         <button type="button" class="language-option" data-lang="de" role="option"><span class="fi fi-de language-flag" aria-hidden="true"></span><span>Deutsch</span></button>
         <button type="button" class="language-option" data-lang="en" role="option"><span class="fi fi-gb language-flag" aria-hidden="true"></span><span>English</span></button>
       </div>
     </div>
   </nav>
 
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
   <section class="hero" id="home">
-    <p class="hero-eyebrow">Belgian Coast &nbsp;&middot;&nbsp; Holiday Home</p>
+    <p class="hero-eyebrow">Bredene &nbsp;&#183;&nbsp; Holiday Home by the Sea</p>
     <h1>Zeewind</h1>
-    <p class="hero-tagline">Wake up to sea air, step outside to your private garden, and spend your days between pool and beach.</p>
+    <p class="hero-tagline">Wake up to the fresh scent of the sea, enjoy your first coffee in the garden, and let the day unfold naturally with a swim in the pool, a walk to the beach, and plenty of time for yourself and your family.</p>
     <div>
       <a href="booking.html" class="btn btn-primary">Check Availability</a>
       <a href="#about" class="btn btn-outline">Discover More</a>
     </div>
     <div class="hero-badges">
-      <span class="badge">Near the Beach</span>
-      <span class="badge">Pet Friendly</span>
-      <span class="badge">Pool Access</span>
-      <span class="badge">Private Garden</span>
-      <span class="badge">Free Parking</span>
+      <span class="badge">🌊 Near the Beach</span>
+      <span class="badge">🐾 Pet Friendly</span>
+      <span class="badge">🏊 Pool Access</span>
+      <span class="badge">🌿 Private Garden</span>
+      <span class="badge">🚗 Free Parking</span>
     </div>
   </section>
 
+  <!-- ── About ─────────────────────────────────────────────────── -->
   <section class="about" id="about">
     <div class="container">
       <div class="about-grid">
@@ -151,11 +463,12 @@
           <p class="section-label">Our Home</p>
           <h2 class="section-title">A home away from home on the Belgian coast</h2>
           <p style="color:#556; font-family:'Arial',sans-serif; margin-bottom:1rem;">
-            Zeewind is a charming holiday home nestled within a peaceful vacation domain, just steps from the Belgian coastline. With its warm atmosphere and thoughtful amenities, it is the perfect retreat for families, couples, and friends &mdash; four-legged companions welcome too.
+            Zeewind is a charming holiday home nestled within a peaceful vacation domain, just steps from the Belgian coastline. With its warm atmosphere and thoughtful amenities, it's the perfect retreat for families, couples, and friends — four-legged companions welcome too.
           </p>
           <p style="color:#556; font-family:'Arial',sans-serif; margin-bottom:2rem;">
             Enjoy your morning coffee in the private garden, spend lazy afternoons at the shared pool, and end the day with a stroll along the beach. Everything you need for a perfect holiday is right here.
           </p>
+          <!-- Update these details with your actual property specs -->
           <div style="display:flex; gap:2rem; flex-wrap:wrap;">
             <div style="text-align:center;">
               <div style="font-size:2rem; font-weight:bold; color:var(--sea);">3</div>
@@ -181,6 +494,7 @@
     </div>
   </section>
 
+  <!-- ── Features ──────────────────────────────────────────────── -->
   <section class="features" id="features">
     <div class="container">
       <p class="section-label">Amenities</p>
@@ -188,14 +502,9 @@
       <p class="section-sub">Zeewind is equipped and ready so you can truly switch off and enjoy.</p>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">&#127754;</div>
+          <div class="feature-icon">🌊</div>
           <h3>Near the Beach</h3>
-          <p>Just a short walk to the sea &mdash; enjoy morning swims and evening strolls on the sand.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#127944;</div>
-          <h3>Pool Access</h3>
-          <p>Cool off in the shared pool of the vacation domain &mdash; perfect for kids and adults alike.</p>
+          <p>Just a short walk to the sea — enjoy morning swims and evening strolls on the sand.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#127807;</div>
@@ -203,17 +512,17 @@
           <p>Relax in your own outdoor space. BBQ evenings and morning coffees in the fresh sea air.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#128663;</div>
+          <div class="feature-icon">🚗</div>
           <h3>Free Parking</h3>
-          <p>Private parking on-site means no stress &mdash; arrive and unload with ease.</p>
+          <p>Private parking right at your doorstep — arrive and unload with ease.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#128062;</div>
+          <div class="feature-icon">🐾</div>
           <h3>Pet Friendly</h3>
           <p>Your furry family members are welcome. The garden gives pets room to roam safely.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#127969;</div>
+          <div class="feature-icon">🏡</div>
           <h3>Vacation Domain</h3>
           <p>Part of a well-maintained holiday park with facilities and peaceful surroundings.</p>
         </div>
@@ -223,107 +532,8 @@
       <div style="margin-top:3rem;">
         <p style="font-family:'Arial',sans-serif; font-size:0.78rem; letter-spacing:4px; text-transform:uppercase; color:var(--sea); margin-bottom:0.6rem;">In the Park</p>
         <h3 style="font-size:clamp(1.2rem,2.5vw,1.6rem); margin-bottom:0.5rem; font-family:Georgia,serif;">Right on your doorstep</h3>
-        <p style="font-family:'Arial',sans-serif; font-size:0.95rem; color:#556; margin-bottom:1.8rem; max-width:600px;">Zeewind II Holiday Park has its own heated pool and restaurant &mdash; no need to go anywhere.</p>
+        <p style="font-family:'Arial',sans-serif; font-size:0.95rem; color:#556; margin-bottom:1.8rem; max-width:600px;">Zeewind II Holiday Park has its own heated pool and restaurant — no need to go anywhere.</p>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.2rem;">
 
           <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(26,107,138,0.08); display:flex; flex-direction:column;">
-            <div style="height:200px; overflow:hidden;">
-              <img src="images/Zeewind-zwembad.jpg" alt="Heated outdoor pool at Zeewind II" style="width:100%;height:100%;object-fit:cover;" />
-            </div>
-            <div style="padding:1.2rem; flex:1;">
-              <h4 style="font-family:Georgia,serif; font-size:1rem; margin-bottom:0.4rem; color:var(--dark);">&#127944; Heated Outdoor Pool</h4>
-              <p style="font-family:'Arial',sans-serif; font-size:0.86rem; color:#556; line-height:1.55;">From 15 June to mid-September, enjoy the heated outdoor swimming pool &mdash; perfect for relaxing or having fun with the whole family.</p>
-            </div>
-          </div>
-
-          <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(26,107,138,0.08); display:flex; flex-direction:column;">
-            <div style="height:200px; overflow:hidden; background:#fff3e6; display:flex; align-items:center; justify-content:center; padding:1.5rem;">
-              <img src="images/brasserie-logo.jpg" alt="Brasserie Duinenhoeve" style="max-height:120px; max-width:80%; object-fit:contain;" />
-            </div>
-            <div style="padding:1.2rem; flex:1;">
-              <h4 style="font-family:Georgia,serif; font-size:1rem; margin-bottom:0.4rem; color:var(--dark);">&#127869; Brasserie Duinenhoeve</h4>
-              <p style="font-family:'Arial',sans-serif; font-size:0.86rem; color:#556; line-height:1.55;">The park's own restaurant, right next to the pool. Child-friendly with an indoor play corner, free parking, and a menu for every occasion.</p>
-              <a href="https://www.brasserieduinenhoeve.be/?lang=en" target="_blank" rel="noopener" style="font-family:'Arial',sans-serif; font-size:0.82rem; font-weight:bold; color:var(--sea); text-decoration:underline; text-underline-offset:3px; display:inline-block; margin-top:0.6rem;">Visit website &rarr;</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="gallery" id="gallery">
-    <div class="container">
-      <p class="section-label">Gallery</p>
-      <h2 class="section-title">See it for yourself</h2>
-      <p class="section-sub">A few glimpses of what awaits you at Zeewind.</p>
-      <div class="gallery-grid">
-        <div class="gallery-item" style="padding:0; overflow:hidden;">
-          <img src="beach1.png" alt="The beach near Zeewind" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div class="gallery-item" style="padding:0; overflow:hidden;">
-          <img src="beach2.png" alt="Dunes near Zeewind" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div class="gallery-item" style="padding:0; overflow:hidden;">
-          <img src="images/Zeewind%20luchtfoto.jpg" alt="Aerial view of Holiday Park Zeewind II" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div class="gallery-item">Coming soon</div>
-        <div class="gallery-item">Coming soon</div>
-      </div>
-      <p class="gallery-note">Photos of the house coming soon. The beach is just minutes away.</p>
-    </div>
-  </section>
-
-  <section class="location" id="location">
-    <div class="container">
-      <div class="location-grid">
-        <div>
-          <p class="section-label">Location</p>
-          <h2 class="section-title">Where to find us</h2>
-          <p style="color:#556; font-family:'Arial',sans-serif; margin-bottom:1.5rem;">
-            Zeewind is located at the Belgian coast. Exact address provided upon booking confirmation.
-          </p>
-          <ul class="nearby-list">
-            <li><span class="nearby-icon">&#127754;</span> Beach &mdash; short walk</li>
-            <li><span class="nearby-icon">&#128717;</span> Supermarket &mdash; nearby</li>
-            <li><span class="nearby-icon">&#127869;</span> Restaurants &mdash; within easy reach</li>
-            <li><span class="nearby-icon">&#128642;</span> Train station &mdash; accessible by car</li>
-          </ul>
-        </div>
-        <div class="location-map">
-          <span>Map coming soon</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="container">
-      <p class="section-label">Get in Touch</p>
-      <h2 class="section-title">Ready to book your stay?</h2>
-      <p class="section-sub">Reach out and we&rsquo;ll check availability for your dates and answer any questions.</p>
-      <div class="contact-options">
-        <div class="contact-card">
-          <div class="icon">&#9993;</div>
-          <h3>Email us</h3>
-          <p><a href="mailto:your@email.com">your@email.com</a></p>
-        </div>
-        <div class="contact-card">
-          <div class="icon">&#128172;</div>
-          <h3>WhatsApp / Phone</h3>
-          <p>We'll add your number here in the next step</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script src="i18n.js"></script>
-
-  <footer>
-    <p>&copy; 2025 Zeewind &nbsp;<span>&middot;</span>&nbsp; Holiday Home at the Belgian Coast &nbsp;<span>&middot;</span>&nbsp; All rights reserved</p>
-  </footer>
-
-</body>
-</html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+            <div style="height:200px; over
