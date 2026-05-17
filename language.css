@@ -1,5 +1,27 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css');
 
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,0.36);
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  border-radius: 999px;
+  font-family: Arial, sans-serif;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle.open {
+  background: rgba(255,255,255,0.22);
+}
+
 .language-switcher {
   position: relative;
   margin-left: 1rem;
@@ -81,8 +103,37 @@
     gap: 0.75rem;
   }
 
-  .language-switcher {
+  .mobile-menu-toggle {
+    display: inline-flex;
     margin-left: auto;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.65rem 1.25rem 1rem;
+    background: rgba(26,107,138,0.98);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    margin: 0;
+    padding: 0.72rem 0.35rem;
+    border-top: 1px solid rgba(255,255,255,0.16);
+  }
+
+  .language-switcher {
+    margin-left: 0;
   }
 
   .language-toggle {

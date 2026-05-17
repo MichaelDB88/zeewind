@@ -27,6 +27,7 @@
         navBook: 'Book',
         navContact: 'Contact',
         languageLabel: 'Language',
+        menuLabel: 'Menu',
         footer: '2025 Zeewind · Holiday Home at the Belgian Coast · All rights reserved',
         checkAvailability: 'Check Availability'
       },
@@ -201,6 +202,7 @@
         navBook: 'Boeken',
         navContact: 'Contact',
         languageLabel: 'Taal',
+        menuLabel: 'Menu',
         footer: '2025 Zeewind · Vakantiehuis aan de Belgische kust · Alle rechten voorbehouden',
         checkAvailability: 'Bekijk beschikbaarheid'
       },
@@ -375,6 +377,7 @@
         navBook: 'Réserver',
         navContact: 'Contact',
         languageLabel: 'Langue',
+        menuLabel: 'Menu',
         footer: '2025 Zeewind · Maison de vacances à la côte belge · Tous droits réservés',
         checkAvailability: 'Voir les disponibilités'
       },
@@ -549,6 +552,7 @@
         navBook: 'Buchen',
         navContact: 'Kontakt',
         languageLabel: 'Sprache',
+        menuLabel: 'Menü',
         footer: '2025 Zeewind · Ferienhaus an der belgischen Küste · Alle Rechte vorbehalten',
         checkAvailability: 'Verfügbarkeit prüfen'
       },
@@ -945,6 +949,13 @@
     }
   }
 
+  function updateMobileNavigationUi(copy) {
+    var toggles = document.querySelectorAll('.mobile-menu-toggle');
+    for (var i = 0; i < toggles.length; i++) {
+      toggles[i].setAttribute('aria-label', copy.common.menuLabel);
+    }
+  }
+
   function applyLanguage(lang) {
     if (!LANGUAGES[lang]) lang = 'en';
     var copy = COPY[lang];
@@ -954,6 +965,7 @@
     applyRules(copy, COMMON_RULES);
     applyRules(copy, PAGE_RULES[page] || []);
     updateLanguageUi(lang, copy);
+    updateMobileNavigationUi(copy);
     window.dispatchEvent(new CustomEvent('zeewind:languagechange', { detail: { lang: lang } }));
   }
 
@@ -1001,6 +1013,48 @@
     }
   }
 
+  function closeMobileNavigation() {
+    var links = document.querySelectorAll('.nav-links');
+    for (var i = 0; i < links.length; i++) {
+      links[i].classList.remove('open');
+    }
+    var toggles = document.querySelectorAll('.mobile-menu-toggle');
+    for (var j = 0; j < toggles.length; j++) {
+      toggles[j].classList.remove('open');
+      toggles[j].setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function initMobileNavigation() {
+    var toggles = document.querySelectorAll('.mobile-menu-toggle');
+    for (var i = 0; i < toggles.length; i++) {
+      (function (toggle) {
+        var navId = toggle.getAttribute('aria-controls');
+        var navLinks = navId ? document.getElementById(navId) : null;
+        if (!navLinks) return;
+        toggle.addEventListener('click', function (event) {
+          event.stopPropagation();
+          var open = !navLinks.classList.contains('open');
+          closeMobileNavigation();
+          navLinks.classList.toggle('open', open);
+          toggle.classList.toggle('open', open);
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        var links = navLinks.querySelectorAll('a');
+        for (var j = 0; j < links.length; j++) {
+          links[j].addEventListener('click', closeMobileNavigation);
+        }
+      })(toggles[i]);
+    }
+
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('nav')) closeMobileNavigation();
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768) closeMobileNavigation();
+    });
+  }
+
   window.ZeewindI18n = {
     t: function (path, fallback) {
       var value = get(COPY[getLanguage()], path);
@@ -1015,5 +1069,6 @@
   };
 
   initLanguageMenus();
+  initMobileNavigation();
   applyLanguage(getLanguage());
 })();
