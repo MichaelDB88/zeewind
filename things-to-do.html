@@ -109,6 +109,7 @@
     .ci-ostend    { background: linear-gradient(135deg, #1a6b8a 0%, #264653 100%); }
     .ci-dehaan    { background: linear-gradient(135deg, #c9a96e 0%, #e9c77a 100%); }
     .ci-brasserie { background: linear-gradient(135deg, #c77b44 0%, #e07b39 100%); }
+    .ci-grasduinen { background: linear-gradient(135deg, #52b788 0%, #2a9d8f 100%); }
 
     .card-tag {
       position: absolute; top: 12px; left: 12px;
@@ -235,10 +236,10 @@
             <p class="proximity-sub">Step outside and you are already there — no car needed.</p>
           </div>
         </div>
-        <div class="place-grid place-grid--2">
+        <div class="place-grid">
 
           <!-- BEACH -->
-          <div class="place-card">
+          <div class="place-card" id="card-beach">
             <div class="card-img">
               <img src="beach1.png" alt="The beach and dunes near Het Vissershuisje in Bredene" />
               <span class="card-tag">Beach &amp; Nature</span>
@@ -254,7 +255,7 @@
           </div>
 
           <!-- LAGO -->
-          <div class="place-card">
+          <div class="place-card" id="card-lago">
             <div class="card-img">
               <img src="images/Lago-bredene.jpg" alt="LAGO Bredene Grasduinen swimming and recreation centre" />
               <span class="card-tag">Swimming &amp; Family Fun</span>
@@ -268,6 +269,24 @@
                 <li><strong>Tip:</strong> Check opening hours before visiting</li>
               </ul>
               <a href="https://www.lago.be/nl/bredene" class="card-link" target="_blank" rel="noopener">Visit LAGO Bredene Grasduinen &#8594;</a>
+            </div>
+          </div>
+
+
+          <!-- GRASDUINEN -->
+          <div class="place-card" id="card-grasduinen">
+            <div class="card-img">
+              <div class="card-img-placeholder ci-grasduinen">&#127807;</div>
+              <span class="card-tag">Outdoor Play &amp; Nature</span>
+            </div>
+            <div class="card-body">
+              <h3>Recreatiedomein Grasduinen</h3>
+              <p>A nine-hectare outdoor recreation domain right on your doorstep — perfect for families, cyclists and nature lovers. Children can burn off energy on the playground or the sports fields, while adults enjoy the mountain bike circuit, walking paths or a quiet moment by the pond. Free showers, toilets and covered bike storage are all on site.</p>
+              <ul class="card-facts">
+                <li><strong>Best for:</strong> Families, cyclists, walkers, nature lovers, all ages</li>
+                <li><strong>What's there:</strong> Playground, mountain bike trail, cycling &amp; walking paths, pond, sports fields, fitness trail</li>
+                <li><strong>Tip:</strong> Free showers and covered bike storage on site</li>
+              </ul>
             </div>
           </div>
 
@@ -286,7 +305,7 @@
         <div class="place-grid place-grid--4">
 
           <!-- CYCLING -->
-          <div class="place-card">
+          <div class="place-card" id="card-cycling">
             <div class="card-img">
               <img src="images/Bredene_Fietsen.jpg" alt="Cycling routes near Bredene and the Belgian coast" />
               <span class="card-tag">Cycling &amp; Walking</span>
@@ -302,7 +321,7 @@
           </div>
 
           <!-- FORT NAPOLEON -->
-          <div class="place-card">
+          <div class="place-card" id="card-fort">
             <div class="card-img">
               <img src="images/FortNapoleon.jpg" alt="Fort Napoleon historic coastal fort in Ostend" />
               <span class="card-tag">History &amp; Culture</span>
@@ -320,7 +339,7 @@
           </div>
 
           <!-- OSTEND -->
-          <div class="place-card">
+          <div class="place-card" id="card-ostend">
             <div class="card-img">
               <img src="images/oostende-jachthaven.jpg" alt="Ostend marina and harbour on the Belgian coast" />
               <span class="card-tag">Day Trip</span>
@@ -336,7 +355,7 @@
           </div>
 
           <!-- DE HAAN -->
-          <div class="place-card">
+          <div class="place-card" id="card-dehaan">
             <div class="card-img">
               <img src="images/De%20Haan.jpeg" alt="De Haan charming seaside town on the Belgian coast" />
               <span class="card-tag">Coastal Town</span>
