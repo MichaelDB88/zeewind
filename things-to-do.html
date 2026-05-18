@@ -60,13 +60,24 @@
 
     /* ACTIVITY GRID */
     .activities { padding: 2rem 1.5rem 5rem; background: var(--sky); }
-    .activities h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 0.5rem; }
-    .activities .grid-sub { font-family: Arial, sans-serif; font-size: 1rem; color: #556; margin-bottom: 2.5rem; max-width: 680px; }
+    .activities > .container > h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 2.5rem; }
+    .proximity-block { margin-bottom: 3.5rem; }
+    .proximity-header {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: #fff; border-radius: 14px;
+      padding: 1.2rem 1.6rem; margin-bottom: 1.5rem;
+      box-shadow: 0 2px 12px rgba(26,107,138,0.07);
+    }
+    .proximity-icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1.3; }
+    .proximity-title { font-family: Georgia, serif; font-size: 1.15rem; color: var(--dark); margin-bottom: 0.2rem; }
+    .proximity-sub { font-family: Arial, sans-serif; font-size: 0.88rem; color: #778; margin: 0; }
     .place-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
+    .place-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .place-grid--4 { grid-template-columns: repeat(4, 1fr); }
     .place-card {
       background: #fff;
       border-radius: 16px;
@@ -144,12 +155,17 @@
     footer span { color: rgba(255,255,255,0.25); }
 
     /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .place-grid--4 { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 900px) {
       .place-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .place-grid { grid-template-columns: 1fr; }
+      .place-grid,
+      .place-grid--2,
+      .place-grid--4 { grid-template-columns: 1fr; }
     }
   </style>
   <link rel="stylesheet" href="language.css" />
@@ -208,142 +224,137 @@
   <section class="activities">
     <div class="container">
       <p class="section-label">Activities &amp; Ideas</p>
-      <h2>What to do near De Zilte Zee</h2>
-      <p class="grid-sub">All recommendations are easy to combine with a stay at De Zilte Zee in the holiday park in Bredene. Add your own photos to each card whenever you have them.</p>
+      <h2>What to do near your holiday home</h2>
 
-      <div class="place-grid">
-
-        <!-- LAGO -->
-        <div class="place-card">
-          <div class="card-img">
-            <img src="images/Lago-bredene.jpg" alt="LAGO Bredene Grasduinen swimming and recreation centre" />
-            <span class="card-tag">Swimming &amp; Family Fun</span>
-          </div>
-          <div class="card-body">
-            <h3>LAGO Bredene Grasduinen</h3>
-            <p>One of the easiest family activities near De Zilte Zee. A modern swimming and recreation centre with children's water play, indoor play area, outdoor pools, sauna and bistro. A practical choice on a rainy day or when children want a change from the beach.</p>
-            <ul class="card-facts">
-              <li><strong>Best for:</strong> Families, children, rainy days, active afternoons</li>
-              <li><strong>Location:</strong> Oscar Goethalsstraat 4, 8450 Bredene</li>
-              <li><strong>Tip:</strong> Check opening hours before visiting</li>
-            </ul>
-            <a href="https://www.lago.be/nl/bredene" class="card-link" target="_blank" rel="noopener">Visit LAGO Bredene Grasduinen →</a>
+      <!-- ── Within walking distance ─────────────────────────── -->
+      <div class="proximity-block">
+        <div class="proximity-header">
+          <span class="proximity-icon">&#x1F6B6;</span>
+          <div>
+            <p class="proximity-title">Within walking distance</p>
+            <p class="proximity-sub">Step outside and you are already there — no car needed.</p>
           </div>
         </div>
+        <div class="place-grid place-grid--2">
 
-        <!-- FORT NAPOLEON -->
-        <div class="place-card">
-          <div class="card-img">
-            <img src="images/FortNapoleon.jpg" alt="Fort Napoleon historic coastal fort in Ostend" />
-            <span class="card-tag">Historic Day Trip</span>
+          <!-- BEACH -->
+          <div class="place-card">
+            <div class="card-img">
+              <img src="beach1.png" alt="The beach and dunes near De Zilte Zee in Bredene" />
+              <span class="card-tag">Beach &amp; Nature</span>
+            </div>
+            <div class="card-body">
+              <h3>Beach and dunes</h3>
+              <p>Bredene is known for its natural beach and wide dunes — perfect for slow mornings, long walks, sandcastles and fresh sea air. Beach time can easily become part of your daily rhythm without needing a car or a plan.</p>
+              <ul class="card-facts">
+                <li><strong>Best for:</strong> All ages, walks, relaxing, families</li>
+                <li><strong>Distance:</strong> Short walk from the front door</li>
+              </ul>
+            </div>
           </div>
-          <div class="card-body">
-            <h3>Fort Napoleon in Ostend</h3>
-            <p>A historic coastal landmark on the Oosteroever in Ostend, within easy reach of Bredene. Follow the story trail through the fort, explore its atmospheric rooms and discover changing exhibitions. A good half-day excursion for both adults and children.</p>
-            <ul class="card-facts">
-              <li><strong>Best for:</strong> History, culture, families, rainy days</li>
-              <li><strong>Address:</strong> Vuurtorenweg 13, 8400 Oostende</li>
-              <li><strong>Tip:</strong> Booking tickets in advance is recommended</li>
-            </ul>
-            <a href="https://www.fort-napoleon.be/nl" class="card-link" target="_blank" rel="noopener">Visit Fort Napoleon →</a>
+
+          <!-- LAGO -->
+          <div class="place-card">
+            <div class="card-img">
+              <img src="images/Lago-bredene.jpg" alt="LAGO Bredene Grasduinen swimming and recreation centre" />
+              <span class="card-tag">Swimming &amp; Family Fun</span>
+            </div>
+            <div class="card-body">
+              <h3>LAGO Bredene Grasduinen</h3>
+              <p>A modern swimming and recreation centre just a short walk away, with children's water play, indoor play area, outdoor pools, sauna and bistro. A practical choice on a rainy day or when children want a change from the beach.</p>
+              <ul class="card-facts">
+                <li><strong>Best for:</strong> Families, children, rainy days, active afternoons</li>
+                <li><strong>Location:</strong> Oscar Goethalsstraat 4, 8450 Bredene</li>
+                <li><strong>Tip:</strong> Check opening hours before visiting</li>
+              </ul>
+              <a href="https://www.lago.be/nl/bredene" class="card-link" target="_blank" rel="noopener">Visit LAGO Bredene Grasduinen &#8594;</a>
+            </div>
           </div>
+
         </div>
-
-        <!-- BEACH -->
-        <div class="place-card">
-          <div class="card-img">
-            <img src="beach1.png" alt="The beach and dunes near De Zilte Zee in Bredene" />
-            <span class="card-tag">Beach &amp; Nature</span>
-          </div>
-          <div class="card-body">
-            <h3>Beach and dunes</h3>
-            <p>Bredene is known for its natural beach and dunes — perfect for slow mornings, long walks, sandcastles and fresh sea air. From De Zilte Zee, beach time can easily become part of your daily rhythm without needing a car or a plan.</p>
-            <ul class="card-facts">
-              <li><strong>Best for:</strong> All ages, walks, relaxing, families</li>
-              <li><strong>Distance:</strong> Short walk from De Zilte Zee</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- CYCLING -->
-        <div class="place-card">
-          <div class="card-img">
-            <img src="images/Bredene_Fietsen.jpg" alt="Cycling routes near Bredene and the Belgian coast" />
-            <span class="card-tag">Cycling &amp; Walking</span>
-          </div>
-          <div class="card-body">
-            <h3>Cycling and walking</h3>
-            <p>The Belgian coast is easy to explore by bike or on foot. From De Zilte Zee, guests can enjoy routes through Bredene, the dunes and nearby coastal towns at their own pace — a short family walk, a longer bike ride, or a scenic route towards the sea.</p>
-            <ul class="card-facts">
-              <li><strong>Best for:</strong> Families, active guests, all ages</li>
-              <li><strong>Tip:</strong> Bike rental available in Bredene and Ostend</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- OSTEND -->
-        <div class="place-card">
-          <div class="card-img">
-            <img src="images/oostende-jachthaven.jpg" alt="Ostend marina and harbour on the Belgian coast" />
-            <span class="card-tag">Day Trip</span>
-          </div>
-          <div class="card-body">
-            <h3>Ostend day trip</h3>
-            <p>Ostend is close enough for a relaxed day trip from Bredene. Combine Fort Napoleon with the Oosteroever seafront, shops, restaurants, museums, or a coastal walk. Works well for a few hours or a full day — with or without sunshine.</p>
-            <ul class="card-facts">
-              <li><strong>Best for:</strong> All ages, culture, food, rainy days</li>
-              <li><strong>Distance:</strong> A short drive or bike ride from De Zilte Zee</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- DE HAAN -->
-        <div class="place-card">
-          <div class="card-img">
-            <img src="images/De%20Haan.jpeg" alt="De Haan charming seaside town on the Belgian coast" />
-            <span class="card-tag">Nearby Seaside Town</span>
-          </div>
-          <div class="card-body">
-            <h3>De Haan and nearby towns</h3>
-            <p>De Haan is known for its charming coastal atmosphere and Belle Époque villas. A good option when you want a change of scenery while keeping the day simple. Enjoy a walk, a drink, a meal, or just the different coastal feeling before returning to De Zilte Zee.</p>
-            <ul class="card-facts">
-              <li><strong>Best for:</strong> Leisurely outings, couples, families</li>
-              <li><strong>Distance:</strong> Easy drive along the coast</li>
-            </ul>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- TOURISM INFO -->
-  <section class="tourism">
-    <div class="container">
-      <div class="tourism-box">
-        <p class="section-label">Local Resources</p>
-        <h2>More information and events in Bredene</h2>
-        <p>For the latest events, local tips, brochures and practical visitor information in Bredene, the official Bredene tourism website is a useful resource. It covers family activities, cultural events, beach information, markets and seasonal recommendations.</p>
-        <p>This link is especially helpful for up-to-date things to do in Bredene that change throughout the year, while this page covers the most practical options for guests staying at De Zilte Zee.</p>
-        <a href="https://www.bredene.be/homepage-toerisme" class="btn btn-secondary" target="_blank" rel="noopener">Visit the official Bredene tourism website</a>
+      <!-- ── A short ride away ────────────────────────────────── -->
+      <div class="proximity-block">
+        <div class="proximity-header">
+          <span class="proximity-icon">&#x1F6B2;</span>
+          <div>
+            <p class="proximity-title">A short ride away</p>
+            <p class="proximity-sub">Easy to reach by bike, car, or public transport — all within 20 minutes.</p>
+          </div>
+        </div>
+        <div class="place-grid place-grid--4">
+
+          <!-- CYCLING -->
+          <div class="place-card">
+            <div class="card-img">
+              <img src="images/Bredene_Fietsen.jpg" alt="Cycling routes near Bredene and the Belgian coast" />
+              <span class="card-tag">Cycling &amp; Walking</span>
+            </div>
+            <div class="card-body">
+              <h3>Cycling the coast</h3>
+              <p>The Belgian coast is easy to explore by bike. Ride through the dunes, follow the coastal route, or cycle to a neighbouring seaside town at your own pace. A great way to see more of the area without a fixed plan.</p>
+              <ul class="card-facts">
+                <li><strong>Best for:</strong> Families, active guests, all ages</li>
+                <li><strong>Tip:</strong> Bike rental available in Bredene and Ostend</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- FORT NAPOLEON -->
+          <div class="place-card">
+            <div class="card-img">
+              <img src="images/FortNapoleon.jpg" alt="Fort Napoleon historic coastal fort in Ostend" />
+              <span class="card-tag">History &amp; Culture</span>
+            </div>
+            <div class="card-body">
+              <h3>Fort Napoleon</h3>
+              <p>A historic coastal fort on the Oosteroever in Ostend. Follow the story trail, explore its atmospheric rooms and discover changing exhibitions. A good half-day for both adults and children, especially on cloudier days.</p>
+              <ul class="card-facts">
+                <li><strong>Best for:</strong> History, culture, families, rainy days</li>
+                <li><strong>Address:</strong> Vuurtorenweg 13, 8400 Ostend</li>
+                <li><strong>Tip:</strong> Booking in advance is recommended</li>
+              </ul>
+              <a href="https://www.fort-napoleon.be/nl" class="card-link" target="_blank" rel="noopener">Visit Fort Napoleon &#8594;</a>
+            </div>
+          </div>
+
+          <!-- OSTEND -->
+          <div class="place-card">
+            <div class="card-img">
+              <img src="images/oostende-jachthaven.jpg" alt="Ostend marina and harbour on the Belgian coast" />
+              <span class="card-tag">Day Trip</span>
+            </div>
+            <div class="card-body">
+              <h3>Ostend</h3>
+              <p>A full city's worth of things to do, just minutes away. Explore the seafront, marina, museums, shops and restaurants. Works well for a few hours or a full day, and easy to combine with a visit to Fort Napoleon.</p>
+              <ul class="card-facts">
+                <li><strong>Best for:</strong> All ages, culture, food, rainy days</li>
+                <li><strong>How to get there:</strong> Short drive or bike ride along the coast</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- DE HAAN -->
+          <div class="place-card">
+            <div class="card-img">
+              <img src="images/De%20Haan.jpeg" alt="De Haan charming seaside town on the Belgian coast" />
+              <span class="card-tag">Coastal Town</span>
+            </div>
+            <div class="card-body">
+              <h3>De Haan</h3>
+              <p>A charming seaside town known for its Belle Époque villas and quiet coastal feel. A good option for a change of scenery — a walk, a drink, a meal, or just a slower afternoon before heading back.</p>
+              <ul class="card-facts">
+                <li><strong>Best for:</strong> Leisurely outings, couples, families</li>
+                <li><strong>How to get there:</strong> Easy drive or coastal bike route</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta">
-    <div class="container">
-      <p class="section-label">Stay at De Zilte Zee</p>
-      <h2 class="section-title">Make Bredene your holiday base</h2>
-      <p class="section-sub">Stay at De Zilte Zee and enjoy a holiday home in the heart of Bredene, close to the beach, swimming, food and drinks, family activities and easy day trips along the Belgian coast.</p>
-      <a href="booking.html" class="btn btn-primary">Check Availability</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>2025 De Zilte Zee <span>&#183;</span> Holiday Home at the Belgian Coast <span>&#183;</span> All rights reserved</p>
-  </footer>
-
-  <script src="i18n.js"></script>
-</body>
-</html>
+ 
