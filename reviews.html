@@ -96,7 +96,7 @@
 
   <header class="page-header">
     <h1 data-review-copy="allReviewsTitle">Guest Reviews</h1>
-    <p data-review-copy="allReviewsIntro">Real guest feedback helps future visitors picture their stay by the sea.</p>
+    <p data-review-copy="allReviewsIntro">See what guests who have stayed at Het Vissershuisje say about their time on the Belgian coast.</p>
   </header>
 
   <main class="reviews-page">
@@ -112,7 +112,7 @@
       <section class="review-submit-section" aria-labelledby="leave-review-title">
         <div class="review-form-card">
           <h2 id="leave-review-title" data-review-copy="formTitle">Leave a review</h2>
-          <p class="form-sub" data-review-copy="formIntro">Your review will be sent privately and displayed only after manual approval.</p>
+          <p class="form-sub" data-review-copy="formIntro">Stayed with us? We'd love to hear from you. Your experience helps future guests make the most of their stay.</p>
           <form
             id="reviewForm"
             class="review-form"
@@ -157,13 +157,9 @@
             </div>
 
             <div>
-              <label for="reviewStayType">Type of stay</label>
-              <select id="reviewStayType" name="stay_type">
-                <option value="">Choose a type</option>
-                <option value="Family stay">Family stay</option>
-                <option value="Couple stay">Couple stay</option>
-                <option value="Stay with dog">Stay with dog</option>
-                <option value="Short stay">Short stay</option>
+              <label for="reviewStayType">Holiday home</label>
+              <select id="reviewStayType" name="property">
+                <option value="Het Vissershuisje" selected>Het Vissershuisje</option>
               </select>
             </div>
 
@@ -183,7 +179,7 @@
             <div class="review-status" id="reviewFormStatus" role="status" aria-live="polite"></div>
             <button class="btn btn-primary" type="submit">Submit review</button>
           </form>
-          <p class="review-moderation-note" data-review-copy="moderation">Submitted reviews are moderated before publication. Your email address is never shown publicly.</p>
+          <p class="review-moderation-note" data-review-copy="moderation">Your email address is never shown publicly.</p>
         </div>
       </section>
     </div>
