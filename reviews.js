@@ -21,9 +21,9 @@
       goTo: 'Show review {index}',
       stars: '{rating} out of 5 stars',
       formTitle: 'Leave a review',
-      formIntro: 'Your review will be sent privately and displayed only after manual approval.',
+      formIntro: 'Stayed with us? We\'d love to hear from you. Your experience helps future guests make the most of their stay.',
       name: 'Name',
-      email: 'Email address',
+      email: 'Email address *',
       rating: 'Rating',
       rating5: '5 - Excellent',
       rating4: '4 - Very good',
@@ -39,7 +39,7 @@
       reviewText: 'Your review',
       consent: 'I agree that my review may be displayed publicly on this website after approval.',
       submit: 'Submit review',
-      moderation: 'Submitted reviews are moderated before publication. Your email address is never shown publicly.',
+      moderation: '* Your email address is never shown publicly.',
       chooseRating: 'Choose a rating',
       chooseStayType: 'Choose a type',
       required: 'This field is required.',
@@ -69,9 +69,9 @@
       goTo: 'Toon beoordeling {index}',
       stars: '{rating} van 5 sterren',
       formTitle: 'Laat een beoordeling achter',
-      formIntro: 'Je beoordeling wordt privé verzonden en pas na manuele goedkeuring gepubliceerd.',
+      formIntro: 'Verbleven bij ons? We horen graag van je. Jouw ervaring helpt toekomstige gasten het meeste te halen uit hun verblijf.',
       name: 'Naam',
-      email: 'E-mailadres',
+      email: 'E-mailadres *',
       rating: 'Score',
       rating5: '5 - Uitstekend',
       rating4: '4 - Zeer goed',
@@ -87,7 +87,7 @@
       reviewText: 'Je beoordeling',
       consent: 'Ik ga ermee akkoord dat mijn beoordeling na goedkeuring publiek op deze website mag verschijnen.',
       submit: 'Beoordeling verzenden',
-      moderation: 'Ingezonden beoordelingen worden nagekeken voor publicatie. Je e-mailadres wordt nooit publiek getoond.',
+      moderation: '* Je e-mailadres wordt nooit publiek getoond.',
       chooseRating: 'Kies een score',
       chooseStayType: 'Kies een type',
       required: 'Dit veld is verplicht.',
@@ -117,9 +117,9 @@
       goTo: 'Afficher l’avis {index}',
       stars: '{rating} sur 5 étoiles',
       formTitle: 'Laisser un avis',
-      formIntro: 'Votre avis est envoyé en privé et affiché seulement après approbation manuelle.',
+      formIntro: 'Vous avez séjourné chez nous ? Nous serions ravis de vous lire. Votre expérience aide les futurs voyageurs à profiter au maximum de leur séjour.',
       name: 'Nom',
-      email: 'Adresse e-mail',
+      email: 'Adresse e-mail *',
       rating: 'Note',
       rating5: '5 - Excellent',
       rating4: '4 - Très bien',
@@ -135,7 +135,7 @@
       reviewText: 'Votre avis',
       consent: 'J’accepte que mon avis puisse être affiché publiquement sur ce site après approbation.',
       submit: 'Envoyer l’avis',
-      moderation: 'Les avis envoyés sont modérés avant publication. Votre adresse e-mail n’est jamais affichée publiquement.',
+      moderation: ‘* Votre adresse e-mail n\’est jamais affichée publiquement.’,
       chooseRating: 'Choisir une note',
       chooseStayType: 'Choisir un type',
       required: 'Ce champ est obligatoire.',
@@ -165,9 +165,9 @@
       goTo: 'Bewertung {index} anzeigen',
       stars: '{rating} von 5 Sternen',
       formTitle: 'Bewertung abgeben',
-      formIntro: 'Ihre Bewertung wird privat gesendet und erst nach manueller Freigabe veröffentlicht.',
+      formIntro: 'Waren Sie bei uns zu Gast? Wir freuen uns über Ihre Rückmeldung. Ihre Erfahrung hilft zukünftigen Gästen, das Beste aus ihrem Aufenthalt zu machen.',
       name: 'Name',
-      email: 'E-Mail-Adresse',
+      email: 'E-Mail-Adresse *',
       rating: 'Bewertung',
       rating5: '5 - Ausgezeichnet',
       rating4: '4 - Sehr gut',
@@ -183,7 +183,7 @@
       reviewText: 'Ihre Bewertung',
       consent: 'Ich stimme zu, dass meine Bewertung nach Freigabe öffentlich auf dieser Website angezeigt werden darf.',
       submit: 'Bewertung senden',
-      moderation: 'Eingereichte Bewertungen werden vor der Veröffentlichung geprüft. Ihre E-Mail-Adresse wird nie öffentlich angezeigt.',
+      moderation: '* Ihre E-Mail-Adresse wird nie öffentlich angezeigt.',
       chooseRating: 'Bewertung wählen',
       chooseStayType: 'Art wählen',
       required: 'Dieses Feld ist erforderlich.',
@@ -297,11 +297,13 @@
   }
 
   function renderReviewCard(review) {
+    var lang = language();
+    var text = review['text_' + lang] || review.text;
     return (
-      '<article class="review-card">' +
+      '<article class=”review-card”>' +
         stars(review.rating) +
-        '<p class="review-quote">“' + escapeHtml(review.text) + '”</p>' +
-        '<p class="review-meta">' + meta(review) + '</p>' +
+        '<p class=”review-quote”>”' + escapeHtml(text) + '”</p>' +
+        '<p class=”review-meta”>' + meta(review) + '</p>' +
       '</article>'
     );
   }
@@ -328,11 +330,13 @@
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function cardMarkup(review) {
+      var lang = language();
+      var text = review['text_' + lang] || review.text;
       return (
-        '<div class="review-carousel-card" tabindex="0" aria-live="polite">' +
+        '<div class=”review-carousel-card” tabindex=”0” aria-live=”polite”>' +
           stars(review.rating) +
-          '<p class="review-quote">“' + escapeHtml(review.text) + '”</p>' +
-          '<p class="review-meta">' + meta(review) + '</p>' +
+          '<p class=”review-quote”>”' + escapeHtml(text) + '”</p>' +
+          '<p class=”review-meta”>' + meta(review) + '</p>' +
         '</div>'
       );
     }
@@ -651,12 +655,4 @@
     return 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   }
 
-  function renderAll() {
-    renderHomeCarousel();
-    renderReviewsPage();
-  }
-
-  initReviewForm();
-  renderAll();
-  window.addEventListener('zeewind:languagechange', renderAll);
-})();
+  function
