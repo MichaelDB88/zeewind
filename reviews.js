@@ -31,7 +31,7 @@
       rating2: '2 - Fair',
       rating1: '1 - Poor',
       stayDate: 'When did you stay?',
-      stayType: 'Type of stay',
+      property: 'Holiday home',
       familyStay: 'Family stay',
       coupleStay: 'Couple stay',
       dogStay: 'Stay with dog',
@@ -79,7 +79,7 @@
       rating2: '2 - Redelijk',
       rating1: '1 - Matig',
       stayDate: 'Wanneer verbleef je?',
-      stayType: 'Type verblijf',
+      property: 'Vakantiehuis',
       familyStay: 'Gezinsverblijf',
       coupleStay: 'Verblijf met twee',
       dogStay: 'Verblijf met hond',
@@ -127,7 +127,7 @@
       rating2: '2 - Correct',
       rating1: '1 - Faible',
       stayDate: 'Quand avez-vous séjourné ?',
-      stayType: 'Type de séjour',
+      property: 'Maison de vacances',
       familyStay: 'Séjour en famille',
       coupleStay: 'Séjour en couple',
       dogStay: 'Séjour avec chien',
@@ -175,7 +175,7 @@
       rating2: '2 - Ausreichend',
       rating1: '1 - Schwach',
       stayDate: 'Wann waren Sie zu Gast?',
-      stayType: 'Art des Aufenthalts',
+      property: 'Ferienhaus',
       familyStay: 'Familienaufenthalt',
       coupleStay: 'Aufenthalt zu zweit',
       dogStay: 'Aufenthalt mit Hund',
@@ -270,7 +270,7 @@
     var bits = ['<strong>' + escapeHtml(review.name) + '</strong>'];
     if (review.location) bits.push(escapeHtml(review.location));
     if (review.date) bits.push(escapeHtml(formatDate(review.date)));
-    if (review.stayType) bits.push(escapeHtml(stayTypeLabel(review.stayType)));
+    if (review.property) bits.push(escapeHtml(review.property));
     return bits.join(' · ');
   }
 
@@ -426,7 +426,7 @@
     renderFilters(reviews);
 
     var visible = activeFilter === 'all' ? reviews : reviews.filter(function (review) {
-      return review.stayType === activeFilter;
+      return review.property === activeFilter;
     });
 
     list.innerHTML = visible.length
@@ -441,10 +441,10 @@
     if (!target) return;
     var types = [];
     reviews.forEach(function (review) {
-      if (review.stayType && types.indexOf(review.stayType) === -1) types.push(review.stayType);
+      if (review.property && types.indexOf(review.property) === -1) types.push(review.property);
     });
     var filters = [{ key: 'all', label: copy('all') }].concat(types.map(function (type) {
-      return { key: type, label: stayTypeLabel(type) };
+      return { key: type, label: type };
     }));
     target.innerHTML = filters.map(function (filter) {
       return '<button type="button" class="review-filter' + (filter.key === activeFilter ? ' active' : '') + '" data-review-filter="' + escapeHtml(filter.key) + '" aria-pressed="' + (filter.key === activeFilter ? 'true' : 'false') + '">' + escapeHtml(filter.label) + '</button>';
@@ -465,7 +465,7 @@
     setLabel('reviewEmail', copy('email'));
     setLabel('reviewRating', copy('rating'));
     setLabel('reviewStayDate', copy('stayDate'));
-    setLabel('reviewStayType', copy('stayType'));
+    setLabel('reviewStayType', copy('property'));
     setLabel('reviewText', copy('reviewText'));
     var consent = document.getElementById('reviewConsentLabel');
     if (consent) consent.textContent = copy('consent');
