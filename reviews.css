@@ -1,0 +1,369 @@
+.guest-reviews {
+  background: var(--sky);
+  text-align: center;
+}
+
+.reviews-shell {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.review-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-family: Arial, sans-serif;
+  color: #556;
+}
+
+.review-stars {
+  color: var(--accent);
+  font-family: Arial, sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.review-stars .empty {
+  color: #d5dee4;
+}
+
+.review-score {
+  color: var(--dark);
+  font-weight: bold;
+}
+
+.review-carousel {
+  position: relative;
+  margin: 0 auto;
+}
+
+.review-carousel-card,
+.review-card,
+.review-form-card,
+.reviews-summary-card {
+  background: #fff;
+  border: 1px solid rgba(26,107,138,0.12);
+  border-radius: 14px;
+  box-shadow: 0 6px 28px rgba(26,107,138,0.09);
+}
+
+.review-carousel-card {
+  min-height: 260px;
+  padding: 2.2rem 2.4rem;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.review-carousel-card.is-changing {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.review-quote {
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: var(--dark);
+  margin: 1rem 0 1.3rem;
+}
+
+.review-meta {
+  font-family: Arial, sans-serif;
+  color: #667;
+  font-size: 0.9rem;
+}
+
+.review-meta strong {
+  color: var(--dark);
+}
+
+.review-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.review-arrow,
+.review-dot,
+.review-filter {
+  border: 1px solid rgba(26,107,138,0.25);
+  background: #fff;
+  color: var(--sea);
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.review-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.review-arrow:hover,
+.review-arrow:focus,
+.review-filter:hover,
+.review-filter:focus {
+  background: var(--sea);
+  color: #fff;
+  border-color: var(--sea);
+}
+
+.review-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.review-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  padding: 0;
+  background: #c9dde8;
+}
+
+.review-dot.active {
+  background: var(--sea);
+  border-color: var(--sea);
+}
+
+.reviews-link-wrap {
+  margin-top: 1.7rem;
+}
+
+.reviews-page {
+  background: #fff;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.reviews-layout {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.reviews-summary-card {
+  display: flex;
+  width: 100%;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.review-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.review-filter {
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  font-size: 0.85rem;
+}
+
+.review-filter.active {
+  background: var(--sea);
+  color: #fff;
+  border-color: var(--sea);
+}
+
+.reviews-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+.review-card {
+  padding: 1.5rem;
+}
+
+.review-card .review-quote {
+  font-size: 1rem;
+  margin: 0.8rem 0 1rem;
+}
+
+.review-empty {
+  padding: 2rem;
+  background: var(--sky);
+  border-radius: 14px;
+  color: #556;
+  font-family: Arial, sans-serif;
+}
+
+.review-submit-section {
+  margin-top: 3rem;
+}
+
+.review-form-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.review-form-card h2 {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.review-form-card .form-sub {
+  font-family: Arial, sans-serif;
+  color: #667;
+  margin-bottom: 1.5rem;
+}
+
+.review-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.review-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.review-form label {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+  color: #667;
+  margin-bottom: 0.35rem;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #d0e4ed;
+  border-radius: 9px;
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--dark);
+  background: #fafcfe;
+  outline: none;
+}
+
+.review-form input:focus,
+.review-form select:focus,
+.review-form textarea:focus {
+  border-color: var(--sea);
+  background: #fff;
+}
+
+.review-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.review-consent {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  font-family: Arial, sans-serif;
+  color: #556;
+  font-size: 0.9rem;
+}
+
+.review-consent input {
+  width: auto;
+  margin-top: 0.25rem;
+}
+
+.field-error {
+  min-height: 1.1rem;
+  margin-top: 0.25rem;
+  color: #b23b3b;
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+}
+
+.review-form [aria-invalid="true"] {
+  border-color: #b23b3b;
+}
+
+.review-char-count {
+  text-align: right;
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  color: #889;
+  margin-top: 0.25rem;
+}
+
+.review-status {
+  padding: 0.85rem 1rem;
+  border-radius: 9px;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.review-status.show {
+  display: block;
+}
+
+.review-status.success {
+  background: #e6f5f3;
+  color: #1e7a6e;
+}
+
+.review-status.error {
+  background: #fdecec;
+  color: #9b2d2d;
+}
+
+.review-moderation-note {
+  font-family: Arial, sans-serif;
+  color: #667;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-carousel-card {
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .review-carousel-card,
+  .review-form-card {
+    padding: 1.5rem;
+  }
+
+  .review-quote {
+    font-size: 1.1rem;
+  }
+
+  .review-form-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .review-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .review-controls {
+    gap: 0.55rem;
+  }
+}

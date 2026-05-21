@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guest Reviews | Het Vissershuisje</title>
+  <meta name="description" content="Read guest reviews and experiences from stays at Het Vissershuisje holiday home in Bredene." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, serif; color: #2c3e50; background: #fff; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    :root {
+      --sea: #1a6b8a;
+      --sky: #e8f4f8;
+      --sand: #f5efe6;
+      --accent: #e07b39;
+      --dark: #1c2b36;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(26,107,138,0.95);
+      backdrop-filter: blur(6px);
+    }
+    .nav-logo { font-size: 1.5rem; font-weight: bold; color: #fff; letter-spacing: 0; text-transform: uppercase; }
+    .nav-links a { color: rgba(255,255,255,0.85); margin-left: 1.5rem; font-family: Arial, sans-serif; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+    .page-header {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--sea) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 7rem 1.5rem 3rem;
+    }
+    .page-header h1 { font-size: 3rem; letter-spacing: 0; margin-bottom: 0.5rem; }
+    .page-header p { max-width: 660px; margin: 0 auto; font-family: Arial, sans-serif; font-size: 1rem; color: rgba(255,255,255,0.82); }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+    .section-label { font-family: Arial, sans-serif; font-size: 0.78rem; letter-spacing: 0; text-transform: uppercase; color: var(--sea); margin-bottom: 0.6rem; }
+    .section-title { font-size: 2.4rem; line-height: 1.2; color: var(--dark); margin-bottom: 0.8rem; }
+    .section-sub { font-family: Arial, sans-serif; font-size: 1rem; color: #556; max-width: 680px; margin-bottom: 1.8rem; }
+    .btn { display: inline-block; padding: 0.9rem 2.1rem; border-radius: 50px; font-family: Arial, sans-serif; font-size: 0.95rem; font-weight: bold; letter-spacing: 0; border: 0; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #c96a2a; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem; font-family: Arial, sans-serif; font-size: 0.82rem; }
+    footer span { color: rgba(255,255,255,0.25); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .page-header { padding-top: 6.5rem; }
+      .page-header h1 { font-size: 2.2rem; }
+      .section-title { font-size: 1.8rem; }
+    }
+  </style>
+  <link rel="stylesheet" href="language.css" />
+  <link rel="stylesheet" href="reviews.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Het Vissershuisje</a>
+    <button type="button" class="mobile-menu-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Menu">&#9776;</button>
+    <div class="nav-links" id="main-navigation">
+      <a href="index.html#about">Our Home</a>
+      <a href="index.html#features">Amenities</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#location">Location</a>
+      <a href="things-to-do.html">In the Area</a>
+      <a href="reviews.html" class="active">Reviews</a>
+      <a href="booking.html">Book</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="language-switcher">
+      <button type="button" class="language-toggle" aria-haspopup="true" aria-expanded="false">
+        <span class="fi fi-gb language-flag language-current-flag" aria-hidden="true"></span>
+        <span class="language-current-label">English</span>
+      </button>
+      <div class="language-menu" role="listbox" aria-label="Language">
+        <button type="button" class="language-option" data-lang="nl" role="option"><span class="fi fi-nl language-flag" aria-hidden="true"></span><span>Nederlands</span></button>
+        <button type="button" class="language-option" data-lang="fr" role="option"><span class="fi fi-fr language-flag" aria-hidden="true"></span><span>Fran&ccedil;ais</span></button>
+        <button type="button" class="language-option" data-lang="de" role="option"><span class="fi fi-de language-flag" aria-hidden="true"></span><span>Deutsch</span></button>
+        <button type="button" class="language-option" data-lang="en" role="option"><span class="fi fi-gb language-flag" aria-hidden="true"></span><span>English</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1 data-review-copy="allReviewsTitle">Guest Reviews</h1>
+    <p data-review-copy="allReviewsIntro">Real guest feedback helps future visitors picture their stay by the sea.</p>
+  </header>
+
+  <main class="reviews-page">
+    <div class="reviews-layout">
+      <section aria-labelledby="approved-reviews-title">
+        <p class="section-label" data-review-copy="approvedLabel">Approved reviews</p>
+        <h2 class="section-title" id="approved-reviews-title" data-review-copy="approvedTitle">Guest experiences</h2>
+        <div id="reviews-summary" class="review-summary reviews-summary-card" aria-live="polite"></div>
+        <div id="review-filters" class="review-filters" aria-label="Filter reviews by stay type"></div>
+        <div id="reviews-list" class="reviews-list"></div>
+      </section>
+
+      <section class="review-submit-section" aria-labelledby="leave-review-title">
+        <div class="review-form-card">
+          <h2 id="leave-review-title" data-review-copy="formTitle">Leave a review</h2>
+          <p class="form-sub" data-review-copy="formIntro">Your review will be sent privately and displayed only after manual approval.</p>
+          <form
+            id="reviewForm"
+            class="review-form"
+            action="https://formspree.io/f/meenbjjv"
+            method="POST"
+            data-review-email="REPLACE_WITH_OWNER_EMAIL"
+            novalidate>
+            <input type="hidden" name="_subject" value="New guest review submission - Het Vissershuisje" />
+            <input type="hidden" name="submission_type" value="guest_review_moderation" />
+
+            <div class="review-form-row">
+              <div>
+                <label for="reviewName">Name</label>
+                <input type="text" id="reviewName" name="name" autocomplete="name" required aria-describedby="reviewNameError" />
+                <div class="field-error" id="reviewNameError"></div>
+              </div>
+              <div>
+                <label for="reviewEmail">Email address</label>
+                <input type="email" id="reviewEmail" name="email" autocomplete="email" required aria-describedby="reviewEmailError" />
+                <div class="field-error" id="reviewEmailError"></div>
+              </div>
+            </div>
+
+            <div class="review-form-row">
+              <div>
+                <label for="reviewRating">Rating</label>
+                <select id="reviewRating" name="rating" required aria-describedby="reviewRatingError">
+                  <option value="">Choose a rating</option>
+                  <option value="5">5 - Excellent</option>
+                  <option value="4">4 - Very good</option>
+                  <option value="3">3 - Good</option>
+                  <option value="2">2 - Fair</option>
+                  <option value="1">1 - Poor</option>
+                </select>
+                <div class="field-error" id="reviewRatingError"></div>
+              </div>
+              <div>
+                <label for="reviewStayDate">When did you stay?</label>
+                <input type="month" id="reviewStayDate" name="stay_date" aria-describedby="reviewStayDateError" />
+                <div class="field-error" id="reviewStayDateError"></div>
+              </div>
+            </div>
+
+            <div>
+              <label for="reviewStayType">Type of stay</label>
+              <select id="reviewStayType" name="stay_type">
+                <option value="">Choose a type</option>
+                <option value="Family stay">Family stay</option>
+                <option value="Couple stay">Couple stay</option>
+                <option value="Stay with dog">Stay with dog</option>
+                <option value="Short stay">Short stay</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="reviewText">Your review</label>
+              <textarea id="reviewText" name="review" maxlength="1000" required aria-describedby="reviewTextError reviewCharCount"></textarea>
+              <div class="review-char-count" id="reviewCharCount">0 / 1000 characters</div>
+              <div class="field-error" id="reviewTextError"></div>
+            </div>
+
+            <label class="review-consent">
+              <input type="checkbox" id="reviewConsent" name="consent_to_publish_after_approval" value="yes" required aria-describedby="reviewConsentError" />
+              <span id="reviewConsentLabel">I agree that my review may be displayed publicly on this website after approval.</span>
+            </label>
+            <div class="field-error" id="reviewConsentError"></div>
+
+            <div class="review-status" id="reviewFormStatus" role="status" aria-live="polite"></div>
+            <button class="btn btn-primary" type="submit">Submit review</button>
+          </form>
+          <p class="review-moderation-note" data-review-copy="moderation">Submitted reviews are moderated before publication. Your email address is never shown publicly.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer><p>2025 Het Vissershuisje <span>&#183;</span> Holiday Home at the Belgian Coast <span>&#183;</span> All rights reserved</p></footer>
+  <script src="reviews-data.js"></script>
+  <script src="i18n.js"></script>
+  <script src="reviews.js"></script>
+</body>
+</html>

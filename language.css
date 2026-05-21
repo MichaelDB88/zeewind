@@ -98,7 +98,18 @@
   line-height: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links a {
+    margin-left: 0.9rem;
+    font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 900px) {
   nav {
     gap: 0.75rem;
   }

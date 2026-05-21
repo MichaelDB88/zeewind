@@ -16,7 +16,9 @@
         bookingTitle: 'Book Your Stay - Het Vissershuisje',
         bookingDescription: 'Check availability and send a booking request for Het Vissershuisje holiday home in Bredene.',
         thingsTitle: 'Things to Do Near Het Vissershuisje in Bredene | Belgian Coast',
-        thingsDescription: 'Discover things to do near Het Vissershuisje in the holiday park in Bredene, including the new LAGO Bredene Grasduinen swimming pool, beaches, dunes, and family-friendly activities on the Belgian coast.'
+        thingsDescription: 'Discover things to do near Het Vissershuisje in the holiday park in Bredene, including the new LAGO Bredene Grasduinen swimming pool, beaches, dunes, and family-friendly activities on the Belgian coast.',
+        reviewsTitle: 'Guest Reviews | Het Vissershuisje',
+        reviewsDescription: 'Read guest reviews and experiences from stays at Het Vissershuisje holiday home in Bredene.'
       },
       common: {
         navHouse: 'Our Home',
@@ -24,6 +26,7 @@
         navGallery: 'Gallery',
         navLocation: 'Location',
         navThings: 'In the Area',
+        navReviews: 'Reviews',
         navBook: 'Book',
         navContact: 'Contact',
         languageLabel: 'Language',
@@ -233,7 +236,9 @@
         bookingTitle: 'Boek je verblijf - Het Vissershuisje',
         bookingDescription: 'Bekijk de beschikbaarheid en stuur een boekingsaanvraag voor vakantiehuis Het Vissershuisje in Bredene.',
         thingsTitle: 'Wat te doen in de buurt van Het Vissershuisje in Bredene | Belgische kust',
-        thingsDescription: 'Ontdek wat er te doen is bij Het Vissershuisje in het vakantiepark in Bredene, inclusief het nieuwe LAGO Bredene Grasduinen zwembad, stranden, duinen en gezinsvriendelijke activiteiten aan de Belgische kust.'
+        thingsDescription: 'Ontdek wat er te doen is bij Het Vissershuisje in het vakantiepark in Bredene, inclusief het nieuwe LAGO Bredene Grasduinen zwembad, stranden, duinen en gezinsvriendelijke activiteiten aan de Belgische kust.',
+        reviewsTitle: 'Gastbeoordelingen | Het Vissershuisje',
+        reviewsDescription: 'Lees ervaringen en beoordelingen van gasten die verbleven in vakantiehuis Het Vissershuisje in Bredene.'
       },
       common: {
         navHouse: 'Ons huis',
@@ -241,6 +246,7 @@
         navGallery: 'Foto’s',
         navLocation: 'Ligging',
         navThings: 'In de Buurt',
+        navReviews: 'Beoordelingen',
         navBook: 'Boeken',
         navContact: 'Contact',
         languageLabel: 'Taal',
@@ -444,7 +450,9 @@
         bookingTitle: 'Réserver votre séjour - Het Vissershuisje',
         bookingDescription: 'Consultez les disponibilités et envoyez une demande de réservation pour la maison de vacances Het Vissershuisje à Bredene.',
         thingsTitle: 'Que faire près de Het Vissershuisje à Bredene | Côte belge',
-        thingsDescription: 'Découvrez les activités près de Het Vissershuisje dans le parc de vacances à Bredene, dont la nouvelle piscine LAGO Bredene Grasduinen, les plages, les dunes et les sorties familiales à la côte belge.'
+        thingsDescription: 'Découvrez les activités près de Het Vissershuisje dans le parc de vacances à Bredene, dont la nouvelle piscine LAGO Bredene Grasduinen, les plages, les dunes et les sorties familiales à la côte belge.',
+        reviewsTitle: 'Avis des voyageurs | Het Vissershuisje',
+        reviewsDescription: 'Lisez les avis et expériences des voyageurs ayant séjourné à Het Vissershuisje, maison de vacances à Bredene.'
       },
       common: {
         navHouse: 'Notre maison',
@@ -452,6 +460,7 @@
         navGallery: 'Photos',
         navLocation: 'Situation',
         navThings: 'Dans les environs',
+        navReviews: 'Avis',
         navBook: 'Réserver',
         navContact: 'Contact',
         languageLabel: 'Langue',
@@ -661,7 +670,9 @@
         bookingTitle: 'Aufenthalt buchen - Het Vissershuisje',
         bookingDescription: 'Prüfen Sie die Verfügbarkeit und senden Sie eine Buchungsanfrage für das Ferienhaus Het Vissershuisje in Bredene.',
         thingsTitle: 'Aktivitäten in der Nähe von Het Vissershuisje in Bredene | Belgische Küste',
-        thingsDescription: 'Entdecken Sie Aktivitäten bei Het Vissershuisje im Ferienpark in Bredene, darunter das neue Schwimmbad LAGO Bredene Grasduinen, Strände, Dünen und familienfreundliche Ausflüge an der belgischen Küste.'
+        thingsDescription: 'Entdecken Sie Aktivitäten bei Het Vissershuisje im Ferienpark in Bredene, darunter das neue Schwimmbad LAGO Bredene Grasduinen, Strände, Dünen und familienfreundliche Ausflüge an der belgischen Küste.',
+        reviewsTitle: 'Gästebewertungen | Het Vissershuisje',
+        reviewsDescription: 'Lesen Sie Bewertungen und Erfahrungen von Gästen des Ferienhauses Het Vissershuisje in Bredene.'
       },
       common: {
         navHouse: 'Unser Zuhause',
@@ -669,6 +680,7 @@
         navGallery: 'Galerie',
         navLocation: 'Lage',
         navThings: 'In der Umgebung',
+        navReviews: 'Bewertungen',
         navBook: 'Buchen',
         navContact: 'Kontakt',
         languageLabel: 'Sprache',
@@ -879,6 +891,7 @@
     ['.nav-links a[href="#gallery"], .nav-links a[href="index.html#gallery"]', 'common.navGallery'],
     ['.nav-links a[href="#location"], .nav-links a[href="index.html#location"]', 'common.navLocation'],
     ['.nav-links a[href="things-to-do.html"]', 'common.navThings'],
+    ['.nav-links a[href="reviews.html"]', 'common.navReviews'],
     ['.nav-links a[href="booking.html"]', 'common.navBook'],
     ['.nav-links a[href="#contact"], .nav-links a[href="index.html#contact"]', 'common.navContact'],
     ['footer p', 'common.footer']
@@ -1082,6 +1095,7 @@
     var path = window.location.pathname.toLowerCase();
     if (path.indexOf('booking') !== -1) return 'booking';
     if (path.indexOf('things-to-do') !== -1) return 'things';
+    if (path.indexOf('reviews') !== -1) return 'reviews';
     return 'home';
   }
 
@@ -1122,7 +1136,7 @@
   }
 
   function updateMeta(copy, page) {
-    var key = page === 'booking' ? 'booking' : page === 'things' ? 'things' : 'home';
+    var key = page === 'booking' ? 'booking' : page === 'things' ? 'things' : page === 'reviews' ? 'reviews' : 'home';
     document.title = copy.meta[key + 'Title'];
     var meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', copy.meta[key + 'Description']);

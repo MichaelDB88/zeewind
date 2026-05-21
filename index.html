@@ -408,6 +408,7 @@
     }
   </style>
   <link rel="stylesheet" href="language.css" />
+  <link rel="stylesheet" href="reviews.css" />
 </head>
 <body>
 
@@ -421,6 +422,7 @@
       <a href="#gallery">Gallery</a>
       <a href="#location">Location</a>
       <a href="things-to-do.html">In the Area</a>
+      <a href="reviews.html">Reviews</a>
       <a href="booking.html">Book</a>
       <a href="#contact">Contact</a>
     </div>
@@ -620,6 +622,21 @@
   </section>
 
   <!-- ── Contact ───────────────────────────────────────────────── -->
+  <section class="guest-reviews" id="guest-reviews">
+    <div class="container">
+      <div class="reviews-shell">
+        <p class="section-label" data-review-copy="featuredLabel">Guest Reviews</p>
+        <h2 class="section-title" data-review-copy="featuredTitle">What guests say</h2>
+        <p class="section-sub" data-review-copy="featuredIntro">Read what guests say about their stay at Het Vissershuisje.</p>
+        <div id="home-review-summary" class="review-summary" aria-live="polite"></div>
+        <div id="home-review-carousel" class="review-carousel" aria-roledescription="carousel" aria-label="Guest reviews"></div>
+        <div class="reviews-link-wrap">
+          <a href="reviews.html" class="btn btn-primary" data-review-copy="readAll">Read all reviews</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="contact" id="contact">
     <div class="container">
       <p class="section-label">Get in Touch</p>
@@ -648,12 +665,13 @@
     </div>
   </section>
 
-  <script src="i18n.js"></script>
-
   <!-- ── Footer ────────────────────────────────────────────────── -->
   <footer>
     <p>© 2025 Het Vissershuisje &nbsp;<span>·</span>&nbsp; Holiday Home at the Belgian Coast &nbsp;<span>·</span>&nbsp; All rights reserved</p>
   </footer>
 
+  <script src="reviews-data.js"></script>
+  <script src="i18n.js"></script>
+  <script src="reviews.js"></script>
 </body>
 </html>
