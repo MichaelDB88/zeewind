@@ -117,7 +117,7 @@
       goTo: 'Afficher l’avis {index}',
       stars: '{rating} sur 5 étoiles',
       formTitle: 'Laisser un avis',
-      formIntro: 'Vous avez séjourné chez nous ? Nous serions ravis de vous lire. Votre expérience aide les futurs voyageurs à profiter au maximum de leur séjour.',
+      formIntro: 'Vous avez séjourné chez nous ? Nous serions ravis de vous lire. Votre expérience aide les futurs voyageurs à profiter au maximum de leur séjour.',
       name: 'Nom',
       email: 'Adresse e-mail *',
       rating: 'Note',
@@ -126,7 +126,7 @@
       rating3: '3 - Bien',
       rating2: '2 - Correct',
       rating1: '1 - Faible',
-      stayDate: 'Quand avez-vous séjourné ?',
+      stayDate: 'Quand avez-vous séjourné ?',
       property: 'Maison de vacances',
       familyStay: 'Séjour en famille',
       coupleStay: 'Séjour en couple',
@@ -135,29 +135,29 @@
       reviewText: 'Votre avis',
       consent: 'J’accepte que mon avis puisse être affiché publiquement sur ce site après approbation.',
       submit: 'Envoyer l’avis',
-      moderation: ‘* Votre adresse e-mail n\’est jamais affichée publiquement.’,
+      moderation: '* Votre adresse e-mail n’est jamais affichée publiquement.',
       chooseRating: 'Choisir une note',
       chooseStayType: 'Choisir un type',
       required: 'Ce champ est obligatoire.',
       invalidEmail: 'Entrez une adresse e-mail valide.',
       consentRequired: 'Veuillez confirmer le consentement de publication.',
-      tooLong: 'Merci de limiter votre avis à 1 000 caractères.',
+      tooLong: 'Merci de limiter votre avis à 1 000 caractères.',
       success: 'Merci. Votre avis a été envoyé pour approbation.',
       mailtoSuccess: 'Votre application e-mail devrait s’ouvrir avec les détails de l’avis. Envoyez l’e-mail pour qu’il soit vérifié.',
       error: 'Une erreur s’est produite. Réessayez ou contactez-nous directement.',
       characterCount: '{count} / 1000 caractères'
     },
     de: {
-      featuredLabel: 'Gästebewertungen',
+      featuredLabel: 'Gästewertungen',
       featuredTitle: 'Was Gäste sagen',
       featuredIntro: 'Lesen Sie, was Gäste über ihren Aufenthalt im Het Vissershuisje sagen.',
       readAll: 'Alle Bewertungen lesen',
-      allReviewsTitle: 'Gästebewertungen',
+      allReviewsTitle: 'Gästewertungen',
       allReviewsIntro: 'Echte Rückmeldungen helfen zukünftigen Gästen, sich den Aufenthalt am Meer besser vorzustellen.',
       approvedLabel: 'Freigegebene Bewertungen',
       approvedTitle: 'Erfahrungen von Gästen',
-      empty: 'Gästebewertungen erscheinen hier bald.',
-      basedOn: 'Basierend auf {count} freigegebenen Gästebewertungen',
+      empty: 'Gästewertungen erscheinen hier bald.',
+      basedOn: 'Basierend auf {count} freigegebenen Gästewertungen',
       average: '{average}/5',
       all: 'Alle',
       previous: 'Vorherige Bewertung',
@@ -300,10 +300,10 @@
     var lang = language();
     var text = review['text_' + lang] || review.text;
     return (
-      '<article class=”review-card”>' +
+      '<article class="review-card">' +
         stars(review.rating) +
-        '<p class=”review-quote”>”' + escapeHtml(text) + '”</p>' +
-        '<p class=”review-meta”>' + meta(review) + '</p>' +
+        '<p class="review-quote">"' + escapeHtml(text) + '"</p>' +
+        '<p class="review-meta">' + meta(review) + '</p>' +
       '</article>'
     );
   }
@@ -333,10 +333,10 @@
       var lang = language();
       var text = review['text_' + lang] || review.text;
       return (
-        '<div class=”review-carousel-card” tabindex=”0” aria-live=”polite”>' +
+        '<div class="review-carousel-card" tabindex="0" aria-live="polite">' +
           stars(review.rating) +
-          '<p class=”review-quote”>”' + escapeHtml(text) + '”</p>' +
-          '<p class=”review-meta”>' + meta(review) + '</p>' +
+          '<p class="review-quote">"' + escapeHtml(text) + '"</p>' +
+          '<p class="review-meta">' + meta(review) + '</p>' +
         '</div>'
       );
     }
@@ -347,9 +347,9 @@
       }).join('');
       return (
         '<div class="review-controls">' +
-          '<button type="button" class="review-arrow" data-review-prev aria-label="' + copy('previous') + '">&#8249;</button>' +
+          '<button type="button" class="review-arrow" data-review-prev aria-label="' + copy('previous') + '">‹</button>' +
           '<div class="review-dots">' + dots + '</div>' +
-          '<button type="button" class="review-arrow" data-review-next aria-label="' + copy('next') + '">&#8250;</button>' +
+          '<button type="button" class="review-arrow" data-review-next aria-label="' + copy('next') + '">›</button>' +
         '</div>'
       );
     }
@@ -655,4 +655,12 @@
     return 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   }
 
-  function
+  function renderAll() {
+    renderHomeCarousel();
+    renderReviewsPage();
+  }
+
+  initReviewForm();
+  renderAll();
+  window.addEventListener('zeewind:languagechange', renderAll);
+})();
