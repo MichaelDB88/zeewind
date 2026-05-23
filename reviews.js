@@ -9,21 +9,23 @@
       featuredIntro: 'Read what guests say about their stay at Het Vissershuisje.',
       readAll: 'Read all reviews',
       allReviewsTitle: 'Guest Reviews',
-      allReviewsIntro: 'Real guest feedback helps future visitors picture their stay by the sea.',
-      approvedLabel: 'Approved reviews',
-      approvedTitle: 'Guest experiences',
+      allReviewsIntro: 'Warm stories from guests who chose Het Vissershuisje for a relaxed stay near the Belgian coast.',
+      approvedLabel: 'Guest stories',
+      approvedTitle: 'Why guests choose us',
       empty: 'Guest reviews will appear here soon.',
-      basedOn: 'Based on {count} approved guest reviews',
+      basedOn: 'Based on {count} guest reviews',
       average: '{average}/5',
       all: 'All',
+      positive: 'Positive',
+      critical: 'Good to know',
       previous: 'Previous review',
       next: 'Next review',
       goTo: 'Show review {index}',
       stars: '{rating} out of 5 stars',
       formTitle: 'Leave a review',
-      formIntro: 'Stayed with us? We\'d love to hear from you. Your experience helps future guests make the most of their stay.',
+      formIntro: 'Stayed with us? Share what made your time at the coast memorable.',
       name: 'Name',
-      email: 'Email address *',
+      email: 'Email address',
       rating: 'Rating',
       rating5: '5 - Excellent',
       rating4: '4 - Very good',
@@ -31,23 +33,20 @@
       rating2: '2 - Fair',
       rating1: '1 - Poor',
       stayDate: 'When did you stay?',
-      property: 'Holiday home',
-      familyStay: 'Family stay',
-      coupleStay: 'Couple stay',
-      dogStay: 'Stay with dog',
-      shortStay: 'Short stay',
+      house: 'Holiday home',
+      houseHetVissershuisje: 'Het Vissershuisje',
       reviewText: 'Your review',
-      consent: 'I agree that my review may be displayed publicly on this website after approval.',
+      consent: 'I agree that my review may be displayed on this website.',
       submit: 'Submit review',
-      moderation: '* Your email address is never shown publicly.',
+      moderation: 'Your email address is only used if we need to follow up.',
       chooseRating: 'Choose a rating',
-      chooseStayType: 'Choose a type',
+      chooseHouse: 'Choose a holiday home',
       required: 'This field is required.',
       invalidEmail: 'Enter a valid email address.',
       consentRequired: 'Please confirm the publication consent.',
       tooLong: 'Please keep your review under 1,000 characters.',
-      success: 'Thank you. Your review has been sent for approval.',
-      mailtoSuccess: 'Your email app should open with the review details. Send the email so it can be reviewed before publication.',
+      success: 'Thank you. Your review has been received.',
+      mailtoSuccess: 'Your email app should open with the review details. Send the email to share your experience with us.',
       error: 'Something went wrong. Please try again or contact us directly.',
       characterCount: '{count} / 1000 characters'
     },
@@ -57,21 +56,23 @@
       featuredIntro: 'Lees wat gasten vertellen over hun verblijf in Het Vissershuisje.',
       readAll: 'Lees alle beoordelingen',
       allReviewsTitle: 'Gastbeoordelingen',
-      allReviewsIntro: 'Echte feedback van gasten helpt toekomstige bezoekers hun verblijf aan zee beter voor te stellen.',
-      approvedLabel: 'Goedgekeurde beoordelingen',
-      approvedTitle: 'Ervaringen van gasten',
+      allReviewsIntro: 'Warme verhalen van gasten die Het Vissershuisje kozen voor een ontspannen verblijf aan de Belgische kust.',
+      approvedLabel: 'Gastenverhalen',
+      approvedTitle: 'Waarom gasten voor ons kiezen',
       empty: 'Gastbeoordelingen verschijnen hier binnenkort.',
-      basedOn: 'Gebaseerd op {count} goedgekeurde gastbeoordelingen',
+      basedOn: 'Gebaseerd op {count} gastbeoordelingen',
       average: '{average}/5',
       all: 'Alles',
+      positive: 'Positief',
+      critical: 'Goed om te weten',
       previous: 'Vorige beoordeling',
       next: 'Volgende beoordeling',
       goTo: 'Toon beoordeling {index}',
       stars: '{rating} van 5 sterren',
       formTitle: 'Laat een beoordeling achter',
-      formIntro: 'Verbleven bij ons? We horen graag van je. Jouw ervaring helpt toekomstige gasten het meeste te halen uit hun verblijf.',
+      formIntro: 'Verbleef je bij ons? Deel wat je verblijf aan zee bijzonder maakte.',
       name: 'Naam',
-      email: 'E-mailadres *',
+      email: 'E-mailadres',
       rating: 'Score',
       rating5: '5 - Uitstekend',
       rating4: '4 - Zeer goed',
@@ -79,23 +80,20 @@
       rating2: '2 - Redelijk',
       rating1: '1 - Matig',
       stayDate: 'Wanneer verbleef je?',
-      property: 'Vakantiehuis',
-      familyStay: 'Gezinsverblijf',
-      coupleStay: 'Verblijf met twee',
-      dogStay: 'Verblijf met hond',
-      shortStay: 'Kort verblijf',
+      house: 'Vakantiehuis',
+      houseHetVissershuisje: 'Het Vissershuisje',
       reviewText: 'Je beoordeling',
-      consent: 'Ik ga ermee akkoord dat mijn beoordeling na goedkeuring publiek op deze website mag verschijnen.',
+      consent: 'Ik ga ermee akkoord dat mijn beoordeling op deze website mag verschijnen.',
       submit: 'Beoordeling verzenden',
-      moderation: '* Je e-mailadres wordt nooit publiek getoond.',
+      moderation: 'Je e-mailadres wordt alleen gebruikt als we iets willen opvolgen.',
       chooseRating: 'Kies een score',
-      chooseStayType: 'Kies een type',
+      chooseHouse: 'Kies een vakantiehuis',
       required: 'Dit veld is verplicht.',
       invalidEmail: 'Vul een geldig e-mailadres in.',
       consentRequired: 'Bevestig de toestemming voor publicatie.',
       tooLong: 'Hou je beoordeling onder 1.000 tekens.',
-      success: 'Bedankt. Je beoordeling is verzonden voor goedkeuring.',
-      mailtoSuccess: 'Je e-mailprogramma opent met de beoordelingsgegevens. Verstuur de e-mail zodat de beoordeling nagekeken kan worden.',
+      success: 'Bedankt. Je beoordeling is ontvangen.',
+      mailtoSuccess: 'Je e-mailprogramma opent met de beoordelingsgegevens. Verstuur de e-mail om je ervaring met ons te delen.',
       error: 'Er ging iets mis. Probeer opnieuw of neem rechtstreeks contact op.',
       characterCount: '{count} / 1000 tekens'
     },
@@ -105,69 +103,70 @@
       featuredIntro: 'Lisez ce que les voyageurs disent de leur séjour à Het Vissershuisje.',
       readAll: 'Lire tous les avis',
       allReviewsTitle: 'Avis des voyageurs',
-      allReviewsIntro: 'Les retours de vrais voyageurs aident les futurs visiteurs à imaginer leur séjour au bord de la mer.',
-      approvedLabel: 'Avis approuvés',
-      approvedTitle: 'Expériences des voyageurs',
+      allReviewsIntro: 'Des témoignages chaleureux de voyageurs qui ont choisi Het Vissershuisje pour un séjour détendu à la côte belge.',
+      approvedLabel: 'Récits de voyageurs',
+      approvedTitle: 'Pourquoi les voyageurs nous choisissent',
       empty: 'Les avis des voyageurs apparaîtront bientôt ici.',
-      basedOn: 'Basé sur {count} avis approuvés',
+      basedOn: 'Basé sur {count} avis de voyageurs',
       average: '{average}/5',
       all: 'Tous',
+      positive: 'Positifs',
+      critical: 'Bon à savoir',
       previous: 'Avis précédent',
       next: 'Avis suivant',
       goTo: 'Afficher l’avis {index}',
       stars: '{rating} sur 5 étoiles',
       formTitle: 'Laisser un avis',
-      formIntro: 'Vous avez séjourné chez nous ? Nous serions ravis de vous lire. Votre expérience aide les futurs voyageurs à profiter au maximum de leur séjour.',
+      formIntro: 'Vous avez séjourné chez nous ? Partagez ce qui a rendu votre séjour à la côte mémorable.',
       name: 'Nom',
-      email: 'Adresse e-mail *',
+      email: 'Adresse e-mail',
       rating: 'Note',
       rating5: '5 - Excellent',
       rating4: '4 - Très bien',
       rating3: '3 - Bien',
       rating2: '2 - Correct',
       rating1: '1 - Faible',
-      stayDate: 'Quand avez-vous séjourné ?',
-      property: 'Maison de vacances',
-      familyStay: 'Séjour en famille',
-      coupleStay: 'Séjour en couple',
-      dogStay: 'Séjour avec chien',
-      shortStay: 'Court séjour',
+      stayDate: 'Quand avez-vous séjourné ?',
+      house: 'Maison de vacances',
+      houseHetVissershuisje: 'Het Vissershuisje',
       reviewText: 'Votre avis',
-      consent: 'J’accepte que mon avis puisse être affiché publiquement sur ce site après approbation.',
+      consent: 'J’accepte que mon avis puisse être affiché sur ce site.',
       submit: 'Envoyer l’avis',
-      moderation: '* Votre adresse e-mail n’est jamais affichée publiquement.',
+      moderation: 'Votre adresse e-mail sert uniquement si nous devons vous recontacter.',
       chooseRating: 'Choisir une note',
-      chooseStayType: 'Choisir un type',
+      chooseHouse: 'Choisir une maison',
       required: 'Ce champ est obligatoire.',
       invalidEmail: 'Entrez une adresse e-mail valide.',
       consentRequired: 'Veuillez confirmer le consentement de publication.',
-      tooLong: 'Merci de limiter votre avis à 1 000 caractères.',
-      success: 'Merci. Votre avis a été envoyé pour approbation.',
-      mailtoSuccess: 'Votre application e-mail devrait s’ouvrir avec les détails de l’avis. Envoyez l’e-mail pour qu’il soit vérifié.',
+      tooLong: 'Merci de limiter votre avis à 1 000 caractères.',
+      success: 'Merci. Votre avis a bien été reçu.',
+      mailtoSuccess: 'Votre application e-mail devrait s’ouvrir avec les détails de l’avis. Envoyez l’e-mail pour partager votre expérience avec nous.',
       error: 'Une erreur s’est produite. Réessayez ou contactez-nous directement.',
       characterCount: '{count} / 1000 caractères'
     },
     de: {
-      featuredLabel: 'Gästewertungen',
+      featuredLabel: 'Gästebewertungen',
       featuredTitle: 'Was Gäste sagen',
       featuredIntro: 'Lesen Sie, was Gäste über ihren Aufenthalt im Het Vissershuisje sagen.',
       readAll: 'Alle Bewertungen lesen',
-      allReviewsTitle: 'Gästewertungen',
-      allReviewsIntro: 'Echte Rückmeldungen helfen zukünftigen Gästen, sich den Aufenthalt am Meer besser vorzustellen.',
-      approvedLabel: 'Freigegebene Bewertungen',
-      approvedTitle: 'Erfahrungen von Gästen',
-      empty: 'Gästewertungen erscheinen hier bald.',
-      basedOn: 'Basierend auf {count} freigegebenen Gästewertungen',
+      allReviewsTitle: 'Gästebewertungen',
+      allReviewsIntro: 'Warme Eindrücke von Gästen, die Het Vissershuisje für eine entspannte Auszeit an der belgischen Küste gewählt haben.',
+      approvedLabel: 'Gästestimmen',
+      approvedTitle: 'Warum Gäste uns wählen',
+      empty: 'Gästebewertungen erscheinen hier bald.',
+      basedOn: 'Basierend auf {count} Gästebewertungen',
       average: '{average}/5',
       all: 'Alle',
+      positive: 'Positiv',
+      critical: 'Gut zu wissen',
       previous: 'Vorherige Bewertung',
       next: 'Nächste Bewertung',
       goTo: 'Bewertung {index} anzeigen',
       stars: '{rating} von 5 Sternen',
       formTitle: 'Bewertung abgeben',
-      formIntro: 'Waren Sie bei uns zu Gast? Wir freuen uns über Ihre Rückmeldung. Ihre Erfahrung hilft zukünftigen Gästen, das Beste aus ihrem Aufenthalt zu machen.',
+      formIntro: 'Waren Sie bei uns zu Gast? Teilen Sie, was Ihren Aufenthalt an der Küste besonders gemacht hat.',
       name: 'Name',
-      email: 'E-Mail-Adresse *',
+      email: 'E-Mail-Adresse',
       rating: 'Bewertung',
       rating5: '5 - Ausgezeichnet',
       rating4: '4 - Sehr gut',
@@ -175,33 +174,27 @@
       rating2: '2 - Ausreichend',
       rating1: '1 - Schwach',
       stayDate: 'Wann waren Sie zu Gast?',
-      property: 'Ferienhaus',
-      familyStay: 'Familienaufenthalt',
-      coupleStay: 'Aufenthalt zu zweit',
-      dogStay: 'Aufenthalt mit Hund',
-      shortStay: 'Kurzaufenthalt',
+      house: 'Ferienhaus',
+      houseHetVissershuisje: 'Het Vissershuisje',
       reviewText: 'Ihre Bewertung',
-      consent: 'Ich stimme zu, dass meine Bewertung nach Freigabe öffentlich auf dieser Website angezeigt werden darf.',
+      consent: 'Ich stimme zu, dass meine Bewertung auf dieser Website angezeigt werden darf.',
       submit: 'Bewertung senden',
-      moderation: '* Ihre E-Mail-Adresse wird nie öffentlich angezeigt.',
+      moderation: 'Ihre E-Mail-Adresse wird nur genutzt, wenn wir Rückfragen haben.',
       chooseRating: 'Bewertung wählen',
-      chooseStayType: 'Art wählen',
+      chooseHouse: 'Ferienhaus wählen',
       required: 'Dieses Feld ist erforderlich.',
       invalidEmail: 'Geben Sie eine gültige E-Mail-Adresse ein.',
       consentRequired: 'Bitte bestätigen Sie die Einwilligung zur Veröffentlichung.',
       tooLong: 'Bitte halten Sie Ihre Bewertung unter 1.000 Zeichen.',
-      success: 'Vielen Dank. Ihre Bewertung wurde zur Freigabe gesendet.',
-      mailtoSuccess: 'Ihr E-Mail-Programm sollte sich mit den Bewertungsdetails öffnen. Senden Sie die E-Mail, damit sie geprüft werden kann.',
+      success: 'Vielen Dank. Ihre Bewertung ist eingegangen.',
+      mailtoSuccess: 'Ihr E-Mail-Programm sollte sich mit den Bewertungsdetails öffnen. Senden Sie die E-Mail, um Ihre Erfahrung mit uns zu teilen.',
       error: 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.',
       characterCount: '{count} / 1000 Zeichen'
     }
   };
 
-  var STAY_TYPE_LABELS = {
-    'Family stay': 'familyStay',
-    'Couple stay': 'coupleStay',
-    'Stay with dog': 'dogStay',
-    'Short stay': 'shortStay'
+  var HOUSE_LABELS = {
+    'Het Vissershuisje': 'houseHetVissershuisje'
   };
 
   function language() {
@@ -262,15 +255,31 @@
     return value;
   }
 
-  function stayTypeLabel(value) {
-    return STAY_TYPE_LABELS[value] ? copy(STAY_TYPE_LABELS[value]) : value;
+  function houseLabel(value) {
+    return HOUSE_LABELS[value] ? copy(HOUSE_LABELS[value]) : value;
+  }
+
+  function reviewProperty(review) {
+    return review.house || review.property || '';
+  }
+
+  function localizedReviewText(review) {
+    var lang = language();
+    return review['text_' + lang] || review.text || '';
+  }
+
+  function reviewSentiment(review) {
+    if (review.sentiment) return review.sentiment;
+    return Number(review.rating || 0) >= 5 ? 'positive' : 'critical';
   }
 
   function meta(review) {
     var bits = ['<strong>' + escapeHtml(review.name) + '</strong>'];
-    if (review.location) bits.push(escapeHtml(review.location));
+    var property = reviewProperty(review);
+    if (review.location && String(review.name).indexOf(review.location) === -1) bits.push(escapeHtml(review.location));
     if (review.date) bits.push(escapeHtml(formatDate(review.date)));
-    if (review.property) bits.push(escapeHtml(review.property));
+    if (property) bits.push(escapeHtml(houseLabel(property)));
+    if (review.source) bits.push(escapeHtml(review.source));
     return bits.join(' · ');
   }
 
@@ -297,12 +306,10 @@
   }
 
   function renderReviewCard(review) {
-    var lang = language();
-    var text = review['text_' + lang] || review.text;
     return (
       '<article class="review-card">' +
         stars(review.rating) +
-        '<p class="review-quote">"' + escapeHtml(text) + '"</p>' +
+        '<p class="review-quote">“' + escapeHtml(localizedReviewText(review)) + '”</p>' +
         '<p class="review-meta">' + meta(review) + '</p>' +
       '</article>'
     );
@@ -330,12 +337,10 @@
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function cardMarkup(review) {
-      var lang = language();
-      var text = review['text_' + lang] || review.text;
       return (
         '<div class="review-carousel-card" tabindex="0" aria-live="polite">' +
           stars(review.rating) +
-          '<p class="review-quote">"' + escapeHtml(text) + '"</p>' +
+          '<p class="review-quote">“' + escapeHtml(localizedReviewText(review)) + '”</p>' +
           '<p class="review-meta">' + meta(review) + '</p>' +
         '</div>'
       );
@@ -347,9 +352,9 @@
       }).join('');
       return (
         '<div class="review-controls">' +
-          '<button type="button" class="review-arrow" data-review-prev aria-label="' + copy('previous') + '">‹</button>' +
+          '<button type="button" class="review-arrow" data-review-prev aria-label="' + copy('previous') + '">&#8249;</button>' +
           '<div class="review-dots">' + dots + '</div>' +
-          '<button type="button" class="review-arrow" data-review-next aria-label="' + copy('next') + '">›</button>' +
+          '<button type="button" class="review-arrow" data-review-next aria-label="' + copy('next') + '">&#8250;</button>' +
         '</div>'
       );
     }
@@ -430,7 +435,7 @@
     renderFilters(reviews);
 
     var visible = activeFilter === 'all' ? reviews : reviews.filter(function (review) {
-      return review.property === activeFilter;
+      return reviewSentiment(review) === activeFilter;
     });
 
     list.innerHTML = visible.length
@@ -443,13 +448,11 @@
   function renderFilters(reviews) {
     var target = document.getElementById('review-filters');
     if (!target) return;
-    var types = [];
-    reviews.forEach(function (review) {
-      if (review.property && types.indexOf(review.property) === -1) types.push(review.property);
-    });
-    var filters = [{ key: 'all', label: copy('all') }].concat(types.map(function (type) {
-      return { key: type, label: type };
-    }));
+    var filters = [
+      { key: 'all', label: copy('all') },
+      { key: 'positive', label: copy('positive') },
+      { key: 'critical', label: copy('critical') }
+    ];
     target.innerHTML = filters.map(function (filter) {
       return '<button type="button" class="review-filter' + (filter.key === activeFilter ? ' active' : '') + '" data-review-filter="' + escapeHtml(filter.key) + '" aria-pressed="' + (filter.key === activeFilter ? 'true' : 'false') + '">' + escapeHtml(filter.label) + '</button>';
     }).join('');
@@ -469,7 +472,7 @@
     setLabel('reviewEmail', copy('email'));
     setLabel('reviewRating', copy('rating'));
     setLabel('reviewStayDate', copy('stayDate'));
-    setLabel('reviewStayType', copy('property'));
+    setLabel('reviewHouse', copy('house'));
     setLabel('reviewText', copy('reviewText'));
     var consent = document.getElementById('reviewConsentLabel');
     if (consent) consent.textContent = copy('consent');
@@ -482,12 +485,9 @@
     setOptionLabel('reviewRating', '3', copy('rating3'));
     setOptionLabel('reviewRating', '2', copy('rating2'));
     setOptionLabel('reviewRating', '1', copy('rating1'));
-    var stayFirst = document.querySelector('#reviewStayType option[value=""]');
-    if (stayFirst) stayFirst.textContent = copy('chooseStayType');
-    setOptionLabel('reviewStayType', 'Family stay', copy('familyStay'));
-    setOptionLabel('reviewStayType', 'Couple stay', copy('coupleStay'));
-    setOptionLabel('reviewStayType', 'Stay with dog', copy('dogStay'));
-    setOptionLabel('reviewStayType', 'Short stay', copy('shortStay'));
+    var houseFirst = document.querySelector('#reviewHouse option[value=""]');
+    if (houseFirst) houseFirst.textContent = copy('chooseHouse');
+    setOptionLabel('reviewHouse', 'Het Vissershuisje', copy('houseHetVissershuisje'));
     updateCount();
   }
 
@@ -645,12 +645,12 @@
       'Email: ' + document.getElementById('reviewEmail').value,
       'Rating: ' + document.getElementById('reviewRating').value + '/5',
       'Stay date: ' + document.getElementById('reviewStayDate').value,
-      'Stay type: ' + document.getElementById('reviewStayType').value,
+      'Holiday home: ' + document.getElementById('reviewHouse').value,
       '',
       'Review:',
       document.getElementById('reviewText').value,
       '',
-      'Consent to publish after approval: yes'
+      'Consent to display review on website: yes'
     ].join('\n');
     return 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   }

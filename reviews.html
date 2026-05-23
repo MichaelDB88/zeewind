@@ -96,23 +96,23 @@
 
   <header class="page-header">
     <h1 data-review-copy="allReviewsTitle">Guest Reviews</h1>
-    <p data-review-copy="allReviewsIntro">See what guests who have stayed at Het Vissershuisje say about their time on the Belgian coast.</p>
+    <p data-review-copy="allReviewsIntro">Warm stories from guests who chose Het Vissershuisje for a relaxed stay near the Belgian coast.</p>
   </header>
 
   <main class="reviews-page">
     <div class="reviews-layout">
       <section aria-labelledby="approved-reviews-title">
-        <p class="section-label" data-review-copy="approvedLabel">Approved reviews</p>
-        <h2 class="section-title" id="approved-reviews-title" data-review-copy="approvedTitle">Guest experiences</h2>
+        <p class="section-label" data-review-copy="approvedLabel">Guest stories</p>
+        <h2 class="section-title" id="approved-reviews-title" data-review-copy="approvedTitle">Why guests choose us</h2>
         <div id="reviews-summary" class="review-summary reviews-summary-card" aria-live="polite"></div>
-        <div id="review-filters" class="review-filters" aria-label="Filter reviews by stay type"></div>
+        <div id="review-filters" class="review-filters" aria-label="Filter reviews"></div>
         <div id="reviews-list" class="reviews-list"></div>
       </section>
 
       <section class="review-submit-section" aria-labelledby="leave-review-title">
         <div class="review-form-card">
           <h2 id="leave-review-title" data-review-copy="formTitle">Leave a review</h2>
-          <p class="form-sub" data-review-copy="formIntro">Stayed with us? We'd love to hear from you. Your experience helps future guests make the most of their stay.</p>
+          <p class="form-sub" data-review-copy="formIntro">Stayed with us? Share what made your time at the coast memorable.</p>
           <form
             id="reviewForm"
             class="review-form"
@@ -121,7 +121,7 @@
             data-review-email="REPLACE_WITH_OWNER_EMAIL"
             novalidate>
             <input type="hidden" name="_subject" value="New guest review submission - Het Vissershuisje" />
-            <input type="hidden" name="submission_type" value="guest_review_moderation" />
+            <input type="hidden" name="submission_type" value="guest_review_submission" />
 
             <div class="review-form-row">
               <div>
@@ -130,7 +130,7 @@
                 <div class="field-error" id="reviewNameError"></div>
               </div>
               <div>
-                <label for="reviewEmail">Email address *</label>
+                <label for="reviewEmail">Email address</label>
                 <input type="email" id="reviewEmail" name="email" autocomplete="email" required aria-describedby="reviewEmailError" />
                 <div class="field-error" id="reviewEmailError"></div>
               </div>
@@ -157,9 +157,10 @@
             </div>
 
             <div>
-              <label for="reviewStayType">Holiday home</label>
-              <select id="reviewStayType" name="property">
-                <option value="Het Vissershuisje" selected>Het Vissershuisje</option>
+              <label for="reviewHouse">Holiday home</label>
+              <select id="reviewHouse" name="holiday_house">
+                <option value="">Choose a holiday home</option>
+                <option value="Het Vissershuisje">Het Vissershuisje</option>
               </select>
             </div>
 
@@ -171,23 +172,23 @@
             </div>
 
             <label class="review-consent">
-              <input type="checkbox" id="reviewConsent" name="consent_to_publish_after_approval" value="yes" required aria-describedby="reviewConsentError" />
-              <span id="reviewConsentLabel">I agree that my review may be displayed publicly on this website after approval.</span>
+              <input type="checkbox" id="reviewConsent" name="consent_to_display_review" value="yes" required aria-describedby="reviewConsentError" />
+              <span id="reviewConsentLabel">I agree that my review may be displayed on this website.</span>
             </label>
             <div class="field-error" id="reviewConsentError"></div>
 
             <div class="review-status" id="reviewFormStatus" role="status" aria-live="polite"></div>
             <button class="btn btn-primary" type="submit">Submit review</button>
           </form>
-          <p class="review-moderation-note" data-review-copy="moderation">* Your email address is never shown publicly.</p>
+          <p class="review-moderation-note" data-review-copy="moderation">Your email address is only used if we need to follow up.</p>
         </div>
       </section>
     </div>
   </main>
 
-  <footer><p>2025 Het Vissershuisje <span>&#183;</span> Holiday Home at the Belgian Coast <span>&#183;</span> All rights reserved</p></footer>
+  <footer><p>(c) 2026 Het Vissershuisje <span>&#183;</span> Holiday Home at the Belgian Coast <span>&#183;</span> All rights reserved</p></footer>
   <script src="reviews-data.js"></script>
   <script src="i18n.js"></script>
   <script src="reviews.js"></script>
 </body>
-</ht
+</html>

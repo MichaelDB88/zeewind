@@ -21,8 +21,26 @@ var checkIn  = null;
 var checkOut = null;
 var pickIn   = true;
 
-var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-var DAYS   = ["Mo","Tu","We","Th","Fr","Sa","Su"];
+var DEFAULT_MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var DEFAULT_DAYS   = ["Mo","Tu","We","Th","Fr","Sa","Su"];
+
+function bookingCopy(key, fallback) {
+  if (window.ZeewindI18n && window.ZeewindI18n.t) {
+    return window.ZeewindI18n.t('bookingDynamic.' + key, fallback);
+  }
+  return fallback;
+}
+
+function bookingLocale() {
+  return window.ZeewindI18n && window.ZeewindI18n.locale ? window.ZeewindI18n.locale() : 'en-GB';
+}
+
+function fillTemplate(text, values) {
+  for (var key in values) {
+    text = text.replace(new RegExp('\\{' + key + '\\}', 'g'), values[key]);
+  }
+  return text;
+}
 
 function dateKey(d) {
   var mm = String(d.getMonth()+1).padStart(2,'0');
@@ -35,7 +53,7 @@ function isPast(d)   { return d < today; }
 
 function fmtDate(d) {
   if (!d) return '?';
-  return d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'});
+  return d.toLocaleDateString(bookingLocale(), {day:'numeric', month:'short', year:'numeric'});
 }
 
 function rangeHasBooked(a, b) {
@@ -51,13 +69,15 @@ function rangeHasBooked(a, b) {
 function renderCalendar() {
   var grid  = document.getElementById('calGrid');
   var label = document.getElementById('calMonth');
+  var months = bookingCopy('months', DEFAULT_MONTHS);
+  var days = bookingCopy('days', DEFAULT_DAYS);
   grid.innerHTML = '';
-  label.textContent = MONTHS[viewMonth] + ' ' + viewYear;
+  label.textContent = months[viewMonth] + ' ' + viewYear;
 
-  for (var n = 0; n < DAYS.length; n++) {
+  for (var n = 0; n < days.length; n++) {
     var dn = document.createElement('div');
     dn.className = 'cal-dn';
-    dn.textContent = DAYS[n];
+    dn.textContent = days[n];
     grid.appendChild(dn);
   }
 
@@ -109,7 +129,7 @@ function dayClick(date) {
     pickIn   = false;
   } else {
     if (rangeHasBooked(checkIn, date)) {
-      alert('Your range includes booked dates. Please choose different dates.');
+      alert(bookingCopy('bookedRangeAlert', 'Your range includes booked dates. Please choose different dates.'));
       return;
     }
     checkOut = date;
@@ -123,12 +143,19 @@ function dayClick(date) {
 function updateSummary() {
   var el = document.getElementById('selSummary');
   if (!checkIn) {
-    el.innerHTML = 'Click a date to set your check-in.';
+    el.innerHTML = bookingCopy('clickCheckin', 'Click a date to set your check-in.');
   } else if (!checkOut) {
-    el.innerHTML = 'Check-in: <b>' + fmtDate(checkIn) + '</b> &mdash; Now pick your check-out.';
+    el.innerHTML = fillTemplate(bookingCopy('pickCheckout', 'Check-in: <b>{date}</b> — Now pick your check-out.'), {
+      date: fmtDate(checkIn)
+    });
   } else {
     var nights = Math.round((checkOut - checkIn) / 86400000);
-    el.innerHTML = '<b>' + fmtDate(checkIn) + '</b> &rarr; <b>' + fmtDate(checkOut) + '</b> &nbsp; ' + nights + ' night' + (nights > 1 ? 's' : '');
+    el.innerHTML = fillTemplate(bookingCopy('rangeSummary', '<b>{checkin}</b> → <b>{checkout}</b> &nbsp; {nights} {nightLabel}'), {
+      checkin: fmtDate(checkIn),
+      checkout: fmtDate(checkOut),
+      nights: nights,
+      nightLabel: bookingCopy(nights > 1 ? 'nights' : 'night', nights > 1 ? 'nights' : 'night')
+    });
   }
 }
 
@@ -156,7 +183,7 @@ function updateGuests() {
   document.getElementById('hBabies').value  = g.b;
   document.getElementById('hTotal').value   = total;
   var tEl = document.getElementById('gTotal');
-  tEl.textContent = 'Total: ' + total + ' / 6 guests';
+  tEl.textContent = fillTemplate(bookingCopy('guestTotal', 'Total: {total} / 6 guests'), { total: total });
   tEl.className = 'guest-total' + (total > 6 ? ' over' : '');
   document.getElementById('aMin').disabled  = (g.a <= 1);
   document.getElementById('kMin').disabled  = (g.k <= 0);
@@ -192,13 +219,18 @@ document.getElementById('bookingForm').onsubmit = function(e) {
       document.getElementById('formArea').style.display = 'none';
       document.getElementById('successMsg').style.display = 'block';
     } else {
-      alert('Something went wrong. Please try again or contact us directly.');
+      alert(bookingCopy('formError', 'Something went wrong. Please try again or contact us directly.'));
     }
   }).catch(function() {
-    alert('Could not send. Please contact us directly by email.');
+    alert(bookingCopy('networkError', 'Could not send. Please contact us directly by email.'));
   });
 };
 
 // ── Init ─────────────────────────────────────────────────────
 renderCalendar();
 updateGuests();
+
+window.addEventListener('zeewind:languagechange', function () {
+  renderCalendar();
+  updateGuests();
+});
