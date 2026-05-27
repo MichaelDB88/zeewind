@@ -40,8 +40,19 @@
     .cal-d.avail:hover{background:var(--avail);color:#fff}
     .cal-d.sel{background:var(--accent)!important;color:#fff!important}
     .cal-d.range{background:#fde8d4}
+    .cal-d.nostart{color:#d4e2eb;cursor:default}
     .sel-summary{margin-top:1rem;padding:0.9rem 1.1rem;background:var(--sky);border-radius:10px;font-family:Arial,sans-serif;font-size:0.88rem;color:var(--sea)}
     .sel-summary b{color:var(--dark)}
+    .ps-dates{font-weight:bold;color:var(--dark);margin-bottom:0.4rem}
+    .ps-nights{color:#889;font-size:0.82rem;margin-bottom:0.6rem}
+    .ps-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.25rem}
+    .ps-label{color:#556}
+    .ps-amt{font-weight:bold;color:var(--dark)}
+    .ps-div{border-top:1px solid #c8dce8;margin:0.5rem 0}
+    .ps-total{display:flex;justify-content:space-between;align-items:baseline;font-weight:bold;font-size:1.05rem}
+    .ps-total .ps-label{color:var(--dark)}
+    .ps-total .ps-amt{color:var(--accent);font-size:1.15rem}
+    .ps-note{font-size:0.79rem;color:#889;margin-top:0.4rem}
     .info-box{background:var(--sand);border-radius:12px;padding:1.2rem 1.4rem;margin-top:1.5rem;font-family:Arial,sans-serif;font-size:0.88rem;color:#667}
     .info-box strong{color:var(--dark)}
     .form-group{margin-bottom:1.1rem}
@@ -179,6 +190,8 @@
           <input type="hidden" name="guests_children" id="hKids" value="0" />
           <input type="hidden" name="guests_babies" id="hBabies" value="0" />
           <input type="hidden" name="guests_total" id="hTotal" value="1" />
+          <input type="hidden" name="price_summary" id="hPrice" value="" />
+          <input type="hidden" name="stay_nights" id="hNights" value="" />
         </div>
         <div class="form-group">
           <label>Bringing a dog?</label>
@@ -209,20 +222,4 @@
               <span class="el">Comfort pack<small>Arrival essentials</small></span>
               <span class="tip-wrap" onclick="event.stopPropagation()">
                 <span class="tip-btn">i</span>
-                <span class="tip-box">Fresh bread, water, coffee, tea, milk and local treats to start your stay.</span>
-              </span>
-              <span class="ep">€ 50</span>
-              <span class="eck"></span>
-            </div>
-          </div>
-        </div>
-        <div class="form-group"><label>Questions or special requests?</label><textarea name="message" placeholder="e.g. early check-in, arrival time..."></textarea></div>
-        <input type="hidden" name="_subject" value="New Booking Request - Holiday Home Zeebries" />
-        <button type="submit" class="submit-btn">Send Booking Request</button>
-        <p class="form-note">No payment is taken now. We confirm your dates and arrange payment separately.</p>
-      </form>
-    </div>
-    <div class="success-msg" id="successMsg">
-      <div class="ck">&#9989;</div>
-      <h3>Request sent!</h3>
-      <p>Thank you! We will rep
+                <span class="tip-box">Fresh bread, water, co
