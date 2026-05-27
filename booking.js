@@ -201,10 +201,34 @@ document.getElementById('bMin').onclick  = function() { if (g.b > 0) { g.b--; up
 document.getElementById('bPlus').onclick = function() { if (g.a+g.k+g.b < 6) { g.b++; updateGuests(); } };
 
 // ── Extras ───────────────────────────────────────────────────
+function setExtraState(input) {
+  var item = input.closest('.extra-item');
+  if (item) item.classList.toggle('on', input.checked);
+}
+
 function toggleExtra(el) {
-  var cb = el.querySelector('input');
+  var cb = el.querySelector('input[type="checkbox"]');
+  if (!cb) return;
   cb.checked = !cb.checked;
-  el.classList.toggle('on', cb.checked);
+  setExtraState(cb);
+}
+
+function initExtras() {
+  var inputs = document.querySelectorAll('.extra-item input[type="checkbox"]');
+  for (var i = 0; i < inputs.length; i++) {
+    setExtraState(inputs[i]);
+    inputs[i].addEventListener('change', function () {
+      setExtraState(this);
+    });
+  }
+
+  var tips = document.querySelectorAll('.extra-item .tip-wrap');
+  for (var j = 0; j < tips.length; j++) {
+    tips[j].addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+  }
 }
 
 // ── Form submit ───────────────────────────────────────────────
@@ -229,6 +253,7 @@ document.getElementById('bookingForm').onsubmit = function(e) {
 // ── Init ─────────────────────────────────────────────────────
 renderCalendar();
 updateGuests();
+initExtras();
 
 window.addEventListener('zeewind:languagechange', function () {
   renderCalendar();
