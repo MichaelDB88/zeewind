@@ -188,17 +188,23 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Extras (optional)</label>
-          <div class="extras-grid">
-            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_babycot" value="Yes" /><span class="ei">&#128705;</span><span class="el">Baby cot<small>For babies 0-2</small></span><span class="ep">on request</span></div>
+          <label>Travelling with a baby or toddler?</label>
+          <div class="extras-grid" id="baby-extras">
+            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_babycot" value="Yes" /><span class="ei">&#128705;</span><span class="el">Baby cot<small>For babies 0–2</small></span><span class="ep">on request</span></div>
             <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_highchair" value="Yes" /><span class="ei">&#129681;</span><span class="el">High chair<small>For toddlers</small></span><span class="ep">on request</span></div>
-            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_linen" value="Yes" /><span class="ei">&#128716;</span><span class="el">Bed linen<small>Sheets and pillowcases</small></span><span class="ep">on request</span></div>
-            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_towels" value="Yes" /><span class="ei">&#127958;</span><span class="el">Towels<small>Bath and beach towels</small></span><span class="ep">on request</span></div>
             <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_babybath" value="Yes" /><span class="ei">&#128705;</span><span class="el">Baby bath<small>Portable tub</small></span><span class="ep">on request</span></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Extras (optional)</label>
+          <div class="extras-grid" id="general-extras">
+            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_linen" value="Yes" /><span class="ei">&#128716;</span><span class="el">Bed linen<small>Sheets and pillowcases</small></span><span class="ep">on request</span></div>
+            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_bath_towels" value="Yes" /><span class="ei">&#128705;</span><span class="el">Bath towels<small>Per person</small></span><span class="ep">on request</span></div>
+            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_beach_towels" value="Yes" /><span class="ei">&#127958;</span><span class="el">Beach towels<small>Per person</small></span><span class="ep">on request</span></div>
             <div class="extra-item" onclick="toggleExtra(this)">
-              <input type="checkbox" name="extra_welcomepack" value="Yes" />
+              <input type="checkbox" name="extra_comfortpack" value="Yes" />
               <span class="ei">&#127873;</span>
-              <span class="el">Welcome pack<small>Arrival essentials</small></span>
+              <span class="el">Comfort pack<small>Arrival essentials</small></span>
               <span class="tip-wrap" onclick="event.stopPropagation()">
                 <span class="tip-btn">i</span>
                 <span class="tip-box">Fresh bread, water, coffee, tea, milk and local treats to start your stay.</span>
