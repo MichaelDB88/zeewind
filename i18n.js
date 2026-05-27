@@ -133,7 +133,7 @@
         childrenSub: 'Age 2 to 12',
         babies: 'Babies',
         babiesSub: 'Age 0 to 2',
-        pets: '🐶 Bringing a dog?',
+        pets: '🐾 Bringing a dog?',
         petNo: 'No dog',
         petSmall1: '🐾 Yes - 1 small dog',
         petSmall2: '🐾🐾 Yes - 2 small dogs',
@@ -164,7 +164,7 @@
       },
       things: {
         heroEyebrow: 'Bredene & Belgian Coast',
-        heroTitle: 'Things to Do Near Holiday Home Zeebries',
+        heroTitle: 'Things to do nearby',
         heroCopy: 'Our holiday home at Zeewind II Holiday Park is in the heart of Bredene — a relaxed base for beach days, family activities, food and drinks, and easy day trips along the Belgian coast.',
         guideLabel: 'Local Guide',
         guideTitle: 'A holiday home in the heart of Bredene',
@@ -371,24 +371,24 @@
         childrenSub: 'Van 2 tot 12 jaar',
         babies: 'Baby’s',
         babiesSub: 'Van 0 tot 2 jaar',
-        pets: '🐶 Breng je een hond mee?',
+        pets: '🐾 Breng je een hond mee?',
         petNo: 'Geen hond',
         petSmall1: '🐾 Ja - 1 kleine hond',
         petSmall2: '🐾🐾 Ja - 2 kleine honden',
         petBig1: '🐕 Ja - 1 grote hond',
-        babyExtras: 'Op reis met een baby of peuter?',
-        extras: 'Extra\'s (optioneel)',
-        extraBabycot: 'Babybed<small>Voor baby\'s 0–2</small>',
-        extraHighchair: 'Kinderstoel<small>Voor peuters</small>',
-        extraBabybath: 'Babybad<small>Draagbaar badje</small>',
-        extraLinen: 'Bedlinnen<small>Lakens en kussenslopen</small>',
-        extraBathTowels: 'Badhanddoeken<small>Per persoon</small>',
-        extraBeachTowels: 'Strandhanddoeken<small>Per persoon</small>',
-        extraComfort: 'Comfortpakket<small>Basis voor aankomst</small>',
-        babyFree: 'Gratis',
-        extrasPrice: '€ 10',
-        comfortPrice: '€ 50',
-        comfortTip: 'Vers brood, water, koffie, thee, melk en lokale lekkernijen om je verblijf goed te starten.',
+        babyExtras: ‘Op reis met een baby of peuter?’,
+        extras: ‘Extra\’s (optioneel)’,
+        extraBabycot: ‘Babybed<small>Voor baby\’s 0–2</small>’,
+        extraHighchair: ‘Kinderstoel<small>Voor peuters</small>’,
+        extraBabybath: ‘Babybad<small>Draagbaar badje</small>’,
+        extraLinen: ‘Bedlinnen<small>Lakens en kussenslopen</small>’,
+        extraBathTowels: ‘Badhanddoeken<small>Per persoon</small>’,
+        extraBeachTowels: ‘Strandhanddoeken<small>Per persoon</small>’,
+        extraComfort: ‘Comfortpakket<small>Basis voor aankomst</small>’,
+        babyFree: ‘Gratis’,
+        extrasPrice: ‘€ 10’,
+        comfortPrice: ‘€ 50’,
+        comfortTip: ‘Vers brood, water, koffie, thee, melk en lokale lekkernijen om je verblijf goed te starten.’,
         message: 'Vragen of speciale wensen?',
         submit: 'Verstuur boekingsaanvraag',
         note: 'Er wordt nu geen betaling gevraagd. We bevestigen je data en spreken de betaling apart af.',
@@ -402,7 +402,7 @@
       },
       things: {
         heroEyebrow: 'Bredene & Belgische kust',
-        heroTitle: 'Wat te doen in de buurt van Vakantiehuis Zeebries',
+        heroTitle: 'Te doen in de buurt',
         heroCopy: 'Ons vakantiehuis in Vakantiepark Zeewind II ligt in het hart van Bredene — een ontspannen uitvalsbasis voor stranddagen, gezinsactiviteiten, eten en drinken en eenvoudige uitstappen langs de Belgische kust.',
         guideLabel: 'Lokale gids',
         guideTitle: 'Een vakantiehuis in het hart van Bredene',
@@ -609,24 +609,24 @@
         childrenSub: 'De 2 à 12 ans',
         babies: 'Bébés',
         babiesSub: 'De 0 à 2 ans',
-        pets: '🐶 Vous venez avec un chien ?',
-        petNo: 'Pas de chien',
-        petSmall1: '🐾 Oui - 1 petit chien',
-        petSmall2: '🐾🐾 Oui - 2 petits chiens',
-        petBig1: '🐕 Oui - 1 grand chien',
-        babyExtras: 'Vous voyagez avec un bébé ou un bambin ?',
-        extras: 'Extras (facultatif)',
-        extraBabycot: 'Lit bébé<small>Pour bébés 0–2</small>',
-        extraHighchair: 'Chaise haute<small>Pour tout-petits</small>',
-        extraBabybath: 'Baignoire bébé<small>Baignoire portable</small>',
-        extraLinen: 'Linge de lit<small>Draps et taies</small>',
-        extraBathTowels: 'Serviettes de bain<small>Par personne</small>',
-        extraBeachTowels: 'Serviettes de plage<small>Par personne</small>',
-        extraComfort: 'Pack confort<small>Essentiels d’arrivée</small>',
-        babyFree: 'Gratuit',
-        extrasPrice: '€ 10',
-        comfortPrice: '€ 50',
-        comfortTip: 'Pain frais, eau, café, thé, lait et douceurs locales pour bien commencer votre séjour.',
+        pets: ‘🐾 Vous venez avec un chien ?’,
+        petNo: ‘Pas de chien’,
+        petSmall1: ‘🐾 Oui - 1 petit chien’,
+        petSmall2: ‘🐾🐾 Oui - 2 petits chiens’,
+        petBig1: ‘🐕 Oui - 1 grand chien’,
+        babyExtras: ‘Vous voyagez avec un bébé ou un bambin ?’,
+        extras: ‘Extras (facultatif)’,
+        extraBabycot: ‘Lit bébé<small>Pour bébés 0–2</small>’,
+        extraHighchair: ‘Chaise haute<small>Pour tout-petits</small>’,
+        extraBabybath: ‘Baignoire bébé<small>Baignoire portable</small>’,
+        extraLinen: ‘Linge de lit<small>Draps et taies</small>’,
+        extraBathTowels: ‘Serviettes de bain<small>Par personne</small>’,
+        extraBeachTowels: ‘Serviettes de plage<small>Par personne</small>’,
+        extraComfort: ‘Pack confort<small>Essentiels d\’arrivée</small>’,
+        babyFree: ‘Gratuit’,
+        extrasPrice: ‘€ 10’,
+        comfortPrice: ‘€ 50’,
+        comfortTip: ‘Pain frais, eau, café, thé, lait et douceurs locales pour bien commencer votre séjour.’,
         message: 'Questions ou demandes spéciales ?',
         submit: 'Envoyer la demande',
         note: 'Aucun paiement n’est demandé maintenant. Nous confirmons vos dates et organisons le paiement séparément.',
@@ -640,7 +640,7 @@
       },
       things: {
         heroEyebrow: 'Bredene & côte belge',
-        heroTitle: 'Que faire près de Maison de vacances Zeebries',
+        heroTitle: 'À faire dans les environs',
         heroCopy: 'Notre maison de vacances au Holiday Park Zeewind II se trouve au cœur de Bredene — une base détendue pour les journées à la plage, les activités en famille, les repas et les excursions faciles le long de la côte belge.',
         guideLabel: 'Guide local',
         guideTitle: 'Une maison de vacances au cœur de Bredene',
@@ -847,7 +847,7 @@
         childrenSub: 'Von 2 bis 12 Jahren',
         babies: 'Babys',
         babiesSub: 'Von 0 bis 2 Jahren',
-        pets: '🐶 Bringen Sie einen Hund mit?',
+        pets: '🐾 Bringen Sie einen Hund mit?',
         petNo: 'Kein Hund',
         petSmall1: '🐾 Ja - 1 kleiner Hund',
         petSmall2: '🐾🐾 Ja - 2 kleine Hunde',
@@ -878,7 +878,7 @@
       },
       things: {
         heroEyebrow: 'Bredene & belgische Küste',
-        heroTitle: 'Aktivitäten in der Nähe von Ferienhaus Zeebries',
+        heroTitle: 'Aktivitäten in der Nähe',
         heroCopy: 'Unser Ferienhaus im Holiday Park Zeewind II liegt im Herzen von Bredene — ein entspannter Ausgangspunkt für Strandtage, Familienaktivitäten, Essen und Trinken sowie einfache Ausflüge entlang der belgischen Küste.',
         guideLabel: 'Lokaler Guide',
         guideTitle: 'Ein Ferienhaus im Herzen von Bredene',
@@ -1346,45 +1346,4 @@
     for (var i = 0; i < toggles.length; i++) {
       (function (toggle) {
         var navId = toggle.getAttribute('aria-controls');
-        var navLinks = navId ? document.getElementById(navId) : null;
-        if (!navLinks) return;
-        toggle.addEventListener('click', function (event) {
-          event.stopPropagation();
-          var open = !navLinks.classList.contains('open');
-          closeMobileNavigation();
-          navLinks.classList.toggle('open', open);
-          toggle.classList.toggle('open', open);
-          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        var links = navLinks.querySelectorAll('a');
-        for (var j = 0; j < links.length; j++) {
-          links[j].addEventListener('click', closeMobileNavigation);
-        }
-      })(toggles[i]);
-    }
-
-    document.addEventListener('click', function (event) {
-      if (!event.target.closest('nav')) closeMobileNavigation();
-    });
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 768) closeMobileNavigation();
-    });
-  }
-
-  window.ZeewindI18n = {
-    t: function (path, fallback) {
-      var value = get(COPY[getLanguage()], path);
-      return value === undefined ? fallback : value;
-    },
-    language: getLanguage,
-    locale: function () {
-      return LANGUAGES[getLanguage()].locale;
-    },
-    setLanguage: setLanguage,
-    applyLanguage: applyLanguage
-  };
-
-  initLanguageMenus();
-  initMobileNavigation();
-  applyLanguage(getLanguage());
-})();
+        v

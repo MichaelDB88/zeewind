@@ -62,19 +62,17 @@
     .guest-total{font-family:Arial,sans-serif;font-size:0.82rem;color:#667;text-align:right;margin-top:0.35rem}
     .guest-total.over{color:#d00;font-weight:bold}
     .extras-grid{display:flex;flex-direction:column;gap:0.55rem}
-    .extra-item{display:flex;align-items:center;gap:0.7rem;padding:0.55rem 0.9rem;border:1.5px solid #d0e4ed;border-radius:9px;background:#fafcfe;cursor:pointer;font-family:Arial,sans-serif;font-size:0.9rem;color:var(--dark);user-select:none;transition:border-color 0.15s,background 0.15s;position:relative}
-    .form-group label.extra-item{display:flex;margin-bottom:0;color:var(--dark)}
+    .extra-item{display:flex;align-items:center;gap:0.7rem;padding:0.55rem 0.9rem;border:1.5px solid #d0e4ed;border-radius:9px;background:#fafcfe;cursor:pointer;font-family:Arial,sans-serif;font-size:0.9rem;color:var(--dark);user-select:none;transition:border-color 0.15s,background 0.15s}
     .extra-item:hover{border-color:var(--sea);background:var(--sky)}
-    .extra-item:focus-within{border-color:var(--sea);box-shadow:0 0 0 3px rgba(26,107,138,0.16)}
     .extra-item.on{border-color:var(--avail);background:#e6f5f3}
-    .extra-item input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+    .extra-item input{display:none}
     .ei{font-size:1.2rem;flex-shrink:0}
     .el{line-height:1.25;flex:1;font-weight:bold}
     .el small{display:block;font-size:0.74rem;color:#99a;font-weight:normal}
     .ep{font-size:0.74rem;color:var(--sea);font-weight:bold;white-space:nowrap}
-    .eck{display:inline-flex;width:22px;height:22px;border:2px solid #c8dce8;border-radius:5px;flex-shrink:0;background:#fff;transition:background 0.15s,border-color 0.15s;position:relative;pointer-events:none}
-    .extra-item.on .eck,.extra-item input:checked ~ .eck{background:var(--avail);border-color:var(--avail)}
-    .extra-item.on .eck::after,.extra-item input:checked ~ .eck::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:0.78rem;font-weight:bold;line-height:1}
+    .eck{width:22px;height:22px;border:2px solid #c8dce8;border-radius:5px;flex-shrink:0;background:#fff;transition:background 0.15s,border-color 0.15s;position:relative;pointer-events:none}
+    .extra-item.on .eck{background:var(--avail);border-color:var(--avail)}
+    .extra-item.on .eck::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:0.78rem;font-weight:bold;line-height:1}
     .tip-wrap{position:relative;display:inline-flex;align-items:center;flex-shrink:0}
     .tip-btn{width:16px;height:16px;border-radius:50%;background:var(--sea);color:#fff;font-size:0.62rem;font-weight:bold;font-family:Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;cursor:default;border:none;flex-shrink:0}
     .tip-box{visibility:hidden;opacity:0;position:absolute;bottom:calc(100% + 8px);right:0;background:var(--dark);color:#fff;font-family:Arial,sans-serif;font-size:0.76rem;line-height:1.45;padding:0.6rem 0.8rem;border-radius:9px;width:200px;box-shadow:0 6px 18px rgba(0,0,0,0.28);z-index:999;pointer-events:none;transition:opacity 0.15s,visibility 0.15s}
@@ -183,39 +181,39 @@
           <input type="hidden" name="guests_total" id="hTotal" value="1" />
         </div>
         <div class="form-group">
-          <label for="petsSelect">🐶 Bringing a dog?</label>
-          <select name="pets" id="petsSelect">
+          <label>Bringing a dog?</label>
+          <select name="pets">
             <option value="No dog">No dog</option>
-            <option value="1 small dog">🐾 Yes - 1 small dog</option>
-            <option value="2 small dogs">🐾🐾 Yes - 2 small dogs</option>
-            <option value="1 big dog">🐕 Yes - 1 big dog</option>
+            <option value="1 small dog">Yes - 1 small dog</option>
+            <option value="2 small dogs">Yes - 2 small dogs</option>
+            <option value="1 big dog">Yes - 1 big dog</option>
           </select>
         </div>
         <div class="form-group">
           <label>Travelling with a baby or toddler?</label>
           <div class="extras-grid" id="baby-extras">
-            <label class="extra-item"><input type="checkbox" name="extra_babycot" value="Yes" /><span class="ei">&#128700;</span><span class="el">Baby cot<small>For babies 0–2</small></span><span class="ep">No charge</span><span class="eck"></span></label>
-            <label class="extra-item"><input type="checkbox" name="extra_highchair" value="Yes" /><span class="ei">&#129681;</span><span class="el">High chair<small>For toddlers</small></span><span class="ep">No charge</span><span class="eck"></span></label>
-            <label class="extra-item"><input type="checkbox" name="extra_babybath" value="Yes" /><span class="ei">&#128688;</span><span class="el">Baby bath<small>Portable tub</small></span><span class="ep">No charge</span><span class="eck"></span></label>
+            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_babycot" value="Yes" /><span class="ei">&#128700;</span><span class="el">Baby cot<small>For babies 0–2</small></span><span class="ep">No charge</span><span class="eck"></span></div>
+            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_highchair" value="Yes" /><span class="ei">&#129681;</span><span class="el">High chair<small>For toddlers</small></span><span class="ep">No charge</span><span class="eck"></span></div>
+            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_babybath" value="Yes" /><span class="ei">&#128688;</span><span class="el">Baby bath<small>Portable tub</small></span><span class="ep">No charge</span><span class="eck"></span></div>
           </div>
         </div>
         <div class="form-group">
           <label>Extras (optional)</label>
           <div class="extras-grid" id="general-extras">
-            <label class="extra-item"><input type="checkbox" name="extra_linen" value="Yes" /><span class="ei">&#128716;</span><span class="el">Bed linen<small>Sheets and pillowcases</small></span><span class="ep">€ 10</span><span class="eck"></span></label>
-            <label class="extra-item"><input type="checkbox" name="extra_bath_towels" value="Yes" /><span class="ei">&#129529;</span><span class="el">Bath towels<small>Per person</small></span><span class="ep">€ 10</span><span class="eck"></span></label>
-            <label class="extra-item"><input type="checkbox" name="extra_beach_towels" value="Yes" /><span class="ei">&#127958;</span><span class="el">Beach towels<small>Per person</small></span><span class="ep">€ 10</span><span class="eck"></span></label>
-            <label class="extra-item">
+            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_linen" value="Yes" /><span class="ei">&#128716;</span><span class="el">Bed linen<small>Sheets and pillowcases</small></span><span class="ep">€ 10</span><span class="eck"></span></div>
+            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_bath_towels" value="Yes" /><span class="ei">&#129529;</span><span class="el">Bath towels<small>Per person</small></span><span class="ep">€ 10</span><span class="eck"></span></div>
+            <div class="extra-item" onclick="toggleExtra(this)"><input type="checkbox" name="extra_beach_towels" value="Yes" /><span class="ei">&#127958;</span><span class="el">Beach towels<small>Per person</small></span><span class="ep">€ 10</span><span class="eck"></span></div>
+            <div class="extra-item" onclick="toggleExtra(this)">
               <input type="checkbox" name="extra_comfortpack" value="Yes" />
               <span class="ei">&#127873;</span>
               <span class="el">Comfort pack<small>Arrival essentials</small></span>
-              <span class="tip-wrap">
+              <span class="tip-wrap" onclick="event.stopPropagation()">
                 <span class="tip-btn">i</span>
                 <span class="tip-box">Fresh bread, water, coffee, tea, milk and local treats to start your stay.</span>
               </span>
               <span class="ep">€ 50</span>
               <span class="eck"></span>
-            </label>
+            </div>
           </div>
         </div>
         <div class="form-group"><label>Questions or special requests?</label><textarea name="message" placeholder="e.g. early check-in, arrival time..."></textarea></div>
@@ -227,12 +225,4 @@
     <div class="success-msg" id="successMsg">
       <div class="ck">&#9989;</div>
       <h3>Request sent!</h3>
-      <p>Thank you! We will reply within 24 hours to confirm your booking.</p>
-    </div>
-  </div>
-</div>
-<footer><p>© 2026 Holiday Home Zeebries <span>·</span> Holiday Home at the Belgian Coast <span>·</span> <a href="booking-terms.html">Booking Terms</a> <span>·</span> <a href="privacy-policy.html">Privacy Policy</a> <span>·</span> All rights reserved</p></footer>
-<script src="booking.js"></script>
-<script src="i18n.js"></script>
-</body>
-</html>
+      <p>Thank you! We will rep

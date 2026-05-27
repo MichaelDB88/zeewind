@@ -21,26 +21,8 @@ var checkIn  = null;
 var checkOut = null;
 var pickIn   = true;
 
-var DEFAULT_MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-var DEFAULT_DAYS   = ["Mo","Tu","We","Th","Fr","Sa","Su"];
-
-function bookingCopy(key, fallback) {
-  if (window.ZeewindI18n && window.ZeewindI18n.t) {
-    return window.ZeewindI18n.t('bookingDynamic.' + key, fallback);
-  }
-  return fallback;
-}
-
-function bookingLocale() {
-  return window.ZeewindI18n && window.ZeewindI18n.locale ? window.ZeewindI18n.locale() : 'en-GB';
-}
-
-function fillTemplate(text, values) {
-  for (var key in values) {
-    text = text.replace(new RegExp('\\{' + key + '\\}', 'g'), values[key]);
-  }
-  return text;
-}
+var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var DAYS   = ["Mo","Tu","We","Th","Fr","Sa","Su"];
 
 function dateKey(d) {
   var mm = String(d.getMonth()+1).padStart(2,'0');
@@ -53,7 +35,7 @@ function isPast(d)   { return d < today; }
 
 function fmtDate(d) {
   if (!d) return '?';
-  return d.toLocaleDateString(bookingLocale(), {day:'numeric', month:'short', year:'numeric'});
+  return d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'});
 }
 
 function rangeHasBooked(a, b) {
@@ -69,15 +51,13 @@ function rangeHasBooked(a, b) {
 function renderCalendar() {
   var grid  = document.getElementById('calGrid');
   var label = document.getElementById('calMonth');
-  var months = bookingCopy('months', DEFAULT_MONTHS);
-  var days = bookingCopy('days', DEFAULT_DAYS);
   grid.innerHTML = '';
-  label.textContent = months[viewMonth] + ' ' + viewYear;
+  label.textContent = MONTHS[viewMonth] + ' ' + viewYear;
 
-  for (var n = 0; n < days.length; n++) {
+  for (var n = 0; n < DAYS.length; n++) {
     var dn = document.createElement('div');
     dn.className = 'cal-dn';
-    dn.textContent = days[n];
+    dn.textContent = DAYS[n];
     grid.appendChild(dn);
   }
 
@@ -129,7 +109,7 @@ function dayClick(date) {
     pickIn   = false;
   } else {
     if (rangeHasBooked(checkIn, date)) {
-      alert(bookingCopy('bookedRangeAlert', 'Your range includes booked dates. Please choose different dates.'));
+      alert('Your range includes booked dates. Please choose different dates.');
       return;
     }
     checkOut = date;
@@ -143,19 +123,12 @@ function dayClick(date) {
 function updateSummary() {
   var el = document.getElementById('selSummary');
   if (!checkIn) {
-    el.innerHTML = bookingCopy('clickCheckin', 'Click a date to set your check-in.');
+    el.innerHTML = 'Click a date to set your check-in.';
   } else if (!checkOut) {
-    el.innerHTML = fillTemplate(bookingCopy('pickCheckout', 'Check-in: <b>{date}</b> — Now pick your check-out.'), {
-      date: fmtDate(checkIn)
-    });
+    el.innerHTML = 'Check-in: <b>' + fmtDate(checkIn) + '</b> &mdash; Now pick your check-out.';
   } else {
     var nights = Math.round((checkOut - checkIn) / 86400000);
-    el.innerHTML = fillTemplate(bookingCopy('rangeSummary', '<b>{checkin}</b> → <b>{checkout}</b> &nbsp; {nights} {nightLabel}'), {
-      checkin: fmtDate(checkIn),
-      checkout: fmtDate(checkOut),
-      nights: nights,
-      nightLabel: bookingCopy(nights > 1 ? 'nights' : 'night', nights > 1 ? 'nights' : 'night')
-    });
+    el.innerHTML = '<b>' + fmtDate(checkIn) + '</b> &rarr; <b>' + fmtDate(checkOut) + '</b> &nbsp; ' + nights + ' night' + (nights > 1 ? 's' : '');
   }
 }
 
@@ -183,7 +156,7 @@ function updateGuests() {
   document.getElementById('hBabies').value  = g.b;
   document.getElementById('hTotal').value   = total;
   var tEl = document.getElementById('gTotal');
-  tEl.textContent = fillTemplate(bookingCopy('guestTotal', 'Total: {total} / 6 guests'), { total: total });
+  tEl.textContent = 'Total: ' + total + ' / 6 guests';
   tEl.className = 'guest-total' + (total > 6 ? ' over' : '');
   document.getElementById('aMin').disabled  = (g.a <= 1);
   document.getElementById('kMin').disabled  = (g.k <= 0);
@@ -201,34 +174,10 @@ document.getElementById('bMin').onclick  = function() { if (g.b > 0) { g.b--; up
 document.getElementById('bPlus').onclick = function() { if (g.a+g.k+g.b < 6) { g.b++; updateGuests(); } };
 
 // ── Extras ───────────────────────────────────────────────────
-function setExtraState(input) {
-  var item = input.closest('.extra-item');
-  if (item) item.classList.toggle('on', input.checked);
-}
-
 function toggleExtra(el) {
-  var cb = el.querySelector('input[type="checkbox"]');
-  if (!cb) return;
+  var cb = el.querySelector('input');
   cb.checked = !cb.checked;
-  setExtraState(cb);
-}
-
-function initExtras() {
-  var inputs = document.querySelectorAll('.extra-item input[type="checkbox"]');
-  for (var i = 0; i < inputs.length; i++) {
-    setExtraState(inputs[i]);
-    inputs[i].addEventListener('change', function () {
-      setExtraState(this);
-    });
-  }
-
-  var tips = document.querySelectorAll('.extra-item .tip-wrap');
-  for (var j = 0; j < tips.length; j++) {
-    tips[j].addEventListener('click', function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    });
-  }
+  el.classList.toggle('on', cb.checked);
 }
 
 // ── Form submit ───────────────────────────────────────────────
@@ -243,19 +192,13 @@ document.getElementById('bookingForm').onsubmit = function(e) {
       document.getElementById('formArea').style.display = 'none';
       document.getElementById('successMsg').style.display = 'block';
     } else {
-      alert(bookingCopy('formError', 'Something went wrong. Please try again or contact us directly.'));
+      alert('Something went wrong. Please try again or contact us directly.');
     }
   }).catch(function() {
-    alert(bookingCopy('networkError', 'Could not send. Please contact us directly by email.'));
+    alert('Could not send. Please contact us directly by email.');
   });
 };
 
 // ── Init ─────────────────────────────────────────────────────
 renderCalendar();
 updateGuests();
-initExtras();
-
-window.addEventListener('zeewind:languagechange', function () {
-  renderCalendar();
-  updateGuests();
-});
