@@ -138,15 +138,17 @@
         petSmall1: 'Yes - 1 small dog',
         petSmall2: 'Yes - 2 small dogs',
         petBig1: 'Yes - 1 big dog',
+        babyExtras: 'Travelling with a baby or toddler?',
         extras: 'Extras (optional)',
-        extraBabycot: 'Baby cot<small>For babies 0-2</small>',
+        extraBabycot: 'Baby cot<small>For babies 0–2</small>',
         extraHighchair: 'High chair<small>For toddlers</small>',
-        extraLinen: 'Bed linen<small>Sheets and pillowcases</small>',
-        extraTowels: 'Towels<small>Bath and beach towels</small>',
         extraBabybath: 'Baby bath<small>Portable tub</small>',
-        extraWelcome: 'Welcome pack<small>Arrival essentials</small>',
+        extraLinen: 'Bed linen<small>Sheets and pillowcases</small>',
+        extraBathTowels: 'Bath towels<small>Per person</small>',
+        extraBeachTowels: 'Beach towels<small>Per person</small>',
+        extraComfort: 'Comfort pack<small>Arrival essentials</small>',
         onRequest: 'on request',
-        welcomeTip: 'Fresh bread, water, coffee, tea, milk and local treats to start your stay.',
+        comfortTip: 'Fresh bread, water, coffee, tea, milk and local treats to start your stay.',
         message: 'Questions or special requests?',
         submit: 'Send Booking Request',
         note: 'No payment is taken now. We confirm your dates and arrange payment separately.',
@@ -372,15 +374,17 @@
         petSmall1: 'Ja - 1 kleine hond',
         petSmall2: 'Ja - 2 kleine honden',
         petBig1: 'Ja - 1 grote hond',
-        extras: 'Extra’s (optioneel)',
-        extraBabycot: 'Babybed<small>Voor baby’s 0-2</small>',
-        extraHighchair: 'Kinderstoel<small>Voor peuters</small>',
-        extraLinen: 'Bedlinnen<small>Lakens en kussenslopen</small>',
-        extraTowels: 'Handdoeken<small>Bad- en strandhanddoeken</small>',
-        extraBabybath: 'Babybad<small>Draagbaar badje</small>',
-        extraWelcome: 'Welkomstpakket<small>Basis voor aankomst</small>',
-        onRequest: 'op aanvraag',
-        welcomeTip: 'Vers brood, water, koffie, thee, melk en lokale lekkernijen om je verblijf goed te starten.',
+        babyExtras: ‘Op reis met een baby of peuter?’,
+        extras: ‘Extra\’s (optioneel)’,
+        extraBabycot: ‘Babybed<small>Voor baby\’s 0–2</small>’,
+        extraHighchair: ‘Kinderstoel<small>Voor peuters</small>’,
+        extraBabybath: ‘Babybad<small>Draagbaar badje</small>’,
+        extraLinen: ‘Bedlinnen<small>Lakens en kussenslopen</small>’,
+        extraBathTowels: ‘Badhanddoeken<small>Per persoon</small>’,
+        extraBeachTowels: ‘Strandhanddoeken<small>Per persoon</small>’,
+        extraComfort: ‘Comfortpakket<small>Basis voor aankomst</small>’,
+        onRequest: ‘op aanvraag’,
+        comfortTip: ‘Vers brood, water, koffie, thee, melk en lokale lekkernijen om je verblijf goed te starten.’,
         message: 'Vragen of speciale wensen?',
         submit: 'Verstuur boekingsaanvraag',
         note: 'Er wordt nu geen betaling gevraagd. We bevestigen je data en spreken de betaling apart af.',
@@ -606,15 +610,17 @@
         petSmall1: 'Oui - 1 petit chien',
         petSmall2: 'Oui - 2 petits chiens',
         petBig1: 'Oui - 1 grand chien',
-        extras: 'Extras (facultatif)',
-        extraBabycot: 'Lit bébé<small>Pour bébés 0-2</small>',
-        extraHighchair: 'Chaise haute<small>Pour tout-petits</small>',
-        extraLinen: 'Linge de lit<small>Draps et taies</small>',
-        extraTowels: 'Serviettes<small>Bain et plage</small>',
-        extraBabybath: 'Baignoire bébé<small>Baignoire portable</small>',
-        extraWelcome: 'Pack de bienvenue<small>Essentiels d’arrivée</small>',
-        onRequest: 'sur demande',
-        welcomeTip: 'Pain frais, eau, café, thé, lait et douceurs locales pour bien commencer votre séjour.',
+        babyExtras: ‘Vous voyagez avec un bébé ou un bambin ?’,
+        extras: ‘Extras (facultatif)’,
+        extraBabycot: ‘Lit bébé<small>Pour bébés 0–2</small>’,
+        extraHighchair: ‘Chaise haute<small>Pour tout-petits</small>’,
+        extraBabybath: ‘Baignoire bébé<small>Baignoire portable</small>’,
+        extraLinen: ‘Linge de lit<small>Draps et taies</small>’,
+        extraBathTowels: ‘Serviettes de bain<small>Par personne</small>’,
+        extraBeachTowels: ‘Serviettes de plage<small>Par personne</small>’,
+        extraComfort: ‘Pack confort<small>Essentiels d\’arrivée</small>’,
+        onRequest: ‘sur demande’,
+        comfortTip: ‘Pain frais, eau, café, thé, lait et douceurs locales pour bien commencer votre séjour.’,
         message: 'Questions ou demandes spéciales ?',
         submit: 'Envoyer la demande',
         note: 'Aucun paiement n’est demandé maintenant. Nous confirmons vos dates et organisons le paiement séparément.',
@@ -840,15 +846,17 @@
         petSmall1: 'Ja - 1 kleiner Hund',
         petSmall2: 'Ja - 2 kleine Hunde',
         petBig1: 'Ja - 1 großer Hund',
+        babyExtras: 'Reisen Sie mit einem Baby oder Kleinkind?',
         extras: 'Extras (optional)',
-        extraBabycot: 'Babybett<small>Für Babys 0-2</small>',
+        extraBabycot: 'Babybett<small>Für Babys 0–2</small>',
         extraHighchair: 'Hochstuhl<small>Für Kleinkinder</small>',
-        extraLinen: 'Bettwäsche<small>Laken und Kissenbezüge</small>',
-        extraTowels: 'Handtücher<small>Bad und Strand</small>',
         extraBabybath: 'Babybadewanne<small>Tragbare Wanne</small>',
-        extraWelcome: 'Willkommenspaket<small>Essentials bei Ankunft</small>',
+        extraLinen: 'Bettwäsche<small>Laken und Kissenbezüge</small>',
+        extraBathTowels: 'Badetücher<small>Pro Person</small>',
+        extraBeachTowels: 'Strandtücher<small>Pro Person</small>',
+        extraComfort: 'Komfortpaket<small>Essentials bei Ankunft</small>',
         onRequest: 'auf Anfrage',
-        welcomeTip: 'Frisches Brot, Wasser, Kaffee, Tee, Milch und lokale Kleinigkeiten für einen guten Start.',
+        comfortTip: 'Frisches Brot, Wasser, Kaffee, Tee, Milch und lokale Kleinigkeiten für einen guten Start.',
         message: 'Fragen oder besondere Wünsche?',
         submit: 'Buchungsanfrage senden',
         note: 'Jetzt wird keine Zahlung vorgenommen. Wir bestätigen Ihre Daten und regeln die Zahlung separat.',
@@ -1071,15 +1079,17 @@
       ['select[name="pets"] option[value="1 small dog"]', 'booking.petSmall1'],
       ['select[name="pets"] option[value="2 small dogs"]', 'booking.petSmall2'],
       ['select[name="pets"] option[value="1 big dog"]', 'booking.petBig1'],
-      ['.extras-grid', 'booking.extras', 'previousLabel'],
-      ['.extras-grid .extra-item:nth-child(1) .el', 'booking.extraBabycot', 'html'],
-      ['.extras-grid .extra-item:nth-child(2) .el', 'booking.extraHighchair', 'html'],
-      ['.extras-grid .extra-item:nth-child(3) .el', 'booking.extraLinen', 'html'],
-      ['.extras-grid .extra-item:nth-child(4) .el', 'booking.extraTowels', 'html'],
-      ['.extras-grid .extra-item:nth-child(5) .el', 'booking.extraBabybath', 'html'],
-      ['.extras-grid .extra-item:nth-child(6) .el', 'booking.extraWelcome', 'html'],
+      ['#baby-extras', 'booking.babyExtras', 'previousLabel'],
+      ['#baby-extras .extra-item:nth-child(1) .el', 'booking.extraBabycot', 'html'],
+      ['#baby-extras .extra-item:nth-child(2) .el', 'booking.extraHighchair', 'html'],
+      ['#baby-extras .extra-item:nth-child(3) .el', 'booking.extraBabybath', 'html'],
+      ['#general-extras', 'booking.extras', 'previousLabel'],
+      ['#general-extras .extra-item:nth-child(1) .el', 'booking.extraLinen', 'html'],
+      ['#general-extras .extra-item:nth-child(2) .el', 'booking.extraBathTowels', 'html'],
+      ['#general-extras .extra-item:nth-child(3) .el', 'booking.extraBeachTowels', 'html'],
+      ['#general-extras .extra-item:nth-child(4) .el', 'booking.extraComfort', 'html'],
       ['.extras-grid .ep', 'booking.onRequest'],
-      ['.tip-box', 'booking.welcomeTip'],
+      ['.tip-box', 'booking.comfortTip'],
       ['textarea[name="message"]', 'booking.message', 'previousLabel'],
       ['.submit-btn', 'booking.submit'],
       ['.form-note', 'booking.note'],
@@ -1336,33 +1346,4 @@
         });
         var links = navLinks.querySelectorAll('a');
         for (var j = 0; j < links.length; j++) {
-          links[j].addEventListener('click', closeMobileNavigation);
-        }
-      })(toggles[i]);
-    }
-
-    document.addEventListener('click', function (event) {
-      if (!event.target.closest('nav')) closeMobileNavigation();
-    });
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 768) closeMobileNavigation();
-    });
-  }
-
-  window.ZeewindI18n = {
-    t: function (path, fallback) {
-      var value = get(COPY[getLanguage()], path);
-      return value === undefined ? fallback : value;
-    },
-    language: getLanguage,
-    locale: function () {
-      return LANGUAGES[getLanguage()].locale;
-    },
-    setLanguage: setLanguage,
-    applyLanguage: applyLanguage
-  };
-
-  initLanguageMenus();
-  initMobileNavigation();
-  applyLanguage(getLanguage());
-})();
+      
