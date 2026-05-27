@@ -63,6 +63,7 @@
     .guest-total.over{color:#d00;font-weight:bold}
     .extras-grid{display:flex;flex-direction:column;gap:0.55rem}
     .extra-item{display:flex;align-items:center;gap:0.7rem;padding:0.55rem 0.9rem;border:1.5px solid #d0e4ed;border-radius:9px;background:#fafcfe;cursor:pointer;font-family:Arial,sans-serif;font-size:0.9rem;color:var(--dark);user-select:none;transition:border-color 0.15s,background 0.15s;position:relative}
+    .form-group label.extra-item{display:flex;margin-bottom:0;color:var(--dark)}
     .extra-item:hover{border-color:var(--sea);background:var(--sky)}
     .extra-item:focus-within{border-color:var(--sea);box-shadow:0 0 0 3px rgba(26,107,138,0.16)}
     .extra-item.on{border-color:var(--avail);background:#e6f5f3}
@@ -71,7 +72,7 @@
     .el{line-height:1.25;flex:1;font-weight:bold}
     .el small{display:block;font-size:0.74rem;color:#99a;font-weight:normal}
     .ep{font-size:0.74rem;color:var(--sea);font-weight:bold;white-space:nowrap}
-    .eck{width:22px;height:22px;border:2px solid #c8dce8;border-radius:5px;flex-shrink:0;background:#fff;transition:background 0.15s,border-color 0.15s;position:relative;pointer-events:none}
+    .eck{display:inline-flex;width:22px;height:22px;border:2px solid #c8dce8;border-radius:5px;flex-shrink:0;background:#fff;transition:background 0.15s,border-color 0.15s;position:relative;pointer-events:none}
     .extra-item.on .eck,.extra-item input:checked ~ .eck{background:var(--avail);border-color:var(--avail)}
     .extra-item.on .eck::after,.extra-item input:checked ~ .eck::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:0.78rem;font-weight:bold;line-height:1}
     .tip-wrap{position:relative;display:inline-flex;align-items:center;flex-shrink:0}
