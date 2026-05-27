@@ -1,5 +1,5 @@
 /*
-  Approved guest reviews for Het Vissershuisje.
+  Approved guest reviews for Vakantiehuis Zeebries.
 
   These starter entries are placeholders so the reviews feature can be
   previewed before real guest feedback is available. Replace them with
