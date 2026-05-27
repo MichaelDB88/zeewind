@@ -70,7 +70,7 @@
     .el{line-height:1.25;flex:1;font-weight:bold}
     .el small{display:block;font-size:0.74rem;color:#99a;font-weight:normal}
     .ep{font-size:0.74rem;color:var(--sea);font-weight:bold;white-space:nowrap}
-    .eck{width:22px;height:22px;border:2px solid #c8dce8;border-radius:5px;flex-shrink:0;background:#fff;transition:background 0.15s,border-color 0.15s;position:relative}
+    .eck{width:22px;height:22px;border:2px solid #c8dce8;border-radius:5px;flex-shrink:0;background:#fff;transition:background 0.15s,border-color 0.15s;position:relative;pointer-events:none}
     .extra-item.on .eck{background:var(--avail);border-color:var(--avail)}
     .extra-item.on .eck::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:0.78rem;font-weight:bold;line-height:1}
     .tip-wrap{position:relative;display:inline-flex;align-items:center;flex-shrink:0}
@@ -183,7 +183,7 @@
         <div class="form-group">
           <label>Bringing a dog?</label>
           <select name="pets">
-            <option value="No pets">No pets</option>
+            <option value="No dog">No dog</option>
             <option value="1 small dog">Yes - 1 small dog</option>
             <option value="2 small dogs">Yes - 2 small dogs</option>
             <option value="1 big dog">Yes - 1 big dog</option>
@@ -211,7 +211,7 @@
                 <span class="tip-btn">i</span>
                 <span class="tip-box">Fresh bread, water, coffee, tea, milk and local treats to start your stay.</span>
               </span>
-              <span class="ep">€ 10</span>
+              <span class="ep">€ 50</span>
               <span class="eck"></span>
             </div>
           </div>
@@ -225,4 +225,4 @@
     <div class="success-msg" id="successMsg">
       <div class="ck">&#9989;</div>
       <h3>Request sent!</h3>
-      <p>Thank you! We will reply within 24 hours
+      <p>Thank you! We will rep
