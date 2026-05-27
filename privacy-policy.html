@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Holiday Home Zeebries</title>
+  <meta name="description" content="Privacy Policy for Holiday Home Zeebries — how we process personal data in connection with direct bookings." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, serif; color: #2c3e50; background: #fff; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    :root {
+      --sea: #1a6b8a;
+      --sky: #e8f4f8;
+      --sand: #f5efe6;
+      --accent: #e07b39;
+      --dark: #1c2b36;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(26,107,138,0.95);
+      backdrop-filter: blur(6px);
+    }
+    .nav-logo { font-size: 1.5rem; font-weight: bold; color: #fff; letter-spacing: 0; text-transform: uppercase; }
+    .nav-links a { color: rgba(255,255,255,0.85); margin-left: 1.5rem; font-family: Arial, sans-serif; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+    .page-header {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--sea) 100%);
+      color: #fff; text-align: center; padding: 7rem 1.5rem 3rem;
+    }
+    .page-header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .page-header p { max-width: 660px; margin: 0 auto; font-family: Arial, sans-serif; font-size: 0.95rem; color: rgba(255,255,255,0.75); }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem; font-family: Arial, sans-serif; font-size: 0.82rem; }
+    footer a { color: rgba(255,255,255,0.75); text-decoration: underline; }
+    footer a:hover { color: #fff; }
+    footer span { color: rgba(255,255,255,0.25); }
+
+    /* ── Terms layout ── */
+    .terms-outer { max-width: 1160px; margin: 0 auto; padding: 3rem 1.5rem 5rem; display: flex; gap: 3rem; align-items: flex-start; }
+
+    .terms-sidebar {
+      flex: 0 0 240px;
+      position: sticky;
+      top: 5rem;
+      max-height: calc(100vh - 6rem);
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+    .toc-title { font-family: Arial, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sea); margin-bottom: 0.6rem; font-weight: bold; }
+    .toc-list { list-style: none; border-left: 2px solid #e0edf2; padding-left: 0.9rem; }
+    .toc-list li { margin-bottom: 0; }
+    .toc-list a { font-family: Arial, sans-serif; font-size: 0.79rem; color: #6a7a85; line-height: 1.35; display: block; padding: 0.12rem 0; transition: color 0.2s; }
+    .toc-list a:hover { color: var(--sea); }
+    .toc-list a.toc-active { color: var(--sea); font-weight: bold; }
+
+    .terms-content { flex: 1 1 0; min-width: 0; }
+
+    .terms-preamble {
+      background: var(--sky); border-left: 4px solid var(--sea);
+      padding: 1.2rem 1.5rem; border-radius: 0 6px 6px 0; margin-bottom: 2.5rem;
+      font-family: Arial, sans-serif; font-size: 0.95rem; color: #334;
+    }
+
+    .terms-article { margin-bottom: 2.8rem; padding-top: 0.5rem; scroll-margin-top: 5.5rem; }
+    .terms-article h2 {
+      font-size: 1.35rem; color: var(--dark); margin-bottom: 1rem;
+      padding-bottom: 0.5rem; border-bottom: 2px solid var(--sky);
+    }
+    .terms-article h2 .art-num { color: var(--sea); margin-right: 0.4rem; font-size: 0.9em; }
+    .terms-article p { margin-bottom: 0.9rem; font-size: 0.95rem; }
+    .terms-article p:last-child { margin-bottom: 0; }
+    .terms-article ul { margin: 0.5rem 0 1rem 1.4rem; }
+    .terms-article ul li { margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .terms-article ul.plain-list { list-style: disc; }
+    .terms-article ul.data-list { list-style: none; margin-left: 0; }
+    .terms-article ul.data-list li { padding: 0.45rem 0; border-bottom: 1px solid #eef2f5; font-size: 0.95rem; }
+    .terms-article ul.data-list li:last-child { border-bottom: none; }
+    .terms-article ul.basis-list { list-style: none; margin-left: 0; }
+    .terms-article ul.basis-list li { padding: 0.5rem 0.8rem; background: var(--sky); border-radius: 6px; margin-bottom: 0.5rem; font-size: 0.92rem; }
+
+    .contact-block {
+      background: var(--sand); border-radius: 8px; padding: 1.2rem 1.5rem;
+      font-family: Arial, sans-serif; font-size: 0.9rem; line-height: 1.7; margin-top: 0.5rem;
+    }
+
+    .version-chip { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 0.3rem 1rem; font-family: Arial, sans-serif; font-size: 0.82rem; margin-top: 0.8rem; color: rgba(255,255,255,0.85); }
+
+    @media (max-width: 860px) {
+      .terms-outer { flex-direction: column; gap: 2rem; padding: 2rem 1rem 4rem; }
+      .terms-sidebar { position: static; max-height: none; flex: none; width: 100%; }
+      .toc-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+      .nav-links { display: none; }
+      .page-header { padding-top: 6.5rem; }
+      .page-header h1 { font-size: 2.2rem; }
+    }
+  </style>
+  <link rel="stylesheet" href="language.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Zeebries</a>
+    <button type="button" class="mobile-menu-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Menu">&#9776;</button>
+    <div class="nav-links" id="main-navigation">
+      <a href="index.html#about">Our Home</a>
+      <a href="index.html#features">Amenities</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#location">Location</a>
+      <a href="things-to-do.html">In the Area</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="booking.html">Book</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="language-switcher">
+      <button type="button" class="language-toggle" aria-haspopup="true" aria-expanded="false">
+        <span class="fi fi-gb language-flag language-current-flag" aria-hidden="true"></span>
+        <span class="language-current-label">English</span>
+      </button>
+      <div class="language-menu" role="listbox" aria-label="Language">
+        <button type="button" class="language-option" data-lang="nl" role="option"><span class="fi fi-nl language-flag" aria-hidden="true"></span><span>Nederlands</span></button>
+        <button type="button" class="language-option" data-lang="fr" role="option"><span class="fi fi-fr language-flag" aria-hidden="true"></span><span>Fran&ccedil;ais</span></button>
+        <button type="button" class="language-option" data-lang="de" role="option"><span class="fi fi-de language-flag" aria-hidden="true"></span><span>Deutsch</span></button>
+        <button type="button" class="language-option" data-lang="en" role="option"><span class="fi fi-gb language-flag" aria-hidden="true"></span><span>English</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Privacy Policy</h1>
+    <p>Holiday Home Zeebries &mdash; How we handle your personal data</p>
+    <span class="version-chip">Version 1.0 &nbsp;&middot;&nbsp; Effective 1 July 2026</span>
+  </header>
+
+  <main>
+    <div class="terms-outer">
+
+      <!-- TOC -->
+      <aside class="terms-sidebar" aria-label="Table of contents">
+        <p class="toc-title">Contents</p>
+        <ol class="toc-list">
+          <li><a href="#sec1">1.&ensp;Who we are</a></li>
+          <li><a href="#sec2">2.&ensp;Personal data we process</a></li>
+          <li><a href="#sec3">3.&ensp;Why we process personal data</a></li>
+          <li><a href="#sec4">4.&ensp;Legal bases</a></li>
+          <li><a href="#sec5">5.&ensp;Who receives personal data</a></li>
+          <li><a href="#sec6">6.&ensp;International transfers</a></li>
+          <li><a href="#sec7">7.&ensp;How long we keep personal data</a></li>
+          <li><a href="#sec8">8.&ensp;Security</a></li>
+          <li><a href="#sec9">9.&ensp;Your rights</a></li>
+          <li><a href="#sec10">10.&ensp;How to contact us</a></li>
+          <li><a href="#sec11">11.&ensp;Changes to this Policy</a></li>
+        </ol>
+      </aside>
+
+      <!-- Content -->
+      <div class="terms-content">
+
+        <div class="terms-preamble">
+          This Privacy Policy explains how IXM3 BV processes personal data in connection with direct bookings of the holiday home &ldquo;Zeebries&rdquo;, located at Klemskerkestraat 26, 8450 Bredene, Belgium, in Holiday Park Zeewind II. This Privacy Policy should be read together with our <a href="booking-terms.html" style="color:var(--sea);text-decoration:underline;">Booking Terms</a>.
+        </div>
+
+        <!-- Section 1 -->
+        <section class="terms-article" id="sec1">
+          <h2><span class="art-num">1.</span> Who we are</h2>
+          <p>The data controller is:</p>
+          <div class="contact-block">
+            IXM3 BV<br />
+            Mezenstraat 80<br />
+            3060 Leefdaal, Belgium<br />
+            VAT / enterprise number: BE 1015.479.835<br />
+            E-mail: <a href="mailto:michael.debruyn88@gmail.com">michael.debruyn88@gmail.com</a>
+          </div>
+          <p style="margin-top:0.9rem;">In this Privacy Policy, &ldquo;we&rdquo;, &ldquo;us&rdquo; and &ldquo;our&rdquo; refer to IXM3 BV.</p>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="terms-article" id="sec2">
+          <h2><span class="art-num">2.</span> Personal data we process</h2>
+          <p>We may process the following personal data:</p>
+          <ul class="data-list">
+            <li><strong>Booking and contact details:</strong> name, address, e-mail address, telephone number, booking dates, number of guests, age category of guests, arrival time and booking preferences.</li>
+            <li><strong>Billing and payment details:</strong> billing details, amounts paid, payment status, bank-transfer details, Stripe payment reference and refund information. We do not store full card details.</li>
+            <li><strong>Guest information:</strong> information reasonably required to manage the Booking, including pet information, vehicle details, proof of identity where reasonably required, and information required for tourist-tax, registration, safety or legal obligations.</li>
+            <li><strong>Stay and access information:</strong> check-in and check-out details, access instructions, key or access-device information, smart-lock or digital-access codes where used, and communications during the Stay Period.</li>
+            <li><strong>Security deposit and damage information:</strong> information relating to damage, missing items, excessive cleaning, late check-out, nuisance, breach of park rules, deductions from the Security Deposit and supporting evidence such as descriptions, invoices or photos.</li>
+            <li><strong>Communication and complaint data:</strong> e-mails, messages, complaints, requests, reviews, feedback and any related correspondence.</li>
+            <li><strong>Wi-Fi and security-related information:</strong> information necessary to provide, secure or manage Wi-Fi access, digital access, technical issues or misuse reports, where applicable.</li>
+          </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="terms-article" id="sec3">
+          <h2><span class="art-num">3.</span> Why we process personal data</h2>
+          <p>We process personal data for the following purposes:</p>
+          <ul class="plain-list">
+            <li>to receive, assess, confirm, manage and administer booking requests and Bookings;</li>
+            <li>to communicate with Guests before, during and after the Stay Period;</li>
+            <li>to process payments, refunds, Security Deposits, invoices and accounting records;</li>
+            <li>to provide check-in instructions, access to the Accommodation and practical stay information;</li>
+            <li>to comply with tourist-tax, accounting, tax, safety, registration and other legal obligations;</li>
+            <li>to manage House Rules, park rules, security, damage, lost items, complaints and disputes;</li>
+            <li>to prevent fraud, misuse, unlawful Wi-Fi use, unauthorised group bookings, nuisance or damage; and</li>
+            <li>to establish, exercise or defend legal claims.</li>
+          </ul>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="terms-article" id="sec4">
+          <h2><span class="art-num">4.</span> Legal bases</h2>
+          <p>We process personal data on the following legal bases under the GDPR:</p>
+          <ul class="basis-list">
+            <li><strong>Performance of a contract</strong> &mdash; where processing is necessary to handle booking requests, confirm and perform Bookings, provide access to the Accommodation, communicate with the Guest and manage payments.</li>
+            <li><strong>Legal obligation</strong> &mdash; where processing is necessary for accounting, tax, tourist-tax, safety, registration or other statutory obligations.</li>
+            <li><strong>Legitimate interests</strong> &mdash; where processing is necessary to protect the Accommodation, manage Security Deposit deductions, prevent damage or misuse, handle complaints, maintain evidence, recover amounts due, secure access systems and defend legal claims.</li>
+            <li><strong>Consent</strong> &mdash; where legally required, for example for certain optional communications or non-essential cookies, if used.</li>
+          </ul>
+          <p>The GDPR requires controllers to inform data subjects about the purposes, legal bases, recipients, retention periods and rights relating to the processing of personal data.</p>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="terms-article" id="sec5">
+          <h2><span class="art-num">5.</span> Who receives personal data</h2>
+          <p>We may share personal data with the following recipients where necessary:</p>
+          <ul class="plain-list">
+            <li>payment service providers, including Stripe, banks and card/payment providers;</li>
+            <li>accountants, tax advisers, legal advisers and insurers;</li>
+            <li>IT, hosting, website, booking-form, e-mail, cloud-storage, smart-lock or technical service providers;</li>
+            <li>cleaning, maintenance, repair, key-management or property-support providers;</li>
+            <li>Holiday Park Zeewind II or park management where necessary for access, safety, nuisance, park-rule compliance or incident handling;</li>
+            <li>public authorities, police, courts, tax authorities or local authorities where required by law or necessary to comply with a legal obligation or to establish, exercise or defend a legal claim.</li>
+          </ul>
+          <p>Stripe and other payment providers may process payment data under their own terms and privacy notices.</p>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="terms-article" id="sec6">
+          <h2><span class="art-num">6.</span> International transfers</h2>
+          <p>We aim to process personal data solely within the European Economic Area. Where a service provider processes personal data outside the EEA, we will rely on appropriate safeguards where required, such as an adequacy decision or standard contractual clauses.</p>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="terms-article" id="sec7">
+          <h2><span class="art-num">7.</span> How long we keep personal data</h2>
+          <p>We keep personal data only for as long as reasonably necessary for the purposes described above.</p>
+          <p>As a general rule:</p>
+          <ul class="plain-list">
+            <li>booking, payment, invoice and accounting records are kept for the statutory accounting and tax retention period;</li>
+            <li>booking correspondence and guest administration are kept for as long as necessary to manage the Booking and any related claims;</li>
+            <li>Security Deposit, damage, complaint and dispute records may be kept until the matter is resolved and for the applicable limitation period;</li>
+            <li>access codes are deactivated after the Stay Period, unless earlier deactivation is required for security reasons;</li>
+            <li>optional marketing data, if any, is kept until consent is withdrawn or the communication is no longer relevant.</li>
+          </ul>
+        </section>
+
+        <!-- Section 8 -->
+        <section class="terms-article" id="sec8">
+          <h2><span class="art-num">8.</span> Security</h2>
+          <p>We take reasonable technical and organisational measures to protect personal data against unauthorised access, loss, misuse, disclosure or alteration.</p>
+          <p>Access to personal data is limited to persons and service providers who need it for the purposes described in this Privacy Policy.</p>
+        </section>
+
+        <!-- Section 9 -->
+        <section class="terms-article" id="sec9">
+          <h2><span class="art-num">9.</span> Your rights</h2>
+          <p>Subject to the conditions and limits under the GDPR, you may have the right to:</p>
+          <ul class="plain-list">
+            <li>access your personal data;</li>
+            <li>correct inaccurate or incomplete personal data;</li>
+            <li>request deletion of your personal data;</li>
+            <li>restrict processing;</li>
+            <li>object to processing based on legitimate interests;</li>
+            <li>receive certain personal data in a portable format;</li>
+            <li>withdraw consent where processing is based on consent;</li>
+            <li>lodge a complaint with the competent data protection authority. In Belgium, the competent authority is the Gegevensbeschermingsautoriteit / Autorit&eacute; de protection des donn&eacute;es.</li>
+          </ul>
+        </section>
+
+        <!-- Section 10 -->
+        <section class="terms-article" id="sec10">
+          <h2><span class="art-num">10.</span> How to contact us</h2>
+          <p>For privacy questions or to exercise your rights, contact us at:</p>
+          <div class="contact-block">
+            IXM3 BV<br />
+            Mezenstraat 80<br />
+            3060 Leefdaal, Belgium<br />
+            VAT / enterprise number: BE 1015.479.835<br />
+            E-mail: <a href="mailto:michael.debruyn88@gmail.com">michael.debruyn88@gmail.com</a>
+          </div>
+          <p style="margin-top:0.9rem;">We may ask you to provide reasonable information to verify your identity before responding to a request.</p>
+        </section>
+
+        <!-- Section 11 -->
+        <section class="terms-article" id="sec11">
+          <h2><span class="art-num">11.</span> Changes to this Privacy Policy</h2>
+          <p>We may update this Privacy Policy from time to time. The latest version will be made available on the Website or Booking Page.</p>
+        </section>
+
+        <p style="margin-top:3rem; font-family:Arial,sans-serif; font-size:0.8rem; color:#8899aa;">&copy; IXM3 BV. All rights reserved.</p>
+
+      </div><!-- /.terms-content -->
+    </div><!-- /.terms-outer -->
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Holiday Home Zeebries <span>&#183;</span> Holiday Home at the Belgian Coast <span>&#183;</span> <a href="booking-terms.html">Booking Terms</a> <span>&#183;</span> <a href="privacy-policy.html">Privacy Policy</a> <span>&#183;</span> All rights reserved</p>
+  </footer>
+  <script src="i18n.js"></script>
+  <script>
+    (function() {
+      var tocLinks = document.querySelectorAll('.toc-list a');
+      var articles = document.querySelectorAll('.terms-article');
+      if (!tocLinks.length || !articles.length) return;
+      function onScroll() {
+        var scrollY = window.scrollY + 100;
+        var current = '';
+        articles.forEach(function(sec) { if (sec.offsetTop <= scrollY) current = sec.id; });
+        tocLinks.forEach(function(a) { a.classList.toggle('toc-active', a.getAttribute('href') === '#' + current); });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+</body>
+</html>
