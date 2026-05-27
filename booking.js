@@ -1,10 +1,11 @@
 // ================================================================
 //  BOOKING CALENDAR -- Holiday Home Zeebries
-//  Changeover days: Monday and Friday only
+//  Changeover days: Monday, Friday and Sunday
 //  Valid blocks:
 //    Midweek       Mon -> Fri  (4 nights)
 //    Short weekend Fri -> Sun  (2 nights)
 //    Long weekend  Fri -> Mon  (3 nights)
+//    Sunday night  Sun -> Mon  (1 night, priced as long weekend minus short weekend)
 //    Longer stays: valid combinations of the above
 // ================================================================
 
@@ -33,7 +34,8 @@ var PRICES = {
 var FEES = {
   cleaning: 110,
   deposit: 350,
-  dog: 30,
+  smallDog: 30,
+  largerDogOrTwoSmall: 45,
   bedLinen: 10,
   bathTowelsPerPerson: 10,
   beachTowelsPerPerson: 10,
@@ -209,7 +211,7 @@ function hasBlockedDate(ci, co) {
 
 function isValidCheckin(date) {
   var dow = date.getDay();
-  return (dow === 1 || dow === 5) &&
+  return (dow === 1 || dow === 5 || dow === 0) &&
          !isPast(date) &&
          !isBooked(date) &&
          date < MAX_CO;
@@ -238,6 +240,9 @@ function decomposeBooking(ci, co) {
         next = addDays(cur, 3);
         type = 'long';
       }
+    } else if (dow === 0) {
+      next = addDays(cur, 1);
+      type = 'sundayNight';
     } else {
       return null;
     }
@@ -266,7 +271,8 @@ function isClickableCalendarDate(date) {
 var BLOCK_LABELS = {
   midweek: 'Midweek (Mon-Fri)',
   short:   'Short weekend (Fri-Sun)',
-  long:    'Long weekend (Fri-Mon)'
+  long:    'Long weekend (Fri-Mon)',
+  sundayNight: 'Sunday night (Sun-Mon)'
 };
 
 function blockLabel(type) {
@@ -281,14 +287,21 @@ function calcPrice(ci, co) {
   parts.forEach(function(p) {
     var pr   = getPrices(p.from);
     var sk   = getSeasonKey(p.from);
-    var base = p.type === 'midweek' ? pr.midweek : p.type === 'short' ? pr.short : pr.long;
+    var base = p.type === 'midweek' ? pr.midweek :
+      p.type === 'short' ? pr.short :
+      p.type === 'sundayNight' ? Math.max(pr.long - pr.short, 0) :
+      pr.long;
     var amt  = base;
     var note = getSeasonLabel(sk);
 
-    if (p.type === 'long') {
+    if (p.type === 'long' || p.type === 'sundayNight') {
       var sp = getSpecialMult(p.from);
       if (sp) {
-        amt = Math.round(base * sp.mult);
+        if (p.type === 'sundayNight') {
+          amt = Math.max(Math.round(pr.long * sp.mult) - pr.short, 0);
+        } else {
+          amt = Math.round(base * sp.mult);
+        }
         note += ' - ' + sp.name;
       }
     }
@@ -300,10 +313,11 @@ function calcPrice(ci, co) {
   return { rows: rows, rental: rental };
 }
 
-function petCount() {
+function petSelection() {
   var select = document.querySelector('select[name="pets"]');
-  if (!select || select.value === 'No dog') return 0;
-  return select.value === '2 small dogs' ? 2 : 1;
+  if (!select || select.value === 'No dog') return { count: 0, fee: 0 };
+  if (select.value === '1 small dog') return { count: 1, fee: FEES.smallDog };
+  return { count: select.value === '2 small dogs' ? 2 : 1, fee: FEES.largerDogOrTwoSmall };
 }
 
 function selectedExtras() {
@@ -337,7 +351,8 @@ function updatePriceSummary() {
 
   if (!checkIn || !checkOut) {
     el.innerHTML = '<h3>' + i18nText('priceTitle', 'Price estimate') + '</h3>' +
-      '<p>' + i18nText('pricePrompt', 'Choose your dates, dogs and extras to see an estimate before sending your request.') + '</p>';
+      '<p>' + i18nText('pricePrompt', 'Please choose your dates, number of guests and extras to see an estimate before sending your request.') + '</p>' +
+      '<p>' + i18nText('vatNote', 'All prices shown include VAT.') + '</p>';
     setHidden('hPrice', '');
     setHidden('hNights', '');
     setHidden('hDogFee', '0');
@@ -347,8 +362,9 @@ function updatePriceSummary() {
   }
 
   var info = calcPrice(checkIn, checkOut);
-  var dogs = petCount();
-  var dogFee = dogs * FEES.dog;
+  var pet = petSelection();
+  var dogs = pet.count;
+  var dogFee = pet.fee;
   var extras = selectedExtras();
   var extrasTotal = extras.reduce(function(sum, item) { return sum + item.amt; }, 0);
   var total = info.rental + FEES.cleaning + dogFee + extrasTotal;
@@ -370,6 +386,7 @@ function updatePriceSummary() {
   });
   html += '<div class="ps-div"></div>';
   html += '<div class="ps-row ps-total"><span class="ps-label">' + i18nText('estimatedTotal', 'Estimated total (excl. deposit & tourist tax)') + '</span><span class="ps-amt">' + fmtEur(total) + '</span></div>';
+  html += '<div class="ps-note">' + i18nText('vatNote', 'All prices shown include VAT.') + '</div>';
   html += '<div class="ps-note">' + i18nFormat('depositNote', 'Refundable security deposit {amount} payable separately.', { amount: fmtEur(FEES.deposit) }) + '</div>';
   html += '<div class="ps-note">' + i18nText('taxNote', 'Tourist tax is charged separately according to the applicable local rules.') + '</div>';
 
@@ -516,7 +533,7 @@ function syncInputDates() {
   }
 
   if (!ci || !isValidCheckin(ci)) {
-    alert(i18nText('invalidCheckin', 'Check-in is only possible on Monday or Friday on an available date.'));
+    alert(i18nText('invalidCheckin', 'Check-in is only possible on Monday, Friday or Sunday on an available date.'));
     syncDateInputs();
     return;
   }
@@ -529,7 +546,7 @@ function syncInputDates() {
   }
 
   if (!isValidCheckout(ci, co)) {
-    alert(i18nText('invalidCheckout', 'Choose a valid check-out: Friday or Monday, or Sunday only for a short weekend.'));
+    alert(i18nText('invalidCheckout', 'Choose a valid check-out on Friday, Sunday or Monday.'));
     checkOut = null;
     syncDateInputs();
     renderCalendar();
@@ -544,7 +561,7 @@ function syncInputDates() {
 function updateSummary() {
   var el = document.getElementById('selSummary');
   if (!checkIn) {
-    el.innerHTML = i18nText('clickCheckin', 'Click a Monday or Friday to choose your check-in.');
+    el.innerHTML = i18nText('clickCheckin', 'Click a Monday, Friday or Sunday to choose your check-in.');
   } else if (!checkOut) {
     el.innerHTML = i18nFormat('pickCheckout', 'Check-in: <b>{date}</b> - now select a valid check-out.', { date: fmtDate(checkIn) });
   } else {
