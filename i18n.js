@@ -31,7 +31,7 @@
         navContact: 'Contact',
         languageLabel: 'Language',
         menuLabel: 'Menu',
-        footer: '(c) 2026 Holiday Home Zeebries · Holiday Home at the Belgian Coast · All rights reserved',
+        footer: '© 2026 Holiday Home Zeebries · Holiday Home at the Belgian Coast · All rights reserved',
         checkAvailability: 'Check Availability'
       },
       home: {
@@ -265,7 +265,7 @@
         navContact: 'Contact',
         languageLabel: 'Taal',
         menuLabel: 'Menu',
-        footer: '(c) 2026 Vakantiehuis Zeebries · Vakantiehuis aan de Belgische kust · Alle rechten voorbehouden',
+        footer: '© 2026 Vakantiehuis Zeebries · Vakantiehuis aan de Belgische kust · Alle rechten voorbehouden',
         checkAvailability: 'Bekijk beschikbaarheid'
       },
       home: {
@@ -499,7 +499,7 @@
         navContact: 'Contact',
         languageLabel: 'Langue',
         menuLabel: 'Menu',
-        footer: '(c) 2026 Maison de vacances Zeebries · Maison de vacances à la côte belge · Tous droits réservés',
+        footer: '© 2026 Maison de vacances Zeebries · Maison de vacances à la côte belge · Tous droits réservés',
         checkAvailability: 'Voir les disponibilités'
       },
       home: {
@@ -733,7 +733,7 @@
         navContact: 'Kontakt',
         languageLabel: 'Sprache',
         menuLabel: 'Menü',
-        footer: '(c) 2026 Ferienhaus Zeebries · Ferienhaus an der belgischen Küste · Alle Rechte vorbehalten',
+        footer: '© 2026 Ferienhaus Zeebries · Ferienhaus an der belgischen Küste · Alle Rechte vorbehalten',
         checkAvailability: 'Verfügbarkeit prüfen'
       },
       home: {
