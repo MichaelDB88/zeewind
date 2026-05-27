@@ -261,7 +261,7 @@
       common: {
         navHouse: 'Ons huis',
         navAmenities: 'Voorzieningen',
-        navGallery: 'Foto’s',
+        navGallery: 'Foto\'s',
         navLocation: 'Ligging',
         navThings: 'In de Buurt',
         navReviews: 'Beoordelingen',
@@ -316,13 +316,13 @@
         parkBrasserieTitle: '&#127869; Brasserie Duinenhoeve',
         parkBrasserieCopy: 'Het restaurant van het park, direct naast het zwembad. Kindvriendelijk, met een binnenspeelhoek, gratis parking en een menu voor elk moment.',
         parkBrasserieLink: 'Bezoek website →',
-        galleryLabel: 'Foto’s',
+        galleryLabel: 'Foto\'s',
         galleryTitle: 'Bekijk de sfeer',
         gallerySub: 'Een paar beelden van wat je bij Vakantiehuis Zeebries mag verwachten.',
         galleryBeachAlt: 'Het strand bij Vakantiehuis Zeebries',
         galleryDunesAlt: 'Duinen bij Vakantiehuis Zeebries',
         comingSoon: '📷 Binnenkort meer',
-        galleryNote: 'Foto’s van het huis volgen binnenkort. Het strand ligt op slechts enkele minuten.',
+        galleryNote: 'Foto\'s van het huis volgen binnenkort. Het strand ligt op slechts enkele minuten.',
         locationLabel: 'Ligging',
         locationTitle: 'Waar vind je ons?',
         locationCopy: 'Vakantiehuis Zeebries ligt in het vakantiepark in Bredene, dicht bij de Belgische kust. Het exacte adres krijg je bij de boekingsbevestiging.',
@@ -369,26 +369,26 @@
         adultsSub: 'Vanaf 12 jaar',
         children: 'Kinderen',
         childrenSub: 'Van 2 tot 12 jaar',
-        babies: 'Baby’s',
+        babies: 'Baby\'s',
         babiesSub: 'Van 0 tot 2 jaar',
         pets: '🐾 Breng je een hond mee?',
         petNo: 'Geen hond',
         petSmall1: '🐾 Ja - 1 kleine hond',
         petSmall2: '🐾🐾 Ja - 2 kleine honden',
         petBig1: '🐕 Ja - 1 grote hond',
-        babyExtras: ‘Op reis met een baby of peuter?’,
-        extras: ‘Extra\’s (optioneel)’,
-        extraBabycot: ‘Babybed<small>Voor baby\’s 0–2</small>’,
-        extraHighchair: ‘Kinderstoel<small>Voor peuters</small>’,
-        extraBabybath: ‘Babybad<small>Draagbaar badje</small>’,
-        extraLinen: ‘Bedlinnen<small>Lakens en kussenslopen</small>’,
-        extraBathTowels: ‘Badhanddoeken<small>Per persoon</small>’,
-        extraBeachTowels: ‘Strandhanddoeken<small>Per persoon</small>’,
-        extraComfort: ‘Comfortpakket<small>Basis voor aankomst</small>’,
-        babyFree: ‘Gratis’,
-        extrasPrice: ‘€ 10’,
-        comfortPrice: ‘€ 50’,
-        comfortTip: ‘Vers brood, water, koffie, thee, melk en lokale lekkernijen om je verblijf goed te starten.’,
+        babyExtras: 'Op reis met een baby of peuter?',
+        extras: 'Extra\’s (optioneel)',
+        extraBabycot: 'Babybed<small>Voor baby\’s 0–2</small>',
+        extraHighchair: 'Kinderstoel<small>Voor peuters</small>',
+        extraBabybath: 'Babybad<small>Draagbaar badje</small>',
+        extraLinen: 'Bedlinnen<small>Lakens en kussenslopen</small>',
+        extraBathTowels: 'Badhanddoeken<small>Per persoon</small>',
+        extraBeachTowels: 'Strandhanddoeken<small>Per persoon</small>',
+        extraComfort: 'Comfortpakket<small>Basis voor aankomst</small>',
+        babyFree: 'Gratis',
+        extrasPrice: '€ 10',
+        comfortPrice: '€ 50',
+        comfortTip: 'Vers brood, water, koffie, thee, melk en lokale lekkernijen om je verblijf goed te starten.',
         message: 'Vragen of speciale wensen?',
         submit: 'Verstuur boekingsaanvraag',
         note: 'Er wordt nu geen betaling gevraagd. We bevestigen je data en spreken de betaling apart af.',
@@ -410,7 +410,7 @@
         guideCopy2: 'Van zwemmen en gezinsplezier tot een culturele uitstap naar Oostende, een maaltijd in het vakantiepark of een rustige ochtend in de duinen — deze gids bundelt de makkelijkste dingen om te doen bij Vakantiehuis Zeebries zonder ingewikkelde planning.',
         activitiesLabel: 'Activiteiten & ideeën',
         activitiesTitle: 'Wat te doen nabij Vakantiehuis Zeebries',
-        gridSub: 'Alle aanbevelingen zijn makkelijk te combineren met een verblijf in Vakantiepark Zeewind II in Bredene. Voeg gerust eigen foto’s toe aan elke kaart wanneer je die hebt.',
+        gridSub: 'Alle aanbevelingen zijn makkelijk te combineren met een verblijf in Vakantiepark Zeewind II in Bredene. Voeg gerust eigen foto\'s toe aan elke kaart wanneer je die hebt.',
         walkingTitle: 'Op wandelafstand',
         walkingSub: 'Stap naar buiten en je bent er al — geen auto nodig.',
         rideTitle: 'Op korte afstand',
@@ -452,7 +452,7 @@
         dehaanImgAlt: 'De Haan sfeervolle badplaats aan de Belgische kust',
         dehaanTag: 'Nabijgelegen kustplaats',
         dehaanTitle: 'De Haan en nabije kustplaatsen',
-        dehaanCopy: 'De Haan staat bekend om zijn charmante kustsfeer en Belle Époque-villa’s. Een goede keuze wanneer je eens een andere omgeving wilt zonder de dag ingewikkeld te maken. Geniet van een wandeling, een drankje, een maaltijd of gewoon een andere kustsfeer voor je terugkeert naar Vakantiehuis Zeebries.',
+        dehaanCopy: 'De Haan staat bekend om zijn charmante kustsfeer en Belle Époque-villa\'s. Een goede keuze wanneer je eens een andere omgeving wilt zonder de dag ingewikkeld te maken. Geniet van een wandeling, een drankje, een maaltijd of gewoon een andere kustsfeer voor je terugkeert naar Vakantiehuis Zeebries.',
         dehaanFact1: '<strong>Ideaal voor:</strong> Rustige uitstappen, koppels, gezinnen',
         dehaanFact2: '<strong>Afstand:</strong> Makkelijke rit langs de kust',
         grasduinenImgAlt: 'Recreatiedomein Grasduinen recreatiedomein in Bredene',
@@ -512,7 +512,7 @@
       },
       home: {
         heroEyebrow: 'Bredene · Maison de vacances au bord de la mer',
-        heroTagline: 'Réveillez-vous avec l’air marin, profitez de votre jardin privé et passez vos journées entre piscine et plage.',
+        heroTagline: 'Réveillez-vous avec l\'air marin, profitez de votre jardin privé et passez vos journées entre piscine et plage.',
         discoverMore: 'Découvrir',
         badgeBeach: '🌊 Près de la plage',
         badgePet: '🐾 Chien admis',
@@ -523,14 +523,14 @@
         badgeParking: '🚗 Parking gratuit',
         houseLabel: 'La maison',
         houseTitle: 'Un chez-soi à la côte belge',
-        houseCopy1: 'Maison de vacances Zeebries est une charmante maison de vacances située dans un domaine paisible, à deux pas de la côte belge. Avec son atmosphère chaleureuse et ses équipements pratiques, c’est un refuge idéal pour familles, couples et amis — compagnons à quatre pattes bienvenus.',
+        houseCopy1: 'Maison de vacances Zeebries est une charmante maison de vacances située dans un domaine paisible, à deux pas de la côte belge. Avec son atmosphère chaleureuse et ses équipements pratiques, c\'est un refuge idéal pour familles, couples et amis — compagnons à quatre pattes bienvenus.',
         houseCopy2: 'Savourez votre café du matin dans le jardin privé, profitez des après-midis à la piscine commune et terminez la journée par une promenade sur la plage. Tout est réuni pour de belles vacances.',
         bedrooms: 'Chambres',
         bathroom: 'Salle de bain',
         maxGuests: 'Pers. max.',
         beachAlt: 'La plage près de Maison de vacances Zeebries, à quelques minutes',
         amenitiesLabel: 'Équipements',
-        amenitiesTitle: 'Tout ce qu’il faut',
+        amenitiesTitle: 'Tout ce qu\'il faut',
         amenitiesSub: 'Maison de vacances Zeebries est équipée et prête pour vous permettre de vraiment déconnecter.',
         featureBeachTitle: 'Près de la plage',
         featureBeachCopy: 'À courte distance à pied de la mer — parfait pour nager le matin et se promener le soir.',
@@ -546,34 +546,34 @@
         featureDomainCopy: 'Situé dans un parc de vacances bien entretenu, avec installations et environnement calme.',
         parkLabel: 'Dans le parc',
         parkTitle: 'Tout près de votre porte',
-        parkCopy: 'Le Holiday Park Zeewind II dispose de sa propre piscine chauffée et d’un restaurant — pas besoin d’aller loin.',
+        parkCopy: 'Le Holiday Park Zeewind II dispose de sa propre piscine chauffée et d\'un restaurant — pas besoin d\'aller loin.',
         parkPoolAlt: 'Piscine extérieure chauffée à Maison de vacances Zeebries',
         parkPoolTitle: '&#127944; Piscine extérieure chauffée',
-        parkPoolCopy: 'Du 15 juin à la mi-septembre, profitez de la piscine extérieure chauffée — parfaite pour se détendre ou s’amuser en famille.',
+        parkPoolCopy: 'Du 15 juin à la mi-septembre, profitez de la piscine extérieure chauffée — parfaite pour se détendre ou s\'amuser en famille.',
         parkBrasserieAlt: 'Brasserie Duinenhoeve',
         parkBrasserieTitle: '&#127869; Brasserie Duinenhoeve',
         parkBrasserieCopy: 'Le restaurant du parc, juste à côté de la piscine. Adapté aux enfants, avec coin de jeux intérieur, parking gratuit et une carte pour chaque occasion.',
         parkBrasserieLink: 'Visiter le site →',
         galleryLabel: 'Photos',
         galleryTitle: 'Voyez par vous-même',
-        gallerySub: 'Quelques images de l’atmosphère qui vous attend à Maison de vacances Zeebries.',
+        gallerySub: 'Quelques images de l\'atmosphère qui vous attend à Maison de vacances Zeebries.',
         galleryBeachAlt: 'La plage près de Maison de vacances Zeebries',
         galleryDunesAlt: 'Les dunes près de Maison de vacances Zeebries',
         comingSoon: '📷 Bientôt',
         galleryNote: 'Les photos de la maison arrivent bientôt. La plage est à quelques minutes.',
         locationLabel: 'Situation',
         locationTitle: 'Où nous trouver',
-        locationCopy: 'Maison de vacances Zeebries se trouve dans le parc de vacances à Bredene, près de la côte belge. L’adresse exacte est communiquée lors de la confirmation de réservation.',
+        locationCopy: 'Maison de vacances Zeebries se trouve dans le parc de vacances à Bredene, près de la côte belge. L\'adresse exacte est communiquée lors de la confirmation de réservation.',
         nearbyPool: '<span class="nearby-icon">&#127946;</span> LAGO Bredene Grasduinen - nouvelle piscine à proximité',
         nearbyBeach: '<span class="nearby-icon">🌊</span> Plage — courte promenade',
         nearbySupermarket: '<span class="nearby-icon">🛒</span> Supermarché — à proximité',
-        nearbyRestaurants: '<span class="nearby-icon">🍽️</span> Restaurants — faciles d’accès',
+        nearbyRestaurants: '<span class="nearby-icon">🍽️</span> Restaurants — faciles d\'accès',
         nearbyTrain: '<span class="nearby-icon">🚂</span> Gare — accessible en voiture',
         exploreThings: 'Découvrir les activités',
-        mapPlaceholder: '🗺️ La carte viendra ici<br><br>Nous ajouterons une carte Google à l’étape suivante',
+        mapPlaceholder: '🗺️ La carte viendra ici<br><br>Nous ajouterons une carte Google à l\'étape suivante',
         contactLabel: 'Contact',
         contactTitle: 'Prêt à réserver votre séjour ?',
-        contactSub: 'Prêt à organiser votre séjour, à vérifier une date ou à demander plus d’informations ? Envoyez-nous un message, nous vous aiderons avec plaisir.',
+        contactSub: 'Prêt à organiser votre séjour, à vérifier une date ou à demander plus d\'informations ? Envoyez-nous un message, nous vous aiderons avec plaisir.',
         contactName: 'Nom',
         contactNamePlaceholder: 'Votre nom',
         contactEmail: 'E-mail',
@@ -583,13 +583,13 @@
         contactSubmit: 'Envoyer le message',
         emailTitle: 'Envoyez-nous un e-mail',
         phoneTitle: 'WhatsApp / téléphone',
-        phoneCopy: 'Nous ajouterons votre numéro ici à l’étape suivante'
+        phoneCopy: 'Nous ajouterons votre numéro ici à l\'étape suivante'
       },
       booking: {
         headerTitle: 'Voir les disponibilités',
         headerSub: 'Sélectionnez vos dates et envoyez une demande — nous confirmons sous 24 heures.',
         calendarTitle: 'Calendrier des disponibilités',
-        calendarSub: 'Les dates vertes sont disponibles. Cliquez sur l’arrivée puis sur le départ.',
+        calendarSub: 'Les dates vertes sont disponibles. Cliquez sur l\'arrivée puis sur le départ.',
         legendAvailable: 'Disponible',
         legendBooked: 'Réservé',
         legendSelection: 'Votre sélection',
@@ -609,34 +609,34 @@
         childrenSub: 'De 2 à 12 ans',
         babies: 'Bébés',
         babiesSub: 'De 0 à 2 ans',
-        pets: ‘🐾 Vous venez avec un chien ?’,
-        petNo: ‘Pas de chien’,
-        petSmall1: ‘🐾 Oui - 1 petit chien’,
-        petSmall2: ‘🐾🐾 Oui - 2 petits chiens’,
-        petBig1: ‘🐕 Oui - 1 grand chien’,
-        babyExtras: ‘Vous voyagez avec un bébé ou un bambin ?’,
-        extras: ‘Extras (facultatif)’,
-        extraBabycot: ‘Lit bébé<small>Pour bébés 0–2</small>’,
-        extraHighchair: ‘Chaise haute<small>Pour tout-petits</small>’,
-        extraBabybath: ‘Baignoire bébé<small>Baignoire portable</small>’,
-        extraLinen: ‘Linge de lit<small>Draps et taies</small>’,
-        extraBathTowels: ‘Serviettes de bain<small>Par personne</small>’,
-        extraBeachTowels: ‘Serviettes de plage<small>Par personne</small>’,
-        extraComfort: ‘Pack confort<small>Essentiels d\’arrivée</small>’,
-        babyFree: ‘Gratuit’,
-        extrasPrice: ‘€ 10’,
-        comfortPrice: ‘€ 50’,
-        comfortTip: ‘Pain frais, eau, café, thé, lait et douceurs locales pour bien commencer votre séjour.’,
+        pets: '🐾 Vous venez avec un chien ?',
+        petNo: 'Pas de chien',
+        petSmall1: '🐾 Oui - 1 petit chien',
+        petSmall2: '🐾🐾 Oui - 2 petits chiens',
+        petBig1: '🐕 Oui - 1 grand chien',
+        babyExtras: 'Vous voyagez avec un bébé ou un bambin ?',
+        extras: 'Extras (facultatif)',
+        extraBabycot: 'Lit bébé<small>Pour bébés 0–2</small>',
+        extraHighchair: 'Chaise haute<small>Pour tout-petits</small>',
+        extraBabybath: 'Baignoire bébé<small>Baignoire portable</small>',
+        extraLinen: 'Linge de lit<small>Draps et taies</small>',
+        extraBathTowels: 'Serviettes de bain<small>Par personne</small>',
+        extraBeachTowels: 'Serviettes de plage<small>Par personne</small>',
+        extraComfort: 'Pack confort<small>Essentiels d\’arrivée</small>',
+        babyFree: 'Gratuit',
+        extrasPrice: '€ 10',
+        comfortPrice: '€ 50',
+        comfortTip: 'Pain frais, eau, café, thé, lait et douceurs locales pour bien commencer votre séjour.',
         message: 'Questions ou demandes spéciales ?',
         submit: 'Envoyer la demande',
-        note: 'Aucun paiement n’est demandé maintenant. Nous confirmons vos dates et organisons le paiement séparément.',
+        note: 'Aucun paiement n\'est demandé maintenant. Nous confirmons vos dates et organisons le paiement séparément.',
         successTitle: 'Demande envoyée !',
         successCopy: 'Merci ! Nous répondrons sous 24 heures pour confirmer votre réservation.',
         placeholderFirst: 'Jane',
         placeholderLast: 'Smith',
         placeholderEmail: 'jane@example.com',
         placeholderPhone: '+32 ...',
-        placeholderMessage: 'p. ex. arrivée anticipée, heure d’arrivée...'
+        placeholderMessage: 'p. ex. arrivée anticipée, heure d\'arrivée...'
       },
       things: {
         heroEyebrow: 'Bredene & côte belge',
@@ -656,23 +656,23 @@
         lagoImgAlt: 'Piscine et centre de loisirs LAGO Bredene Grasduinen',
         lagoTag: 'Piscine & plaisir en famille',
         lagoTitle: 'LAGO Bredene Grasduinen',
-        lagoCopy1: 'L’une des activités familiales les plus faciles près de Maison de vacances Zeebries. Un centre moderne de natation et de loisirs avec jeux d’eau pour enfants, aire de jeux intérieure, bassins extérieurs, sauna et bistro. Un choix pratique par temps de pluie ou lorsque les enfants veulent changer de la plage.',
+        lagoCopy1: 'L\'une des activités familiales les plus faciles près de Maison de vacances Zeebries. Un centre moderne de natation et de loisirs avec jeux d\'eau pour enfants, aire de jeux intérieure, bassins extérieurs, sauna et bistro. Un choix pratique par temps de pluie ou lorsque les enfants veulent changer de la plage.',
         lagoFact1: '<strong>Idéal pour :</strong> Familles, enfants, jours de pluie, après-midis actifs',
         lagoFact2: '<strong>Lieu :</strong> Oscar Goethalsstraat 4, 8450 Bredene',
-        lagoFact3: '<strong>Conseil :</strong> Vérifiez les heures d’ouverture avant votre visite',
+        lagoFact3: '<strong>Conseil :</strong> Vérifiez les heures d\'ouverture avant votre visite',
         lagoLink: 'Visiter LAGO Bredene Grasduinen →',
         fortImgAlt: 'Fort Napoleon, fort côtier historique à Ostende',
         fortTag: 'Excursion historique',
         fortTitle: 'Fort Napoleon à Ostende',
-        fortCopy: 'Un site historique du littoral sur l’Oosteroever à Ostende, facilement accessible depuis Bredene. Suivez le parcours dans le fort, explorez ses salles pleines d’atmosphère et découvrez les expositions temporaires. Une bonne excursion d’une demi-journée pour adultes et enfants.',
+        fortCopy: 'Un site historique du littoral sur l\'Oosteroever à Ostende, facilement accessible depuis Bredene. Suivez le parcours dans le fort, explorez ses salles pleines d\'atmosphère et découvrez les expositions temporaires. Une bonne excursion d\'une demi-journée pour adultes et enfants.',
         fortFact1: '<strong>Idéal pour :</strong> Histoire, culture, familles, jours de pluie',
         fortFact2: '<strong>Adresse :</strong> Vuurtorenweg 13, 8400 Oostende',
-        fortFact3: '<strong>Conseil :</strong> Il est recommandé de réserver les billets à l’avance',
+        fortFact3: '<strong>Conseil :</strong> Il est recommandé de réserver les billets à l\'avance',
         fortLink: 'Visiter Fort Napoleon →',
         beachImgAlt: 'La plage et les dunes près de Maison de vacances Zeebries à Bredene',
         beachTag: 'Plage & nature',
         beachTitle: 'Plage et dunes',
-        beachCopy: 'Bredene est connue pour sa plage naturelle et ses dunes — parfaites pour les matinées lentes, les longues promenades, les châteaux de sable et l’air marin. Depuis Maison de vacances Zeebries, la plage s’intègre facilement au rythme quotidien, sans voiture ni grand plan.',
+        beachCopy: 'Bredene est connue pour sa plage naturelle et ses dunes — parfaites pour les matinées lentes, les longues promenades, les châteaux de sable et l\'air marin. Depuis Maison de vacances Zeebries, la plage s\'intègre facilement au rythme quotidien, sans voiture ni grand plan.',
         beachFact1: '<strong>Idéal pour :</strong> Tous les âges, promenades, détente, familles',
         beachFact2: '<strong>Distance :</strong> Courte promenade depuis Maison de vacances Zeebries',
         cyclingImgAlt: 'Itinéraires cyclables près de Bredene et de la côte belge',
@@ -681,16 +681,16 @@
         cyclingCopy: 'La côte belge se découvre facilement à vélo ou à pied. Depuis Maison de vacances Zeebries, les hôtes peuvent suivre à leur rythme des itinéraires à travers Bredene, les dunes et les communes côtières voisines — une courte promenade en famille, une plus longue balade à vélo ou un trajet panoramique vers la mer.',
         cyclingFact1: '<strong>Idéal pour :</strong> Familles, hôtes actifs, tous les âges',
         cyclingFact2: '<strong>Conseil :</strong> Location de vélos disponible à Bredene et Ostende',
-        ostendImgAlt: 'Marina et port d’Ostende sur la côte belge',
-        ostendTag: 'Excursion d’une journée',
+        ostendImgAlt: 'Marina et port d\'Ostende sur la côte belge',
+        ostendTag: 'Excursion d\'une journée',
         ostendTitle: 'Excursion à Ostende',
-        ostendCopy: 'Ostende est assez proche pour une excursion détendue depuis Bredene. Combinez Fort Napoleon avec le front de mer de l’Oosteroever, les boutiques, restaurants, musées ou une promenade côtière. Idéal pour quelques heures ou une journée complète — avec ou sans soleil.',
+        ostendCopy: 'Ostende est assez proche pour une excursion détendue depuis Bredene. Combinez Fort Napoleon avec le front de mer de l\'Oosteroever, les boutiques, restaurants, musées ou une promenade côtière. Idéal pour quelques heures ou une journée complète — avec ou sans soleil.',
         ostendFact1: '<strong>Idéal pour :</strong> Tous les âges, culture, gastronomie, jours de pluie',
         ostendFact2: '<strong>Distance :</strong> Court trajet en voiture ou à vélo depuis Maison de vacances Zeebries',
         dehaanImgAlt: 'De Haan, station balnéaire charmante sur la côte belge',
         dehaanTag: 'Ville côtière voisine',
         dehaanTitle: 'De Haan et les villes voisines',
-        dehaanCopy: 'De Haan est connue pour son atmosphère côtière charmante et ses villas Belle Époque. Une bonne option lorsque vous voulez changer de décor tout en gardant la journée simple. Profitez d’une promenade, d’un verre, d’un repas ou simplement d’une autre ambiance de bord de mer avant de revenir à Maison de vacances Zeebries.',
+        dehaanCopy: 'De Haan est connue pour son atmosphère côtière charmante et ses villas Belle Époque. Une bonne option lorsque vous voulez changer de décor tout en gardant la journée simple. Profitez d\'une promenade, d\'un verre, d\'un repas ou simplement d\'une autre ambiance de bord de mer avant de revenir à Maison de vacances Zeebries.',
         dehaanFact1: '<strong>Idéal pour :</strong> Sorties tranquilles, couples, familles',
         dehaanFact2: '<strong>Distance :</strong> Trajet facile le long de la côte',
         grasduinenImgAlt: 'Recreatiedomein Grasduinen, domaine de loisirs en plein air à Bredene',
@@ -701,13 +701,13 @@
         grasduinenFact2: '<strong>Sur place :</strong> Aire de jeux, parcours VTT, chemins vélo et pédestres, étang, terrains de sport, parcours de fitness',
         grasduinenFact3: '<strong>Conseil :</strong> Douches gratuites et abri vélos couvert sur place',
         tourismLabel: 'Ressources locales',
-        tourismTitle: 'Plus d’informations et d’événements à Bredene',
+        tourismTitle: 'Plus d\'informations et d\'événements à Bredene',
         tourismCopy1: 'Pour les derniers événements, conseils locaux, brochures et informations pratiques à Bredene, le site touristique officiel de Bredene est une ressource utile. Il couvre les activités familiales, les événements culturels, les informations sur la plage, les marchés et les recommandations saisonnières.',
-        tourismCopy2: 'Ce lien est particulièrement utile pour les choses à faire à Bredene qui changent au fil de l’année, tandis que cette page reprend les options les plus pratiques pour les hôtes séjournant à Maison de vacances Zeebries.',
+        tourismCopy2: 'Ce lien est particulièrement utile pour les choses à faire à Bredene qui changent au fil de l\'année, tandis que cette page reprend les options les plus pratiques pour les hôtes séjournant à Maison de vacances Zeebries.',
         tourismLink: 'Visiter le site touristique officiel de Bredene',
         ctaLabel: 'Séjourner à Maison de vacances Zeebries',
         ctaTitle: 'Faites de Bredene votre base de vacances',
-        ctaCopy: 'Séjournez à Maison de vacances Zeebries et profitez d’une maison de vacances au cœur de Bredene, près de la plage, de la piscine, des restaurants, des activités familiales et des excursions faciles le long de la côte belge.'
+        ctaCopy: 'Séjournez à Maison de vacances Zeebries et profitez d\'une maison de vacances au cœur de Bredene, près de la plage, de la piscine, des restaurants, des activités familiales et des excursions faciles le long de la côte belge.'
       },
       bookingDynamic: {
         months: ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],
@@ -718,9 +718,9 @@
         night: 'nuit',
         nights: 'nuits',
         guestTotal: 'Total : {total} / 6 voyageurs',
-        bookedRangeAlert: 'Votre période contient des dates déjà réservées. Veuillez choisir d’autres dates.',
-        formError: 'Une erreur s’est produite. Réessayez ou contactez-nous directement.',
-        networkError: 'L’envoi a échoué. Veuillez nous contacter directement par e-mail.'
+        bookedRangeAlert: 'Votre période contient des dates déjà réservées. Veuillez choisir d\'autres dates.',
+        formError: 'Une erreur s\'est produite. Réessayez ou contactez-nous directement.',
+        networkError: 'L\'envoi a échoué. Veuillez nous contacter directement par e-mail.'
       }
     },
     de: {
@@ -1346,4 +1346,45 @@
     for (var i = 0; i < toggles.length; i++) {
       (function (toggle) {
         var navId = toggle.getAttribute('aria-controls');
-        v
+        var navLinks = navId ? document.getElementById(navId) : null;
+        if (!navLinks) return;
+        toggle.addEventListener('click', function (event) {
+          event.stopPropagation();
+          var open = !navLinks.classList.contains('open');
+          closeMobileNavigation();
+          navLinks.classList.toggle('open', open);
+          toggle.classList.toggle('open', open);
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        var links = navLinks.querySelectorAll('a');
+        for (var j = 0; j < links.length; j++) {
+          links[j].addEventListener('click', closeMobileNavigation);
+        }
+      })(toggles[i]);
+    }
+
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('nav')) closeMobileNavigation();
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768) closeMobileNavigation();
+    });
+  }
+
+  window.ZeewindI18n = {
+    t: function (path, fallback) {
+      var value = get(COPY[getLanguage()], path);
+      return value === undefined ? fallback : value;
+    },
+    language: getLanguage,
+    locale: function () {
+      return LANGUAGES[getLanguage()].locale;
+    },
+    setLanguage: setLanguage,
+    applyLanguage: applyLanguage
+  };
+
+  initLanguageMenus();
+  initMobileNavigation();
+  applyLanguage(getLanguage());
+})();
