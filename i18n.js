@@ -147,7 +147,8 @@
         extraBathTowels: 'Bath towels<small>Per person</small>',
         extraBeachTowels: 'Beach towels<small>Per person</small>',
         extraComfort: 'Comfort pack<small>Arrival essentials</small>',
-        onRequest: 'on request',
+        babyFree: 'No charge',
+        extrasPrice: '€ 10',
         comfortTip: 'Fresh bread, water, coffee, tea, milk and local treats to start your stay.',
         message: 'Questions or special requests?',
         submit: 'Send Booking Request',
@@ -383,7 +384,8 @@
         extraBathTowels: ‘Badhanddoeken<small>Per persoon</small>’,
         extraBeachTowels: ‘Strandhanddoeken<small>Per persoon</small>’,
         extraComfort: ‘Comfortpakket<small>Basis voor aankomst</small>’,
-        onRequest: ‘op aanvraag’,
+        babyFree: ‘Gratis’,
+        extrasPrice: ‘€ 10’,
         comfortTip: ‘Vers brood, water, koffie, thee, melk en lokale lekkernijen om je verblijf goed te starten.’,
         message: 'Vragen of speciale wensen?',
         submit: 'Verstuur boekingsaanvraag',
@@ -619,7 +621,8 @@
         extraBathTowels: ‘Serviettes de bain<small>Par personne</small>’,
         extraBeachTowels: ‘Serviettes de plage<small>Par personne</small>’,
         extraComfort: ‘Pack confort<small>Essentiels d\’arrivée</small>’,
-        onRequest: ‘sur demande’,
+        babyFree: ‘Gratuit’,
+        extrasPrice: ‘€ 10’,
         comfortTip: ‘Pain frais, eau, café, thé, lait et douceurs locales pour bien commencer votre séjour.’,
         message: 'Questions ou demandes spéciales ?',
         submit: 'Envoyer la demande',
@@ -855,7 +858,8 @@
         extraBathTowels: 'Badetücher<small>Pro Person</small>',
         extraBeachTowels: 'Strandtücher<small>Pro Person</small>',
         extraComfort: 'Komfortpaket<small>Essentials bei Ankunft</small>',
-        onRequest: 'auf Anfrage',
+        babyFree: 'Kostenlos',
+        extrasPrice: '€ 10',
         comfortTip: 'Frisches Brot, Wasser, Kaffee, Tee, Milch und lokale Kleinigkeiten für einen guten Start.',
         message: 'Fragen oder besondere Wünsche?',
         submit: 'Buchungsanfrage senden',
@@ -1088,7 +1092,8 @@
       ['#general-extras .extra-item:nth-child(2) .el', 'booking.extraBathTowels', 'html'],
       ['#general-extras .extra-item:nth-child(3) .el', 'booking.extraBeachTowels', 'html'],
       ['#general-extras .extra-item:nth-child(4) .el', 'booking.extraComfort', 'html'],
-      ['.extras-grid .ep', 'booking.onRequest'],
+      ['#baby-extras .ep', 'booking.babyFree'],
+      ['#general-extras .ep', 'booking.extrasPrice'],
       ['.tip-box', 'booking.comfortTip'],
       ['textarea[name="message"]', 'booking.message', 'previousLabel'],
       ['.submit-btn', 'booking.submit'],
@@ -1342,8 +1347,4 @@
           closeMobileNavigation();
           navLinks.classList.toggle('open', open);
           toggle.classList.toggle('open', open);
-          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        var links = navLinks.querySelectorAll('a');
-        for (var j = 0; j < links.length; j++) {
-      
+          toggle.setAtt
