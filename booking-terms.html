@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Terms | Holiday Home Zeebries</title>
+  <meta name="description" content="Booking terms and conditions for direct bookings of Holiday Home Zeebries, Bredene, Belgian coast." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, serif; color: #2c3e50; background: #fff; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    :root {
+      --sea: #1a6b8a;
+      --sky: #e8f4f8;
+      --sand: #f5efe6;
+      --accent: #e07b39;
+      --dark: #1c2b36;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(26,107,138,0.95);
+      backdrop-filter: blur(6px);
+    }
+    .nav-logo { font-size: 1.5rem; font-weight: bold; color: #fff; letter-spacing: 0; text-transform: uppercase; }
+    .nav-links a { color: rgba(255,255,255,0.85); margin-left: 1.5rem; font-family: Arial, sans-serif; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+    .page-header {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--sea) 100%);
+      color: #fff; text-align: center; padding: 7rem 1.5rem 3rem;
+    }
+    .page-header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .page-header p { max-width: 660px; margin: 0 auto; font-family: Arial, sans-serif; font-size: 0.95rem; color: rgba(255,255,255,0.75); }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem; font-family: Arial, sans-serif; font-size: 0.82rem; }
+    footer a { color: rgba(255,255,255,0.6); }
+    footer a:hover { color: #fff; }
+    footer span { color: rgba(255,255,255,0.25); }
+
+    /* ── Terms layout ── */
+    .terms-outer { max-width: 1160px; margin: 0 auto; padding: 3rem 1.5rem 5rem; display: flex; gap: 3rem; align-items: flex-start; }
+
+    /* Sidebar / TOC */
+    .terms-sidebar {
+      flex: 0 0 240px;
+      position: sticky;
+      top: 5rem;
+      max-height: calc(100vh - 6rem);
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+    .toc-title { font-family: Arial, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sea); margin-bottom: 0.8rem; font-weight: bold; }
+    .toc-list { list-style: none; border-left: 2px solid #e0edf2; padding-left: 0.9rem; }
+    .toc-list li { margin-bottom: 0.15rem; }
+    .toc-list a { font-family: Arial, sans-serif; font-size: 0.82rem; color: #6a7a85; line-height: 1.4; display: block; padding: 0.2rem 0; transition: color 0.2s; }
+    .toc-list a:hover { color: var(--sea); }
+    .toc-list a.toc-active { color: var(--sea); font-weight: bold; }
+
+    /* Article content */
+    .terms-content { flex: 1 1 0; min-width: 0; }
+
+    .terms-preamble {
+      background: var(--sky); border-left: 4px solid var(--sea);
+      padding: 1.2rem 1.5rem; border-radius: 0 6px 6px 0; margin-bottom: 2.5rem;
+      font-family: Arial, sans-serif; font-size: 0.95rem; color: #334;
+    }
+
+    .terms-article { margin-bottom: 2.8rem; padding-top: 0.5rem; scroll-margin-top: 5.5rem; }
+    .terms-article h2 {
+      font-size: 1.35rem; color: var(--dark); margin-bottom: 1rem;
+      padding-bottom: 0.5rem; border-bottom: 2px solid var(--sky);
+      font-family: Georgia, serif;
+    }
+    .terms-article h2 .art-num { color: var(--sea); margin-right: 0.4rem; font-size: 0.9em; }
+    .terms-article p { margin-bottom: 0.9rem; font-size: 0.95rem; }
+    .terms-article p:last-child { margin-bottom: 0; }
+    .terms-article ul { margin: 0.5rem 0 1rem 1.4rem; }
+    .terms-article ul li { margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .terms-article ul.plain-list { list-style: disc; }
+    .terms-article ul.prominent-list { list-style: none; margin-left: 0; }
+    .terms-article ul.prominent-list li { padding: 0.4rem 0; border-bottom: 1px solid #eef2f5; }
+    .terms-article ul.prominent-list li:last-child { border-bottom: none; }
+    .terms-article dl { margin: 0.5rem 0 1rem; }
+    .terms-article dt { font-weight: bold; color: var(--dark); margin-top: 0.8rem; font-size: 0.95rem; }
+    .terms-article dd { margin-left: 1.2rem; font-size: 0.95rem; margin-bottom: 0.2rem; color: #445; }
+
+    /* Accommodation details table */
+    .details-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.2rem; font-size: 0.9rem; }
+    .details-table th, .details-table td { padding: 0.55rem 0.9rem; text-align: left; border-bottom: 1px solid #dde6ea; vertical-align: top; }
+    .details-table th { background: var(--sky); color: var(--dark); font-family: Arial, sans-serif; font-weight: bold; font-size: 0.82rem; width: 36%; }
+    .details-table tr:last-child th, .details-table tr:last-child td { border-bottom: none; }
+
+    /* Contact block */
+    .contact-block {
+      background: var(--sand); border-radius: 8px; padding: 1.2rem 1.5rem;
+      font-family: Arial, sans-serif; font-size: 0.9rem; line-height: 1.7; margin-top: 0.5rem;
+    }
+
+    /* version chip */
+    .version-chip { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; padding: 0.3rem 1rem; font-family: Arial, sans-serif; font-size: 0.82rem; margin-top: 0.8rem; color: rgba(255,255,255,0.85); }
+
+    @media (max-width: 860px) {
+      .terms-outer { flex-direction: column; gap: 2rem; padding: 2rem 1rem 4rem; }
+      .terms-sidebar { position: static; max-height: none; flex: none; width: 100%; }
+      .toc-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+      .nav-links { display: none; }
+      .page-header { padding-top: 6.5rem; }
+      .page-header h1 { font-size: 2.2rem; }
+    }
+  </style>
+  <link rel="stylesheet" href="language.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Zeebries</a>
+    <button type="button" class="mobile-menu-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Menu">&#9776;</button>
+    <div class="nav-links" id="main-navigation">
+      <a href="index.html#about">Our Home</a>
+      <a href="index.html#features">Amenities</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#location">Location</a>
+      <a href="things-to-do.html">In the Area</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="booking.html">Book</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="language-switcher">
+      <button type="button" class="language-toggle" aria-haspopup="true" aria-expanded="false">
+        <span class="fi fi-gb language-flag language-current-flag" aria-hidden="true"></span>
+        <span class="language-current-label">English</span>
+      </button>
+      <div class="language-menu" role="listbox" aria-label="Language">
+        <button type="button" class="language-option" data-lang="nl" role="option"><span class="fi fi-nl language-flag" aria-hidden="true"></span><span>Nederlands</span></button>
+        <button type="button" class="language-option" data-lang="fr" role="option"><span class="fi fi-fr language-flag" aria-hidden="true"></span><span>Fran&ccedil;ais</span></button>
+        <button type="button" class="language-option" data-lang="de" role="option"><span class="fi fi-de language-flag" aria-hidden="true"></span><span>Deutsch</span></button>
+        <button type="button" class="language-option" data-lang="en" role="option"><span class="fi fi-gb language-flag" aria-hidden="true"></span><span>English</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Booking Terms</h1>
+    <p>Holiday Home Zeebries &mdash; Direct Bookings</p>
+    <span class="version-chip">Version 1.0 &nbsp;&middot;&nbsp; Effective 1 July 2026</span>
+  </header>
+
+  <main>
+    <div class="terms-outer">
+
+      <!-- ── Table of Contents ── -->
+      <aside class="terms-sidebar" aria-label="Table of contents">
+        <p class="toc-title">Contents</p>
+        <ol class="toc-list">
+          <li><a href="#art1">1.&ensp;Property Manager</a></li>
+          <li><a href="#art2">2.&ensp;Definitions</a></li>
+          <li><a href="#art3">3.&ensp;Direct booking only</a></li>
+          <li><a href="#art4">4.&ensp;Accommodation details</a></li>
+          <li><a href="#art5">5.&ensp;Booking &amp; contract formation</a></li>
+          <li><a href="#art6">6.&ensp;Guest information</a></li>
+          <li><a href="#art7">7.&ensp;Prices &amp; cleaning</a></li>
+          <li><a href="#art8">8.&ensp;Payment terms</a></li>
+          <li><a href="#art9">9.&ensp;Security Deposit</a></li>
+          <li><a href="#art10">10.&ensp;Cancellation by Guest</a></li>
+          <li><a href="#art11">11.&ensp;Cancellation by us</a></li>
+          <li><a href="#art12">12.&ensp;Park rules</a></li>
+          <li><a href="#art13">13.&ensp;House Rules</a></li>
+          <li><a href="#art14">14.&ensp;Pets</a></li>
+          <li><a href="#art15">15.&ensp;Wi-Fi &amp; internet use</a></li>
+          <li><a href="#art16">16.&ensp;Access &amp; keys</a></li>
+          <li><a href="#art17">17.&ensp;Maintenance &amp; defects</a></li>
+          <li><a href="#art18">18.&ensp;No right of withdrawal</a></li>
+          <li><a href="#art19">19.&ensp;Guest responsibility</a></li>
+          <li><a href="#art20">20.&ensp;Liability</a></li>
+          <li><a href="#art21">21.&ensp;Force majeure</a></li>
+          <li><a href="#art22">22.&ensp;Complaints</a></li>
+          <li><a href="#art23">23.&ensp;Privacy</a></li>
+          <li><a href="#art24">24.&ensp;Transfer of Booking</a></li>
+          <li><a href="#art25">25.&ensp;Termination during stay</a></li>
+          <li><a href="#art26">26.&ensp;Applicable law</a></li>
+          <li><a href="#art27">27.&ensp;Language</a></li>
+          <li><a href="#art28">28.&ensp;Changes to these Terms</a></li>
+          <li><a href="#art29">29.&ensp;Severability</a></li>
+          <li><a href="#art30">30.&ensp;Contact</a></li>
+        </ol>
+      </aside>
+
+      <!-- ── Main content ── -->
+      <div class="terms-content">
+
+        <div class="terms-preamble">
+          These Booking Terms apply to direct bookings of the holiday home &ldquo;Zeebries&rdquo;, located at Klemskerkestraat 26, 8450 Bredene, Belgium, in Holiday Park Zeewind II. By submitting a booking request you agree to these Booking Terms.
+        </div>
+
+        <!-- Article 1 -->
+        <section class="terms-article" id="art1">
+          <h2><span class="art-num">Art. 1</span> Property Manager</h2>
+          <p>The Accommodation is offered to you by:</p>
+          <div class="contact-block">
+            IXM3 BV<br />
+            Mezenstraat 80<br />
+            3060 Leefdaal, Belgium<br />
+            VAT / enterprise number: BE 1015.479.835<br />
+            E-mail: <a href="mailto:michael.debruyn88@gmail.com">michael.debruyn88@gmail.com</a>
+          </div>
+          <p style="margin-top:0.9rem;">IXM3 BV is referred to in these Booking Terms as &ldquo;Owner&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo; or &ldquo;our&rdquo;.</p>
+        </section>
+
+        <!-- Article 2 -->
+        <section class="terms-article" id="art2">
+          <h2><span class="art-num">Art. 2</span> Definitions</h2>
+          <p>In these Booking Terms:</p>
+          <dl>
+            <dt>Accommodation</dt>
+            <dd>means the holiday home known as Zeebries, located at Klemskerkestraat 26, 8450 Bredene, Belgium, in Holiday Park Zeewind II.</dd>
+            <dt>Booking</dt>
+            <dd>means a confirmed reservation for the Accommodation for the Stay Period.</dd>
+            <dt>Booking Confirmation</dt>
+            <dd>means our written confirmation by e-mail that your booking request has been accepted.</dd>
+            <dt>Booking Deposit</dt>
+            <dd>means the deposit payable to secure the Booking, as set out in Article 8.</dd>
+            <dt>Booking Page</dt>
+            <dd>means the online page or booking form where the applicable dates, prices, minimum stay, optional extras, payment instructions and booking details are shown.</dd>
+            <dt>Booking Price</dt>
+            <dd>means the total price payable for the Booking, including the accommodation price, tourist tax, standard cleaning and any mandatory charges shown before payment.</dd>
+            <dt>Guest or you</dt>
+            <dd>means the person making the Booking and all persons staying at or visiting the Accommodation during the Stay Period.</dd>
+            <dt>House Rules</dt>
+            <dd>means these Booking Terms, the house rules in Article 13, any practical instructions provided before or during your stay, and the applicable park rules.</dd>
+            <dt>Security Deposit</dt>
+            <dd>means the refundable damage/security deposit of EUR 200.</dd>
+            <dt>Stay Period</dt>
+            <dd>means the confirmed check-in and check-out dates stated in the Booking Confirmation.</dd>
+            <dt>Website</dt>
+            <dd>means the official website of Holiday Home Zeebries.</dd>
+          </dl>
+        </section>
+
+        <!-- Article 3 -->
+        <section class="terms-article" id="art3">
+          <h2><span class="art-num">Art. 3</span> Direct booking only</h2>
+          <p>These Booking Terms apply only to direct bookings with IXM3 BV as owner/operator.</p>
+          <p>The Website is not Airbnb, Booking.com, or any other third-party accommodation platform. No third-party platform terms, policies or protections apply to direct bookings.</p>
+          <p>We do not act as a travel agency, travel organiser, package-travel organiser or intermediary. The Booking covers only the use of the Accommodation for the Stay Period.</p>
+        </section>
+
+        <!-- Article 4 -->
+        <section class="terms-article" id="art4">
+          <h2><span class="art-num">Art. 4</span> Accommodation details</h2>
+          <p>The Accommodation details are:</p>
+          <table class="details-table">
+            <tr><th>Property</th><td>Holiday Home Zeebries</td></tr>
+            <tr><th>Address</th><td>Klemskerkestraat 26, 8450 Bredene, Belgium</td></tr>
+            <tr><th>Holiday park</th><td>Holiday Park Zeewind II</td></tr>
+            <tr><th>Owner / operator</th><td>IXM3 BV</td></tr>
+            <tr><th>Maximum occupancy</th><td>6 persons</td></tr>
+            <tr><th>Guest profile</th><td>Families only; no groups</td></tr>
+            <tr><th>Minimum stay</th><td>As indicated on the Booking Page</td></tr>
+            <tr><th>Check-in</th><td>From 15:00</td></tr>
+            <tr><th>Check-out</th><td>By 10:00</td></tr>
+            <tr><th>Late check-out</th><td>Late check-out after 12:00 may result in one additional night being charged</td></tr>
+            <tr><th>Pets</th><td>1 dog allowed; maximum 2 dogs only if both are small dogs</td></tr>
+            <tr><th>Parking</th><td>1 free parking spot included</td></tr>
+            <tr><th>Wi-Fi</th><td>Included</td></tr>
+            <tr><th>Standard cleaning</th><td>Included, subject to extra charges for abnormal dirt or misuse</td></tr>
+            <tr><th>Linen / towels</th><td>Optional package, price as indicated on the Booking Page</td></tr>
+            <tr><th>Tourist tax</th><td>Included in the price paid to the Owner and indicated separately on the bill</td></tr>
+            <tr><th>Security Deposit</th><td>EUR 200</td></tr>
+            <tr><th>Payment methods</th><td>Stripe and bank transfer, as indicated on the Booking Page or payment instructions</td></tr>
+          </table>
+          <p>The Accommodation is intended for family holidays only. Group bookings, including party groups, youth groups, student groups or other non-family groups, are not accepted unless expressly approved by us in writing.</p>
+          <p>The maximum occupancy of 6 persons may not be exceeded at any time, including children and overnight visitors.</p>
+          <p>The Booking does not create a residential lease, principal residence lease, commercial lease or any other tenancy right.</p>
+        </section>
+
+        <!-- Article 5 -->
+        <section class="terms-article" id="art5">
+          <h2><span class="art-num">Art. 5</span> Booking request and contract formation</h2>
+          <p>The Website allows you to submit a booking request for selected dates.</p>
+          <p>A booking request is not a confirmed Booking. We manually review each request and may approve or reject it.</p>
+          <p>A Booking is formed only when:</p>
+          <ul class="plain-list">
+            <li>you have submitted a booking request;</li>
+            <li>we have approved the request in writing; and</li>
+            <li>we have received the required payment in accordance with Article 8.</li>
+          </ul>
+          <p>Until the Booking is formed, we may refuse the request without compensation.</p>
+          <p>You are responsible for checking all booking details before payment, including the Stay Period, number of guests, pet information and optional extras.</p>
+        </section>
+
+        <!-- Article 6 -->
+        <section class="terms-article" id="art6">
+          <h2><span class="art-num">Art. 6</span> Guest information</h2>
+          <p>The person making the Booking must be at least 21 years old and must stay at the Accommodation during the Stay Period, unless otherwise agreed in advance.</p>
+          <p>We may request reasonable information before confirming or maintaining a Booking, including:</p>
+          <ul class="plain-list">
+            <li>full name and contact details;</li>
+            <li>billing details;</li>
+            <li>number and age category of guests;</li>
+            <li>pet information;</li>
+            <li>expected arrival time;</li>
+            <li>vehicle details;</li>
+            <li>proof of identity where reasonably required; and</li>
+            <li>information required for local tourist, tax, registration, safety or legal obligations.</li>
+          </ul>
+          <p>You must ensure that all information provided is accurate and up to date.</p>
+          <p>You are responsible for the conduct of all guests, visitors and pets during the Stay Period.</p>
+        </section>
+
+        <!-- Article 7 -->
+        <section class="terms-article" id="art7">
+          <h2><span class="art-num">Art. 7</span> Prices, tourist tax, cleaning and optional extras</h2>
+          <p>The Booking Price will be shown or confirmed before payment is requested.</p>
+          <p>The Booking Price includes:</p>
+          <ul class="plain-list">
+            <li>use of the Accommodation during the Stay Period;</li>
+            <li>standard post-stay cleaning;</li>
+            <li>access to Wi-Fi subject to lawful and fair use and the internet-use rules in Article 15;</li>
+            <li>one free parking spot; and</li>
+            <li>tourist tax, indicated separately on the bill.</li>
+          </ul>
+          <p>Linen and towels are optional and may be booked as a separate package at the price stated before payment.</p>
+          <p>Standard cleaning does not include abnormal or excessive cleaning. We may charge reasonable additional cleaning costs for:</p>
+          <ul class="plain-list">
+            <li>excessive mud or sand;</li>
+            <li>dirty dishes or kitchenware left unwashed;</li>
+            <li>stained furniture, mattresses, curtains, carpets or textiles;</li>
+            <li>pet-related dirt beyond normal use;</li>
+            <li>rubbish not sorted or removed as instructed;</li>
+            <li>smoke smell, ash or tobacco residue;</li>
+            <li>any other cleaning beyond normal holiday-home turnover cleaning.</li>
+          </ul>
+          <p>Smoking is strictly forbidden inside the Accommodation. Smoking inside the Accommodation is considered a serious breach of these Booking Terms.</p>
+        </section>
+
+        <!-- Article 8 -->
+        <section class="terms-article" id="art8">
+          <h2><span class="art-num">Art. 8</span> Payment terms</h2>
+          <p>Unless otherwise agreed in the Booking Confirmation, payment is due as follows:</p>
+          <ul class="prominent-list">
+            <li><strong>Booking Deposit:</strong> 30% of the Booking Price is payable after approval of the booking request. The Booking is secured only once this Booking Deposit has been received.</li>
+            <li><strong>Balance:</strong> the remaining 70% is payable no later than 30 days before check-in.</li>
+            <li><strong>Late bookings:</strong> if the Booking is made less than 30 days before check-in, the full Booking Price is payable immediately after approval.</li>
+          </ul>
+          <p>A Security Deposit of EUR 200 is payable together with the balance.</p>
+          <p>No access to the Accommodation will be granted until the full Booking Price, the Security Deposit and any agreed optional extras have been received.</p>
+          <p>Payment may be requested through Stripe Checkout, a Stripe payment link, bank transfer or another payment method indicated in the Booking Confirmation or payment instructions.</p>
+          <p>Stripe acts as payment service provider only. Stripe is not the owner, operator, travel agent or organiser of the Accommodation and is not a party to the Booking.</p>
+          <p>If payment is not received on time, we may cancel the Booking after sending a reminder and giving you a reasonable final deadline.</p>
+          <p>Bank fees, card fees or currency-conversion charges applied by your bank, card issuer or payment provider are your responsibility.</p>
+        </section>
+
+        <!-- Article 9 -->
+        <section class="terms-article" id="art9">
+          <h2><span class="art-num">Art. 9</span> Security Deposit</h2>
+          <p>A Security Deposit of EUR 200 applies to each Booking.</p>
+          <p>The Security Deposit may be collected by payment request, bank transfer, Stripe or another payment method communicated before or at the time of payment.</p>
+          <p>The Security Deposit is not part of the Booking Price and does not limit your liability for damage or other amounts lawfully due.</p>
+          <p>We may deduct from the Security Deposit reasonable amounts for:</p>
+          <ul class="plain-list">
+            <li>damage to the Accommodation, furniture, appliances, garden, fixtures, fittings or contents;</li>
+            <li>missing items;</li>
+            <li>excessive cleaning as described in Article 7;</li>
+            <li>smoking, smoke smell, ash or tobacco residue;</li>
+            <li>lost keys, badges, cards, remote controls or other access devices;</li>
+            <li>unauthorised guests or exceeding maximum occupancy;</li>
+            <li>unauthorised group use, parties or events;</li>
+            <li>nuisance or breach of park rules;</li>
+            <li>pet-related damage, nuisance or excessive cleaning;</li>
+            <li>late check-out without approval;</li>
+            <li>fines, costs or third-party claims caused by you, your guests, visitors or pets;</li>
+            <li>any other reasonable cost resulting from breach of these Booking Terms.</li>
+          </ul>
+          <p>We will notify you of any intended deduction within a reasonable period after check-out, with a short description of the reason and the amount.</p>
+          <p>The undisputed balance of the Security Deposit will be released or refunded within 14 days after check-out, subject to bank processing times.</p>
+          <p>We will not deduct amounts for normal wear and tear.</p>
+          <p>If the costs exceed the Security Deposit, you remain liable for the additional amount.</p>
+        </section>
+
+        <!-- Article 10 -->
+        <section class="terms-article" id="art10">
+          <h2><span class="art-num">Art. 10</span> Cancellation by the Guest</h2>
+          <p>Unless a different cancellation policy is expressly stated in the Booking Confirmation, the following cancellation policy applies:</p>
+          <ul class="prominent-list">
+            <li><strong>More than 30 days before check-in:</strong> refund of amounts paid, minus the 30% Booking Deposit.</li>
+            <li><strong>Between 30 and 14 days before check-in:</strong> refund of 50% of the Booking Price.</li>
+            <li><strong>Less than 14 days before check-in:</strong> no refund.</li>
+            <li><strong>No-show or early departure:</strong> no refund.</li>
+          </ul>
+          <p>The Security Deposit will be refunded in full if the Booking is cancelled before check-in, unless amounts are otherwise lawfully deductible.</p>
+          <p>Optional extras that have not been provided or incurred, such as linen/towel packages, will be refunded where applicable.</p>
+          <p>A cancellation is effective only when we receive your written cancellation by e-mail at <a href="mailto:michael.debruyn88@gmail.com">michael.debruyn88@gmail.com</a>.</p>
+          <p>We may, but are not obliged to, offer alternative dates or a voucher. Any alternative dates are subject to availability and the applicable price at that time.</p>
+          <p>We recommend that you take out travel and cancellation insurance.</p>
+        </section>
+
+        <!-- Article 11 -->
+        <section class="terms-article" id="art11">
+          <h2><span class="art-num">Art. 11</span> Cancellation or changes by us</h2>
+          <p>We may cancel a Booking before check-in if:</p>
+          <ul class="plain-list">
+            <li>the Accommodation becomes unavailable due to damage, urgent repairs, safety issues or events beyond our reasonable control;</li>
+            <li>you fail to pay on time after reminder;</li>
+            <li>you provided inaccurate or incomplete information;</li>
+            <li>the Booking does not comply with the family-only/no-groups policy;</li>
+            <li>we reasonably believe that the Booking may breach these Booking Terms, the House Rules or the park rules;</li>
+            <li>the Booking was made based on an obvious error.</li>
+          </ul>
+          <p>If we cancel for reasons not caused by you, we will refund the amounts paid for the unavailable Stay Period. Where reasonably possible, we will offer alternative dates.</p>
+          <p>We are not liable for additional travel costs, replacement accommodation, loss of holiday enjoyment or indirect costs.</p>
+        </section>
+
+        <!-- Article 12 -->
+        <section class="terms-article" id="art12">
+          <h2><span class="art-num">Art. 12</span> Holiday Park Zeewind II rules</h2>
+          <p>The Accommodation is located in Holiday Park Zeewind II.</p>
+          <p>By making a Booking, you agree that you and all guests, visitors and pets will comply with the applicable park rules during the Stay Period.</p>
+          <p>Park rules may include rules on quiet hours, traffic, parking, waste disposal, pets, common areas, swimming pool or recreational facilities. Park rules are available from the park management.</p>
+          <p>You must follow all reasonable instructions from the park management insofar as they apply to guests staying at the Accommodation.</p>
+          <p>A serious or repeated breach of the park rules is also a breach of these Booking Terms and may lead to additional charges, early termination of the stay or other consequences as set out in these Booking Terms.</p>
+        </section>
+
+        <!-- Article 13 -->
+        <section class="terms-article" id="art13">
+          <h2><span class="art-num">Art. 13</span> House Rules</h2>
+          <p>You must use the Accommodation carefully, lawfully and in accordance with these Booking Terms, the House Rules and the park rules.</p>
+          <p>The following rules apply:</p>
+          <ul class="plain-list">
+            <li>maximum occupancy: 6 persons;</li>
+            <li>family stays only; no group bookings unless expressly approved in writing;</li>
+            <li>one dog allowed; maximum two dogs only if both are small dogs;</li>
+            <li>smoking strictly forbidden inside the Accommodation;</li>
+            <li>parties, events and commercial activities are not allowed;</li>
+            <li>quiet hours must be respected in accordance with the park rules and local requirements;</li>
+            <li>furniture and equipment may not be removed from the Accommodation;</li>
+            <li>the free parking spot must be used in accordance with the park rules;</li>
+            <li>Wi-Fi must be used lawfully and reasonably;</li>
+            <li>waste must be sorted and disposed of as instructed;</li>
+            <li>windows, doors, heating, water and electrical appliances must be used responsibly;</li>
+            <li>the Accommodation must be left in a tidy condition at check-out.</li>
+          </ul>
+          <p>You must immediately notify us of any damage, defect, accident, security issue or urgent maintenance issue.</p>
+          <p>At check-out, you must:</p>
+          <ul class="plain-list">
+            <li>wash dishes or place them in the dishwasher;</li>
+            <li>remove and sort waste as instructed;</li>
+            <li>return furniture to its original place;</li>
+            <li>switch off appliances where appropriate;</li>
+            <li>close and lock windows and doors;</li>
+            <li>return keys or access devices as instructed.</li>
+          </ul>
+        </section>
+
+        <!-- Article 14 -->
+        <section class="terms-article" id="art14">
+          <h2><span class="art-num">Art. 14</span> Pets</h2>
+          <p>One dog is allowed. A maximum of two dogs is allowed only if both are small dogs.</p>
+          <p>No other pets are allowed without our prior written approval.</p>
+          <p>You remain fully responsible for your dog(s). Dogs must not cause nuisance, damage, excessive dirt or safety issues.</p>
+          <p>Dogs may not be left unattended if this may cause nuisance, barking, damage or distress.</p>
+          <p>Dogs are not allowed on beds or sofas unless we expressly allow this in writing.</p>
+          <p>Pet-related damage or excessive cleaning may be deducted from the Security Deposit or charged separately if the Security Deposit is insufficient.</p>
+          <p>Assistance dogs will be handled in accordance with applicable law.</p>
+        </section>
+
+        <!-- Article 15 -->
+        <section class="terms-article" id="art15">
+          <h2><span class="art-num">Art. 15</span> Wi-Fi and internet use</h2>
+          <p>Wi-Fi access is included in the Booking Price, subject to normal residential availability, technical limitations and fair use.</p>
+          <p>The Guest may use the Wi-Fi only for lawful, private and reasonable purposes during the Stay Period.</p>
+          <p>The Guest shall not use, or allow any guest or visitor to use, the Wi-Fi for:</p>
+          <ul class="plain-list">
+            <li>illegal downloading, streaming, uploading or sharing of copyright-protected content;</li>
+            <li>hacking, phishing, malware, spam, fraud or other unlawful activity;</li>
+            <li>accessing, storing, transmitting or distributing illegal, harmful, discriminatory, defamatory or otherwise unlawful content;</li>
+            <li>infringing intellectual property rights, privacy rights or other rights of third parties; or</li>
+            <li>commercial, high-volume or excessive use that may impair the network or availability for others.</li>
+          </ul>
+          <p>The Guest is responsible for the use of the Wi-Fi by all guests and visitors during the Stay Period.</p>
+          <p>We may suspend or restrict Wi-Fi access where reasonably necessary for security, technical, legal or network-management reasons.</p>
+          <p>Wi-Fi is provided as an ancillary facility. Temporary unavailability, reduced speed or interruption of Wi-Fi does not entitle the Guest to a refund or compensation, unless caused by our persistent fault after reasonable notification.</p>
+        </section>
+
+        <!-- Article 16 -->
+        <section class="terms-article" id="art16">
+          <h2><span class="art-num">Art. 16</span> Access, keys and smart lock</h2>
+          <p>Check-in instructions will be provided before arrival, after full payment, payment of the Security Deposit and receipt of all required guest information.</p>
+          <p>Access may be provided by physical key, key box, access card, digital code, smart lock or another method communicated to you before arrival.</p>
+          <p>If smart-lock or digital access is used:</p>
+          <ul class="plain-list">
+            <li>access codes are personal and may not be shared with unauthorized persons;</li>
+            <li>codes may be active only for the Stay Period;</li>
+            <li>you must notify us immediately if a code, key or access device is lost, disclosed or compromised;</li>
+            <li>we may change or deactivate access credentials where reasonably necessary for security or compliance.</li>
+          </ul>
+          <p>If smart-lock access is unavailable, we will provide a reasonable alternative access method.</p>
+          <p>Lost keys, badges, remote controls or other access devices may be charged at reasonable replacement cost, including lock-change costs where necessary for security.</p>
+        </section>
+
+        <!-- Article 17 -->
+        <section class="terms-article" id="art17">
+          <h2><span class="art-num">Art. 17</span> Maintenance, defects and access by us</h2>
+          <p>We aim to provide the Accommodation in a clean, safe and usable condition consistent with its description.</p>
+          <p>You must report defects, malfunctions or complaints as soon as reasonably possible, so that we have a reasonable opportunity to remedy the issue during the Stay Period.</p>
+          <p>We may access the Accommodation during the Stay Period where reasonably necessary for urgent repairs, safety, security, legal compliance or to prevent damage. Except in emergencies, we will give reasonable prior notice.</p>
+          <p>Temporary interruption of utilities, Wi-Fi, appliances or park facilities outside our reasonable control will not automatically entitle the Guest to a refund or price reduction.</p>
+        </section>
+
+        <!-- Article 18 -->
+        <section class="terms-article" id="art18">
+          <h2><span class="art-num">Art. 18</span> No right of withdrawal</h2>
+          <p>You acknowledge that the Booking concerns accommodation services for a specific date or period.</p>
+          <p>The statutory 14-day right of withdrawal for distance contracts does not apply to the Booking, in accordance with the exclusion for accommodation services for a specific date or period under applicable EU and Belgian consumer law, including Article VI.53, 12&deg; WER.</p>
+        </section>
+
+        <!-- Article 19 -->
+        <section class="terms-article" id="art19">
+          <h2><span class="art-num">Art. 19</span> Guest responsibility</h2>
+          <p>You are responsible for the Accommodation, its contents, your guests, visitors and pets during the Stay Period.</p>
+          <p>You must compensate us for reasonable costs, damage, loss, excessive cleaning, fines, third-party claims or expenses caused by you, your guests, visitors or pets, except to the extent caused by our fault, normal wear and tear, or circumstances beyond your reasonable control.</p>
+          <p>You must not repair, replace or dispose of damaged items without our prior approval, except where necessary to prevent urgent further damage.</p>
+        </section>
+
+        <!-- Article 20 -->
+        <section class="terms-article" id="art20">
+          <h2><span class="art-num">Art. 20</span> Liability</h2>
+          <p>Our total liability arising out of or in connection with the Booking, the Stay Period, the Accommodation, the House Rules or these Booking Terms is limited to the total Booking Price paid or payable by the Guest for the relevant Booking.</p>
+          <p>We are not liable for indirect loss, consequential loss, loss of holiday enjoyment, loss of opportunity, loss of income, loss of profit or any other indirect or special damage, except where such exclusion is not permitted under mandatory Belgian law.</p>
+          <p>We are not liable for loss of, theft of, or damage to the Guest&rsquo;s personal belongings, vehicles, money, valuables, equipment or other items brought to the Accommodation or the holiday park.</p>
+          <p>We are not liable for any act, omission, nuisance, accident, damage or loss caused by the Guest, other guests, visitors, pets or third parties.</p>
+          <p>We are not liable for temporary interruptions, defects or unavailability of utilities, Wi-Fi, appliances, park facilities or services outside our reasonable control, unless caused by our persistent and unremedied fault.</p>
+          <p>The Guest is responsible for using the Accommodation, its contents, appliances, garden, terrace, parking space and park facilities safely and in accordance with their intended purpose.</p>
+          <p>Any liability on our part is subject to the Guest promptly notifying us of the issue, giving us a reasonable opportunity to remedy or mitigate it.</p>
+          <p>The exclusions and limitations in this Article apply to the maximum extent permitted under Belgian law.</p>
+        </section>
+
+        <!-- Article 21 -->
+        <section class="terms-article" id="art21">
+          <h2><span class="art-num">Art. 21</span> Force majeure</h2>
+          <p>We are not liable for any failure or delay caused by events beyond our reasonable control, including fire, flood, storm, earthquake, pandemic, epidemic, government measures, war, civil unrest, strike or other force majeure events.</p>
+          <p>If force majeure only affects an ancillary service or facility, such as Wi-Fi, parking, appliances, utilities or park facilities, this does not entitle the Guest to cancel the Booking or to a refund of the Booking Price.</p>
+          <p>If force majeure makes the Accommodation unavailable for all or part of the Stay Period, we may cancel the Booking or the affected part of the Stay Period. We will notify you as soon as reasonably possible.</p>
+          <p>We may offer alternative dates, a credit note or a voucher, subject to availability and any applicable price difference.</p>
+          <p>To the maximum extent permitted by law, we are not liable for additional travel costs, replacement accommodation, loss of holiday enjoyment or indirect costs resulting from a force majeure event.</p>
+          <p>The Guest must take reasonable steps to limit any loss or inconvenience and must follow all reasonable safety, evacuation or other instructions from us or the park management.</p>
+        </section>
+
+        <!-- Article 22 -->
+        <section class="terms-article" id="art22">
+          <h2><span class="art-num">Art. 22</span> Complaints</h2>
+          <p>The Guest must notify us of any complaint, defect or issue with the Accommodation as soon as reasonably possible, and in any event before or during the Stay Period, by contacting us at <a href="mailto:michael.debruyn88@gmail.com">michael.debruyn88@gmail.com</a>.</p>
+          <p>The Guest must give us a reasonable opportunity to inspect the issue and, where possible, remedy it during the Stay Period.</p>
+          <p>Minor inconveniences, temporary interruptions or issues that do not materially affect the normal holiday use of the Accommodation do not entitle the Guest to a refund or compensation.</p>
+          <p>If the Guest leaves the Accommodation early without our prior written agreement or without giving us a reasonable opportunity to resolve the issue, no refund will be given for the unused part of the Stay Period.</p>
+          <p>Any request for compensation or refund must be submitted in writing, with supporting evidence, within seven calendar days after the end of the Stay Period.</p>
+          <p>We will handle complaints in good faith and will respond within a reasonable period after receiving the necessary information.</p>
+        </section>
+
+        <!-- Article 23 -->
+        <section class="terms-article" id="art23">
+          <h2><span class="art-num">Art. 23</span> Privacy</h2>
+          <p>We process personal data in connection with booking requests, Bookings, payments, guest communication, access management and legal obligations. Data is processed in accordance with applicable Belgian and EU data protection law.</p>
+          <p>For more information, please refer to our Privacy Policy.</p>
+          <p>Payment data may be processed by Stripe or another payment service provider in accordance with its own applicable terms and privacy policy.</p>
+        </section>
+
+        <!-- Article 24 -->
+        <section class="terms-article" id="art24">
+          <h2><span class="art-num">Art. 24</span> Transfer of Booking</h2>
+          <p>You may not transfer the Booking to another person without our prior written approval.</p>
+          <p>We may refuse a transfer where reasonable, including where the new booking would breach the family-only/no-groups policy or other requirements of these Booking Terms.</p>
+        </section>
+
+        <!-- Article 25 -->
+        <section class="terms-article" id="art25">
+          <h2><span class="art-num">Art. 25</span> Termination during the stay</h2>
+          <p>We may terminate the stay and require you and your guests to leave where there is a serious or repeated breach of these Booking Terms or the House Rules, including:</p>
+          <ul class="plain-list">
+            <li>serious nuisance;</li>
+            <li>unauthorised parties or group use;</li>
+            <li>exceeding maximum occupancy;</li>
+            <li>illegal activity;</li>
+            <li>intentional or serious damage;</li>
+            <li>smoking inside the Accommodation;</li>
+            <li>unsafe behaviour;</li>
+            <li>serious breach of park rules.</li>
+          </ul>
+          <p>In case of termination due to your serious breach, you are not entitled to a refund for the unused part of the Stay Period. The Security Deposit may be retained in full and you remain liable for any additional costs.</p>
+        </section>
+
+        <!-- Article 26 -->
+        <section class="terms-article" id="art26">
+          <h2><span class="art-num">Art. 26</span> Applicable law and competent court</h2>
+          <p>These Booking Terms and each Booking are governed by Belgian law, to the exclusion of any other law, subject only to mandatory consumer protection provisions that cannot validly be excluded.</p>
+          <p>Any dispute relating to these Booking Terms, the Booking or the stay at the Accommodation shall be submitted to the competent courts of the place where the Accommodation is located, subject only to mandatory jurisdiction rules that cannot validly be excluded.</p>
+          <p>The Accommodation is located at Klemskerkestraat 26, 8450 Bredene, Belgium.</p>
+        </section>
+
+        <!-- Article 27 -->
+        <section class="terms-article" id="art27">
+          <h2><span class="art-num">Art. 27</span> Language</h2>
+          <p>These Booking Terms may be made available in Dutch, English, German, French or other languages.</p>
+          <p>The Dutch version is the original and legally binding version. Any other language version is provided for information and translation purposes only.</p>
+          <p>In case of any discrepancy, ambiguity or inconsistency between language versions, the Dutch version shall prevail.</p>
+          <p>All legal concepts, terms and qualifications used in these Booking Terms shall be interpreted exclusively in accordance with Belgian law.</p>
+        </section>
+
+        <!-- Article 28 -->
+        <section class="terms-article" id="art28">
+          <h2><span class="art-num">Art. 28</span> Changes to these Booking Terms</h2>
+          <p>The version applicable to your Booking is the version accepted when the Booking is formed.</p>
+          <p>We may update these Booking Terms from time to time, but changes will not apply retroactively to confirmed Bookings unless required by law.</p>
+        </section>
+
+        <!-- Article 29 -->
+        <section class="terms-article" id="art29">
+          <h2><span class="art-num">Art. 29</span> Severability</h2>
+          <p>If any provision of these Booking Terms is invalid, unlawful or unenforceable, the remaining provisions remain in force and effect.</p>
+          <p>The invalid, unlawful or unenforceable provision will be replaced by a valid provision that comes as close as legally possible to the original intent.</p>
+        </section>
+
+        <!-- Article 30 -->
+        <section class="terms-article" id="art30">
+          <h2><span class="art-num">Art. 30</span> Contact</h2>
+          <p>For questions, changes, complaints or urgent issues:</p>
+          <div class="contact-block">
+            IXM3 BV<br />
+            Mezenstraat 80<br />
+            3060 Leefdaal, Belgium<br />
+            VAT / enterprise number: BE 1015.479.835<br />
+            E-mail: <a href="mailto:michael.debruyn88@gmail.com">michael.debruyn88@gmail.com</a>
+          </div>
+        </section>
+
+        <p style="margin-top:3rem; font-family:Arial,sans-serif; font-size:0.8rem; color:#8899aa;">&copy; IXM3 BV. All rights reserved.</p>
+
+      </div><!-- /.terms-content -->
+    </div><!-- /.terms-outer -->
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Holiday Home Zeebries <span>&#183;</span> Holiday Home at the Belgian Coast <span>&#183;</span> <a href="booking-terms.html">Booking Terms</a> <span>&#183;</span> All rights reserved</p>
+  </footer>
+  <script src="i18n.js"></script>
+  <script>
+    // Highlight active TOC item on scroll
+    (function() {
+      var tocLinks = document.querySelectorAll('.toc-list a');
+      var articles = document.querySelectorAll('.terms-article');
+      if (!tocLinks.length || !articles.length) return;
+      function onScroll() {
+        var scrollY = window.scrollY + 100;
+        var current = '';
+        articles.forEach(function(sec) {
+          if (sec.offsetTop <= scrollY) current = sec.id;
+        });
+        tocLinks.forEach(function(a) {
+          a.classList.toggle('toc-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+</body>
+</html>
