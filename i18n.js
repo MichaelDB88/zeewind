@@ -1169,7 +1169,7 @@
 
   function pageName() {
     var path = window.location.pathname.toLowerCase();
-    if (path.indexOf('booking') !== -1) return 'booking';
+    if (path.indexOf('booking.html') !== -1) return 'booking';
     if (path.indexOf('things-to-do') !== -1) return 'things';
     if (path.indexOf('reviews') !== -1) return 'reviews';
     return 'home';
