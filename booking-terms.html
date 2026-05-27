@@ -652,10 +652,14 @@
       var articles = document.querySelectorAll('.terms-article');
       if (!tocLinks.length || !articles.length) return;
       function onScroll() {
-        var scrollY = window.scrollY + 100;
+        var OFFSET = 130;
+        var scrollY = window.scrollY;
+        var nearBottom = (scrollY + window.innerHeight) > (document.documentElement.scrollHeight - 140);
         var current = '';
         articles.forEach(function(sec) {
-          if (sec.offsetTop <= scrollY) current = sec.id;
+          var pastTop = sec.offsetTop <= scrollY + OFFSET;
+          var visibleInView = nearBottom && sec.getBoundingClientRect().top < window.innerHeight * 0.85;
+          if (pastTop || visibleInView) current = sec.id;
         });
         tocLinks.forEach(function(a) {
           a.classList.toggle('toc-active', a.getAttribute('href') === '#' + current);
