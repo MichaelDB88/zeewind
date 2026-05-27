@@ -31,7 +31,7 @@
         navContact: 'Contact',
         languageLabel: 'Language',
         menuLabel: 'Menu',
-        footer: '© 2026 Holiday Home Zeebries <span>·</span> Holiday Home at the Belgian Coast <span>·</span> <a href="booking-terms.html">Booking Terms</a> <span>·</span> All rights reserved',
+        footer: '© 2026 Holiday Home Zeebries <span>·</span> Holiday Home at the Belgian Coast <span>·</span> <a href="booking-terms.html">Booking Terms</a> <span>·</span> <a href="privacy-policy.html">Privacy Policy</a> <span>·</span> All rights reserved',
         checkAvailability: 'Check Availability'
       },
       home: {
@@ -265,7 +265,7 @@
         navContact: 'Contact',
         languageLabel: 'Taal',
         menuLabel: 'Menu',
-        footer: '© 2026 Vakantiehuis Zeebries <span>·</span> Vakantiehuis aan de Belgische kust <span>·</span> <a href="booking-terms.html">Boekingsvoorwaarden</a> <span>·</span> Alle rechten voorbehouden',
+        footer: '© 2026 Vakantiehuis Zeebries <span>·</span> Vakantiehuis aan de Belgische kust <span>·</span> <a href="booking-terms.html">Boekingsvoorwaarden</a> <span>·</span> <a href="privacy-policy.html">Privacybeleid</a> <span>·</span> Alle rechten voorbehouden',
         checkAvailability: 'Bekijk beschikbaarheid'
       },
       home: {
@@ -499,7 +499,7 @@
         navContact: 'Contact',
         languageLabel: 'Langue',
         menuLabel: 'Menu',
-        footer: '© 2026 Maison de vacances Zeebries <span>·</span> Maison de vacances à la côte belge <span>·</span> <a href="booking-terms.html">Conditions de réservation</a> <span>·</span> Tous droits réservés',
+        footer: '© 2026 Maison de vacances Zeebries <span>·</span> Maison de vacances à la côte belge <span>·</span> <a href="booking-terms.html">Conditions de réservation</a> <span>·</span> <a href="privacy-policy.html">Politique de confidentialité</a> <span>·</span> Tous droits réservés',
         checkAvailability: 'Voir les disponibilités'
       },
       home: {
@@ -733,7 +733,7 @@
         navContact: 'Kontakt',
         languageLabel: 'Sprache',
         menuLabel: 'Menü',
-        footer: '© 2026 Ferienhaus Zeebries <span>·</span> Ferienhaus an der belgischen Küste <span>·</span> <a href="booking-terms.html">Buchungsbedingungen</a> <span>·</span> Alle Rechte vorbehalten',
+        footer: '© 2026 Ferienhaus Zeebries <span>·</span> Ferienhaus an der belgischen Küste <span>·</span> <a href="booking-terms.html">Buchungsbedingungen</a> <span>·</span> <a href="privacy-policy.html">Datenschutzerklärung</a> <span>·</span> Alle Rechte vorbehalten',
         checkAvailability: 'Verfügbarkeit prüfen'
       },
       home: {
