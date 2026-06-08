@@ -185,28 +185,6 @@
 
     /* ── Features ─────────────────────────────────────────────── */
     .features { background: var(--sky); }
-    .features .section-sub {
-      margin-bottom: 1.5rem;
-    }
-    .amenities-badges {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 0.75rem;
-      margin-bottom: 2.6rem;
-    }
-    .amenities-badges .badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 3.1rem;
-      background: #fff;
-      border: 1px solid rgba(26,107,138,0.12);
-      border-radius: 12px;
-      color: var(--dark);
-      box-shadow: 0 2px 14px rgba(26,107,138,0.07);
-      font-weight: bold;
-      text-align: center;
-    }
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -529,20 +507,31 @@
       <p class="section-label">Amenities</p>
       <h2 class="section-title">Everything you need</h2>
       <p class="section-sub">Holiday Home Zeebries is equipped and ready so you can truly switch off and enjoy.</p>
-      <div class="amenities-badges">
-        <span class="badge">🌊 Near the Beach</span>
-        <span class="badge">🐾 Pet Friendly</span>
-        <span class="badge">🏊 Pool Access</span>
-        <span class="badge">📶 WiFi Access</span>
-        <span class="badge">👨‍👩‍👧‍👦 Child Friendly</span>
-        <span class="badge">🌿 Private Garden</span>
-        <span class="badge">🚗 Free Parking</span>
-      </div>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">🌊</div>
           <h3>Near the Beach</h3>
           <p>Just a short walk to the sea — enjoy morning swims and evening strolls on the sand.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🐾</div>
+          <h3>Pet Friendly</h3>
+          <p>Your furry family members are welcome. The garden gives pets room to roam safely.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏊</div>
+          <h3>Pool Access</h3>
+          <p>Cool off in the shared pool of the vacation domain — perfect for kids and adults alike.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📶</div>
+          <h3>WiFi Access</h3>
+          <p>Stay connected with WiFi in the home for planning, streaming, and sharing your stay.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍👩‍👧‍👦</div>
+          <h3>Child Friendly</h3>
+          <p>A comfortable base for families, with room to play and beach, pool, and park facilities nearby.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#127807;</div>
@@ -553,11 +542,6 @@
           <div class="feature-icon">🚗</div>
           <h3>Free Parking</h3>
           <p>Private parking right at your doorstep — arrive and unload with ease.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🐾</div>
-          <h3>Pet Friendly</h3>
-          <p>Your furry family members are welcome. The garden gives pets room to roam safely.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🏡</div>
@@ -709,19 +693,69 @@
   <script src="i18n.js"></script>
   <script>
     (function () {
-      function syncAmenitiesBadges() {
-        var source = document.querySelector('.hero-badges');
-        var target = document.querySelector('.amenities-badges');
-        if (!source || !target) return;
-        target.innerHTML = '';
-        var badges = source.querySelectorAll('.badge');
-        for (var i = 0; i < badges.length; i++) {
-          target.appendChild(badges[i].cloneNode(true));
+      var EXTRA_FEATURE_COPY = {
+        en: {
+          wifiTitle: 'WiFi Access',
+          wifiCopy: 'Stay connected with WiFi in the home for planning, streaming, and sharing your stay.',
+          childTitle: 'Child Friendly',
+          childCopy: 'A comfortable base for families, with room to play and beach, pool, and park facilities nearby.'
+        },
+        nl: {
+          wifiTitle: 'WIFI toegang',
+          wifiCopy: 'Blijf verbonden met wifi in het huis om uitstappen te plannen, te streamen en vakantiefoto\'s te delen.',
+          childTitle: 'Kindvriendelijk',
+          childCopy: 'Een comfortabele uitvalsbasis voor gezinnen, met ruimte om te spelen en strand, zwembad en parkfaciliteiten dichtbij.'
+        },
+        fr: {
+          wifiTitle: 'Accès Wi-Fi',
+          wifiCopy: 'Restez connecté grâce au Wi-Fi dans la maison pour préparer vos sorties, regarder vos contenus et partager votre séjour.',
+          childTitle: 'Adapté aux enfants',
+          childCopy: 'Une base confortable pour les familles, avec de l\'espace pour jouer et la plage, la piscine et les installations du parc à proximité.'
+        },
+        de: {
+          wifiTitle: 'WLAN-Zugang',
+          wifiCopy: 'Bleiben Sie mit WLAN im Haus verbunden, um Ausflüge zu planen, zu streamen und Ihren Aufenthalt zu teilen.',
+          childTitle: 'Kinderfreundlich',
+          childCopy: 'Eine komfortable Basis für Familien, mit Platz zum Spielen und Strand, Pool und Parkeinrichtungen in der Nähe.'
+        }
+      };
+
+      function translation(path, fallback) {
+        if (window.ZeewindI18n && window.ZeewindI18n.t) {
+          return window.ZeewindI18n.t(path, fallback);
+        }
+        return fallback;
+      }
+
+      function syncFeatureCards() {
+        var cards = document.querySelectorAll('#features .feature-card');
+        if (!cards.length) return;
+
+        var lang = window.ZeewindI18n && window.ZeewindI18n.language ? window.ZeewindI18n.language() : 'en';
+        var extra = EXTRA_FEATURE_COPY[lang] || EXTRA_FEATURE_COPY.en;
+        var features = [
+          { icon: '🌊', title: translation('home.featureBeachTitle', 'Near the Beach'), copy: translation('home.featureBeachCopy', 'Just a short walk to the sea — enjoy morning swims and evening strolls on the sand.') },
+          { icon: '🐾', title: translation('home.featurePetTitle', 'Pet Friendly'), copy: translation('home.featurePetCopy', 'Your furry family members are welcome. The garden gives pets room to roam safely.') },
+          { icon: '🏊', title: translation('home.featurePoolTitle', 'Pool Access'), copy: translation('home.featurePoolCopy', 'Cool off in the shared pool of the vacation domain — perfect for kids and adults alike.') },
+          { icon: '📶', title: extra.wifiTitle, copy: extra.wifiCopy },
+          { icon: '👨‍👩‍👧‍👦', title: extra.childTitle, copy: extra.childCopy },
+          { icon: '🌿', title: translation('home.featureGardenTitle', 'Private Garden & Terrace'), copy: translation('home.featureGardenCopy', 'Relax in your own outdoor space. BBQ evenings and morning coffees in the fresh sea air.') },
+          { icon: '🚗', title: translation('home.featureParkingTitle', 'Free Parking'), copy: translation('home.featureParkingCopy', 'Private parking right at your doorstep — arrive and unload with ease.') },
+          { icon: '🏡', title: translation('home.featureDomainTitle', 'Vacation Domain'), copy: translation('home.featureDomainCopy', 'Part of a well-maintained holiday park with facilities and peaceful surroundings.') }
+        ];
+
+        for (var i = 0; i < features.length && i < cards.length; i++) {
+          var icon = cards[i].querySelector('.feature-icon');
+          var title = cards[i].querySelector('h3');
+          var copy = cards[i].querySelector('p');
+          if (icon) icon.textContent = features[i].icon;
+          if (title) title.textContent = features[i].title;
+          if (copy) copy.textContent = features[i].copy;
         }
       }
 
-      syncAmenitiesBadges();
-      window.addEventListener('zeewind:languagechange', syncAmenitiesBadges);
+      syncFeatureCards();
+      window.addEventListener('zeewind:languagechange', syncFeatureCards);
     })();
   </script>
   <script src="reviews.js"></script>
