@@ -1,12 +1,12 @@
 // ================================================================
 //  BOOKING CALENDAR -- Holiday Home Zeebries
-//  Changeover days: Monday, Friday and Sunday
+//  Changeover days: Monday and Friday (Saturday in July-August)
 //  Valid blocks:
-//    Midweek       Mon -> Fri  (4 nights)
-//    Short weekend Fri -> Sun  (2 nights)
-//    Long weekend  Fri -> Mon  (3 nights)
-//    Sunday night  Sun -> Mon  (1 night, priced as long weekend minus short weekend)
-//    Longer stays: valid combinations of the above
+//    Midweek   Mon -> Fri  (4 nights)
+//    Weekend   Fri -> Mon  (3 nights)
+//    Week      7 nights  (week package price)
+//    Two weeks 14 nights (two-week package price, maximum stay)
+//    July-August: weekly rental only, Saturday to Saturday (7 or 14 nights)
 // ================================================================
 
 // -- Booked dates -------------------------------------------------
@@ -19,65 +19,77 @@ var BOOKED = [
 ];
 
 // -- Prices and fees ---------------------------------------------
+// Per-stay package prices (price list 2026). All prices include 6% VAT.
 var PRICES = {
-  low:           { midweek:  450, short:  395, long:  475 },
-  shoulder:      { midweek:  525, short:  475, long:  575 },
-  springHoliday: { midweek:  725, short:  625, long:  750 },
-  mayJune:       { midweek:  700, short:  625, long:  750 },
-  summerHigh:    { midweek:  950, short:  875, long: 1050 },
-  summerPeak:    { midweek: 1100, short: 1050, long: 1250 },
-  september:     { midweek:  675, short:  600, long:  725 },
-  autumnHoliday: { midweek:  725, short:  625, long:  750 },
-  christmasNy:   { midweek:  825, short:  775, long:  925 }
+  low:           { midweek: 315, weekend: 350, week:  525, twoWeeks:  950 },
+  shoulder:      { midweek: 395, weekend: 450, week:  675, twoWeeks: 1250 },
+  holiday:       { midweek: 475, weekend: 525, week:  825, twoWeeks: 1550 },
+  easter:        { midweek: 525, weekend: 575, week:  895, twoWeeks: 1675 },
+  summerHigh:    { midweek: null, weekend: null, week: 1050, twoWeeks: 2095 },
+  summerPeak:    { midweek: null, weekend: null, week: 1150, twoWeeks: 2095 },
+  christmasWeek: { midweek: 525, weekend: 625, week:  895, twoWeeks: 1695 },
+  newYearWeek:   { midweek: 550, weekend: 675, week:  925, twoWeeks: 1695 }
 };
 
 var FEES = {
-  cleaning: 110,
-  deposit: 350,
-  smallDog: 30,
-  largerDogOrTwoSmall: 45,
-  bedLinen: 10,
+  cleaning: 85,
+  deposit: 250,
+  dogPerStay: 30,            // per dog per stay, max 2 dogs
+  bedLinenPerPerson: 15,
   bathTowelsPerPerson: 10,
   beachTowelsPerPerson: 10,
+  babyPack: 20,
   comfortPack: 50
 };
 
 var SEASON_LABELS = {
   low:           'Low season',
-  shoulder:      'Shoulder season',
-  springHoliday: 'Spring holiday',
-  mayJune:       'May-June',
-  summerHigh:    'Summer High',
-  summerPeak:    'Summer Peak',
-  september:     'September',
-  autumnHoliday: 'Autumn holiday',
-  christmasNy:   'Christmas & New Year'
+  shoulder:      'Mid season',
+  holiday:       'School holiday',
+  easter:        'Easter holiday',
+  summerHigh:    'Summer',
+  summerPeak:    'Summer peak',
+  christmasWeek: 'Christmas week',
+  newYearWeek:   'New Year week'
 };
 
 // -- 2026 season date ranges --------------------------------------
 var SEASON_RANGES = [
-  { from: '2025-12-21', to: '2026-01-04', s: 'christmasNy'   },
-  { from: '2026-01-05', to: '2026-02-28', s: 'low'           },
-  { from: '2026-03-01', to: '2026-04-02', s: 'shoulder'      },
-  { from: '2026-04-03', to: '2026-04-19', s: 'springHoliday' },
-  { from: '2026-04-20', to: '2026-04-30', s: 'shoulder'      },
-  { from: '2026-05-01', to: '2026-06-30', s: 'mayJune'       },
-  { from: '2026-07-01', to: '2026-07-10', s: 'summerHigh'    },
-  { from: '2026-07-11', to: '2026-08-16', s: 'summerPeak'    },
-  { from: '2026-08-17', to: '2026-08-31', s: 'summerHigh'    },
-  { from: '2026-09-01', to: '2026-09-30', s: 'september'     },
-  { from: '2026-10-01', to: '2026-10-29', s: 'shoulder'      },
-  { from: '2026-10-30', to: '2026-11-08', s: 'autumnHoliday' },
-  { from: '2026-11-09', to: '2026-12-20', s: 'low'           },
-  { from: '2026-12-21', to: '2027-01-04', s: 'christmasNy'   }
+  { from: '2025-12-21', to: '2025-12-27', s: 'christmasWeek' },
+  { from: '2025-12-28', to: '2026-01-04', s: 'newYearWeek'   },
+  { from: '2026-01-05', to: '2026-02-13', s: 'low'           },
+  { from: '2026-02-14', to: '2026-02-22', s: 'holiday'       },
+  { from: '2026-02-23', to: '2026-03-15', s: 'low'           },
+  { from: '2026-03-16', to: '2026-04-02', s: 'shoulder'      },
+  { from: '2026-04-03', to: '2026-04-19', s: 'easter'        },
+  { from: '2026-04-20', to: '2026-07-03', s: 'shoulder'      },
+  { from: '2026-07-04', to: '2026-07-10', s: 'summerHigh'    },
+  { from: '2026-07-11', to: '2026-08-14', s: 'summerPeak'    },
+  { from: '2026-08-15', to: '2026-08-30', s: 'summerHigh'    },
+  { from: '2026-08-31', to: '2026-10-29', s: 'shoulder'      },
+  { from: '2026-10-30', to: '2026-11-08', s: 'holiday'       },
+  { from: '2026-11-09', to: '2026-12-18', s: 'low'           },
+  { from: '2026-12-19', to: '2026-12-27', s: 'christmasWeek' },
+  { from: '2026-12-28', to: '2027-01-04', s: 'newYearWeek'   }
 ];
 
-// -- Special surcharge weekends (long weekend component only) -----
-var SPECIAL_WKNDS = [
-  { from: '2026-05-14', to: '2026-05-17', mult: 1.25, name: 'Ascension (+25%)' },
-  { from: '2026-05-22', to: '2026-05-25', mult: 1.20, name: 'Pentecost (+20%)' },
-  { from: '2026-12-31', to: '2027-01-03', mult: 1.15, name: 'New Year (+15%)' }
+// -- Public-holiday weekends (flat weekend price) ------------------
+var HOLIDAY_WEEKEND_PRICE = 625;
+var HOLIDAY_WKNDS = [
+  { from: '2026-04-03', to: '2026-04-06', name: 'Easter weekend'      },
+  { from: '2026-05-01', to: '2026-05-04', name: '1 May weekend'       },
+  { from: '2026-05-15', to: '2026-05-18', name: 'Ascension weekend'   },
+  { from: '2026-05-22', to: '2026-05-25', name: 'Pentecost weekend'   },
+  { from: '2026-10-30', to: '2026-11-02', name: 'All Saints weekend'  }
 ];
+
+// -- Summer Saturday-to-Saturday week grid (July-August) -----------
+var SUMMER_FIRST_SAT = '2026-07-04';
+var SUMMER_LAST_SAT  = '2026-08-29';
+
+function stayTouchesSummer(ci, co) {
+  return dateKey(co) > SUMMER_FIRST_SAT && dateKey(ci) < SUMMER_LAST_SAT;
+}
 
 // -- Calendar limits ----------------------------------------------
 var MAX_CO = new Date(2027, 0, 4);
@@ -190,11 +202,11 @@ function getPrices(date) {
   return PRICES[getSeasonKey(date)];
 }
 
-function getSpecialMult(date) {
+function getHolidayWeekend(date) {
   var d = dateKey(date);
-  for (var i = 0; i < SPECIAL_WKNDS.length; i++) {
-    var sw = SPECIAL_WKNDS[i];
-    if (d >= sw.from && d <= sw.to) return sw;
+  for (var i = 0; i < HOLIDAY_WKNDS.length; i++) {
+    var hw = HOLIDAY_WKNDS[i];
+    if (d >= hw.from && d < hw.to) return hw;
   }
   return null;
 }
@@ -210,16 +222,34 @@ function hasBlockedDate(ci, co) {
 }
 
 function isValidCheckin(date) {
+  if (isPast(date) || isBooked(date) || date >= MAX_CO) return false;
+  var k = dateKey(date);
+  if (k >= SUMMER_FIRST_SAT && k < SUMMER_LAST_SAT) return date.getDay() === 6;
   var dow = date.getDay();
-  return (dow === 1 || dow === 5 || dow === 0) &&
-         !isPast(date) &&
-         !isBooked(date) &&
-         date < MAX_CO;
+  return dow === 1 || dow === 5;
 }
 
 function decomposeBooking(ci, co) {
   if (!ci || !co || co <= ci || co > MAX_CO || hasBlockedDate(ci, co)) return null;
 
+  var nights = dateDiff(ci, co);
+  if (nights > 14) return null;
+
+  // July-August: Saturday-to-Saturday weeks only (7 or 14 nights)
+  if (stayTouchesSummer(ci, co)) {
+    if (ci.getDay() !== 6 || co.getDay() !== 6) return null;
+    if (nights !== 7 && nights !== 14) return null;
+    if (dateKey(ci) < SUMMER_FIRST_SAT || dateKey(co) > SUMMER_LAST_SAT) return null;
+    var weeks = [];
+    var c = cloneDate(ci);
+    while (c < co) {
+      weeks.push({ type: 'week', from: cloneDate(c), to: addDays(c, 7), nights: 7 });
+      c = addDays(c, 7);
+    }
+    return weeks;
+  }
+
+  // Outside summer: Monday/Friday changeovers, midweek + weekend blocks
   var parts = [];
   var cur = cloneDate(ci);
   var end = cloneDate(co);
@@ -233,16 +263,8 @@ function decomposeBooking(ci, co) {
       next = addDays(cur, 4);
       type = 'midweek';
     } else if (dow === 5) {
-      if (sameDate(addDays(cur, 2), end)) {
-        next = addDays(cur, 2);
-        type = 'short';
-      } else {
-        next = addDays(cur, 3);
-        type = 'long';
-      }
-    } else if (dow === 0) {
-      next = addDays(cur, 1);
-      type = 'sundayNight';
+      next = addDays(cur, 3);
+      type = 'weekend';
     } else {
       return null;
     }
@@ -269,10 +291,10 @@ function isClickableCalendarDate(date) {
 
 // -- Price calculation --------------------------------------------
 var BLOCK_LABELS = {
-  midweek: 'Midweek (Mon-Fri)',
-  short:   'Short weekend (Fri-Sun)',
-  long:    'Long weekend (Fri-Mon)',
-  sundayNight: 'Sunday night (Sun-Mon)'
+  midweek:  'Midweek (Mon-Fri)',
+  weekend:  'Weekend (Fri-Mon)',
+  week:     'Week (7 nights)',
+  twoWeeks: 'Two weeks (14 nights)'
 };
 
 function blockLabel(type) {
@@ -281,31 +303,66 @@ function blockLabel(type) {
 
 function calcPrice(ci, co) {
   var parts  = decomposeBooking(ci, co) || [];
+  var nights = dateDiff(ci, co);
   var rows   = [];
   var rental = 0;
 
-  parts.forEach(function(p) {
-    var pr   = getPrices(p.from);
-    var sk   = getSeasonKey(p.from);
-    var base = p.type === 'midweek' ? pr.midweek :
-      p.type === 'short' ? pr.short :
-      p.type === 'sundayNight' ? Math.max(pr.long - pr.short, 0) :
-      pr.long;
-    var amt  = base;
-    var note = getSeasonLabel(sk);
+  if (!parts.length) return { rows: rows, rental: rental };
 
-    if (p.type === 'long' || p.type === 'sundayNight') {
-      var sp = getSpecialMult(p.from);
-      if (sp) {
-        if (p.type === 'sundayNight') {
-          amt = Math.max(Math.round(pr.long * sp.mult) - pr.short, 0);
-        } else {
-          amt = Math.round(base * sp.mult);
-        }
-        note += ' - ' + sp.name;
+  // Summer: priced per Saturday week, or as a two-week package
+  if (parts[0].type === 'week') {
+    if (nights === 14) {
+      var skTwo = getSeasonKey(ci);
+      var amtTwo = PRICES[skTwo].twoWeeks;
+      rows.push({ label: blockLabel('twoWeeks'), note: getSeasonLabel(skTwo), amt: amtTwo });
+      return { rows: rows, rental: amtTwo };
+    }
+    parts.forEach(function(p) {
+      var sk = getSeasonKey(p.from);
+      var amt = PRICES[sk].week;
+      rows.push({ label: blockLabel('week'), note: getSeasonLabel(sk), amt: amt });
+      rental += amt;
+    });
+    return { rows: rows, rental: rental };
+  }
+
+  // Two-week package price (covers Christmas + New Year combination too)
+  if (nights === 14) {
+    var sk14 = getSeasonKey(ci);
+    var amt14 = PRICES[sk14].twoWeeks;
+    rows.push({ label: blockLabel('twoWeeks'), note: getSeasonLabel(sk14), amt: amt14 });
+    return { rows: rows, rental: amt14 };
+  }
+
+  var remaining = parts.slice();
+
+  // First 7 nights of stays of a week or longer use the week package price
+  if (nights >= 7) {
+    var skW = getSeasonKey(ci);
+    var amtW = PRICES[skW].week;
+    rows.push({ label: blockLabel('week'), note: getSeasonLabel(skW), amt: amtW });
+    rental += amtW;
+    var acc = 0;
+    while (acc < 7 && remaining.length) {
+      acc += remaining[0].nights;
+      remaining.shift();
+    }
+  }
+
+  remaining.forEach(function(p) {
+    var sk = getSeasonKey(p.from);
+    var amt, note = getSeasonLabel(sk);
+    if (p.type === 'midweek') {
+      amt = PRICES[sk].midweek;
+    } else {
+      var hw = getHolidayWeekend(p.from);
+      if (hw) {
+        amt = HOLIDAY_WEEKEND_PRICE;
+        note += ' - ' + i18nText('holidayWeekend', 'Public-holiday weekend');
+      } else {
+        amt = PRICES[sk].weekend;
       }
     }
-
     rental += amt;
     rows.push({ label: blockLabel(p.type), note: note, amt: amt });
   });
@@ -316,8 +373,8 @@ function calcPrice(ci, co) {
 function petSelection() {
   var select = document.querySelector('select[name="pets"]');
   if (!select || select.value === 'No dog') return { count: 0, fee: 0 };
-  if (select.value === '1 small dog') return { count: 1, fee: FEES.smallDog };
-  return { count: select.value === '2 small dogs' ? 2 : 1, fee: FEES.largerDogOrTwoSmall };
+  var count = select.value === '2 dogs' ? 2 : 1;
+  return { count: count, fee: count * FEES.dogPerStay };
 }
 
 function selectedExtras() {
@@ -330,13 +387,16 @@ function selectedExtras() {
   }
 
   if (checked('extra_linen')) {
-    extras.push({ label: i18nText('extraLinenPlain', 'Bed linen'), amt: FEES.bedLinen });
+    extras.push({ label: i18nText('extraLinenPlain', 'Bed linen'), amt: FEES.bedLinenPerPerson * totalGuests });
   }
   if (checked('extra_bath_towels')) {
     extras.push({ label: i18nText('extraBathTowelsPlain', 'Bath towels'), amt: FEES.bathTowelsPerPerson * totalGuests });
   }
   if (checked('extra_beach_towels')) {
     extras.push({ label: i18nText('extraBeachTowelsPlain', 'Beach towels'), amt: FEES.beachTowelsPerPerson * totalGuests });
+  }
+  if (checked('extra_babypack')) {
+    extras.push({ label: i18nText('extraBabyPackPlain', 'Baby package'), amt: FEES.babyPack });
   }
   if (checked('extra_comfortpack')) {
     extras.push({ label: i18nText('extraComfortPlain', 'Comfort pack'), amt: FEES.comfortPack });
@@ -533,7 +593,7 @@ function syncInputDates() {
   }
 
   if (!ci || !isValidCheckin(ci)) {
-    alert(i18nText('invalidCheckin', 'Check-in is only possible on Monday, Friday or Sunday on an available date.'));
+    alert(i18nText('invalidCheckin', 'Check-in is only possible on Monday or Friday (Saturday in July and August) on an available date.'));
     syncDateInputs();
     return;
   }
@@ -546,7 +606,7 @@ function syncInputDates() {
   }
 
   if (!isValidCheckout(ci, co)) {
-    alert(i18nText('invalidCheckout', 'Choose a valid check-out on Friday, Sunday or Monday.'));
+    alert(i18nText('invalidCheckout', 'Choose a valid check-out on Monday or Friday (Saturday in July and August).'));
     checkOut = null;
     syncDateInputs();
     renderCalendar();
@@ -561,7 +621,7 @@ function syncInputDates() {
 function updateSummary() {
   var el = document.getElementById('selSummary');
   if (!checkIn) {
-    el.innerHTML = i18nText('clickCheckin', 'Click a Monday, Friday or Sunday to choose your check-in.');
+    el.innerHTML = i18nText('clickCheckin', 'Click a Monday or Friday (Saturday in July and August) to choose your check-in.');
   } else if (!checkOut) {
     el.innerHTML = i18nFormat('pickCheckout', 'Check-in: <b>{date}</b> - now select a valid check-out.', { date: fmtDate(checkIn) });
   } else {
