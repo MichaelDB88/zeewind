@@ -84,6 +84,7 @@ var HOLIDAY_WKNDS = [
 // -- Summer Saturday-to-Saturday week grid (July-August) -----------
 var SUMMER_FIRST_SAT = '2026-07-04';
 var SUMMER_LAST_SAT  = '2026-08-29';
+var SUMMER_EXTRA_NIGHT = 155; // per extra night when a stay runs into July-August
 
 function stayTouchesSummer(ci, co) {
   return dateKey(co) > SUMMER_FIRST_SAT && dateKey(ci) < SUMMER_LAST_SAT;
@@ -233,11 +234,12 @@ function decomposeBooking(ci, co) {
   var nights = dateDiff(ci, co);
   if (nights > 14) return null;
 
-  // July-August: Saturday-to-Saturday weeks only (7 or 14 nights)
-  if (stayTouchesSummer(ci, co)) {
-    if (ci.getDay() !== 6 || co.getDay() !== 6) return null;
+  // Stays STARTING in July-August: Saturday-to-Saturday weeks only (7 or 14 nights).
+  // Stays starting before the summer period may run into it using normal blocks.
+  var ciKey = dateKey(ci);
+  if (ciKey >= SUMMER_FIRST_SAT && ciKey < SUMMER_LAST_SAT) {
+    if (ci.getDay() !== 6) return null;
     if (nights !== 7 && nights !== 14) return null;
-    if (dateKey(ci) < SUMMER_FIRST_SAT || dateKey(co) > SUMMER_LAST_SAT) return null;
     var weeks = [];
     var c = cloneDate(ci);
     while (c < co) {
@@ -325,7 +327,7 @@ function calcPrice(ci, co) {
   }
 
   // Two-week package price (covers Christmas + New Year combination too)
-  if (nights === 14) {
+  if (nights === 14 && !stayTouchesSummer(ci, co)) {
     var sk14 = getSeasonKey(ci);
     var amt14 = PRICES[sk14].twoWeeks;
     rows.push({ label: blockLabel('twoWeeks'), note: getSeasonLabel(sk14), amt: amt14 });
@@ -349,7 +351,7 @@ function calcPrice(ci, co) {
 
   remaining.forEach(function(p) {
     var sk = getSeasonKey(p.from);
-    var amt, note = getSeasonLabel(sk);
+    var amt = null, note = getSeasonLabel(sk);
     if (p.type === 'midweek') {
       amt = PRICES[sk].midweek;
     } else {
@@ -360,6 +362,10 @@ function calcPrice(ci, co) {
       } else {
         amt = PRICES[sk].weekend;
       }
+    }
+    if (amt === null) {
+      // Block falls in July-August where only week prices exist: per-night rate
+      amt = p.nights * SUMMER_EXTRA_NIGHT;
     }
     rental += amt;
     rows.push({ label: blockLabel(p.type), note: note, amt: amt });
