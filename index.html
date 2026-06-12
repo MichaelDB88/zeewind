@@ -436,6 +436,14 @@
   </style>
   <link rel="stylesheet" href="language.css" />
   <link rel="stylesheet" href="reviews.css" />
+  <script>
+    // Always open the page at the top: strip any #anchor from the URL before
+    // the browser can jump to it (e.g. links saved as /#about).
+    if (location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+      window.scrollTo(0, 0);
+    }
+  </script>
 </head>
 <body>
 
