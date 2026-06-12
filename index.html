@@ -61,7 +61,7 @@
     .hero {
       min-height: 100vh;
       background: linear-gradient(160deg, rgba(26,107,138,0.72) 0%, rgba(38,70,83,0.75) 100%),
-                  url('beach1.png') center center / cover no-repeat;
+                  url('images/hero-poster.jpg') center center / cover no-repeat;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -86,7 +86,7 @@
       z-index: 1;
       pointer-events: none;
     }
-    .hero > *:not(.hero-video):not(.hero-overlay) {
+    .hero > *:not(.hero-video):not(.hero-overlay):not(.video-toggle) {
       position: relative;
       z-index: 2;
     }
@@ -421,6 +421,43 @@
       .hero-video { display: none; }
     }
 
+    /* ── Hero video on/off switch ─────────────────────────────── */
+    .video-toggle {
+      position: absolute;
+      right: 1.4rem;
+      bottom: 2.4rem;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(28,43,54,0.45);
+      padding: 0.35rem 0.75rem;
+      border-radius: 50px;
+      backdrop-filter: blur(4px);
+    }
+    .video-toggle .vt-label {
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+    .vt-switch { position: relative; display: inline-block; width: 34px; height: 18px; }
+    .vt-switch input { opacity: 0; width: 0; height: 0; }
+    .vt-slider {
+      position: absolute; inset: 0; cursor: pointer;
+      background: rgba(255,255,255,0.35); border-radius: 18px; transition: background 0.2s;
+    }
+    .vt-slider::before {
+      content: ''; position: absolute; width: 14px; height: 14px; left: 2px; top: 2px;
+      background: #fff; border-radius: 50%; transition: transform 0.2s;
+    }
+    .vt-switch input:checked + .vt-slider { background: #2a9d8f; }
+    .vt-switch input:checked + .vt-slider::before { transform: translateX(16px); }
+    @media (prefers-reduced-motion: reduce) {
+      .video-toggle { display: none; }
+    }
+
     /* ── Responsive ───────────────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -481,6 +518,13 @@
       <source src="images/hero-waves.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="video-toggle">
+      <span class="vt-label">Video</span>
+      <label class="vt-switch">
+        <input type="checkbox" id="videoToggle" checked aria-label="Toggle background video" />
+        <span class="vt-slider"></span>
+      </label>
+    </div>
     <p class="hero-eyebrow">Bredene &nbsp;&#183;&nbsp; Holiday Home by the Sea</p>
     <h1>Zeebries</h1>
     <p class="hero-tagline">Awaken to the crisp sea air, where every breath feels like a new beginning.</p>
@@ -796,5 +840,31 @@
     })();
   </script>
   <script src="reviews.js"></script>
+<script>
+  (function () {
+    var video = document.querySelector('.hero-video');
+    var toggle = document.getElementById('videoToggle');
+    if (!video || !toggle) return;
+    function apply(on) {
+      if (on) {
+        video.style.display = '';
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
+      } else {
+        video.pause();
+        video.style.display = 'none';
+      }
+    }
+    var on = true;
+    try { on = localStorage.getItem('heroVideo') !== 'off'; } catch (e) {}
+    toggle.checked = on;
+    apply(on);
+    toggle.addEventListener('change', function () {
+      var isOn = toggle.checked;
+      try { localStorage.setItem('heroVideo', isOn ? 'on' : 'off'); } catch (e) {}
+      apply(isOn);
+    });
+  })();
+</script>
 </body>
 </html>
