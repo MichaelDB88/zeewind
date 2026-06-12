@@ -71,12 +71,33 @@
       position: relative;
       overflow: hidden;
     }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(26,107,138,0.38) 0%, rgba(28,43,54,0.48) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero > *:not(.hero-video):not(.hero-overlay) {
+      position: relative;
+      z-index: 2;
+    }
     .hero::before {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 120px;
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom center / cover;
+      z-index: 3;
+      pointer-events: none;
     }
     .hero-eyebrow {
       font-family: 'Arial', sans-serif;
@@ -396,6 +417,10 @@
     footer a { color: rgba(255,255,255,0.75); text-decoration: underline; }
     footer a:hover { color: #fff; }
 
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video { display: none; }
+    }
+
     /* ── Responsive ───────────────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -444,6 +469,10 @@
 
   <!-- ── Hero ─────────────────────────────────────────────────── -->
   <section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="beach1.png" aria-hidden="true">
+      <source src="images/hero-waves.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <p class="hero-eyebrow">Bredene &nbsp;&#183;&nbsp; Holiday Home by the Sea</p>
     <h1>Zeebries</h1>
     <p class="hero-tagline">Awaken to the crisp sea air, where every breath feels like a new beginning.</p>
