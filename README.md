@@ -1,4 +1,4 @@
-# Het Vissershuisje website
+# NordHuys website
 
 This is a static HTML/CSS/JavaScript site. There is no build step at the moment; pages are served directly from the repository.
 
@@ -24,6 +24,6 @@ To publish a review:
 
 Set `"featured": true` on a review to include it in the homepage carousel. Set it to `false` to keep the review on the dedicated reviews page only.
 
-Set `property` to the holiday home the guest stayed in, for example `"Het Vissershuisje"`. Set `sentiment` to `"positive"` or `"critical"` to control the review filters on the reviews page.
+Set `property` to the holiday home the guest stayed in, for example `"NordHuys"`. Set `sentiment` to `"positive"` or `"critical"` to control the review filters on the reviews page.
 
 Only reviews in `reviews-data.js` are shown publicly. Visitor-submitted reviews stay separate until they are manually reviewed, approved, added to that file, and deployed.

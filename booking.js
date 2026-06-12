@@ -1,5 +1,5 @@
 // ================================================================
-//  BOOKING CALENDAR -- Holiday Home Zeebries
+//  BOOKING CALENDAR -- Holiday Home NordHuys
 //  Changeover days: Monday and Friday (Saturday in July-August)
 //  Valid blocks:
 //    Midweek   Mon -> Fri  (4 nights)

@@ -6,10 +6,10 @@
     en: {
       featuredLabel: 'Guest Reviews',
       featuredTitle: 'What guests say',
-      featuredIntro: 'Read what guests say about their stay at Holiday Home Zeebries.',
+      featuredIntro: 'Read what guests say about their stay at Holiday Home NordHuys.',
       readAll: 'Read all reviews',
       allReviewsTitle: 'Guest Reviews',
-      allReviewsIntro: 'Warm stories from guests who chose Holiday Home Zeebries for a relaxed stay near the Belgian coast.',
+      allReviewsIntro: 'Warm stories from guests who chose Holiday Home NordHuys for a relaxed stay near the Belgian coast.',
       approvedLabel: 'Guest stories',
       approvedTitle: 'Why guests choose us',
       empty: 'Guest reviews will appear here soon.',
@@ -34,7 +34,7 @@
       rating1: '1 - Poor',
       stayDate: 'When did you stay?',
       house: 'Holiday home',
-      houseHetVissershuisje: 'Holiday Home Zeebries',
+      houseHetVissershuisje: 'Holiday Home NordHuys',
       reviewText: 'Your review',
       consent: 'I agree that my review may be displayed on this website.',
       submit: 'Submit review',
@@ -53,10 +53,10 @@
     nl: {
       featuredLabel: 'Gastbeoordelingen',
       featuredTitle: 'Wat gasten zeggen',
-      featuredIntro: 'Lees wat gasten vertellen over hun verblijf in Vakantiehuis Zeebries.',
+      featuredIntro: 'Lees wat gasten vertellen over hun verblijf in Vakantiehuis NordHuys.',
       readAll: 'Lees alle beoordelingen',
       allReviewsTitle: 'Gastbeoordelingen',
-      allReviewsIntro: 'Warme verhalen van gasten die Vakantiehuis Zeebries kozen voor een ontspannen verblijf aan de Belgische kust.',
+      allReviewsIntro: 'Warme verhalen van gasten die Vakantiehuis NordHuys kozen voor een ontspannen verblijf aan de Belgische kust.',
       approvedLabel: 'Gastenverhalen',
       approvedTitle: 'Waarom gasten voor ons kiezen',
       empty: 'Gastbeoordelingen verschijnen hier binnenkort.',
@@ -81,7 +81,7 @@
       rating1: '1 - Matig',
       stayDate: 'Wanneer verbleef je?',
       house: 'Vakantiehuis',
-      houseHetVissershuisje: 'Vakantiehuis Zeebries',
+      houseHetVissershuisje: 'Vakantiehuis NordHuys',
       reviewText: 'Je beoordeling',
       consent: 'Ik ga ermee akkoord dat mijn beoordeling op deze website mag verschijnen.',
       submit: 'Beoordeling verzenden',
@@ -100,10 +100,10 @@
     fr: {
       featuredLabel: 'Avis des voyageurs',
       featuredTitle: 'Ce que disent les voyageurs',
-      featuredIntro: 'Lisez ce que les voyageurs disent de leur séjour à Maison de vacances Zeebries.',
+      featuredIntro: 'Lisez ce que les voyageurs disent de leur séjour à Maison de vacances NordHuys.',
       readAll: 'Lire tous les avis',
       allReviewsTitle: 'Avis des voyageurs',
-      allReviewsIntro: 'Des témoignages chaleureux de voyageurs qui ont choisi Maison de vacances Zeebries pour un séjour détendu à la côte belge.',
+      allReviewsIntro: 'Des témoignages chaleureux de voyageurs qui ont choisi Maison de vacances NordHuys pour un séjour détendu à la côte belge.',
       approvedLabel: 'Récits de voyageurs',
       approvedTitle: 'Pourquoi les voyageurs nous choisissent',
       empty: 'Les avis des voyageurs apparaîtront bientôt ici.',
@@ -128,7 +128,7 @@
       rating1: '1 - Faible',
       stayDate: 'Quand avez-vous séjourné ?',
       house: 'Maison de vacances',
-      houseHetVissershuisje: 'Maison de vacances Zeebries',
+      houseHetVissershuisje: 'Maison de vacances NordHuys',
       reviewText: 'Votre avis',
       consent: 'J’accepte que mon avis puisse être affiché sur ce site.',
       submit: 'Envoyer l’avis',
@@ -147,10 +147,10 @@
     de: {
       featuredLabel: 'Gästebewertungen',
       featuredTitle: 'Was Gäste sagen',
-      featuredIntro: 'Lesen Sie, was Gäste über ihren Aufenthalt im Ferienhaus Zeebries sagen.',
+      featuredIntro: 'Lesen Sie, was Gäste über ihren Aufenthalt im Ferienhaus NordHuys sagen.',
       readAll: 'Alle Bewertungen lesen',
       allReviewsTitle: 'Gästebewertungen',
-      allReviewsIntro: 'Warme Eindrücke von Gästen, die Ferienhaus Zeebries für eine entspannte Auszeit an der belgischen Küste gewählt haben.',
+      allReviewsIntro: 'Warme Eindrücke von Gästen, die Ferienhaus NordHuys für eine entspannte Auszeit an der belgischen Küste gewählt haben.',
       approvedLabel: 'Gästestimmen',
       approvedTitle: 'Warum Gäste uns wählen',
       empty: 'Gästebewertungen erscheinen hier bald.',
@@ -175,7 +175,7 @@
       rating1: '1 - Schwach',
       stayDate: 'Wann waren Sie zu Gast?',
       house: 'Ferienhaus',
-      houseHetVissershuisje: 'Ferienhaus Zeebries',
+      houseHetVissershuisje: 'Ferienhaus NordHuys',
       reviewText: 'Ihre Bewertung',
       consent: 'Ich stimme zu, dass meine Bewertung auf dieser Website angezeigt werden darf.',
       submit: 'Bewertung senden',
@@ -194,7 +194,7 @@
   };
 
   var HOUSE_LABELS = {
-    'Ferienhaus Zeebries': 'houseHetVissershuisje'
+    'Ferienhaus NordHuys': 'houseHetVissershuisje'
   };
 
   function language() {
@@ -487,7 +487,7 @@
     setOptionLabel('reviewRating', '1', copy('rating1'));
     var houseFirst = document.querySelector('#reviewHouse option[value=""]');
     if (houseFirst) houseFirst.textContent = copy('chooseHouse');
-    setOptionLabel('reviewHouse', 'Ferienhaus Zeebries', copy('houseHetVissershuisje'));
+    setOptionLabel('reviewHouse', 'Ferienhaus NordHuys', copy('houseHetVissershuisje'));
     updateCount();
   }
 
@@ -639,7 +639,7 @@
 
   function buildMailto(form) {
     var recipient = (form.getAttribute('data-review-email') || 'your@email.com').trim();
-    var subject = 'Guest review submission - Ferienhaus Zeebries';
+    var subject = 'Guest review submission - Ferienhaus NordHuys';
     var body = [
       'Name: ' + document.getElementById('reviewName').value,
       'Email: ' + document.getElementById('reviewEmail').value,
