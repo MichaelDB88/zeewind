@@ -232,14 +232,14 @@ function decomposeBooking(ci, co) {
   if (!ci || !co || co <= ci || co > MAX_CO || hasBlockedDate(ci, co)) return null;
 
   var nights = dateDiff(ci, co);
-  if (nights > 14) return null;
+  if (nights > 21) return null;
 
   // Stays STARTING in July-August: Saturday-to-Saturday weeks only (7 or 14 nights).
   // Stays starting before the summer period may run into it using normal blocks.
   var ciKey = dateKey(ci);
   if (ciKey >= SUMMER_FIRST_SAT && ciKey < SUMMER_LAST_SAT) {
     if (ci.getDay() !== 6) return null;
-    if (nights !== 7 && nights !== 14) return null;
+    if (nights !== 7 && nights !== 14 && nights !== 21) return null;
     var weeks = [];
     var c = cloneDate(ci);
     while (c < co) {
@@ -309,15 +309,17 @@ function calcPrice(ci, co) {
 
   if (!parts.length) return { rows: rows, rental: rental };
 
-  // Summer: priced per Saturday week, or as a two-week package
+  // Summer: priced per Saturday week, with the two-week package for the first 14 nights
   if (parts[0].type === 'week') {
-    if (nights === 14) {
+    var weekParts = parts.slice();
+    if (nights >= 14) {
       var skTwo = getSeasonKey(ci);
       var amtTwo = PRICES[skTwo].twoWeeks;
       rows.push({ label: blockLabel('twoWeeks'), note: getSeasonLabel(skTwo), amt: amtTwo });
-      return { rows: rows, rental: amtTwo };
+      rental += amtTwo;
+      weekParts = weekParts.slice(2);
     }
-    parts.forEach(function(p) {
+    weekParts.forEach(function(p) {
       var sk = getSeasonKey(p.from);
       var amt = PRICES[sk].week;
       rows.push({ label: blockLabel('week'), note: getSeasonLabel(sk), amt: amt });
@@ -326,26 +328,38 @@ function calcPrice(ci, co) {
     return { rows: rows, rental: rental };
   }
 
-  // Two-week package price (covers Christmas + New Year combination too)
-  if (nights === 14 && !stayTouchesSummer(ci, co)) {
+  var remaining = parts.slice();
+
+  function consume(n) {
+    var acc = 0;
+    while (acc < n && remaining.length) {
+      acc += remaining[0].nights;
+      remaining.shift();
+    }
+  }
+
+  function remainingNights() {
+    return remaining.reduce(function(s, p) { return s + p.nights; }, 0);
+  }
+
+  // Two-week package price for the first 14 nights (covers Christmas + New Year too)
+  if (nights >= 14 && !stayTouchesSummer(ci, co)) {
     var sk14 = getSeasonKey(ci);
     var amt14 = PRICES[sk14].twoWeeks;
     rows.push({ label: blockLabel('twoWeeks'), note: getSeasonLabel(sk14), amt: amt14 });
-    return { rows: rows, rental: amt14 };
+    rental += amt14;
+    consume(14);
   }
 
-  var remaining = parts.slice();
-
-  // First 7 nights of stays of a week or longer use the week package price
-  if (nights >= 7) {
-    var skW = getSeasonKey(ci);
-    var amtW = PRICES[skW].week;
-    rows.push({ label: blockLabel('week'), note: getSeasonLabel(skW), amt: amtW });
-    rental += amtW;
-    var acc = 0;
-    while (acc < 7 && remaining.length) {
-      acc += remaining[0].nights;
-      remaining.shift();
+  // Next 7 nights use the week package price
+  if (remainingNights() >= 7) {
+    var wFrom = remaining[0].from;
+    var skW = getSeasonKey(wFrom);
+    if (PRICES[skW].week !== null) {
+      var amtW = PRICES[skW].week;
+      rows.push({ label: blockLabel('week'), note: getSeasonLabel(skW), amt: amtW });
+      rental += amtW;
+      consume(7);
     }
   }
 
