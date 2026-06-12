@@ -850,17 +850,14 @@
     var video = document.querySelector('.hero-video');
     var toggle = document.getElementById('videoToggle');
     if (!video || !toggle) return;
-    var overlay = document.querySelector('.hero-overlay');
     function apply(on) {
       if (on) {
         video.style.display = '';
-        if (overlay) overlay.style.display = '';
         var p = video.play();
         if (p && p.catch) p.catch(function () {});
       } else {
         video.pause();
         video.style.display = 'none';
-        if (overlay) overlay.style.display = 'none';
       }
     }
     var on = true;
